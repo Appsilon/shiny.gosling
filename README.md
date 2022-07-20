@@ -4,6 +4,8 @@ R Shiny wrapper for Gosling.js - Grammar-based Toolkit for Scalable and Interact
 
 Based on gosling.js and shiny.react.
 
+Run `inst/examples/dashboard/app.R` to see it in action.
+
 ## Examples
 
 ![image (5)](https://user-images.githubusercontent.com/1421503/179961019-8ad2c05f-5e89-4874-9b6a-0bfdf58dc713.png)
