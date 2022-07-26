@@ -64,14 +64,6 @@ interactive_page <- makePage(
   )
 )
 
-multiview_page <- makePage(
-  "Multiview Visualizations",
-  "Gosling.js visualisation examples",
-  div(
-    makeCard("Visual Linking", GoslingComponent(spec=JS(multiview1)))
-  )
-)
-
 # ---- layout ----
 
 header <- "header"
@@ -101,11 +93,10 @@ header <- tagList(
 navigation <- Nav(
   groups = list(
     list(links = list(
-      list(name = 'Home', url = '#!/', key = 'home', icon = 'Home'),
+      list(name = 'Home', url = '#!/', key = 'home', icon = 'AnalyticsReport'),
       list(name = 'Basic', url = '#!/basic', key = 'basic', icon = 'AnalyticsReport'),
       list(name = 'Compositive Visualizations', url = '#!/composite', key = 'composite', icon = 'AnalyticsReport'),
       list(name = 'Interactive Visualizations', url = '#!/interactive', key = 'interactive', icon = 'AnalyticsReport'),
-      list(name = 'Multiview Visualizations', url = '#!/multiview', key = 'multiview', icon = 'AnalyticsReport'),
       list(name = 'Appsilon', url = 'http://appsilon.com', key = 'appsilon', icon = 'WebAppBuilderFragment')
     ))
   ),
@@ -153,7 +144,10 @@ card1 <- makeCard(
 home_page <- makePage(
   "R + Shiny + gosling.js",
   "This is a Gosling.js showcase app built in R and Shiny",
-  div(card1)
+  div(
+    card1,
+    makeCard("Visual Linking", GoslingComponent(spec=JS(multiview1)))
+  )
 )
 
 # ----
@@ -169,8 +163,8 @@ router <- make_router(
   route("/", home_page),
   route("basic", basic_page),
   route("composite", composite_page),
-  route("interactive", interactive_page),
-  route("multiview", multiview_page))
+  route("interactive", interactive_page)
+)
 
 # ---- router-ui ----
 
