@@ -5,7 +5,9 @@ const config = {
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, '..', 'inst', 'www'),
-    filename: 'gosling.js'
+    filename: 'gosling.js',
+    // Workaround for the "Automatic publicPath is not supported" error in RMarkdown.
+    publicPath: ''
   },
   module: {
     rules: [
