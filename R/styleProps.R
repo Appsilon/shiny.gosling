@@ -19,6 +19,7 @@ brush_styles <- function(
   ))
 }
 
+#' @export
 default_track_styles <- function(
     textStrokeWidth = NULL, textStroke = NULL, textFontWeight = NULL,
     textFontSize = NULL, textAnchor = NULL, select = NULL,
@@ -27,7 +28,7 @@ default_track_styles <- function(
     linkConnectionType = NULL, linePattern = NULL, legendTitle = NULL,
     inlineLegend = NULL, enableSmoothPath = NULL, dy = NULL, dx = NULL,
     dashed = NULL, curve = NULL, brush = NULL,
-    backgroundOpacity = NULL, background = NULL, align = NULL
+    backgroundOpacity = NULL, background = NULL, align = NULL, ...
 ) {
   list_rm_null(
     list(
@@ -41,7 +42,7 @@ default_track_styles <- function(
       enableSmoothPath = enableSmoothPath, dy = dy, dx = dx,
       dashed = dashed, curve = curve, brush = brush,
       backgroundOpacity = backgroundOpacity, background = background,
-      align = align
+      align = align, ...
     )
   )
 }
