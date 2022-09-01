@@ -1,3 +1,5 @@
+library(shiny.gosling)
+
 track1 <- add_single_track(
   id = "track1",
   data = track_data(
