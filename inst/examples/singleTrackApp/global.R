@@ -41,5 +41,6 @@ track1 <- add_single_track(
 composed_track1 <- compose_single_track_view(tracks = track1)
 composed_views1 <- arrange_views(
   title = "Single Track", subtitle = "This is the simplest single track visualization with a linear layout",
-  layout = "linear", views = composed_track1
+  layout = "circular", views = composed_track1,
+  xDomain = list(chromosome = "chr1", interval = c(1, 3000500))
 )
