@@ -35,6 +35,12 @@ makePage <- function (title, subtitle, contents) {
   ),
   contents)
 }
+chromosome_options <- list(
+  list(key = "chr1", text = "Chr 1"),
+  list(key = "chr2", text = "Chr 2"),
+  list(key = "chrX", text = "Chr X"),
+  list(key = "chrY", text = "Chr Y")
+)
 
 basic_page <- makePage(
   "Basic Marks",
@@ -60,9 +66,33 @@ basic_page <- makePage(
           component_id = "rule_mark_example",
           spec=JS(basic2)
         ),
-        PrimaryButton.shinyInput(
-          "reset_rule_mark",
-          text = "Reset zoom"
+        Stack(
+          align = 'start',
+          tokens = list(childrenGap = 10),
+          Stack(
+            horizontal = TRUE,
+            horizontalAlign = 'start',
+            tokens = list(childrenGap = 10),
+            PrimaryButton.shinyInput(
+              "reset_rule_mark",
+              text = "Reset zoom",
+              width = 50
+            )
+          ),
+          Stack(
+            horizontal = TRUE,
+            horizontalAlign = 'start',
+            tokens = list(childrenGap = 10),
+            Dropdown.shinyInput(
+              "chromosomes",
+              value = "chr1",
+              options = chromosome_options
+            ),
+            PrimaryButton.shinyInput(
+              "go_to_chr",
+              text = "Go to"
+            )
+          )
         )
       )
     )
@@ -229,6 +259,14 @@ server <- function(input, output, session) {
     zoom_to_extent(
       component_id = "barchart_example",
       view_id = "barchart_example_1"
+    )
+  })
+
+  observeEvent(input$go_to_chr, {
+    zoom_to(
+      component_id = "rule_mark_example",
+      view_id = "rulemark_example_1",
+      position = input$chromosomes
     )
   })
 }
