@@ -1,6 +1,6 @@
 #' @export
 visual_channel_x <- function(
-    field, type = NULL, legend = NULL, grid = NULL,
+    field = NULL, type = NULL, legend = NULL, grid = NULL,
     axis = NULL, # c("none", "top", "bottom", "left", "right")
     aggregate = NULL, #c("max", "min", "mean", "bin", "count")
     ...
@@ -16,7 +16,7 @@ visual_channel_x <- function(
 
 #' @export
 visual_channel_y <- function(
-    field, zeroBaseline = NULL,
+    field = NULL, zeroBaseline = NULL,
     type = NULL, # c("quantitative", "nominal", "genomic")
     legend = NULL, grid = NULL, flip = NULL, baseline = NULL,
     axis = NULL, # c("none", "top", "bottom", "left", "right")
@@ -34,7 +34,7 @@ visual_channel_y <- function(
 
 #' @export
 visual_channel_row <- function(
-    field, type = NULL, padding = NULL,
+    field = NULL, type = NULL, padding = NULL,
     legend = NULL, grid = NULL, clip = NULL, ...
 ) {
   list_rm_null(list(
@@ -46,7 +46,7 @@ visual_channel_row <- function(
 #' Range to be specified like `range = c(min_size, max_size)`
 #' @export
 visual_channel_size <- function(
-    field, type = NULL, # c("quantitative", "nominal")
+    field = NULL, type = NULL, # c("quantitative", "nominal")
     range, ...
 ) {
   list_rm_null(list(
@@ -55,7 +55,7 @@ visual_channel_size <- function(
 }
 
 #' @export
-visual_channel_text <- function(field, type = NULL, ...) {
+visual_channel_text <- function(field = NULL, type = NULL, ...) {
   list_rm_null(list(
     field = field, type = type, ...
   ))
@@ -63,7 +63,7 @@ visual_channel_text <- function(field, type = NULL, ...) {
 
 #' @export
 visual_channel_color <- function(
-    field, title = NULL, type = NULL, scaleOffset = NULL,
+    field = NULL, title = NULL, type = NULL, scaleOffset = NULL,
     scale = NULL, legend = NULL, ...
 ) {
   list_rm_null(list(
@@ -74,7 +74,7 @@ visual_channel_color <- function(
 
 #' @export
 visual_channel_stroke <- function(
-    field, title = NULL, type = NULL, scaleOffset = NULL,
+    field = NULL, title = NULL, type = NULL, scaleOffset = NULL,
     legend = NULL, ...
 ) {
   list_rm_null(list(
@@ -85,7 +85,7 @@ visual_channel_stroke <- function(
 
 #' @export
 visual_channel_stroke_width <- function(
-    field, type = NULL, ...
+    field = NULL, type = NULL, ...
 ) {
   list_rm_null(list(
     field = field, type = type, ...
@@ -94,7 +94,7 @@ visual_channel_stroke_width <- function(
 
 #' @export
 visual_channel_opacity <- function(
-    field, type = NULL, ...
+    field = NULL, type = NULL, ...
 ) {
   list_rm_null(list(
     field = field, type = type, ...
@@ -103,7 +103,7 @@ visual_channel_opacity <- function(
 
 #' @export
 visual_channel_tooltip <- function(
-    field, type = NULL, alt = NULL, ...
+    field = NULL, type = NULL, alt = NULL, ...
 ) {
   list(
     field = field, type = type, alt = alt, ...

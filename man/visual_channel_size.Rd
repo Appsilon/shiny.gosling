@@ -4,7 +4,7 @@
 \alias{visual_channel_size}
 \title{Range to be specified like \code{range = c(min_size, max_size)}}
 \usage{
-visual_channel_size(field, type = NULL, range, ...)
+visual_channel_size(field = NULL, type = NULL, range, ...)
 }
 \description{
 Range to be specified like \code{range = c(min_size, max_size)}

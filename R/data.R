@@ -11,3 +11,23 @@ track_data <- function(
     )
   )
 }
+
+#' @export
+track_data_transform <- function(
+    type = NULL, field = NULL, oneOf = NULL,
+    not = NULL, ...
+) {
+  list(
+    list_rm_null(
+      list(
+        type = type, field = field,
+        oneOf = oneOf, not = not, ...
+      )
+    )
+  )
+}
+
+#' @export
+track_data_transforms <- function(...) {
+  list(...)
+}
