@@ -18,4 +18,4 @@ component <- function(name) {
 }
 
 #' @export
-GoslingComponent <- component("GoslingComponent")
+GoslingComponent <- component("customGosling")
