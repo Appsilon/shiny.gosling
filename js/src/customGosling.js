@@ -82,6 +82,28 @@ class GoslingComponents {
       See the docs at http://gosling-lang.org/docs/js-api#zoomtoextent)`);
     }
   };
+  /**
+   * Runs the zoomToExtent API method from gosling.js
+   * See more at http://gosling-lang.org/docs/js-api#zoomto)
+   * @param {Object} parameters List of parameters coming from Shiny
+   */
+  zoomTo = (parameters) => {
+    if (!!parameters.view_id) {
+      const component = this.getComponent(parameters.component_id);
+      if (!!component) {
+        component.current.api.zoomTo(
+          parameters.view_id,
+          parameters.position,
+          parameters.padding,
+          parameters.duration
+        );
+      }
+    } else {
+      warnign(`You should provide a viewId to call this method:
+      See the docs at http://gosling-lang.org/docs/js-api#zoomto`);
+    }
+    api.zoomTo(viewID, 'chrY', 0, 2000)
+  }
 }
 
 const goslingComponents = new GoslingComponents();
@@ -91,5 +113,6 @@ const goslingComponents = new GoslingComponents();
  */
 const registerShinyHandlers = () => {
   Shiny.addCustomMessageHandler('zoom_to_extent', goslingComponents.zoomToExtent);
+  Shiny.addCustomMessageHandler('zoom_to', goslingComponents.zoomTo);
 };
 registerShinyHandlers();
