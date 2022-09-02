@@ -1,6 +1,6 @@
 library(shiny.gosling)
 
-track1 <- add_single_track(
+track_ui <- add_single_track(
   id = "track1",
   data = track_data(
     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec",
@@ -38,7 +38,7 @@ track1 <- add_single_track(
   height = 130
 )
 
-composed_track <- compose_single_track_view(tracks = track1)
+composed_track <- compose_single_track_view(tracks = track_ui)
 composed_views <- arrange_views(
   title = "Single Track", subtitle = "This is the simplest single track visualization with a linear layout",
   layout = "linear", views = composed_track,
