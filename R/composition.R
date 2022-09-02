@@ -5,7 +5,7 @@ add_single_track <- function(
     x = NULL, xe = NULL, x1 = NULL, x1e = NULL, y = NULL,
     stroke = NULL, width = NULL, height = NULL, dataTransform = NULL, ...
 ) {
-  visual_channel = add_mark(
+  visual_channels = add_mark(
     x, xe, x1, x1e, y,
     strokeWidth, opacity, row, size,
     color, stroke
@@ -15,9 +15,12 @@ add_single_track <- function(
     assembly = assembly, width = width, height = height
   )
   options <- list(...)
+  visual_channels <- atomic_values_to_list(visual_channels)
+  defaults <- atomic_values_to_list(defaults)
+  options <- atomic_values_to_list(options)
   list_rm_null(
     c(
-      defaults, options, visual_channel
+      defaults, options, visual_channels
     )
   )
 }

@@ -10,16 +10,16 @@ track2 <- add_single_track(
     chromosomeField = "Chromosome",
     genomicFields = c("chromStart", "chromEnd")
   ),
-  tracks = c(
-    list(list(
+  tracks = add_multi_tracks(
+    add_single_track(
       mark = "rect"
-    )),
-    list(list(
+    ),
+    add_single_track(
       mark = "brush",
       x = visual_channel_x(linkingId = "mid-scale"),
-      strokeWidth = list(value = 1.5), stroke = list(value = "#0070DC"),
-      color = list(value = "#AFD8FF"), opacity = list(value = 0.5)
-    ))
+      strokeWidth = 1.5, stroke = "#0070DC",
+      color = "#AFD8FF", opacity = 0.5
+    )
   ),
   color = visual_channel_color(
     field = "Stain", type = "nominal", domain = c(
@@ -28,10 +28,10 @@ track2 <- add_single_track(
       "white", "lightgray", "gray", "gray", "black", "#7B9CC8", "#DC4542"
     )
   ),
-  size = list(value = 18),
+  size = 18,
   x = visual_channel_x(field = "chromStart", type = "genomic"),
   xe = visual_channel_x(field = "chromEnd", type = "genomic"),
-  stroke = list(value = "gray"), strokeWidth = list(value = 0.3),
+  stroke = "gray", strokeWidth = 0.3,
   width = 500, height = 100
 )
 
@@ -41,7 +41,7 @@ track3 <- add_single_track(
   title = "Putative Driver",
   alignment = "overlay",
   data = track_data(
-    url = "https://s3.amazonaws.com/gosling-lang.org/data/SV/driver.df.scanb.complete.csv",
+    url = "inst/examples/multiTrackApp/data/driver.df.scanb.complete.csv",
     type = "csv",
     chromosomeField = "Chr",
     genomicFields = c("ChrStart", "ChrEnd")
