@@ -14,9 +14,6 @@ build_json <- function(r_list, single_track = TRUE, pretty = TRUE, auto_unbox = 
     edited_json <- gsub("\\]\\]", "]", gsub("\\[\\[", "[", json))
     jsonlite::prettify(edited_json)
   }
-
-
-
 }
 
 #' @export
@@ -29,7 +26,8 @@ atomic_values_to_list <- function(property_list) {
     for (x in seq(length(property_list))) {
       if(!is.null(property_list[[x]])) {
         if(isTRUE(!names(property_list[x]) %in% c(
-          "id", "mark", "width", "height", "title", "subtitle", "alignment"
+          "id", "mark", "width", "height", "title", "subtitle", "alignment",
+          "row"
         )) &&
            class(property_list[[x]]) != "list") {
           property_list[[x]] <- list(
@@ -37,7 +35,6 @@ atomic_values_to_list <- function(property_list) {
           )
         }
       }
-
     }
   }
   property_list
