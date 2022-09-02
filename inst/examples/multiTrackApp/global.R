@@ -49,18 +49,18 @@ track3 <- add_single_track(
   dataTransform = track_data_transform(
     type = "filter", field = "Sample", oneOf = list("PD35930a")
   ),
-  tracks = list(
-    list(
+  tracks = add_multi_tracks(
+    add_single_track(
       mark = "text"
     ),
-    list(
-      mark = "triangleBottom", size = list(value = 5)
+    add_single_track(
+      mark = "triangleBottom", size = 5
     )
   ),
   x = visual_channel_x(field = "ChrStart", type = "genomic"),
   xe = visual_channel_x(field = "ChrEnd", type = "genomic"),
   text = visual_channel_text(field = "Gene", type = "nominal"),
-  color = list(value = "black"),
+  color = "black",
   style = default_track_styles(
     textFontWeight = "normal", dx = -10, outlineWidth = 0
   ),
@@ -94,19 +94,19 @@ track4 <- add_single_track(
   dataTransform = track_data_transform(
     type = "filter", field = "minor_cn_tumor", oneOf = list("0")
   ),
-  tracks = list(
-    list(
+  tracks = add_multi_tracks(
+    add_single_track(
       mark = "rect"
     ),
-    list(
+    add_single_track(
       mark = "brush", x = visual_channel_x(linkingId = "mid-scale"),
-      strokeWidth = list(value = 1), stroke = list(value = "#94C2EF"),
-      color = list(value = "#AFD8FF")
+      strokeWidth = 1, stroke = "#94C2EF",
+      color = "#AFD8FF"
     )
   ),
   x = visual_channel_x(field = "start", type = "genomic"),
   xe = visual_channel_x(field = "end", type = "genomic"),
-  color = list(value = "#FB6A4B"),
+  color = "#FB6A4B",
   width = 620, height = 40
 )
 
