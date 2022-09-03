@@ -50,3 +50,14 @@ use_gosling <- function() {
     )
   )
 }
+
+#' @export
+gosling <- function(composed_views, single_track) {
+  GoslingComponent(
+    spec = shiny.react::JS(
+      build_json(
+        composed_views, single_track = single_track
+      )
+    )
+  )
+}

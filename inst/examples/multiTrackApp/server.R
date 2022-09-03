@@ -60,12 +60,8 @@ function(input, output, session) {
       xDomain = list(chromosome = "chr1", interval = c(1, 3000500))
     )
     output$gosling_plot_single <- renderUI({
-      GoslingComponent(
-        spec = shiny.react::JS(
-          build_json(
-            all_reactive_values$single_composed_views, single_track = TRUE
-          )
-        )
+      gosling(
+        all_reactive_values$single_composed_views, single_track = TRUE
       )
     })
   })
@@ -214,12 +210,8 @@ function(input, output, session) {
       )
     )
     output$gosling_plot_multi <- renderUI({
-      GoslingComponent(
-        spec = shiny.react::JS(
-          build_json(
-            all_reactive_values$composed_views, single_track = FALSE
-          )
-        )
+      gosling(
+        all_reactive_values$composed_views, single_track = FALSE
       )
     })
   })
