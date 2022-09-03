@@ -7,7 +7,8 @@ function(input, output, session) {
     composed_views = NULL,
     track1 = NULL,
     track2 = NULL,
-    track3 = NULL
+    track3 = NULL,
+    track4 = NULL
   )
 
   observeEvent(input$layout_single, {
@@ -183,16 +184,122 @@ function(input, output, session) {
       style = track3_styles, alignment = "overlay",
       data = track3_data, dataTransform = track3_data_transform,
       tracks = track3_tracks, x = track3_x, xe = track3_xe,
-      color = "#FB6A4B", width = 620, height = 40
+      color = "#FB6A4B", width = 500, height = 40
     )
   })
+
+  observeEvent(input$layout_multi, {
+
+    track4_styles <- default_track_styles(
+      background = "lightgray", backgroundOpacity = 0.2
+    )
+    track4_data <- track_data(
+      url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/cnv.PD35930a.csv",
+      type = "csv",
+      headerNames = c(
+        "id",
+        "chr",
+        "start",
+        "end",
+        "total_cn_normal",
+        "minor_cp_normal",
+        "total_cn_tumor",
+        "minor_cn_tumor"
+      ),
+      chromosomeField = "chr",
+      genomicFields = c("start", "end")
+    )
+    track4_data_transform <- track_data_transform(
+      type = "filter", field = "minor_cn_tumor", oneOf = list(4.5, 900)
+    )
+    track4_tracks <- add_multi_tracks(
+      add_single_track(
+        mark = "rect"
+      ),
+      add_single_track(
+        mark = "brush", x = visual_channel_x(linkingId = "mid-scale"),
+        strokeWidth = 0
+      )
+    )
+    track4_x <- visual_channel_x(field = "start", type = "genomic")
+    track4_xe <- visual_channel_x(field = "end", type = "genomic")
+    all_reactive_values$track4 <- add_single_track(
+      id = "track4", title = "Gain",
+      style = track4_styles, alignment = "overlay",
+      data = track4_data, dataTransform = track4_data_transform,
+      tracks = track4_tracks, x = track4_x, xe = track4_xe,
+      color = "#73C475", width = 500, height = 40
+    )
+  })
+
+  observeEvent(input$layout_multi, {
+
+    track5_styles <- default_track_styles(
+      legendTitle = "SV Class"
+    )
+    track5_data <- track_data(
+      url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+      type = "csv",
+      genomicFieldsToConvert = json_list(
+        json_list(
+          chromosomeField = "chr1",
+          genomicFields = c("start1", "end1")
+        ),
+        json_list(
+          chromosomeField = "chr2",
+          genomicFields = c("start2", "end2")
+        )
+      )
+    )
+    track5_tracks <- add_multi_tracks(
+      add_single_track(
+        mark = "rect"
+      ),
+      add_single_track(
+        mark = "withinLink", x = visual_channel_x(linkingId = "mid-scale"),
+        strokeWidth = 0
+      )
+    )
+    track5_color <- visual_channel_color(
+      field = "svclass",
+      type = "nominal",
+      legend = TRUE,
+      domain = json_list(
+        "tandem-duplication", "translocation", "delection", "inversion"
+      ),
+      range = json_list(
+        "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
+      )
+    )
+    track5_stroke <- visual_channel_stroke(
+      field = "svclass",
+      type = "nominal",
+      domain = json_list(
+        "tandem-duplication", "translocation", "delection", "inversion"
+      ),
+      range = json_list(
+        "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
+      )
+    )
+    track5_x <- visual_channel_x(field = "start1", type = "genomic")
+    track5_xe <- visual_channel_x(field = "end2", type = "genomic")
+    all_reactive_values$track5 <- add_single_track(
+      id = "track5", title = "Structural Variant",
+      data = track5_data, mark = "withinLink",
+      x = track5_x, xe = track5_xe,
+      color = track5_color, width = 500, height = 40, stroke = track5_stroke,
+      strokeWidth = 1, opacity = 0.6, style = track5_styles
+    )
+  })
+
 
   observeEvent(input$layout_multi, {
     all_reactive_values$composed_track <- compose_single_track_view(
       multi = TRUE,
       tracks = add_multi_tracks(
         all_reactive_values$track1, all_reactive_values$track2,
-        all_reactive_values$track3
+        all_reactive_values$track3, all_reactive_values$track4,
+        all_reactive_values$track5
       ),
       xOffset = 190, layout = input$layout_multi, spacing = 1
     )
