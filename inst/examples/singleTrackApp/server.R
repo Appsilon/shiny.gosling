@@ -1,4 +1,4 @@
-function(input, output) {
+function(input, output, session) {
   all_reactive_values <- reactiveValues(
     composed_views = NULL
   )

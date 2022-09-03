@@ -1,4 +1,5 @@
 library(shiny.gosling)
+library(bslib)
 
 track_ui <- add_single_track(
   id = "track1",

@@ -43,17 +43,28 @@ visual_channel_row <- function(
   ))
 }
 
+#' @export
+visual_channel <- function(
+    field = NULL, type = NULL, range = NULL, domain = NULL, ...
+) {
+  list_rm_null(list(
+    field = field, type = type, range = range, domain = domain, ...
+  ))
+}
+
+# TODO
 #' Range to be specified like `range = c(min_size, max_size)`
 #' @export
 visual_channel_size <- function(
     field = NULL, type = NULL, # c("quantitative", "nominal")
-    range, ...
+    range = NULL, domain = NULL, ...
 ) {
   list_rm_null(list(
     field = field, type = type, range = range, ...
   ))
 }
 
+# TODO
 #' @export
 visual_channel_text <- function(field = NULL, type = NULL, ...) {
   list_rm_null(list(
@@ -83,6 +94,7 @@ visual_channel_stroke <- function(
   ))
 }
 
+# TODO
 #' @export
 visual_channel_stroke_width <- function(
     field = NULL, type = NULL, ...
@@ -92,6 +104,7 @@ visual_channel_stroke_width <- function(
   ))
 }
 
+# TODO
 #' @export
 visual_channel_opacity <- function(
     field = NULL, type = NULL, ...
