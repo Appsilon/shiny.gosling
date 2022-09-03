@@ -68,8 +68,18 @@ add_single_track <- function(
   )
 }
 
+#' Compose views from add_single_track() and add_multi_tracks() functions.
+#' @param multi Whether multiple tracks in the view.
+#' @param layout One of "linear" or "circular".
+#' @param width A number interpreted in units of pixel.
+#' @param height A number interpreted in units of pixel.
+#' @param centerRadius Specify the proportion of the radius of
+#'  the center white space. A number between [0,1], default=0.3
+#' @param tracks The tracks with add_multi_tracks() function.
+#' @param ... More arguments passed along with view to gosling.js.
+#'
 #' @export
-compose_single_track_view <- function(
+compose_view <- function(
     multi = FALSE,
     layout = NULL, width = NULL, height = NULL,
     centerRadius = NULL, tracks, ...
@@ -86,6 +96,11 @@ compose_single_track_view <- function(
   )
 }
 
+#' Arrange views from compose_view() function.
+#' @param layout One of "linear" or "circular".
+#' @param views An object from compose_view() function.
+#' @param ... More options passed to gosling.js.
+#'
 #' @export
 arrange_views <- function(
     layout = NULL, views = NULL, ...
@@ -97,6 +112,9 @@ arrange_views <- function(
   )
 }
 
+#' Generic list
+#' @param ... Multiple tracks from add_single_track() function.
+#'
 #' @export
 add_multi_tracks <- function(...) {
   json_list(...)

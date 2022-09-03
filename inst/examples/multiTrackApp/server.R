@@ -51,7 +51,7 @@ function(input, output, session) {
       height = 130
     )
 
-    all_reactive_values$single_composed_track <- compose_single_track_view(
+    all_reactive_values$single_composed_track <- compose_view(
       tracks = all_reactive_values$single_track
     )
     all_reactive_values$single_composed_views <- arrange_views(
@@ -294,7 +294,7 @@ function(input, output, session) {
 
 
   observeEvent(input$layout_multi, {
-    all_reactive_values$composed_track <- compose_single_track_view(
+    all_reactive_values$composed_track <- compose_view(
       multi = TRUE,
       tracks = add_multi_tracks(
         all_reactive_values$track1, all_reactive_values$track2,

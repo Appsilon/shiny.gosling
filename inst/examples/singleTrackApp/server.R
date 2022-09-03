@@ -40,7 +40,7 @@ function(input, output, session) {
       width = 600,
       height = 130
     )
-    composed_track <- compose_single_track_view(
+    composed_track <- compose_view(
       tracks = track
     )
     all_reactive_values$composed_views <- arrange_views(
