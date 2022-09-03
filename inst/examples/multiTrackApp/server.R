@@ -1,12 +1,76 @@
 function(input, output, session) {
   all_reactive_values <- reactiveValues(
+    single_composed_track = NULL,
+    single_composed_views = NULL,
+    single_track = NULL,
     composed_track = NULL,
     composed_views = NULL,
     track1 = NULL,
     track2 = NULL,
     track3 = NULL
   )
-  observeEvent(input$layout, {
+
+  observeEvent(input$layout_single, {
+
+    all_reactive_values$single_track <- add_single_track(
+      id = "track1",
+      data = track_data(
+        url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec",
+        type = "multivec",
+        row = "sample",
+        column = "position",
+        value = "peak",
+        categories = c("sample 1", "sample 2", "sample 3", "sample 4"),
+        binSize = 4,
+      ),
+      mark = "rect",
+      x = visual_channel_x(field = "start", type = "genomic", axis = "top"),
+      xe = visual_channel_x(field = "end", type = "genomic"),
+      row = visual_channel_row(
+        field = "sample",
+        type = "nominal",
+        legend = TRUE
+      ),
+      color = visual_channel_color(
+        field = "peak",
+        type = "quantitative",
+        legend = TRUE
+      ),
+      tooltip = visual_channel_tooltips(
+        visual_channel_tooltip(field = "start", type = "genomic", alt = "Start Position"),
+        visual_channel_tooltip(field = "end", type = "genomic", alt = "End Position"),
+        visual_channel_tooltip(
+          field = "peak",
+          type = "quantitative",
+          alt = "Value",
+          format = "0.2"
+        )
+      ),
+      width = 600,
+      height = 130
+    )
+
+    all_reactive_values$single_composed_track <- compose_single_track_view(
+      tracks = all_reactive_values$single_track
+    )
+    all_reactive_values$single_composed_views <- arrange_views(
+      title = "Single Track",
+      subtitle = "This is the simplest single track visualization with a linear layout",
+      layout = input$layout_single, views = all_reactive_values$single_composed_track,
+      xDomain = list(chromosome = "chr1", interval = c(1, 3000500))
+    )
+    output$gosling_plot_single <- renderUI({
+      GoslingComponent(
+        spec = shiny.react::JS(
+          build_json(
+            all_reactive_values$single_composed_views, single_track = TRUE
+          )
+        )
+      )
+    })
+  })
+
+  observeEvent(input$layout_multi, {
     track1_data <- track_data(
       url = "https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/UCSC.HG38.Human.CytoBandIdeogram.csv",
       type = "csv",
@@ -45,7 +109,7 @@ function(input, output, session) {
     )
   })
 
-  observeEvent(input$layout, {
+  observeEvent(input$layout_multi, {
     track2_data <- track_data(
       url = "inst/examples/multiTrackApp/data/driver.df.scanb.complete.csv",
       type = "csv",
@@ -82,7 +146,7 @@ function(input, output, session) {
     )
   })
 
-  observeEvent(input$layout, {
+  observeEvent(input$layout_multi, {
 
     track3_styles <- default_track_styles(
       background = "lightgray", backgroundOpacity = 0.2
@@ -127,14 +191,14 @@ function(input, output, session) {
     )
   })
 
-  observeEvent(input$layout, {
+  observeEvent(input$layout_multi, {
     all_reactive_values$composed_track <- compose_single_track_view(
       multi = TRUE,
       tracks = add_multi_tracks(
         all_reactive_values$track1, all_reactive_values$track2,
         all_reactive_values$track3
       ),
-      xOffset = 190, layout = input$layout, spacing = 1
+      xOffset = 190, layout = input$layout_multi, spacing = 1
     )
     all_reactive_values$composed_views <- arrange_views(
       views = all_reactive_values$composed_track,
@@ -149,14 +213,14 @@ function(input, output, session) {
         enableSmoothPath = FALSE, outline = "lightgray", outlineWidth = 1
       )
     )
-  })
-  output$gosling_plot <- renderUI({
-    GoslingComponent(
-      spec = shiny.react::JS(
-        build_json(
-          all_reactive_values$composed_views, single_track = FALSE
+    output$gosling_plot_multi <- renderUI({
+      GoslingComponent(
+        spec = shiny.react::JS(
+          build_json(
+            all_reactive_values$composed_views, single_track = FALSE
+          )
         )
       )
-    )
+    })
   })
 }

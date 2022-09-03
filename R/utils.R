@@ -39,3 +39,14 @@ atomic_values_to_list <- function(property_list) {
   }
   property_list
 }
+
+#' @export
+use_gosling <- function() {
+  GoslingComponent(
+    spec = shiny.react::JS(
+      build_json(
+        NULL
+      )
+    )
+  )
+}

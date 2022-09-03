@@ -1,33 +1,42 @@
 navbarPage(
   title = "Gosling Plots",
   tabPanel(
-    "Static Plot",
-    fluidRow(
-      column(
-        width = 12,
-        GoslingComponent(
-          spec = shiny.react::JS(
-            build_json(
-              composed_views, single_track = FALSE
-            )
-          )
-        )
-      )
-    )
-  ),
-  tabPanel(
-    "Dynamic Plot",
-    fluidRow(
-      column(
-        width = 12,
+    "Single Track Plot",
+    use_gosling(),
+    includeCSS("www/styles.css"),
+    sidebarLayout(
+      sidebarPanel(
+        width = 4,
         selectInput(
-          inputId = "layout",
+          inputId = "layout_single",
           label = "Layout",
           choices = c(
             "linear", "circular"
           )
-        ),
-        uiOutput("gosling_plot")
+        )
+      ),
+      mainPanel(
+        width = 8,
+        uiOutput("gosling_plot_single")
+      )
+    )
+  ),
+  tabPanel(
+    "Multi Track Plot",
+    sidebarLayout(
+      sidebarPanel(
+        width = 4,
+        selectInput(
+          inputId = "layout_multi",
+          label = "Layout",
+          choices = c(
+            "linear", "circular"
+          )
+        )
+      ),
+      mainPanel(
+        width = 8,
+        uiOutput("gosling_plot_multi")
       )
     )
   )
