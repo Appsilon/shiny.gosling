@@ -210,7 +210,7 @@ function(input, output, session) {
       genomicFields = c("start", "end")
     )
     track4_data_transform <- track_data_transform(
-      type = "filter", field = "minor_cn_tumor", oneOf = list(4.5, 900)
+      type = "filter", field = "total_cn_tumor", inRange = c(4.5, 900)
     )
     track4_tracks <- add_multi_tracks(
       add_single_track(
