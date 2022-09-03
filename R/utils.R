@@ -17,7 +17,7 @@ build_json <- function(r_list, single_track = TRUE, pretty = TRUE, auto_unbox = 
 }
 
 #' @export
-generic_list <- function(...) {
+json_list <- function(...) {
   list(...)
 }
 
