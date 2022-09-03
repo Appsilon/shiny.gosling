@@ -99,5 +99,5 @@ arrange_views <- function(
 
 #' @export
 add_multi_tracks <- function(...) {
-  list(...)
+  json_list(...)
 }
