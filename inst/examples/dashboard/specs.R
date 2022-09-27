@@ -4,6 +4,7 @@ basic1 = '{
   "subtitle": "Tutorial Examples",
   "tracks": [
     {
+      "id": "barchart_example_1",
       "layout": "linear",
       "width": 800,
       "height": 180,
@@ -34,6 +35,7 @@ basic2 = '{
       "alignment": "overlay",
       "tracks": [
         {
+          "id": "rulemark_example_1",
           "data": {
             "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec",
             "type": "multivec",

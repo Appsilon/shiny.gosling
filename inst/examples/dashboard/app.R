@@ -40,8 +40,32 @@ basic_page <- makePage(
   "Basic Marks",
   "Gosling.js visualisation examples",
   div(
-    makeCard("Bar chart example", GoslingComponent(spec=JS(basic1))),
-    makeCard("Rule mark example", GoslingComponent(spec=JS(basic2))),
+    makeCard(
+      "Bar chart example",
+      div(
+        GoslingComponent(
+          component_id = "barchart_example",
+          spec=JS(basic1)
+        ),
+        PrimaryButton.shinyInput(
+          "reset_barchart",
+          text = "Reset zoom"
+        )
+      )
+    ),
+    makeCard(
+      "Rule mark example",
+      div(
+        GoslingComponent(
+          component_id = "rule_mark_example",
+          spec=JS(basic2)
+        ),
+        PrimaryButton.shinyInput(
+          "reset_rule_mark",
+          text = "Reset zoom"
+        )
+      )
+    )
   )
 )
 
@@ -192,6 +216,21 @@ ui <- fluentPage(
 
 server <- function(input, output, session) {
   router$server(input, output, session)
+  
+  observeEvent(input$reset_rule_mark, {
+    zoom_to_extent(
+      component_id = "rule_mark_example",
+      view_id = "rulemark_example_1",
+      duration = 2000
+    )
+  })
+
+  observeEvent(input$reset_barchart, {
+    zoom_to_extent(
+      component_id = "barchart_example",
+      view_id = "barchart_example_1"
+    )
+  })
 }
 
 shinyApp(ui, server)
