@@ -11,6 +11,14 @@ function(input, output, session) {
     track4 = NULL
   )
 
+  observeEvent(input$reset_rule_mark, {
+    zoom_to_extent(
+      component_id = "component_1",
+      view_id = "track1",
+      duration = 2000
+    )
+  })
+
   observeEvent(input$layout_single, {
 
     all_reactive_values$single_track <- add_single_track(
@@ -62,6 +70,7 @@ function(input, output, session) {
     )
     output$gosling_plot_single <- renderUI({
       gosling(
+        component_id = "component_1",
         all_reactive_values$single_composed_views, single_track = TRUE
       )
     })
@@ -318,6 +327,7 @@ function(input, output, session) {
     )
     output$gosling_plot_multi <- renderUI({
       gosling(
+        component_id = "component_2",
         all_reactive_values$composed_views, single_track = FALSE
       )
     })

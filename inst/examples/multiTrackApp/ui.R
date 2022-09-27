@@ -18,7 +18,12 @@ navbarPage(
       ),
       mainPanel(
         width = 8,
-        uiOutput("gosling_plot_single")
+        uiOutput("gosling_plot_single"),
+        br(),
+        PrimaryButton.shinyInput(
+          "reset_rule_mark",
+          text = "Reset zoom"
+        )
       )
     )
   ),
