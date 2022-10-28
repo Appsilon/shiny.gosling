@@ -18,7 +18,7 @@ navbarPage(
       ),
       mainPanel(
         width = 8,
-        uiOutput("gosling_plot_single"),
+        goslingOutput("gosling_plot_single"),
         br(),
         PrimaryButton.shinyInput(
           "reset_rule_mark",
@@ -40,7 +40,7 @@ navbarPage(
       ),
       mainPanel(
         width = 8,
-        uiOutput("gosling_plot_multi")
+        goslingOutput("gosling_plot_multi")
       )
     )
   )

@@ -275,7 +275,7 @@ function(input, output, session) {
       layout = input$layout_single, views = single_composed_track,
       xDomain = list(chromosome = "chr1", interval = c(1, 3000500))
     )
-    output$gosling_plot_single <- renderUI({
+    output$gosling_plot_single <- renderGosling({
       gosling(
         component_id = "component_1",
         all_reactive_values$single_composed_views, single_track = TRUE
@@ -304,7 +304,7 @@ function(input, output, session) {
         enableSmoothPath = FALSE, outline = "lightgray", outlineWidth = 1
       )
     )
-    output$gosling_plot_multi <- renderUI({
+    output$gosling_plot_multi <- renderGosling({
       gosling(
         component_id = "component_2",
         all_reactive_values$composed_views, single_track = FALSE
