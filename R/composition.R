@@ -1,6 +1,6 @@
-#' Add a single track to the plot of a mark type ( plot type )
+#' Add a single track
 #'
-#' This function constructs a single track from the inputs. The inputs
+#' Add a single track to the plot of a mark type ( plot type ). This function constructs a single track from the inputs. The inputs
 #' can be id, data, mark etc. Please check gosling.js documentation for
 #' advabced usage.
 #'
@@ -18,6 +18,8 @@
 #' - link:	x, xe, x1, x1e, color, opacity
 #' - triangle:	x, xe, row, size, color, opacity
 #' - text:	x, xe, row, color, opacity
+#'
+#' For more info visit http://gosling-lang.org/tutorials/
 #'
 #' @param assembly Currently support "hg38", "hg19", "hg18",
 #'  "hg17", "hg16", "mm10", "mm9". Defaults to "hg38".
@@ -68,7 +70,10 @@ add_single_track <- function(
   )
 }
 
+#' Compose views
+#'
 #' Compose views from add_single_track() and add_multi_tracks() functions.
+#'
 #' @param multi Whether multiple tracks in the view.
 #' @param layout One of "linear" or "circular".
 #' @param width A number interpreted in units of pixel.
@@ -96,7 +101,10 @@ compose_view <- function(
   )
 }
 
+#' Arrange views
+#'
 #' Arrange views from compose_view() function.
+#'
 #' @param layout One of "linear" or "circular".
 #' @param views An object from compose_view() function.
 #' @param ... More options passed to gosling.js.
@@ -112,7 +120,7 @@ arrange_views <- function(
   )
 }
 
-#' Generic list
+#' Combine single tracks.
 #' @param ... Multiple tracks from add_single_track() function.
 #'
 #' @export

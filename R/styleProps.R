@@ -1,4 +1,6 @@
-#' Title
+#' Mouse event styles
+#'
+#' The styles defined here will be applied to the targets of mouse events, such as a point mark after user click mouse.
 #'
 #' @param strokeWidth
 #' @param strokeOpacity
@@ -7,7 +9,9 @@
 #' @param color
 #' @param arrange
 #'
-#' @return
+#' @details For more info visit http://gosling-lang.org/docs/visual-channel/#type-eventstyle
+#'
+#' @return list of event styles
 #' @export
 #'
 #' @examples
@@ -22,13 +26,17 @@ event_styles <- function(
   ))
 }
 
-#' Title
+#' style of the brush mark
+#'
+#' Customize the style of the brush mark in the `rangeSelect` mouse event.
 #'
 #' @param strokeWidth
 #' @param strokeOpacity
 #' @param stroke
 #' @param opacity
 #' @param color
+#'
+#' @details For more info visit http://gosling-lang.org/docs/visual-channel/#type-brush
 #'
 #' @return
 #' @export
@@ -44,8 +52,9 @@ brush_styles <- function(
   ))
 }
 
-#' @param textStrokeWidth
+#' Default styles for tracks
 #'
+#' @param textStrokeWidth
 #' @param textStroke
 #' @param textFontWeight
 #' @param textFontSize
@@ -72,7 +81,12 @@ brush_styles <- function(
 #' @param align
 #' @param ...
 #'
+#' @details For more info visit http://gosling-lang.org/docs/visual-channel/#style-related-properties
+#'
+#' @return
 #' @export
+#'
+#' @examples
 default_track_styles <- function(
     textStrokeWidth = NULL, textStroke = NULL, textFontWeight = NULL,
     textFontSize = NULL, textAnchor = NULL, select = NULL,

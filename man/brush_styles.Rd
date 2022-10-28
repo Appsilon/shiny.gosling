@@ -2,7 +2,7 @@
 % Please edit documentation in R/styleProps.R
 \name{brush_styles}
 \alias{brush_styles}
-\title{Title}
+\title{style of the brush mark}
 \usage{
 brush_styles(
   strokeWidth = NULL,
@@ -16,5 +16,8 @@ brush_styles(
 \item{color}{}
 }
 \description{
-Title
+Customize the style of the brush mark in the \code{rangeSelect} mouse event.
+}
+\details{
+For more info visit http://gosling-lang.org/docs/visual-channel/#type-brush
 }

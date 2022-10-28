@@ -2,7 +2,7 @@
 % Please edit documentation in R/styleProps.R
 \name{event_styles}
 \alias{event_styles}
-\title{Title}
+\title{Mouse event styles}
 \usage{
 event_styles(
   strokeWidth = NULL,
@@ -16,6 +16,12 @@ event_styles(
 \arguments{
 \item{arrange}{}
 }
+\value{
+list of event styles
+}
 \description{
-Title
+The styles defined here will be applied to the targets of mouse events, such as a point mark after user click mouse.
+}
+\details{
+For more info visit http://gosling-lang.org/docs/visual-channel/#type-eventstyle
 }

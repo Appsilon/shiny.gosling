@@ -2,13 +2,16 @@
 % Please edit documentation in R/utils.R
 \name{list_rm_null}
 \alias{list_rm_null}
-\title{Title}
+\title{Remove null from list}
 \usage{
 list_rm_null(r_list)
 }
 \arguments{
-\item{r_list}{}
+\item{r_list}{An r list with NULL values}
+}
+\value{
+r list without NULL values
 }
 \description{
-Title
+Remove null from list
 }

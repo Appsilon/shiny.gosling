@@ -2,7 +2,7 @@
 % Please edit documentation in R/composition.R
 \name{arrange_views}
 \alias{arrange_views}
-\title{Arrange views from compose_view() function.}
+\title{Arrange views}
 \usage{
 arrange_views(layout = NULL, views = NULL, ...)
 }

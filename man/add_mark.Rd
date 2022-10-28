@@ -2,7 +2,7 @@
 % Please edit documentation in R/marks.R
 \name{add_mark}
 \alias{add_mark}
-\title{Title}
+\title{Visual marks}
 \usage{
 add_mark(
   x = NULL,
@@ -21,6 +21,13 @@ add_mark(
 \arguments{
 \item{stroke}{}
 }
+\value{
+list of mark specifications
+}
 \description{
-Title
+Visual marks (e.g., points, lines, and bars) are
+the basic graphical elements of a visualization.
+}
+\details{
+For info visit http://gosling-lang.org/docs/mark
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/visualChannels.R
 \name{visual_channel_size}
 \alias{visual_channel_size}
-\title{Range to be specified like \code{range = c(min_size, max_size)}}
+\title{size visual channel}
 \usage{
 visual_channel_size(
   field = NULL,
@@ -13,8 +13,13 @@ visual_channel_size(
 )
 }
 \arguments{
+\item{range}{Range to be specified like \code{range = c(min_size, max_size)}}
+
 \item{...}{}
 }
 \description{
-Range to be specified like \code{range = c(min_size, max_size)}
+size visual channel
+}
+\details{
+For more info visit http://gosling-lang.org/docs/visual-channel#size
 }

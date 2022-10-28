@@ -2,7 +2,7 @@
 % Please edit documentation in R/composition.R
 \name{compose_view}
 \alias{compose_view}
-\title{Compose views from add_single_track() and add_multi_tracks() functions.}
+\title{Compose views}
 \usage{
 compose_view(
   multi = FALSE,

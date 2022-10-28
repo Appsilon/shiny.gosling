@@ -2,7 +2,7 @@
 % Please edit documentation in R/composition.R
 \name{add_single_track}
 \alias{add_single_track}
-\title{Add a single track to the plot of a mark type ( plot type )}
+\title{Add a single track}
 \usage{
 add_single_track(
   id = NULL,
@@ -44,7 +44,9 @@ Different marks support different visual channels:
 \item link:    x, xe, x1, x1e, color, opacity
 \item triangle:    x, xe, row, size, color, opacity
 \item text:    x, xe, row, color, opacity
-}}
+}
+
+For more info visit http://gosling-lang.org/tutorials/}
 
 \item{assembly}{Currently support "hg38", "hg19", "hg18",
 "hg17", "hg16", "mm10", "mm9". Defaults to "hg38".}
@@ -84,7 +86,7 @@ character of hex color code like "#123456".}
 \item{...}{Any other arguments to be passed onto gosling.js.}
 }
 \description{
-This function constructs a single track from the inputs. The inputs
+Add a single track to the plot of a mark type ( plot type ). This function constructs a single track from the inputs. The inputs
 can be id, data, mark etc. Please check gosling.js documentation for
 advabced usage.
 }

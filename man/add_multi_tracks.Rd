@@ -2,7 +2,7 @@
 % Please edit documentation in R/composition.R
 \name{add_multi_tracks}
 \alias{add_multi_tracks}
-\title{Generic list}
+\title{Combine single tracks.}
 \usage{
 add_multi_tracks(...)
 }
@@ -10,5 +10,5 @@ add_multi_tracks(...)
 \item{...}{Multiple tracks from add_single_track() function.}
 }
 \description{
-Generic list
+Combine single tracks.
 }

@@ -1,4 +1,7 @@
-#' Title
+#' Visual marks
+#'
+#' Visual marks (e.g., points, lines, and bars) are
+#' the basic graphical elements of a visualization.
 #'
 #' @param x
 #' @param xe
@@ -12,7 +15,9 @@
 #' @param color
 #' @param stroke
 #'
-#' @return
+#' @details For info visit http://gosling-lang.org/docs/mark
+#'
+#' @return list of mark specifications
 #' @export
 #'
 #' @examples
