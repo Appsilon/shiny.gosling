@@ -259,6 +259,14 @@ function(input, output, session) {
     composed_views = NULL
   )
 
+  observeEvent(input$go_to_chr, {
+    zoom_to(
+      component_id = "component_1",
+      view_id = "track1",
+      position = input$chromosomes
+    )
+  })
+
   observeEvent(input$reset_rule_mark, {
     zoom_to_extent(
       component_id = "component_1",

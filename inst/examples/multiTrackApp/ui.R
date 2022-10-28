@@ -20,6 +20,17 @@ navbarPage(
         width = 8,
         goslingOutput("gosling_plot_single"),
         br(),
+        selectInput(
+          "chromosomes",
+          "Chromosome",
+          selected = "chr1",
+          choices = chromosome_options
+        ),
+        PrimaryButton.shinyInput(
+          "go_to_chr",
+          text = "Go to"
+        ),
+        br(),
         PrimaryButton.shinyInput(
           "reset_rule_mark",
           text = "Reset zoom"
