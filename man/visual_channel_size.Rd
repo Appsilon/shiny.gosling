@@ -12,6 +12,9 @@ visual_channel_size(
   ...
 )
 }
+\arguments{
+\item{...}{}
+}
 \description{
 Range to be specified like \code{range = c(min_size, max_size)}
 }
