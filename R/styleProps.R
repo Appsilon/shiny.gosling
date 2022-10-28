@@ -1,3 +1,16 @@
+#' Title
+#'
+#' @param strokeWidth
+#' @param strokeOpacity
+#' @param stroke
+#' @param opacity
+#' @param color
+#' @param arrange
+#'
+#' @return
+#' @export
+#'
+#' @examples
 event_styles <- function(
     strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
     color = NULL, arrange = NULL # c("behind", "front")
@@ -9,6 +22,18 @@ event_styles <- function(
   ))
 }
 
+#' Title
+#'
+#' @param strokeWidth
+#' @param strokeOpacity
+#' @param stroke
+#' @param opacity
+#' @param color
+#'
+#' @return
+#' @export
+#'
+#' @examples
 brush_styles <- function(
     strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
     color = NULL
@@ -19,6 +44,34 @@ brush_styles <- function(
   ))
 }
 
+#' @param textStrokeWidth
+#'
+#' @param textStroke
+#' @param textFontWeight
+#' @param textFontSize
+#' @param textAnchor
+#' @param select
+#' @param outlineWidth
+#' @param outline
+#' @param mouseOver
+#' @param matrixExtent
+#' @param linkStyle
+#' @param linkMinHeight
+#' @param linkConnectionType
+#' @param linePattern
+#' @param legendTitle
+#' @param inlineLegend
+#' @param enableSmoothPath
+#' @param dy
+#' @param dx
+#' @param dashed
+#' @param curve
+#' @param brush
+#' @param backgroundOpacity
+#' @param background
+#' @param align
+#' @param ...
+#'
 #' @export
 default_track_styles <- function(
     textStrokeWidth = NULL, textStroke = NULL, textFontWeight = NULL,

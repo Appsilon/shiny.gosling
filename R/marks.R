@@ -1,3 +1,21 @@
+#' Title
+#'
+#' @param x
+#' @param xe
+#' @param x1
+#' @param x1e
+#' @param y
+#' @param strokeWidth
+#' @param opacity
+#' @param row
+#' @param size
+#' @param color
+#' @param stroke
+#'
+#' @return
+#' @export
+#'
+#' @examples
 add_mark <- function(
     x = NULL, xe = NULL, x1 = NULL, x1e = NULL, y = NULL,
     strokeWidth = NULL, opacity = NULL, row = NULL, size = NULL,

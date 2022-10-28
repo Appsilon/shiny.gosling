@@ -1,3 +1,13 @@
+#' @param url
+#'
+#' @param type
+#' @param separator
+#' @param sampleLength
+#' @param headerNames
+#' @param genomicFields
+#' @param chromosomeField
+#' @param ...
+#'
 #' @export
 track_data <- function(
     url, type, separator = NULL, sampleLength = NULL,
@@ -12,6 +22,13 @@ track_data <- function(
   )
 }
 
+#' @param type
+#'
+#' @param field
+#' @param oneOf
+#' @param not
+#' @param ...
+#'
 #' @export
 track_data_transform <- function(
     type = NULL, field = NULL, oneOf = NULL,
@@ -27,6 +44,8 @@ track_data_transform <- function(
   )
 }
 
+#' @param ...
+#'
 #' @export
 track_data_transforms <- function(...) {
   list(...)

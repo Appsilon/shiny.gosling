@@ -1,3 +1,11 @@
+#' Title
+#'
+#' @param r_list
+#'
+#' @return
+#' @export
+#'
+#' @examples
 list_rm_null <- function(r_list) {
   Filter(
     Negate(is.null),
@@ -5,6 +13,12 @@ list_rm_null <- function(r_list) {
   )
 }
 
+#' @param r_list
+#'
+#' @param single_track
+#' @param pretty
+#' @param auto_unbox
+#'
 #' @export
 build_json <- function(r_list, single_track = TRUE, pretty = TRUE, auto_unbox = TRUE) {
   if(single_track) {
@@ -16,11 +30,21 @@ build_json <- function(r_list, single_track = TRUE, pretty = TRUE, auto_unbox = 
   }
 }
 
+#' @param ...
+#'
 #' @export
 json_list <- function(...) {
   list(...)
 }
 
+#' Title
+#'
+#' @param property_list
+#'
+#' @return
+#' @export
+#'
+#' @examples
 atomic_values_to_list <- function(property_list) {
   if(isTRUE(length(property_list) != 0)) {
     for (x in seq(length(property_list))) {
@@ -51,6 +75,11 @@ use_gosling <- function() {
   )
 }
 
+#' @param component_id
+#'
+#' @param composed_views
+#' @param single_track
+#'
 #' @export
 gosling <- function(component_id, composed_views, single_track) {
   GoslingComponent(
