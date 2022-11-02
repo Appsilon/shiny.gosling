@@ -102,7 +102,6 @@ class GoslingComponents {
       warnign(`You should provide a viewId to call this method:
       See the docs at http://gosling-lang.org/docs/js-api#zoomto`);
     }
-    api.zoomTo(viewID, 'chrY', 0, 2000)
   }
 }
 
