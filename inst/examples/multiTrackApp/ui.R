@@ -31,11 +31,19 @@ navbarPage(
             )
           ),
           column(
-            6,
+            1,
             actionButton(
               "download_png",
-              "Download PNG",
-              icon = icon("download")
+              "PNG",
+              icon = icon("cloud-arrow-down")
+            )
+          ),
+          column(
+            1,
+            actionButton(
+              "download_pdf",
+              "PDF",
+              icon = icon("cloud-arrow-down")
             )
           )
         ),

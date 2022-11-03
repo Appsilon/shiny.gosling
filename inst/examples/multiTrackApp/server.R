@@ -263,6 +263,10 @@ function(input, output, session) {
     export_png(component_id = "component_1")
   })
 
+  observeEvent(input$download_pdf, {
+    export_pdf(component_id = "component_1")
+  })
+
   observeEvent(input$go_to_chr, {
     zoom_to(
       component_id = "component_1",
