@@ -102,6 +102,21 @@ class GoslingComponents {
       warnign(`You should provide a viewId to call this method:
       See the docs at http://gosling-lang.org/docs/js-api#zoomto`);
     }
+  };
+  /**
+   * Runs the exportPng API method from gosling.js
+   * See more at http://gosling-lang.org/docs/js-api#exportpng)
+   * @param {Object} parameters List of parameters coming from Shiny
+   */
+  exportPng = (parameters) => {
+    if (!!parameters.component_id) {
+      const component = this.getComponent(parameters.component_id);
+      if (!!component) {
+        component.current.api.exportPng(parameters.transparentBackground);
+      }
+    } else {
+      warnign(`You should provide a component_id to call this method.`);
+    }
   }
 }
 
@@ -113,5 +128,6 @@ const goslingComponents = new GoslingComponents();
 const registerShinyHandlers = () => {
   Shiny.addCustomMessageHandler('zoom_to_extent', goslingComponents.zoomToExtent);
   Shiny.addCustomMessageHandler('zoom_to', goslingComponents.zoomTo);
+  Shiny.addCustomMessageHandler('export_png', goslingComponents.exportPng);
 };
 registerShinyHandlers();

@@ -268,6 +268,7 @@ function(input, output, session) {
   })
 
   observeEvent(input$reset_rule_mark, {
+    browser()
     zoom_to_extent(
       component_id = "component_1",
       view_id = "track1",
