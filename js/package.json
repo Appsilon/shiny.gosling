@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "gosling.js": "^0.9.21",
+    "gosling.js": "^0.9.25",
     "higlass": "^1.11.8",
     "pixi.js": "^6.3.0"
   },
