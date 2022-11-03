@@ -5,7 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "gosling.js": "^0.9.21",
-    "higlass": "^1.11.11",
+    "higlass": "^1.11.8",
     "pixi.js": "^6.3.0"
   },
   "devDependencies": {
