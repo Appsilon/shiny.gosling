@@ -117,6 +117,21 @@ class GoslingComponents {
     } else {
       warnign(`You should provide a component_id to call this method.`);
     }
+  };
+  /**
+   * Runs the exportPdf API method from gosling.js
+   * See more at http://gosling-lang.org/docs/js-api#exportpdf)
+   * @param {Object} parameters List of parameters coming from Shiny
+   */
+  exportPdf = (parameters) => {
+    if (!!parameters.component_id) {
+      const component = this.getComponent(parameters.component_id);
+      if (!!component) {
+        component.current.api.exportPdf(parameters.transparentBackground);
+      }
+    } else {
+      warnign(`You should provide a component_id to call this method.`);
+    }
   }
 }
 
@@ -129,5 +144,6 @@ const registerShinyHandlers = () => {
   Shiny.addCustomMessageHandler('zoom_to_extent', goslingComponents.zoomToExtent);
   Shiny.addCustomMessageHandler('zoom_to', goslingComponents.zoomTo);
   Shiny.addCustomMessageHandler('export_png', goslingComponents.exportPng);
+  Shiny.addCustomMessageHandler('export_pdf', goslingComponents.exportPdf);
 };
 registerShinyHandlers();
