@@ -13,6 +13,9 @@ arrange_views(layout = NULL, views = NULL, ...)
 
 \item{...}{More options passed to gosling.js.}
 }
+\value{
+list object.
+}
 \description{
 Arrange views from compose_view() function.
 }

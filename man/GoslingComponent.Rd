@@ -9,6 +9,9 @@ GoslingComponent(...)
 \arguments{
 \item{...}{Name of component.}
 }
+\value{
+A function to create the gosling component.
+}
 \description{
 Create Gosling component
 }

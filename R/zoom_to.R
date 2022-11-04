@@ -13,6 +13,7 @@
 #' @param duration A numeric. A duration of the animated transition in ms
 #' (Default: 1000).
 #' @param session A shiny session object.
+#' @return None.
 #' @importFrom shiny getDefaultReactiveDomain
 #' @export
 zoom_to <- function(component_id, view_id, position, padding = 0,

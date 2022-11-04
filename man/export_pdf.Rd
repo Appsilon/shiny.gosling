@@ -19,6 +19,9 @@ should be transparent or not (Default: false).}
 
 \item{session}{A shiny session object.}
 }
+\value{
+None.
+}
 \description{
 Exports PDF
 }

@@ -6,6 +6,7 @@
 #' @param transparent_background A Boolean. Determine if the background
 #' should be transparent or not (Default: false).
 #' @param session A shiny session object.
+#' @return None.
 #' @importFrom shiny getDefaultReactiveDomain
 #' @export
 export_png <- function(component_id, transparent_background = FALSE, session = getDefaultReactiveDomain()) {

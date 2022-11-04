@@ -30,6 +30,9 @@ the center white space. A number between c(0,1), default=0.3}
 
 \item{...}{More arguments passed along with view to gosling.js.}
 }
+\value{
+list object.
+}
 \description{
 Compose views from add_single_track() and add_multi_tracks() functions.
 }

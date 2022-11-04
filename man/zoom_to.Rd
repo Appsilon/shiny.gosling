@@ -32,6 +32,9 @@ position. The unit of this number is a base pair (Default: 0).}
 
 \item{session}{A shiny session object.}
 }
+\value{
+None.
+}
 \description{
 Zooms  to a specific genomic position with the animated transition.
 }

@@ -23,6 +23,9 @@ is consistent to what you specify as track.id in your spec.}
 
 \item{session}{A shiny session object.}
 }
+\value{
+None.
+}
 \description{
 Zooms out to see the entire view_id passed to this function.
 }

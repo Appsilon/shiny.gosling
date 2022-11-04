@@ -58,7 +58,7 @@ atomic_values_to_list <- function(property_list) {
           "id", "mark", "width", "height", "title", "subtitle", "alignment",
           "row"
         )) &&
-           class(property_list[[x]]) != "list") {
+           !is.list(property_list[[x]])) {
           property_list[[x]] <- list(
             value = property_list[[x]]
           )
