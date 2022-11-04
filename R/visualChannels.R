@@ -1,9 +1,9 @@
 #' Generic visual channel builder
 #'
-#' @param field
-#' @param type
-#' @param range
-#' @param domain
+#' @param field A character. Name of the data field.
+#' @param type A character. Must be "genomic". Specify the data type.
+#' @param range A vector of characters or numbers. Values of the visual channel.
+#' @param domain A vector of characters or numbers. Values of the data.
 #' @param ...
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#encode-a-visual-channel
@@ -22,12 +22,12 @@ visual_channel <- function(
 
 #' x and xe axis visual channel
 #'
-#' @param field
-#' @param type
-#' @param legend
-#' @param grid
-#' @param axis
-#' @param aggregate
+#' @param field A character. Name of the data field.
+#' @param type A character. Must be "genomic". Specify the data type.
+#' @param legend A Boolean. Whether to display legend. Default: FALSE.
+#' @param grid A Boolean. Whether to display grid. Default: FALSE.
+#' @param axis A character. One of "none", "top", "bottom", "left", "right". Specify where should the axis be put.
+#' @param aggregate A character. One of "max", "min", "mean", "bin", "count". Specify how to aggregate data. Default: undefined.
 #' @param ...
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#x--xe
@@ -50,15 +50,15 @@ visual_channel_x <- function(
 
 #' y and ye axis visual channel
 #'
-#' @param field
+#' @param field A character. Name of the data field.
 #' @param zeroBaseline
-#' @param type
-#' @param legend
-#' @param grid
-#' @param flip
-#' @param baseline
-#' @param axis
-#' @param aggregate
+#' @param type A character. Must be "genomic". Specify the data type.
+#' @param legend A Boolean. Whether to display legend. Default: FALSE.
+#' @param grid A Boolean. Whether to display grid. Default: FALSE.
+#' @param flip A Boolean. Whether to flip the y-axis. This is done by inverting the range property. Default: FALSE.
+#' @param baseline A character or number. Custom baseline of the y-axis. Default: 0.
+#' @param axis A character. One of "none", "top", "bottom", "left", "right". Specify where should the axis be put.
+#' @param aggregate A character. One of "max", "min", "mean", "bin", "count". Specify how to aggregate data. Default: undefined.
 #' @param ...
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#y--ye
@@ -83,12 +83,12 @@ visual_channel_y <- function(
 
 #' row visual channel
 #'
-#' @param field
-#' @param type
-#' @param padding
-#' @param legend
-#' @param grid
-#' @param clip
+#' @param field A character. Name of the data field.
+#' @param type A character. Must be "genomic". Specify the data type.
+#' @param padding A number. Determines the size of inner white spaces on the top and bottom of individiual rows. Default: 0.
+#' @param legend A Boolean. Whether to display legend. Default: FALSE.
+#' @param grid A Boolean. Whether to display grid. Default: FALSE.
+#' @param clip A Boolean. Clip row when the actual y value exceeds the max value of the y scale. Used only for bar marks at the moment. Default: TRUE.
 #' @param ...
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#row
@@ -109,10 +109,10 @@ visual_channel_row <- function(
 
 #' size visual channel
 #'
-#' @param field
-#' @param type
-#' @param range Range to be specified like `range = c(min_size, max_size)`
-#' @param domain
+#' @param field A character. Name of the data field.
+#' @param type A character. Must be "genomic". Specify the data type.
+#' @param range A vector of characters or numbers. Values of the visual channel. Range to be specified like `range = c(min_size, max_size)`
+#' @param domain A vector of characters or numbers. Values of the data.
 #' @param ...
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#size
@@ -133,10 +133,10 @@ visual_channel_size <- function(
 
 #' text visual channel
 #'
-#' @param field
-#' @param type
-#' @param range
-#' @param domain
+#' @param field A character. Name of the data field.
+#' @param type A character. Must be "genomic". Specify the data type.
+#' @param range A vector of characters or numbers. Values of the visual channel.
+#' @param domain A vector of characters or numbers. Values of the data.
 #' @param ...
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#text
@@ -156,12 +156,12 @@ visual_channel_text <- function(
 
 #' color visual channel
 #'
-#' @param field
-#' @param title
-#' @param type
-#' @param scaleOffset
-#' @param scale
-#' @param legend
+#' @param field A character. Name of the data field.
+#' @param title A character. Title of the legend. Default: undefined.
+#' @param type A character. Must be "genomic". Specify the data type.
+#' @param scaleOffset A number vector of the form c(1, 2). Whether to use offset of the domain proportionally. This is bound to brushes on the color legend. Default: c(0, 1).
+#' @param scale A character. One of "linear", "log".
+#' @param legend A Boolean. Whether to display legend. Default: FALSE.
 #' @param ...
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#color
@@ -183,11 +183,11 @@ visual_channel_color <- function(
 
 #' stroke visual channel
 #'
-#' @param field
-#' @param title
-#' @param type
-#' @param scaleOffset
-#' @param legend
+#' @param field A character. Name of the data field.
+#' @param title A character. Title of the legend. Default: undefined.
+#' @param type A character. Must be "genomic". Specify the data type.
+#' @param scaleOffset A number vector of the form c(1, 2). Whether to use offset of the domain proportionally. This is bound to brushes on the color legend. Default: c(0, 1).
+#' @param legend A Boolean. Whether to display legend. Default: FALSE.
 #' @param ...
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#stroke
@@ -208,10 +208,10 @@ visual_channel_stroke <- function(
 
 #' stroke width visual channel
 #'
-#' @param field
-#' @param type
-#' @param range
-#' @param domain
+#' @param field A character. Name of the data field.
+#' @param type A character. Must be "genomic". Specify the data type.
+#' @param range A vector of characters or numbers. Values of the visual channel.
+#' @param domain A vector of characters or numbers. Values of the data.
 #' @param ...
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#strokewidth
@@ -232,10 +232,10 @@ visual_channel_stroke_width <- function(
 
 #' opacity visual channel
 #'
-#' @param field
-#' @param type
-#' @param range
-#' @param domain
+#' @param field A character. Name of the data field.
+#' @param type A character. Must be "genomic". Specify the data type.
+#' @param range A vector of characters or numbers. Values of the visual channel.
+#' @param domain A vector of characters or numbers. Values of the data.
 #' @param ...
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#opacity
@@ -256,9 +256,9 @@ visual_channel_opacity <- function(
 
 #' tooltip visual channel
 #'
-#' @param field
-#' @param type
-#' @param alt
+#' @param field A character. Name of the data field.
+#' @param type A character. Must be "genomic". Specify the data type.
+#' @param alt A character.
 #' @param ...
 #'
 #' @details For more info visit https://gosling.js.org/ and check for tooltip implementation
