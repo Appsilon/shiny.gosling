@@ -1,10 +1,8 @@
 Package: shiny.gosling
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
-Author: "Appsilon" [aut, cre]
-Maintainer: "Appsilon" <hello@appsilon.com>
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+    person("Appsilon", "", , "hello@appsilon.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
