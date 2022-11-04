@@ -11,7 +11,6 @@
 #' @return
 #' @export
 #'
-#' @examples
 visual_channel <- function(
     field = NULL, type = NULL, range = NULL, domain = NULL, ...
 ) {
@@ -35,7 +34,6 @@ visual_channel <- function(
 #' @return
 #' @export
 #'
-#' @examples
 visual_channel_x <- function(
     field = NULL, type = NULL, legend = NULL, grid = NULL,
     axis = NULL,
@@ -66,7 +64,6 @@ visual_channel_x <- function(
 #' @return
 #' @export
 #'
-#' @examples
 visual_channel_y <- function(
     field = NULL, zeroBaseline = NULL,
     type = NULL, # c("quantitative", "nominal", "genomic")
@@ -96,7 +93,6 @@ visual_channel_y <- function(
 #' @return
 #' @export
 #'
-#' @examples
 visual_channel_row <- function(
     field = NULL, type = NULL, padding = NULL,
     legend = NULL, grid = NULL, clip = NULL, ...
@@ -120,7 +116,6 @@ visual_channel_row <- function(
 #' @return
 #' @export
 #'
-#' @examples
 visual_channel_size <- function(
     field = NULL, type = NULL, # c("quantitative", "nominal")
     range = NULL, domain = NULL, ...
@@ -144,7 +139,6 @@ visual_channel_size <- function(
 #' @return
 #' @export
 #'
-#' @examples
 visual_channel_text <- function(
     field = NULL, type = NULL,
     range = NULL, domain = NULL, ...) {
@@ -169,7 +163,6 @@ visual_channel_text <- function(
 #' @return
 #' @export
 #'
-#' @examples
 visual_channel_color <- function(
     field = NULL, title = NULL, type = NULL, scaleOffset = NULL,
     scale = NULL, legend = NULL, ...
@@ -195,7 +188,6 @@ visual_channel_color <- function(
 #' @return
 #' @export
 #'
-#' @examples
 visual_channel_stroke <- function(
     field = NULL, title = NULL, type = NULL, scaleOffset = NULL,
     legend = NULL, ...
@@ -219,7 +211,6 @@ visual_channel_stroke <- function(
 #' @return
 #' @export
 #'
-#' @examples
 visual_channel_stroke_width <- function(
     field = NULL, type = NULL,
     range = NULL, domain = NULL, ...
@@ -243,7 +234,6 @@ visual_channel_stroke_width <- function(
 #' @return
 #' @export
 #'
-#' @examples
 visual_channel_opacity <- function(
     field = NULL, type = NULL,
     range = NULL, domain = NULL, ...
@@ -266,7 +256,6 @@ visual_channel_opacity <- function(
 #' @return list object with tooltip list object
 #' @export
 #'
-#' @examples
 visual_channel_tooltip <- function(
 field = NULL, type = NULL, alt = NULL, ...
 ) {
@@ -283,7 +272,6 @@ field = NULL, type = NULL, alt = NULL, ...
 #' @return json list with tooltips combined into a single spec
 #' @export
 #'
-#' @examples
 visual_channel_tooltips <- function(...) {
   json_list(...)
 }

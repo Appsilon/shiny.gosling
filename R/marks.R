@@ -20,7 +20,6 @@
 #' @return list of mark specifications
 #' @export
 #'
-#' @examples
 add_mark <- function(
     x = NULL, xe = NULL, x1 = NULL, x1e = NULL, y = NULL,
     strokeWidth = NULL, opacity = NULL, row = NULL, size = NULL,

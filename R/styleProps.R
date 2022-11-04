@@ -14,7 +14,6 @@
 #' @return list of event styles
 #' @export
 #'
-#' @examples
 event_styles <- function(
     strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
     color = NULL, arrange = NULL # c("behind", "front")
@@ -41,7 +40,6 @@ event_styles <- function(
 #' @return
 #' @export
 #'
-#' @examples
 brush_styles <- function(
     strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
     color = NULL
@@ -86,7 +84,6 @@ brush_styles <- function(
 #' @return
 #' @export
 #'
-#' @examples
 default_track_styles <- function(
     textStrokeWidth = NULL, textStroke = NULL, textFontWeight = NULL,
     textFontSize = NULL, textAnchor = NULL, select = NULL,

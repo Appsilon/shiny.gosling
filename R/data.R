@@ -20,7 +20,6 @@
 #' @return list of data specs
 #' @export
 #'
-#' @examples
 track_data <- function(
     url, type, separator = NULL, sampleLength = NULL,
     headerNames = NULL, genomicFields = NULL, chromosomeField = NULL, ...
@@ -52,7 +51,6 @@ track_data <- function(
 #' @return list of data transformations specs
 #' @export
 #'
-#' @examples
 track_data_transform <- function(
     type = NULL, field = NULL, oneOf = NULL,
     not = NULL, ...
@@ -74,7 +72,6 @@ track_data_transform <- function(
 #' @return list of multiple data transform specs
 #' @export
 #'
-#' @examples
 track_data_transforms <- function(...) {
   list(...)
 }
