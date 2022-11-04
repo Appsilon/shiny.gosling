@@ -24,7 +24,7 @@ compose_view(
 \item{height}{A number interpreted in units of pixel.}
 
 \item{centerRadius}{Specify the proportion of the radius of
-the center white space. A number between \link{0,1}, default=0.3}
+the center white space. A number between c(0,1), default=0.3}
 
 \item{tracks}{The tracks with add_multi_tracks() function.}
 

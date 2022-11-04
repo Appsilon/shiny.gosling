@@ -6,6 +6,9 @@
 \usage{
 use_gosling()
 }
+\value{
+Gosling initiator HTML.
+}
 \description{
 Add this function at the begining of ui. This is needed for gosling to work in shiny plots.
 }

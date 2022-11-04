@@ -4,11 +4,11 @@
 #' @param type A character. Must be "genomic". Specify the data type.
 #' @param range A vector of characters or numbers. Values of the visual channel.
 #' @param domain A vector of characters or numbers. Values of the data.
-#' @param ...
+#' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#encode-a-visual-channel
 #'
-#' @return
+#' @return List object.
 #' @export
 #'
 visual_channel <- function(
@@ -27,11 +27,11 @@ visual_channel <- function(
 #' @param grid A Boolean. Whether to display grid. Default: FALSE.
 #' @param axis A character. One of "none", "top", "bottom", "left", "right". Specify where should the axis be put.
 #' @param aggregate A character. One of "max", "min", "mean", "bin", "count". Specify how to aggregate data. Default: undefined.
-#' @param ...
+#' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#x--xe
 #'
-#' @return
+#' @return List object.
 #' @export
 #'
 visual_channel_x <- function(
@@ -49,7 +49,7 @@ visual_channel_x <- function(
 #' y and ye axis visual channel
 #'
 #' @param field A character. Name of the data field.
-#' @param zeroBaseline
+#' @param zeroBaseline A Boolean. Specify whether to use zero baseline. Default: TRUE.
 #' @param type A character. Must be "genomic". Specify the data type.
 #' @param legend A Boolean. Whether to display legend. Default: FALSE.
 #' @param grid A Boolean. Whether to display grid. Default: FALSE.
@@ -57,11 +57,11 @@ visual_channel_x <- function(
 #' @param baseline A character or number. Custom baseline of the y-axis. Default: 0.
 #' @param axis A character. One of "none", "top", "bottom", "left", "right". Specify where should the axis be put.
 #' @param aggregate A character. One of "max", "min", "mean", "bin", "count". Specify how to aggregate data. Default: undefined.
-#' @param ...
+#' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#y--ye
 #'
-#' @return
+#' @return List object.
 #' @export
 #'
 visual_channel_y <- function(
@@ -86,16 +86,19 @@ visual_channel_y <- function(
 #' @param legend A Boolean. Whether to display legend. Default: FALSE.
 #' @param grid A Boolean. Whether to display grid. Default: FALSE.
 #' @param clip A Boolean. Clip row when the actual y value exceeds the max value of the y scale. Used only for bar marks at the moment. Default: TRUE.
-#' @param ...
+#' @param axis A character. One of "none", "top", "bottom", "left", "right". Specify where should the axis be put.
+#' @param aggregate A character. One of "max", "min", "mean", "bin", "count". Specify how to aggregate data. Default: undefined.
+#' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#row
 #'
-#' @return
+#' @return List object.
 #' @export
 #'
 visual_channel_row <- function(
     field = NULL, type = NULL, padding = NULL,
-    legend = NULL, grid = NULL, clip = NULL, ...
+    legend = NULL, grid = NULL, clip = NULL, axis = NULL,
+    aggregate = NULL, ...
 ) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
@@ -109,11 +112,11 @@ visual_channel_row <- function(
 #' @param type A character. Must be "genomic". Specify the data type.
 #' @param range A vector of characters or numbers. Values of the visual channel. Range to be specified like `range = c(min_size, max_size)`
 #' @param domain A vector of characters or numbers. Values of the data.
-#' @param ...
+#' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#size
 #'
-#' @return
+#' @return List object.
 #' @export
 #'
 visual_channel_size <- function(
@@ -132,11 +135,11 @@ visual_channel_size <- function(
 #' @param type A character. Must be "genomic". Specify the data type.
 #' @param range A vector of characters or numbers. Values of the visual channel.
 #' @param domain A vector of characters or numbers. Values of the data.
-#' @param ...
+#' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#text
 #'
-#' @return
+#' @return List object.
 #' @export
 #'
 visual_channel_text <- function(
@@ -156,16 +159,20 @@ visual_channel_text <- function(
 #' @param scaleOffset A number vector of the form c(1, 2). Whether to use offset of the domain proportionally. This is bound to brushes on the color legend. Default: c(0, 1).
 #' @param scale A character. One of "linear", "log".
 #' @param legend A Boolean. Whether to display legend. Default: FALSE.
-#' @param ...
+#' @param grid A Boolean. Whether to display grid. Default: FALSE.
+#' @param axis A character. One of "none", "top", "bottom", "left", "right". Specify where should the axis be put.
+#' @param aggregate A character. One of "max", "min", "mean", "bin", "count". Specify how to aggregate data. Default: undefined.
+#' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#color
 #'
-#' @return
+#' @return List object.
 #' @export
 #'
 visual_channel_color <- function(
     field = NULL, title = NULL, type = NULL, scaleOffset = NULL,
-    scale = NULL, legend = NULL, ...
+    scale = NULL, legend = NULL, grid = NULL, axis = NULL,
+    aggregate = NULL, ...
 ) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
@@ -181,16 +188,19 @@ visual_channel_color <- function(
 #' @param type A character. Must be "genomic". Specify the data type.
 #' @param scaleOffset A number vector of the form c(1, 2). Whether to use offset of the domain proportionally. This is bound to brushes on the color legend. Default: c(0, 1).
 #' @param legend A Boolean. Whether to display legend. Default: FALSE.
-#' @param ...
+#' @param grid A Boolean. Whether to display grid. Default: FALSE.
+#' @param axis A character. One of "none", "top", "bottom", "left", "right". Specify where should the axis be put.
+#' @param aggregate A character. One of "max", "min", "mean", "bin", "count". Specify how to aggregate data. Default: undefined.
+#' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#stroke
 #'
-#' @return
+#' @return List object.
 #' @export
 #'
 visual_channel_stroke <- function(
     field = NULL, title = NULL, type = NULL, scaleOffset = NULL,
-    legend = NULL, ...
+    legend = NULL, grid = NULL, axis = NULL, aggregate = NULL,  ...
 ) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
@@ -204,11 +214,11 @@ visual_channel_stroke <- function(
 #' @param type A character. Must be "genomic". Specify the data type.
 #' @param range A vector of characters or numbers. Values of the visual channel.
 #' @param domain A vector of characters or numbers. Values of the data.
-#' @param ...
+#' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#strokewidth
 #'
-#' @return
+#' @return List object.
 #' @export
 #'
 visual_channel_stroke_width <- function(
@@ -227,11 +237,11 @@ visual_channel_stroke_width <- function(
 #' @param type A character. Must be "genomic". Specify the data type.
 #' @param range A vector of characters or numbers. Values of the visual channel.
 #' @param domain A vector of characters or numbers. Values of the data.
-#' @param ...
+#' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel#opacity
 #'
-#' @return
+#' @return List object.
 #' @export
 #'
 visual_channel_opacity <- function(
@@ -249,11 +259,11 @@ visual_channel_opacity <- function(
 #' @param field A character. Name of the data field.
 #' @param type A character. Must be "genomic". Specify the data type.
 #' @param alt A character.
-#' @param ...
+#' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @details For more info visit https://gosling.js.org/ and check for tooltip implementation
 #'
-#' @return list object with tooltip list object
+#' @return List object. list object with tooltip list object
 #' @export
 #'
 visual_channel_tooltip <- function(
@@ -267,9 +277,9 @@ field = NULL, type = NULL, alt = NULL, ...
 
 #' Combine tooltips into a list
 #'
-#' @param ...
+#' @param ... Any other parameters to pass to gosling.js.
 #'
-#' @return json list with tooltips combined into a single spec
+#' @return List object. json list with tooltips combined into a single spec
 #' @export
 #'
 visual_channel_tooltips <- function(...) {

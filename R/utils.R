@@ -45,9 +45,9 @@ json_list <- function(...) {
 
 #' Title
 #'
-#' @param property_list
+#' @param property_list A character or number or another atomic value.
 #'
-#' @return
+#' @return List.
 #' @export
 #'
 atomic_values_to_list <- function(property_list) {
@@ -73,7 +73,7 @@ atomic_values_to_list <- function(property_list) {
 #'
 #' Add this function at the begining of ui. This is needed for gosling to work in shiny plots.
 #'
-#' @return
+#' @return Gosling initiator HTML.
 #' @export
 use_gosling <- function() {
   GoslingComponent(

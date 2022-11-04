@@ -11,7 +11,7 @@
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel/#type-eventstyle
 #'
-#' @return list of event styles
+#' @return List object with event styles.
 #' @export
 #'
 event_styles <- function(
@@ -37,7 +37,7 @@ event_styles <- function(
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel/#type-brush
 #'
-#' @return
+#' @return List object with brush styles.
 #' @export
 #'
 brush_styles <- function(
@@ -77,11 +77,11 @@ brush_styles <- function(
 #' @param backgroundOpacity A number.
 #' @param background A character.
 #' @param align A character. One of "left", "right". Specify the alignment of marks. This property is currently only supported for triangle marks.
-#' @param ...
+#' @param ... Any other styles to be passed to gosling.js.
 #'
 #' @details For more info visit http://gosling-lang.org/docs/visual-channel/#style-related-properties
 #'
-#' @return
+#' @return List object with default styles.
 #' @export
 #'
 default_track_styles <- function(

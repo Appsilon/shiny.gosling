@@ -7,10 +7,10 @@
 visual_channel_tooltips(...)
 }
 \arguments{
-\item{...}{}
+\item{...}{Any other parameters to pass to gosling.js.}
 }
 \value{
-json list with tooltips combined into a single spec
+List object. json list with tooltips combined into a single spec
 }
 \description{
 Combine tooltips into a list

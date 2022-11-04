@@ -42,8 +42,8 @@ track_data <- function(
 #'  Check usage details at http://gosling-lang.org/docs/data/#data-transform.
 #' @param field A character.  filter is applied based on the values of the specified data field.
 #' @param oneOf A vector of characters or numbers. Check whether the value is an element in the provided list.
-#' @param not. A Boolean. When {"not": true}, apply a NOT logical operation to the filter. Default: false.
-#' @param ...
+#' @param not A Boolean. When {"not": true}, apply a NOT logical operation to the filter. Default: false.
+#' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @details For info visit http://gosling-lang.org/docs/data#data-transform
 #' There are multiple ways to transform data. Check documentation for details of usage.
@@ -67,7 +67,7 @@ track_data_transform <- function(
 
 #' Combine multiple data transforms
 #'
-#' @param ... Multiple data transform specs separated by comma
+#' @param ... Multiple data transform specs separated by comma.
 #'
 #' @return list of multiple data transform specs
 #' @export

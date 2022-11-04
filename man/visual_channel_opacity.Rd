@@ -13,7 +13,18 @@ visual_channel_opacity(
 )
 }
 \arguments{
-\item{...}{}
+\item{field}{A character. Name of the data field.}
+
+\item{type}{A character. Must be "genomic". Specify the data type.}
+
+\item{range}{A vector of characters or numbers. Values of the visual channel.}
+
+\item{domain}{A vector of characters or numbers. Values of the data.}
+
+\item{...}{Any other parameters to pass to gosling.js.}
+}
+\value{
+List object.
 }
 \description{
 opacity visual channel

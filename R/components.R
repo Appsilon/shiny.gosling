@@ -25,5 +25,7 @@ component <- function(name) {
   )
 }
 
+#' Create Gosling component
+#' @param ... Name of component.
 #' @export
 GoslingComponent <- component("customGosling")

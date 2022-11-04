@@ -79,7 +79,7 @@ add_single_track <- function(
 #' @param width A number interpreted in units of pixel.
 #' @param height A number interpreted in units of pixel.
 #' @param centerRadius Specify the proportion of the radius of
-#'  the center white space. A number between [0,1], default=0.3
+#'  the center white space. A number between c(0,1), default=0.3
 #' @param tracks The tracks with add_multi_tracks() function.
 #' @param ... More arguments passed along with view to gosling.js.
 #'

@@ -7,6 +7,7 @@
 #' is consistent to what you specify as track.id in your spec.
 #' @param duration A numeric. A duration of the animated transition in ms
 #' (Default: 1000).
+#' @param session A shiny session object.
 #' @importFrom shiny getDefaultReactiveDomain
 #' @export
 zoom_to_extent <- function(component_id, view_id, duration = 1000, session = getDefaultReactiveDomain()) {
@@ -17,5 +18,5 @@ zoom_to_extent <- function(component_id, view_id, duration = 1000, session = get
       view_id = view_id,
       duration = duration
     )
-  )  
+  )
 }

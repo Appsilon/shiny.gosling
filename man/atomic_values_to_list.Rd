@@ -7,7 +7,10 @@
 atomic_values_to_list(property_list)
 }
 \arguments{
-\item{property_list}{}
+\item{property_list}{A character or number or another atomic value.}
+}
+\value{
+List.
 }
 \description{
 Title

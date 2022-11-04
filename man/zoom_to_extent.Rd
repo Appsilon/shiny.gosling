@@ -20,6 +20,8 @@ is consistent to what you specify as track.id in your spec.}
 
 \item{duration}{A numeric. A duration of the animated transition in ms
 (Default: 1000).}
+
+\item{session}{A shiny session object.}
 }
 \description{
 Zooms out to see the entire view_id passed to this function.
