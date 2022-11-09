@@ -134,6 +134,7 @@ view2_track1_row <- visual_channel_row(
 )
 
 view2_track1 <- add_single_track(
+  id = "view2_track1",
   alignment = "overlay",
   title = "S Protein Annotation",
   data = view2_track1_data,
@@ -356,21 +357,20 @@ combined_view <- arrange_views(
 
 function(input, output, session) {
 
-  # observeEvent(input$download_png, {
-  #   export_png(component_id = "circular_component")
-  # })
-  #
-  # observeEvent(input$download_pdf, {
-  #   export_pdf(component_id = "circular_component")
-  # })
-  #
-  # observeEvent(input$go_to_chr, {
-  #   zoom_to(
-  #     component_id = "circular_component",
-  #     view_id = "linear_track1",
-  #     position = input$chromosomes
-  #   )
-  # })
+  observeEvent(input$download_png, {
+    export_png(component_id = "sars_cov2")
+  })
+
+  observeEvent(input$download_pdf, {
+    export_pdf(component_id = "sars_cov2")
+  })
+
+    observeEvent(input$zoom_out, {
+    zoom_to_extent(
+      component_id = "sars_cov2",
+      view_id = "view2_track1"
+    )
+  })
 
   output$gosling_plot_sars_cov2 <- renderGosling({
     gosling(
