@@ -251,7 +251,7 @@ function(input, output, session) {
   output$gosling_plot_circular <- renderGosling({
     gosling(
       component_id = "circular_component",
-      circular_linear_view, single_track = FALSE
+      circular_linear_view, clean_braces = FALSE
     )
   })
 }

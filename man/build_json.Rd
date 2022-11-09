@@ -4,12 +4,12 @@
 \alias{build_json}
 \title{Build gosling spec from R list}
 \usage{
-build_json(r_list, single_track = TRUE, pretty = TRUE, auto_unbox = TRUE)
+build_json(r_list, clean_braces = TRUE, pretty = TRUE, auto_unbox = TRUE)
 }
 \arguments{
 \item{r_list}{R list object built with other gosling functions}
 
-\item{single_track}{Whether single track. If FALSE then there must be more than 1 track in r_list}
+\item{clean_braces}{Whether to remove extra square branckets from the json string.}
 
 \item{pretty}{Whether to get json with indentation, line breaks etc.}
 

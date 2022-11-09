@@ -4,7 +4,7 @@
 \alias{gosling}
 \title{Build gosling plot object}
 \usage{
-gosling(component_id, composed_views, single_track)
+gosling(component_id, composed_views, clean_braces = TRUE)
 }
 \arguments{
 \item{component_id}{Assign a component id to use other api like zoom.}
