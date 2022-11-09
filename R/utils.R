@@ -90,7 +90,7 @@ use_gosling <- function() {
 #'
 #' @param component_id Assign a component id to use other api like zoom.
 #' @param composed_views The views composed with arrange_views.
-#' @param single_track Whether single track view.
+#' @param clean_braces Whether to remove extra square branckets from the json string.
 #'
 #' @return Gosling component for rendering on R shiny apps
 #' @export
