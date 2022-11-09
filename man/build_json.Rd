@@ -9,7 +9,7 @@ build_json(r_list, clean_braces = TRUE, pretty = TRUE, auto_unbox = TRUE)
 \arguments{
 \item{r_list}{R list object built with other gosling functions}
 
-\item{clean_braces}{Whether to remove extra square branckets from the json string.}
+\item{clean_braces}{Whether to remove extra square brackets from the json string.}
 
 \item{pretty}{Whether to get json with indentation, line breaks etc.}
 

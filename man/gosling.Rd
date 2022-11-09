@@ -11,7 +11,7 @@ gosling(component_id, composed_views, clean_braces = TRUE)
 
 \item{composed_views}{The views composed with arrange_views.}
 
-\item{single_track}{Whether single track view.}
+\item{clean_braces}{Whether to remove extra square brackets from the json string.}
 }
 \value{
 Gosling component for rendering on R shiny apps
