@@ -95,10 +95,7 @@ compose_view <- function(
     list(
       ..., layout = layout, width = width, height = height,
       centerRadius = centerRadius,
-      tracks = ifelse(
-        multi, list(tracks),
-        list(tracks)
-      )
+      tracks = if (multi) tracks else list(tracks)
     )
   )
 }
