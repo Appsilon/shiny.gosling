@@ -1,5 +1,5 @@
 navbarPage(
-  title = "Gosling Plots",
+  title = "shiny.gosling",
   tabPanel(
     "Single Track Plot",
     use_gosling(),
