@@ -323,7 +323,7 @@ function(input, output, session) {
     output$gosling_plot_multi <- renderGosling({
       gosling(
         component_id = "component_2",
-        all_reactive_values$composed_views, single_track = FALSE
+        all_reactive_values$composed_views, clean_braces = FALSE
       )
     })
   })

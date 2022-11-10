@@ -4,14 +4,14 @@
 \alias{gosling}
 \title{Build gosling plot object}
 \usage{
-gosling(component_id, composed_views, single_track)
+gosling(component_id, composed_views, clean_braces = TRUE)
 }
 \arguments{
 \item{component_id}{Assign a component id to use other api like zoom.}
 
 \item{composed_views}{The views composed with arrange_views.}
 
-\item{single_track}{Whether single track view.}
+\item{clean_braces}{Whether to remove extra square brackets from the json string.}
 }
 \value{
 Gosling component for rendering on R shiny apps

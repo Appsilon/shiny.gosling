@@ -95,10 +95,7 @@ compose_view <- function(
     list(
       ..., layout = layout, width = width, height = height,
       centerRadius = centerRadius,
-      tracks = ifelse(
-        multi, list(tracks),
-        list(tracks)
-      )
+      tracks = if (multi) tracks else list(tracks)
     )
   )
 }
@@ -108,17 +105,19 @@ compose_view <- function(
 #' Arrange views from compose_view() function.
 #'
 #' @param layout One of "linear" or "circular".
+#' @param listify A Boolean. Convert views to list..
 #' @param views An object from compose_view() function.
 #' @param ... More options passed to gosling.js.
 #'
 #' @return list object.
 #' @export
 arrange_views <- function(
-    layout = NULL, views = NULL, ...
+    layout = NULL, views = NULL, listify = TRUE, ...
 ) {
   list_rm_null(
     list(
-      ..., layout = layout, views = list(views)
+      ..., layout = layout,
+      views = if (listify) list(views) else views
     )
   )
 }
