@@ -3,7 +3,6 @@
 #'
 #' Build the data object for golsing plots
 #'
-<<<<<<< HEAD
 #' @param url A character. Specify the URL address of the data file.
 #' @param type A character. Type of data. One of "csv", "json", "bigwig", "bam",
 #' "vcf", "vector", "multivec" and "beddb". For usage refer to http://gosling-lang.org/docs/data#supported-data-formats.
@@ -17,26 +16,10 @@
 #' @details For info visit http://gosling-lang.org/docs/data.
 #' Check the various supported data formats and their parameters. All of them can be
 #' constructed using this function.
-=======
-#' @param url
-#' @param type
-#' @param separator
-#' @param sampleLength
-#' @param headerNames
-#' @param genomicFields
-#' @param chromosomeField
-#' @param ...
-#'
-#' @details For info visit http://gosling-lang.org/docs/data
->>>>>>> 8427276ad5bc497e41aa39c7890df8489002dfb6
 #'
 #' @return list of data specs
 #' @export
 #'
-<<<<<<< HEAD
-=======
-#' @examples
->>>>>>> 8427276ad5bc497e41aa39c7890df8489002dfb6
 track_data <- function(
     url, type, separator = NULL, sampleLength = NULL,
     headerNames = NULL, genomicFields = NULL, chromosomeField = NULL, ...
@@ -54,7 +37,6 @@ track_data <- function(
 #'
 #' Do data transformations
 #'
-<<<<<<< HEAD
 #' @param type A character. One of "filter", "concat", "replace", "log",
 #'  "displace", "exonSplit", "coverage", "genomicLength", "svType" and "subjson".
 #'  Check usage details at http://gosling-lang.org/docs/data/#data-transform.
@@ -65,23 +47,10 @@ track_data <- function(
 #'
 #' @details For info visit http://gosling-lang.org/docs/data#data-transform
 #' There are multiple ways to transform data. Check documentation for details of usage.
-=======
-#' @param type
-#' @param field
-#' @param oneOf
-#' @param not
-#' @param ...
-#'
-#' @details For info visit http://gosling-lang.org/docs/data#data-transform
->>>>>>> 8427276ad5bc497e41aa39c7890df8489002dfb6
 #'
 #' @return list of data transformations specs
 #' @export
 #'
-<<<<<<< HEAD
-=======
-#' @examples
->>>>>>> 8427276ad5bc497e41aa39c7890df8489002dfb6
 track_data_transform <- function(
     type = NULL, field = NULL, oneOf = NULL,
     not = NULL, ...
@@ -98,19 +67,11 @@ track_data_transform <- function(
 
 #' Combine multiple data transforms
 #'
-<<<<<<< HEAD
 #' @param ... Multiple data transform specs separated by comma.
-=======
-#' @param ... Multiple data transform specs separated by comma
->>>>>>> 8427276ad5bc497e41aa39c7890df8489002dfb6
 #'
 #' @return list of multiple data transform specs
 #' @export
 #'
-<<<<<<< HEAD
-=======
-#' @examples
->>>>>>> 8427276ad5bc497e41aa39c7890df8489002dfb6
 track_data_transforms <- function(...) {
   list(...)
 }
