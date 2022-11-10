@@ -14,3 +14,5 @@ Imports:
   htmltools,
   shiny,
   shiny.react
+Suggests: 
+  shinybusy
