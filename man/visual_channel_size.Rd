@@ -13,9 +13,18 @@ visual_channel_size(
 )
 }
 \arguments{
-\item{range}{Range to be specified like \code{range = c(min_size, max_size)}}
+\item{field}{A character. Name of the data field.}
 
-\item{...}{}
+\item{type}{A character. Must be "genomic". Specify the data type.}
+
+\item{range}{A vector of characters or numbers. Values of the visual channel. Range to be specified like \code{range = c(min_size, max_size)}}
+
+\item{domain}{A vector of characters or numbers. Values of the data.}
+
+\item{...}{Any other parameters to pass to gosling.js.}
+}
+\value{
+List object.
 }
 \description{
 size visual channel

@@ -9,6 +9,9 @@ add_multi_tracks(...)
 \arguments{
 \item{...}{Multiple tracks from add_single_track() function.}
 }
+\value{
+json list.
+}
 \description{
 Combine single tracks.
 }

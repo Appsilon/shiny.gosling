@@ -16,6 +16,11 @@ GoslingComponent function.}
 
 \item{transparent_background}{A Boolean. Determine if the background
 should be transparent or not (Default: false).}
+
+\item{session}{A shiny session object.}
+}
+\value{
+None.
 }
 \description{
 Exports PNG

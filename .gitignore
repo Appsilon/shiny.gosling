@@ -44,6 +44,7 @@ docs/
 # translation temp files
 po/*~
 node_modules
+js/node_modules
 .Rproj.user
 
 

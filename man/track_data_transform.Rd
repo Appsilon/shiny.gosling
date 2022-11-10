@@ -7,7 +7,17 @@
 track_data_transform(type = NULL, field = NULL, oneOf = NULL, not = NULL, ...)
 }
 \arguments{
-\item{...}{}
+\item{type}{A character. One of "filter", "concat", "replace", "log",
+"displace", "exonSplit", "coverage", "genomicLength", "svType" and "subjson".
+Check usage details at http://gosling-lang.org/docs/data/#data-transform.}
+
+\item{field}{A character.  filter is applied based on the values of the specified data field.}
+
+\item{oneOf}{A vector of characters or numbers. Check whether the value is an element in the provided list.}
+
+\item{not}{A Boolean. When {"not": true}, apply a NOT logical operation to the filter. Default: false.}
+
+\item{...}{Any other parameters to pass to gosling.js.}
 }
 \value{
 list of data transformations specs
@@ -17,4 +27,5 @@ Do data transformations
 }
 \details{
 For info visit http://gosling-lang.org/docs/data#data-transform
+There are multiple ways to transform data. Check documentation for details of usage.
 }

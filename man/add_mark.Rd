@@ -19,7 +19,27 @@ add_mark(
 )
 }
 \arguments{
-\item{stroke}{}
+\item{x}{An object returned by visual_channel_x().}
+
+\item{xe}{An object returned by visual_channel_x().}
+
+\item{x1}{An object returned by visual_channel_x().}
+
+\item{x1e}{An object returned by visual_channel_x().}
+
+\item{y}{An object returned by visual_channel_y().}
+
+\item{strokeWidth}{A number or an object returned by visual_channel_stroke_width().}
+
+\item{opacity}{A number or an object returned by visual_channel_opacity().}
+
+\item{row}{A factor data column Channel row is used with channel y to stratify a visualization with categorical values.}
+
+\item{size}{A number or an object returned by visual_channel_size().}
+
+\item{color}{A character or an object returned by visual_channel_color().}
+
+\item{stroke}{A number or an object returned by visual_channel_stroke().}
 }
 \value{
 list of mark specifications

@@ -85,6 +85,9 @@ character of hex color code like "#123456".}
 
 \item{...}{Any other arguments to be passed onto gosling.js.}
 }
+\value{
+list object.
+}
 \description{
 Add a single track to the plot of a mark type ( plot type ). This function constructs a single track from the inputs. The inputs
 can be id, data, mark etc. Please check gosling.js documentation for

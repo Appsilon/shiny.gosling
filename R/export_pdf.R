@@ -5,7 +5,9 @@
 #' GoslingComponent function.
 #' @param transparent_background A Boolean. Determine if the background
 #' should be transparent or not (Default: false).
+#' @param session A shiny session object.
 #' @importFrom shiny getDefaultReactiveDomain
+#' @return None.
 #' @export
 export_pdf <- function(component_id, transparent_background = FALSE, session = getDefaultReactiveDomain()) {
   session$sendCustomMessage(
