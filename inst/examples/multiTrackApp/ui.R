@@ -20,11 +20,24 @@ navbarPage(
         width = 8,
         goslingOutput("gosling_plot_single"),
         br(),
-        selectInput(
-          "chromosomes",
-          "Chromosome",
-          selected = "chr1",
-          choices = chromosome_options
+        fluidRow(
+          column(
+            6,
+            selectInput(
+              "chromosomes",
+              "Chromosome",
+              selected = "chr1",
+              choices = chromosome_options
+            )
+          ),
+          column(
+            6,
+            actionButton(
+              "download_png",
+              "Download PNG",
+              icon = icon("download")
+            )
+          )
         ),
         PrimaryButton.shinyInput(
           "go_to_chr",

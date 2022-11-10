@@ -259,6 +259,10 @@ function(input, output, session) {
     composed_views = NULL
   )
 
+  observeEvent(input$download_png, {
+    export_png(component_id = "component_1")
+  })
+
   observeEvent(input$go_to_chr, {
     zoom_to(
       component_id = "component_1",
