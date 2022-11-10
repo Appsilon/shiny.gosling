@@ -78,7 +78,7 @@ track1 <- add_single_track(
 )
 
 track2_data <- track_data(
-  url = "inst/examples/multiTrackApp/data/driver.df.scanb.complete.csv",
+  url = "inst/examples/multiTrackApp/data/gemini_multitrack_2_data.csv",
   type = "csv",
   chromosomeField = "Chr",
   genomicFields = c("ChrStart", "ChrEnd")
