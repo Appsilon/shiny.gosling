@@ -14,10 +14,20 @@ event_styles(
 )
 }
 \arguments{
-\item{arrange}{}
+\item{strokeWidth}{A number. stroke width of the marks when mouse events are triggered.}
+
+\item{strokeOpacity}{A number.}
+
+\item{stroke}{A character. Stroke color of the marks when mouse events are triggered.}
+
+\item{opacity}{A number. Opacity of the marks when mouse events are triggered.}
+
+\item{color}{A character. Color of the marks when mouse events are triggered.}
+
+\item{arrange}{A character. One of "behind", "front". Show event effects behind or in front of marks.}
 }
 \value{
-list of event styles
+List object with event styles.
 }
 \description{
 The styles defined here will be applied to the targets of mouse events, such as a point mark after user click mouse.

@@ -5,7 +5,6 @@
 #' @return r list without NULL values
 #' @export
 #'
-#' @examples
 list_rm_null <- function(r_list) {
   Filter(
     Negate(is.null),
@@ -16,16 +15,15 @@ list_rm_null <- function(r_list) {
 #' Build gosling spec from R list
 #'
 #' @param r_list R list object built with other gosling functions
-#' @param single_track Whether single track. If FALSE then there must be more than 1 track in r_list
+#' @param clean_braces Whether to remove extra square brackets from the json string.
 #' @param pretty Whether to get json with indentation, line breaks etc.
 #' @param auto_unbox If TRUE will automatically unbox() all atomic vectors of length 1.
 #'
 #' @return json spec for the gosling output
 #' @export
 #'
-#' @examples
-build_json <- function(r_list, single_track = TRUE, pretty = TRUE, auto_unbox = TRUE) {
-  if(single_track) {
+build_json <- function(r_list, clean_braces = TRUE, pretty = TRUE, auto_unbox = TRUE) {
+  if(clean_braces) {
     jsonlite::toJSON(r_list, pretty = pretty, auto_unbox = auto_unbox)
   } else {
     json <- jsonlite::toJSON(r_list, pretty = FALSE, auto_unbox = auto_unbox)
@@ -41,19 +39,17 @@ build_json <- function(r_list, single_track = TRUE, pretty = TRUE, auto_unbox = 
 #' @return list of items
 #' @export
 #'
-#' @examples
 json_list <- function(...) {
   list(...)
 }
 
 #' Title
 #'
-#' @param property_list
+#' @param property_list A character or number or another atomic value.
 #'
-#' @return
+#' @return List.
 #' @export
 #'
-#' @examples
 atomic_values_to_list <- function(property_list) {
   if(isTRUE(length(property_list) != 0)) {
     for (x in seq(length(property_list))) {
@@ -62,7 +58,7 @@ atomic_values_to_list <- function(property_list) {
           "id", "mark", "width", "height", "title", "subtitle", "alignment",
           "row"
         )) &&
-           class(property_list[[x]]) != "list") {
+           !is.list(property_list[[x]])) {
           property_list[[x]] <- list(
             value = property_list[[x]]
           )
@@ -77,10 +73,8 @@ atomic_values_to_list <- function(property_list) {
 #'
 #' Add this function at the begining of ui. This is needed for gosling to work in shiny plots.
 #'
-#' @return
+#' @return Gosling initiator HTML.
 #' @export
-#'
-#' @examples
 use_gosling <- function() {
   GoslingComponent(
     spec = shiny.react::JS(
@@ -96,18 +90,17 @@ use_gosling <- function() {
 #'
 #' @param component_id Assign a component id to use other api like zoom.
 #' @param composed_views The views composed with arrange_views.
-#' @param single_track Whether single track view.
+#' @param clean_braces Whether to remove extra square brackets from the json string.
 #'
 #' @return Gosling component for rendering on R shiny apps
 #' @export
 #'
-#' @examples
-gosling <- function(component_id, composed_views, single_track) {
+gosling <- function(component_id, composed_views, clean_braces = TRUE) {
   GoslingComponent(
     component_id = component_id,
     spec = shiny.react::JS(
       build_json(
-        composed_views, single_track = single_track
+        composed_views, clean_braces = clean_braces
       )
     )
   )

@@ -4,14 +4,19 @@
 \alias{arrange_views}
 \title{Arrange views}
 \usage{
-arrange_views(layout = NULL, views = NULL, ...)
+arrange_views(layout = NULL, views = NULL, listify = TRUE, ...)
 }
 \arguments{
 \item{layout}{One of "linear" or "circular".}
 
 \item{views}{An object from compose_view() function.}
 
+\item{listify}{A Boolean. Convert views to list..}
+
 \item{...}{More options passed to gosling.js.}
+}
+\value{
+list object.
 }
 \description{
 Arrange views from compose_view() function.

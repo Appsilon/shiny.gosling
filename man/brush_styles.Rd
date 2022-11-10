@@ -13,7 +13,18 @@ brush_styles(
 )
 }
 \arguments{
-\item{color}{}
+\item{strokeWidth}{A number. stroke width of the marks when mouse events are triggered.}
+
+\item{strokeOpacity}{A number.}
+
+\item{stroke}{A character. Stroke color of the marks when mouse events are triggered.}
+
+\item{opacity}{A number. Opacity of the marks when mouse events are triggered.}
+
+\item{color}{A character. Color of the marks when mouse events are triggered.}
+}
+\value{
+List object with brush styles.
 }
 \description{
 Customize the style of the brush mark in the \code{rangeSelect} mouse event.

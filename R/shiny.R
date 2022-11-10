@@ -9,7 +9,6 @@
 #' @return reactOutput HTML for UI render
 #' @export
 #'
-#' @examples
 goslingOutput <- function(outputId) {
   shiny.react::reactOutput(outputId)
 }
@@ -25,7 +24,6 @@ goslingOutput <- function(outputId) {
 #' @return A function which can be assigned to an output in a Shiny server function.
 #' @export
 #'
-#' @examples
 renderGosling <- function(
     expr) {
   shiny.react::renderReact(

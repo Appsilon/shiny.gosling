@@ -15,7 +15,22 @@ visual_channel_x(
 )
 }
 \arguments{
-\item{...}{}
+\item{field}{A character. Name of the data field.}
+
+\item{type}{A character. Must be "genomic". Specify the data type.}
+
+\item{legend}{A Boolean. Whether to display legend. Default: FALSE.}
+
+\item{grid}{A Boolean. Whether to display grid. Default: FALSE.}
+
+\item{axis}{A character. One of "none", "top", "bottom", "left", "right". Specify where should the axis be put.}
+
+\item{aggregate}{A character. One of "max", "min", "mean", "bin", "count". Specify how to aggregate data. Default: undefined.}
+
+\item{...}{Any other parameters to pass to gosling.js.}
+}
+\value{
+List object.
 }
 \description{
 x and xe axis visual channel

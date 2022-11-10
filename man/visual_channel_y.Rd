@@ -18,7 +18,28 @@ visual_channel_y(
 )
 }
 \arguments{
-\item{...}{}
+\item{field}{A character. Name of the data field.}
+
+\item{zeroBaseline}{A Boolean. Specify whether to use zero baseline. Default: TRUE.}
+
+\item{type}{A character. Must be "genomic". Specify the data type.}
+
+\item{legend}{A Boolean. Whether to display legend. Default: FALSE.}
+
+\item{grid}{A Boolean. Whether to display grid. Default: FALSE.}
+
+\item{flip}{A Boolean. Whether to flip the y-axis. This is done by inverting the range property. Default: FALSE.}
+
+\item{baseline}{A character or number. Custom baseline of the y-axis. Default: 0.}
+
+\item{axis}{A character. One of "none", "top", "bottom", "left", "right". Specify where should the axis be put.}
+
+\item{aggregate}{A character. One of "max", "min", "mean", "bin", "count". Specify how to aggregate data. Default: undefined.}
+
+\item{...}{Any other parameters to pass to gosling.js.}
+}
+\value{
+List object.
 }
 \description{
 y and ye axis visual channel

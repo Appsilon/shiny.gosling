@@ -7,10 +7,16 @@
 visual_channel_tooltip(field = NULL, type = NULL, alt = NULL, ...)
 }
 \arguments{
-\item{...}{}
+\item{field}{A character. Name of the data field.}
+
+\item{type}{A character. Must be "genomic". Specify the data type.}
+
+\item{alt}{A character.}
+
+\item{...}{Any other parameters to pass to gosling.js.}
 }
 \value{
-list object with tooltip list object
+List object. list object with tooltip list object
 }
 \description{
 tooltip visual channel

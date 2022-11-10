@@ -42,6 +42,7 @@
 #' @param height A number interpreted in units of pixel.
 #' @param dataTransform An object of from track_data_transform() function.
 #' @param ... Any other arguments to be passed onto gosling.js.
+#' @return list object.
 #' @export
 add_single_track <- function(
     id = NULL, data = NULL, mark = NULL, assembly = NULL, row = NULL,
@@ -50,7 +51,7 @@ add_single_track <- function(
     x = NULL, xe = NULL, x1 = NULL, x1e = NULL, y = NULL,
     stroke = NULL, width = NULL, height = NULL, dataTransform = NULL, ...
 ) {
-  visual_channels = add_mark(
+  visual_channels <- add_mark(
     x, xe, x1, x1e, y,
     strokeWidth, opacity, row, size,
     color, stroke
@@ -79,10 +80,11 @@ add_single_track <- function(
 #' @param width A number interpreted in units of pixel.
 #' @param height A number interpreted in units of pixel.
 #' @param centerRadius Specify the proportion of the radius of
-#'  the center white space. A number between [0,1], default=0.3
+#'  the center white space. A number between c(0,1), default=0.3
 #' @param tracks The tracks with add_multi_tracks() function.
 #' @param ... More arguments passed along with view to gosling.js.
 #'
+#' @return list object.
 #' @export
 compose_view <- function(
     multi = FALSE,
@@ -93,10 +95,7 @@ compose_view <- function(
     list(
       ..., layout = layout, width = width, height = height,
       centerRadius = centerRadius,
-      tracks = ifelse(
-        multi, list(tracks),
-        list(tracks)
-      )
+      tracks = if (multi) tracks else list(tracks)
     )
   )
 }
@@ -106,23 +105,27 @@ compose_view <- function(
 #' Arrange views from compose_view() function.
 #'
 #' @param layout One of "linear" or "circular".
+#' @param listify A Boolean. Convert views to list..
 #' @param views An object from compose_view() function.
 #' @param ... More options passed to gosling.js.
 #'
+#' @return list object.
 #' @export
 arrange_views <- function(
-    layout = NULL, views = NULL, ...
+    layout = NULL, views = NULL, listify = TRUE, ...
 ) {
   list_rm_null(
     list(
-      ..., layout = layout, views = list(views)
+      ..., layout = layout,
+      views = if (listify) list(views) else views
     )
   )
 }
 
 #' Combine single tracks.
-#' @param ... Multiple tracks from add_single_track() function.
 #'
+#' @param ... Multiple tracks from add_single_track() function.
+#' @return json list.
 #' @export
 add_multi_tracks <- function(...) {
   json_list(...)
