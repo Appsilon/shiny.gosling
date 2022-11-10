@@ -1,3 +1,6 @@
+#' Setup gosling dependencies
+#'
+#' @return list of dependencies for Gosling
 goslingDependency <- function() {
   htmltools::htmlDependency(
     name = "gosling",
@@ -8,6 +11,11 @@ goslingDependency <- function() {
   )
 }
 
+#' Create react component
+#'
+#' @param name name of the react component
+#'
+#' @return function to create react element
 component <- function(name) {
   function(...) shiny.react::reactElement(
     module = "gosling.js",
