@@ -1,5 +1,5 @@
 navbarPage(
-  title = "Gosling Plots",
+  title = "shiny.gosling",
   tabPanel(
     "Coordinated Multiple Views: Circular Overview + Linear Detail Views",
     use_gosling(),

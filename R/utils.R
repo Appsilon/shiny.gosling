@@ -15,7 +15,7 @@ list_rm_null <- function(r_list) {
 #' Build gosling spec from R list
 #'
 #' @param r_list R list object built with other gosling functions
-#' @param clean_braces Whether to remove extra square branckets from the json string.
+#' @param clean_braces Whether to remove extra square brackets from the json string.
 #' @param pretty Whether to get json with indentation, line breaks etc.
 #' @param auto_unbox If TRUE will automatically unbox() all atomic vectors of length 1.
 #'
@@ -90,7 +90,7 @@ use_gosling <- function() {
 #'
 #' @param component_id Assign a component id to use other api like zoom.
 #' @param composed_views The views composed with arrange_views.
-#' @param single_track Whether single track view.
+#' @param clean_braces Whether to remove extra square brackets from the json string.
 #'
 #' @return Gosling component for rendering on R shiny apps
 #' @export
