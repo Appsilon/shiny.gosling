@@ -11,11 +11,35 @@ visual_channel_color(
   scaleOffset = NULL,
   scale = NULL,
   legend = NULL,
+  grid = NULL,
+  axis = NULL,
+  aggregate = NULL,
   ...
 )
 }
 \arguments{
-\item{...}{}
+\item{field}{A character. Name of the data field.}
+
+\item{title}{A character. Title of the legend. Default: undefined.}
+
+\item{type}{A character. Must be "genomic". Specify the data type.}
+
+\item{scaleOffset}{A number vector of the form c(1, 2). Whether to use offset of the domain proportionally. This is bound to brushes on the color legend. Default: c(0, 1).}
+
+\item{scale}{A character. One of "linear", "log".}
+
+\item{legend}{A Boolean. Whether to display legend. Default: FALSE.}
+
+\item{grid}{A Boolean. Whether to display grid. Default: FALSE.}
+
+\item{axis}{A character. One of "none", "top", "bottom", "left", "right". Specify where should the axis be put.}
+
+\item{aggregate}{A character. One of "max", "min", "mean", "bin", "count". Specify how to aggregate data. Default: undefined.}
+
+\item{...}{Any other parameters to pass to gosling.js.}
+}
+\value{
+List object.
 }
 \description{
 color visual channel

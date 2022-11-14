@@ -7,7 +7,7 @@
 track_data_transforms(...)
 }
 \arguments{
-\item{...}{Multiple data transform specs separated by comma}
+\item{...}{Multiple data transform specs separated by comma.}
 }
 \value{
 list of multiple data transform specs
