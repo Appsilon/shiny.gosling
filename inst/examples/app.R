@@ -66,8 +66,8 @@ if(interactive()) {
       column(6, goslingOutput("gosling_plot")),
       column(
         1, br(), actionButton(
-          "download_png",
-          "PNG",
+          "download_pdf",
+          "PDF",
           icon = icon("cloud-arrow-down")
         )
       )
@@ -84,8 +84,8 @@ if(interactive()) {
       )
     })
 
-    observeEvent(input$download_png, {
-      export_png(component_id = "component_1")
+    observeEvent(input$download_pdf, {
+      export_pdf(component_id = "component_1")
     })
   }
 
