@@ -12,14 +12,14 @@
 #' visual channel.
 #'
 #' Different marks support different visual channels:
-#' - point:	x, y, row, size, color, strokeWidth, opacity
-#' - line:	x, y, row, color, strokeWidth
-#' - rect:	x, xe, row, color, strokeWidth, opacity
-#' - bar:	x, y, row, color, strokeWidth, opacity
-#' - area:	x, y, row, color, strokeWidth
-#' - link:	x, xe, x1, x1e, color, opacity
-#' - triangle:	x, xe, row, size, color, opacity
-#' - text:	x, xe, row, color, opacity
+#' - point: x, y, row, size, color, strokeWidth, opacity
+#' - line: x, y, row, color, strokeWidth
+#' - rect: x, xe, row, color, strokeWidth, opacity
+#' - bar: x, y, row, color, strokeWidth, opacity
+#' - area: x, y, row, color, strokeWidth
+#' - link: x, xe, x1, x1e, color, opacity
+#' - triangle: x, xe, row, size, color, opacity
+#' - text: x, xe, row, color, opacity
 #'
 #' For more info visit http://gosling-lang.org/tutorials/
 #'
