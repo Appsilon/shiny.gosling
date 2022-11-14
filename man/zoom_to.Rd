@@ -14,10 +14,12 @@ zoom_to(
 )
 }
 \arguments{
-\item{component_id}{A character. The id of the component_id prop passed to the
+\item{component_id}{A character. The id of the component_id prop passed
+to the
 GoslingComponent function.}
 
-\item{view_id}{A character. The ID of a view that you want to control. This ID
+\item{view_id}{A character. The ID of a view that you want to control.
+This ID
 is consistent to what you specify as track.id in your spec.}
 
 \item{position}{A character. The genomic position that your view should be

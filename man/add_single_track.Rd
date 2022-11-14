@@ -32,7 +32,8 @@ add_single_track(
 \item{data}{An object of from track_data() function.}
 
 \item{mark}{Type of plot. One of c("point", "line", "rect", "bar", "area",
-"link", "triangle", "text"). Each mark type has some supported visual channel.
+"link", "triangle", "text"). Each mark type has some supported
+visual channel.
 
 Different marks support different visual channels:
 \itemize{
@@ -89,7 +90,8 @@ character of hex color code like "#123456".}
 list object.
 }
 \description{
-Add a single track to the plot of a mark type ( plot type ). This function constructs a single track from the inputs. The inputs
+Add a single track to the plot of a mark type ( plot type ). This function
+constructs a single track from the inputs. The inputs
 can be id, data, mark etc. Please check gosling.js documentation for
 advabced usage.
 }

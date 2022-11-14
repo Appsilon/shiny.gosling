@@ -34,55 +34,79 @@ default_track_styles(
 )
 }
 \arguments{
-\item{textStrokeWidth}{A number. Specify the stroke width of text marks. Can also be specified using the strokeWidth channel option of text marks.}
+\item{textStrokeWidth}{A number. Specify the stroke width of text marks.
+Can also be specified using the strokeWidth channel option of text marks.}
 
-\item{textStroke}{A character. Specify the stroke of text marks. Can also be specified using the stroke channel option of text marks.}
+\item{textStroke}{A character. Specify the stroke of text marks. Can also
+be specified using the stroke channel option of text marks.}
 
-\item{textFontWeight}{A character. One of "bold", "normal". Specify the font weight of text marks.}
+\item{textFontWeight}{A character. One of "bold", "normal". Specify the
+font weight of text marks.}
 
-\item{textFontSize}{A number. Specify the font size of text marks. Can also be specified using the size channel option of text marks.}
+\item{textFontSize}{A number. Specify the font size of text marks. Can
+also be specified using the size channel option of text marks.}
 
-\item{textAnchor}{A character. One of "start", "middle", "end". Specify the alignment of text marks to a given point.}
+\item{textAnchor}{A character. One of "start", "middle", "end". Specify
+the alignment of text marks to a given point.}
 
-\item{select}{An object returned by event_styles(). Customize visual effects of rangeSelect events on marks.}
+\item{select}{An object returned by event_styles(). Customize visual
+effects of rangeSelect events on marks.}
 
 \item{outlineWidth}{A number.}
 
 \item{outline}{A character.}
 
-\item{mouseOver}{An object returned by event_styles(). Customize visual effects of mouseOver events on marks.}
+\item{mouseOver}{An object returned by event_styles(). Customize
+visual effects of mouseOver events on marks.}
 
-\item{matrixExtent}{A character.One of "full", "upper-right", "lower-left". Determine to show only one side of the diagonal in a HiGlass matrix. Default: "full".}
+\item{matrixExtent}{A character.One of "full", "upper-right", "lower-left".
+Determine to show only one side of the diagonal in a HiGlass matrix.
+Default: "full".}
 
-\item{linkStyle}{A character. One of "elliptical", "circular", "straight", "experimentalEdgeBundling". The style of withinLink and betweenLink marks. Default: 'circular' 'elliptical' will be used as a default option.}
+\item{linkStyle}{A character. One of "elliptical", "circular", "straight",
+"experimentalEdgeBundling". The style of withinLink and betweenLink marks.
+Default: 'circular' 'elliptical' will be used as a default option.}
 
-\item{linkMinHeight}{A number. The minimum height of withinLink and betweenLink marks. Unit is a percentagle. Default: 0.5.}
+\item{linkMinHeight}{A number. The minimum height of withinLink and
+betweenLink marks. Unit is a percentagle. Default: 0.5.}
 
-\item{linkConnectionType}{A character. One of "straight", "curve", "corner". Specify the connetion type of betweenLink marks. Default: "corner".}
+\item{linkConnectionType}{A character. One of "straight", "curve",
+"corner". Specify the connetion type of betweenLink marks. Default: "corner".}
 
-\item{linePattern}{A list of the form list(size="number",type="string"). One of "triangleLeft", "triangleRight".) Specify the pattern of dashes and gaps for rule marks.}
+\item{linePattern}{A list of the form list(size="number",type="string").
+One of "triangleLeft", "triangleRight".) Specify the pattern of dashes
+and gaps for rule marks.}
 
-\item{legendTitle}{A character. If defined, show legend title on the top or left.}
+\item{legendTitle}{A character. If defined, show legend title on the top
+or left.}
 
-\item{inlineLegend}{A Boolean. Specify whether to show legend in a single horizontal line?}
+\item{inlineLegend}{A Boolean. Specify whether to show legend in a single
+horizontal line?}
 
-\item{enableSmoothPath}{A Boolean. Whether to enable smooth paths when drawing curves. Default: FALSE.}
+\item{enableSmoothPath}{A Boolean. Whether to enable smooth paths when
+drawing curves. Default: FALSE.}
 
-\item{dy}{A number. Offset the position of marks in y direction. This property is currently only supported for text marks.}
+\item{dy}{A number. Offset the position of marks in y direction. This
+property is currently only supported for text marks.}
 
-\item{dx}{A number. Offset the position of marks in x direction. This property is currently only supported for text marks.}
+\item{dx}{A number. Offset the position of marks in x direction. This
+property is currently only supported for text marks.}
 
-\item{dashed}{An vector of number like c(1, 2). Specify the pattern of dashes and gaps for rule marks.}
+\item{dashed}{An vector of number like c(1, 2). Specify the pattern of
+dashes and gaps for rule marks.}
 
-\item{curve}{A character. One of "top", "bottom", "left", "right". Specify the curve of rule marks.}
+\item{curve}{A character. One of "top", "bottom", "left", "right".
+Specify the curve of rule marks.}
 
-\item{brush}{An object returned by brush_styles(). Customize the style of the brush mark in the rangeSelect mouse event.}
+\item{brush}{An object returned by brush_styles(). Customize the
+style of the brush mark in the rangeSelect mouse event.}
 
 \item{backgroundOpacity}{A number.}
 
 \item{background}{A character.}
 
-\item{align}{A character. One of "left", "right". Specify the alignment of marks. This property is currently only supported for triangle marks.}
+\item{align}{A character. One of "left", "right". Specify the alignment
+of marks. This property is currently only supported for triangle marks.}
 
 \item{...}{Any other styles to be passed to gosling.js.}
 }
@@ -93,5 +117,6 @@ List object with default styles.
 Default styles for tracks
 }
 \details{
-For more info visit http://gosling-lang.org/docs/visual-channel/#style-related-properties
+For more info visit
+http://gosling-lang.org/docs/visual-channel/#style-related-properties
 }

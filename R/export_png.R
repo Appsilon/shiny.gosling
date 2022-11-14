@@ -1,7 +1,8 @@
 #' Export PNG
 #' @description
 #' Exports PNG
-#' @param component_id A character. The id of the component_id prop passed to the
+#' @param component_id A character. The id of the component_id prop
+#' passed to the
 #' GoslingComponent function.
 #' @param transparent_background A Boolean. Determine if the background
 #' should be transparent or not (Default: false).
@@ -9,7 +10,8 @@
 #' @return None.
 #' @importFrom shiny getDefaultReactiveDomain
 #' @export
-export_png <- function(component_id, transparent_background = FALSE, session = getDefaultReactiveDomain()) {
+export_png <- function(component_id, transparent_background = FALSE,
+                       session = getDefaultReactiveDomain()) {
   session$sendCustomMessage(
     'export_png',
     list(

@@ -30,5 +30,6 @@ List object.
 opacity visual channel
 }
 \details{
-For more info visit http://gosling-lang.org/docs/visual-channel#opacity
+For more info visit
+http://gosling-lang.org/docs/visual-channel#opacity
 }

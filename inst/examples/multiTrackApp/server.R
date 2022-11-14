@@ -23,8 +23,10 @@ single_track <- add_single_track(
     legend = TRUE
   ),
   tooltip = visual_channel_tooltips(
-    visual_channel_tooltip(field = "start", type = "genomic", alt = "Start Position"),
-    visual_channel_tooltip(field = "end", type = "genomic", alt = "End Position"),
+    visual_channel_tooltip(field = "start", type = "genomic",
+                           alt = "Start Position"),
+    visual_channel_tooltip(field = "end", type = "genomic",
+                           alt = "End Position"),
     visual_channel_tooltip(
       field = "peak",
       type = "quantitative",
@@ -116,7 +118,8 @@ track3_styles <- default_track_styles(
   background = "lightgray", backgroundOpacity = 0.2
 )
 track3_data <- track_data(
-  url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/cnv.PD35930a.csv",
+  url =
+    "https://s3.amazonaws.com/gosling-lang.org/data/cancer/cnv.PD35930a.csv",
   type = "csv",
   headerNames = c(
     "id",
@@ -158,7 +161,8 @@ track4_styles <- default_track_styles(
   background = "lightgray", backgroundOpacity = 0.2
 )
 track4_data <- track_data(
-  url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/cnv.PD35930a.csv",
+  url =
+    "https://s3.amazonaws.com/gosling-lang.org/data/cancer/cnv.PD35930a.csv",
   type = "csv",
   headerNames = c(
     "id",
@@ -287,7 +291,8 @@ function(input, output, session) {
 
     all_reactive_values$single_composed_views <- arrange_views(
       title = "Single Track",
-      subtitle = "This is the simplest single track visualization with a linear layout",
+      subtitle =
+        "This is the simplest single track visualization with a linear layout",
       layout = input$layout_single, views = single_composed_track,
       xDomain = list(chromosome = "chr1", interval = c(1, 3000500))
     )
