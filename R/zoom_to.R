@@ -15,6 +15,7 @@
 #' @param duration A numeric. A duration of the animated transition in ms
 #' (Default: 1000).
 #' @param session A shiny session object.
+#' @examples
 #' if(interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
