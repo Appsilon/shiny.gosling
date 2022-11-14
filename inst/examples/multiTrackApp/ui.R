@@ -43,14 +43,14 @@ navbarPage(
             )
           )
         ),
-        PrimaryButton.shinyInput(
+        actionButton(
           "go_to_chr",
-          text = "Go to"
+          "Go to"
         ),
         br(),
-        PrimaryButton.shinyInput(
+        actionButton(
           "reset_rule_mark",
-          text = "Reset zoom"
+          "Reset zoom"
         )
       )
     )
