@@ -863,7 +863,6 @@ visual_channel_color <- function(
 #'
 #' }
 #'
-#'
 #' @details For more info visit
 #' http://gosling-lang.org/docs/visual-channel#stroke
 #'
