@@ -28,6 +28,8 @@ The unit of this number is a base pair (Default: 0).}
 
 \item{duration}{A numeric. A duration of the animated transition in ms
 (Default: 1000).}
+
+\item{session}{A shiny session object.}
 }
 \description{
 This function makes a view navigate to a certain gene with animated transition.
