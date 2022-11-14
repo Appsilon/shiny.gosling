@@ -14,3 +14,7 @@ Imports:
   jsonlite,
   shiny,
   shiny.react
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
