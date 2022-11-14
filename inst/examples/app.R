@@ -2,13 +2,6 @@ if(interactive()) {
   library(shiny)
   library(shiny.gosling)
 
-  chromosome_options <- c(
-    "Chr 1" = "chr1",
-    "Chr 2" = "chr2",
-    "Chr X" = "chrX",
-    "Chr Y" = "chrY"
-  )
-
   cistrome_data <-
     "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec"
 
@@ -73,17 +66,9 @@ if(interactive()) {
       column(6, goslingOutput("gosling_plot")),
       column(
         1, br(), actionButton(
-          "zoom_out",
-          "Zoom To"
-        )
-      ),
-      column(
-        2,
-        selectInput(
-          "chromosomes",
-          "Chromosome",
-          selected = "chr1",
-          choices = chromosome_options
+          "download_png",
+          "PNG",
+          icon = icon("cloud-arrow-down")
         )
       )
     )
@@ -99,12 +84,8 @@ if(interactive()) {
       )
     })
 
-    observeEvent(input$zoom_out, {
-      zoom_to(
-        component_id = "component_1",
-        view_id = "track1",
-        position = input$chromosomes
-      )
+    observeEvent(input$download_png, {
+      export_png(component_id = "component_1")
     })
   }
 
