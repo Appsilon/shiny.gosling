@@ -10,7 +10,6 @@
 #' http://gosling-lang.org/docs/visual-channel#encode-a-visual-channel
 #'
 #' @return List object.
-#' @export
 #'
 visual_channel <- function(
     field = NULL, type = NULL, range = NULL, domain = NULL, ...
