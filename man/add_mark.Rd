@@ -29,13 +29,11 @@ add_mark(
 
 \item{y}{An object returned by visual_channel_y().}
 
-\item{strokeWidth}{A number or an object returned by
-visual_channel_stroke_width().}
+\item{strokeWidth}{A number or an object returned by visual_channel_stroke_width().}
 
 \item{opacity}{A number or an object returned by visual_channel_opacity().}
 
-\item{row}{A factor data column Channel row is used with channel y to
-stratify a visualization with categorical values.}
+\item{row}{A factor data column Channel row is used with channel y to stratify a visualization with categorical values.}
 
 \item{size}{A number or an object returned by visual_channel_size().}
 
