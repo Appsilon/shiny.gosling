@@ -3,10 +3,6 @@ navbarPage(
   tabPanel(
     "Single Track Plot",
     use_gosling(),
-    shinybusy::busy_start_up(
-      loader = shinybusy::spin_epic("orbit"),
-      text = "Loading ..."
-    ),
     includeCSS("www/styles.css"),
     sidebarLayout(
       sidebarPanel(
