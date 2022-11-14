@@ -19,17 +19,22 @@ track_data(
 \item{url}{A character. Specify the URL address of the data file.}
 
 \item{type}{A character. Type of data. One of "csv", "json", "bigwig", "bam",
-"vcf", "vector", "multivec" and "beddb". For usage refer to http://gosling-lang.org/docs/data#supported-data-formats.}
+"vcf", "vector", "multivec" and "beddb". For usage refer to
+http://gosling-lang.org/docs/data#supported-data-formats.}
 
 \item{separator}{A character. Specify file separator, Default: ','}
 
-\item{sampleLength}{A number. Specify the number of rows loaded from the URL. Default: 1000}
+\item{sampleLength}{A number. Specify the number of rows loaded from
+the URL. Default: 1000}
 
-\item{headerNames}{A character vector. Specify the names of data fields if a CSV file is headerless.}
+\item{headerNames}{A character vector. Specify the names of data fields
+if a CSV file is headerless.}
 
-\item{genomicFields}{A character vector. Specify the name of genomic data fields.}
+\item{genomicFields}{A character vector. Specify the name of genomic
+data fields.}
 
-\item{chromosomeField}{A character. Specify the name of chromosome data fields.}
+\item{chromosomeField}{A character. Specify the name of chromosome
+data fields.}
 
 \item{...}{Any other parameters passed to json data object.}
 }
@@ -41,6 +46,7 @@ Build the data object for golsing plots
 }
 \details{
 For info visit http://gosling-lang.org/docs/data.
-Check the various supported data formats and their parameters. All of them can be
+Check the various supported data formats and their parameters.
+All of them can be
 constructed using this function.
 }

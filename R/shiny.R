@@ -21,7 +21,8 @@ goslingOutput <- function(outputId) {
 #' @param expr The code for rendering gosling plot.
 #' Must be a gosling object built with shiny.gosling::gosling()
 #'
-#' @return A function which can be assigned to an output in a Shiny server function.
+#' @return A function which can be assigned to an output in a
+#' Shiny server function.
 #' @export
 #'
 renderGosling <- function(

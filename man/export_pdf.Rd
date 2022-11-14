@@ -11,7 +11,8 @@ export_pdf(
 )
 }
 \arguments{
-\item{component_id}{A character. The id of the component_id prop passed to the
+\item{component_id}{A character. The id of the component_id
+prop passed to the
 GoslingComponent function.}
 
 \item{transparent_background}{A Boolean. Determine if the background

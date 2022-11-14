@@ -23,9 +23,11 @@ visual_channel_x(
 
 \item{grid}{A Boolean. Whether to display grid. Default: FALSE.}
 
-\item{axis}{A character. One of "none", "top", "bottom", "left", "right". Specify where should the axis be put.}
+\item{axis}{A character. One of "none", "top", "bottom", "left", "right".
+Specify where should the axis be put.}
 
-\item{aggregate}{A character. One of "max", "min", "mean", "bin", "count". Specify how to aggregate data. Default: undefined.}
+\item{aggregate}{A character. One of "max", "min", "mean", "bin", "count".
+Specify how to aggregate data. Default: undefined.}
 
 \item{...}{Any other parameters to pass to gosling.js.}
 }
@@ -36,5 +38,6 @@ List object.
 x and xe axis visual channel
 }
 \details{
-For more info visit http://gosling-lang.org/docs/visual-channel#x--xe
+For more info visit
+http://gosling-lang.org/docs/visual-channel#x--xe
 }

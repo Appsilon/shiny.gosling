@@ -1,9 +1,11 @@
 #' Zoom to
 #' @description
 #' Zooms  to a specific genomic position with the animated transition.
-#' @param component_id A character. The id of the component_id prop passed to the
+#' @param component_id A character. The id of the component_id prop passed
+#' to the
 #' GoslingComponent function.
-#' @param view_id A character. The ID of a view that you want to control. This ID
+#' @param view_id A character. The ID of a view that you want to control.
+#' This ID
 #' is consistent to what you specify as track.id in your spec.
 #' @param position A character. The genomic position that your view should be
 #' navigated to. You can either specify chromosome (e.g., chr1) or a
