@@ -11,6 +11,7 @@
 #' The unit of this number is a base pair (Default: 0).
 #' @param duration A numeric. A duration of the animated transition in ms
 #' (Default: 1000).
+#' @param session A shiny session object.
 #' @importFrom shiny getDefaultReactiveDomain
 #' @export
 zoom_to_gene <- function(
