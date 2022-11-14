@@ -14,5 +14,3 @@ Imports:
   jsonlite,
   shiny,
   shiny.react
-Suggests: 
-  shinybusy
