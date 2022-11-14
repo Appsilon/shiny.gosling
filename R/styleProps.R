@@ -19,7 +19,6 @@
 #' http://gosling-lang.org/docs/visual-channel/#type-eventstyle
 #'
 #' @return List object with event styles.
-#' @export
 #'
 event_styles <- function(
     strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
@@ -50,7 +49,6 @@ event_styles <- function(
 #' http://gosling-lang.org/docs/visual-channel/#type-brush
 #'
 #' @return List object with brush styles.
-#' @export
 #'
 brush_styles <- function(
     strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
