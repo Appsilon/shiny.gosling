@@ -13,10 +13,10 @@ biocViews: ShinyApps, Genetics, Visualization
 Imports:
     htmltools,
     jsonlite,
-    sessioninfo,
     shiny,
     shiny.react
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    sessioninfo
 VignetteBuilder: knitr

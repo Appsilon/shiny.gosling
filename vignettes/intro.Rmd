@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(shiny.gosling)
 library(shiny)
+library(sessioninfo)
 ```
 
 # Introduction to shiny.gosling
@@ -136,5 +137,5 @@ shiny::shinyApp(ui, server, options = list(height = 700))
 ```
 
 ```{r}
-sessioninfo::session_info()
+session_info()
 ```
