@@ -7,6 +7,7 @@ const config = {
     path: path.join(__dirname, '..', 'inst', 'www'),
     filename: 'gosling.js'
   },
+  mode: 'production',
   module: {
     rules: [
       {
