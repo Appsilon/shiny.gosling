@@ -1,3 +1,7 @@
+---
+title: "shiny.gosling"
+---
+
 <a href = "https://appsilon.com/careers/" target="_blank"><img src="http://d2v95fjda94ghc.cloudfront.net/hiring.png" alt="We are hiring!"/></a>
 
 # shiny.gosling
@@ -14,17 +18,25 @@ remotes::install_github("Appsilon/shiny.react")
 remotes::install_github("Appsilon/shiny.gosling")
 ```
 
-Take a look at [basic example app](https://github.com/Appsilon/shiny.gosling/blob/main/inst/examples/app.R) to start working with _shiny.gosling_.
+Take a look at [basic example app](https://github.com/Appsilon/shiny.gosling/blob/main/inst/examples/staticCircularBar/app.R) to start working with _shiny.gosling_.
 
 To learn about the Gosling language, follow [Gosling docs](http://gosling-lang.org/tutorials/).
 
 ## Examples
 
-Run `inst/examples/dashboard/app.R` to see Gosling in action in a Shiny app. Here is a preview of what's there:
+Run `shiny::shinyAppDir("inst/examples/circularLinearWithBrush/")` to see Gosling in action in a Shiny app. Here is a preview of what's there:
 
-![gosling example in shiny 1](https://user-images.githubusercontent.com/1421503/180184232-4df04501-62a6-47c0-a0fb-c2518cca35a4.gif)
-![gosling example in shiny 2](https://user-images.githubusercontent.com/1421503/180184244-1daced88-5d66-4adc-a541-8e25767f8e79.gif)
-![gosling example in shiny 3](https://user-images.githubusercontent.com/1421503/180184324-4be3dc70-cde2-4d87-9505-c342f302cab9.gif)
+### Simple Single Track Shiny App
+![Simple Single Track Shiny App](https://github.com/Appsilon/shiny.gosling.js/raw/main/examples/singleTrackShiny.gif)
+
+
+### Interactive Circular Plot with Linear Brush
+![Circular Plot with Linear Brush](https://github.com/Appsilon/shiny.gosling.js/raw/70efce34abe21adf11ac1312de5673e219e62b73/examples/circularLinearBrush.gif)
+
+
+### SARS CoV 2 Example
+![SARS CoV 2 Example](https://github.com/Appsilon/shiny.gosling.js/raw/main/examples/sarsCov2.gif)
+
 
 Appsilon
 --------
