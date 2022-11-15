@@ -1,7 +1,3 @@
----
-title: "shiny.gosling"
----
-
 <a href = "https://appsilon.com/careers/" target="_blank"><img src="http://d2v95fjda94ghc.cloudfront.net/hiring.png" alt="We are hiring!"/></a>
 
 # shiny.gosling
