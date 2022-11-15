@@ -3,8 +3,9 @@ title: "Introduction to shiny.gosling"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Introduction to shiny.gosling}
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+runtime: shiny
 ---
 
 ```{r, include = FALSE}
@@ -15,7 +16,6 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-
 library(shiny.gosling)
 library(shiny)
 ```
@@ -133,4 +133,8 @@ ui <- fluidPage(
 
 
 shiny::shinyApp(ui, server, options = list(height = 700))
+```
+
+```{r}
+sessioninfo::session_info()
 ```
