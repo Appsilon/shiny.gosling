@@ -20,7 +20,12 @@ To learn about the Gosling language, follow [Gosling docs](http://gosling-lang.o
 
 ## Examples
 
-Run `shiny::shinyAppDir("inst/examples/circularLinearWithBrush/")` to see Gosling in action in a Shiny app. Here is a preview of what's there:
+Use the `run_example` function in order to see the working examples:
+For example to run the *multiTrackApp* example:
+```R
+run_example("multiTrackApp")
+```
+Here is a preview of what's there:
 
 ### Simple Single Track Shiny App
 ![Simple Single Track Shiny App](https://github.com/Appsilon/shiny.gosling.js/raw/main/examples/singleTrackShiny.gif)
