@@ -3,3 +3,5 @@
 ^shiny\.gosling\.Rproj$
 ^\.Rproj\.user$
 ^js$
+^inst/WORDLIST$
+^config\.yml$
