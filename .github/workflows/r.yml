@@ -36,10 +36,14 @@ jobs:
             any::lintr
             any::spelling
             any::config
+          needs: check
 
-      - name: Check
-        run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
-        shell: Rscript {0}
+      - name: R CMD check
+        uses: r-lib/actions/check-r-package@v2
+          with:
+            args: 'c("--no-manual", "--as-cran")'
+            error-on: '"error"'
+            check-dir: '"check"'
 
       - name: Lint
         if: always()
