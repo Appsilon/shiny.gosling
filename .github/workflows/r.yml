@@ -30,7 +30,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          install.packages(c("remotes", "rcmdcheck", "lintr"))
+          install.packages(c(
+          "remotes", "rcmdcheck", "lintr", "spelling"
+          ))
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
 
@@ -45,21 +47,6 @@ jobs:
           lints <- lintr::lint_package()
           for (lint in lints) print(lint)
           quit(status = length(lints) > 0)
-
-      - name: Test
-        if: always()
-        shell: Rscript {0}
-        run: |
-          # Errors will fail this step automatically.
-          tests <- testthat::test_local()
-          # Escalate warnings to a failure too.
-          expectations <-
-            lapply(tests, function(test) {
-              lapply(test$results, class)
-            }) |>
-            unlist()
-          warnings_found <- any(grepl("expectation_warning", expectations))
-          quit(status = warnings_found)
 
       - name: Spell Check
         if : always()
