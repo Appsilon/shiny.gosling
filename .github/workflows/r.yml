@@ -35,6 +35,7 @@ jobs:
             any::rcmdcheck
             any::lintr
             any::spelling
+            any::config
 
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
@@ -45,16 +46,18 @@ jobs:
         shell: Rscript {0}
         run: |
           lints <- lintr::lint_package()
+          config <- config::get()
           for (lint in lints) print(lint)
-          quit(status = length(lints) > 0)
+          quit(status = length(lints) > config$ci$lint$threshold)
 
       - name: Spell Check
         if : always()
         shell: Rscript {0}
         run: |
           spell_check <- spelling::spell_check_package(use_wordlist = TRUE)
+          config <- config::get()
           cli::cli_alert_warning("There are {nrow(spell_check)} spelling error{?s}.")
-          if (nrow(spell_check) > 0) {
+          if (nrow(spell_check) > config$ci$spelling$threshold) {
             print(spell_check)
           }
-          quit(status = nrow(spell_check) > 0)
+          quit(status = nrow(spell_check) > config$ci$spelling$threshold)

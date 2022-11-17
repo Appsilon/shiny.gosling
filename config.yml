@@ -1,0 +1,6 @@
+default:
+  ci:
+    lint:
+      threshold: 1000
+    spelling:
+      threshold: 100
