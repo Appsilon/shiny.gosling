@@ -14,22 +14,30 @@ jobs:
     timeout-minutes: 30
     strategy:
       matrix:
-        r-version: ['4.2.0']
+        r-version: ['release']
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Set up R ${{ matrix.r-version }}
         uses: r-lib/actions/setup-r@v2
         with:
           r-version: ${{ matrix.r-version }}
+
+      - name: Setup libcurl
+        run: |
+          sudo apt-get install libcurl4-openssl-dev
+
       - name: Install dependencies
         run: |
           install.packages(c("remotes", "rcmdcheck", "lintr"))
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
+
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
         shell: Rscript {0}
+
       - name: Lint
         if: always()
         shell: Rscript {0}
@@ -37,6 +45,7 @@ jobs:
           lints <- lintr::lint_package()
           for (lint in lints) print(lint)
           quit(status = length(lints) > 0)
+
       - name: Test
         if: always()
         shell: Rscript {0}
