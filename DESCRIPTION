@@ -2,8 +2,18 @@ Package: shiny.gosling
 Title: A Grammar-based Toolkit for Scalable and Interactive Genomics Data Visualization for R and Shiny
 Version: 0.99.0
 Authors@R: 
-    person("Appsilon", email = "opensource@appsilon.com",
-    role = c("aut", "cre"))
+  c(
+  person("Appsilon",
+           email = "opensource@appsilon.com",
+           role = c("aut", "cre")),
+    person("Anirban", "Shaw",
+           email = "anirbanshaw24@gmail.com",
+           role = c("aut"),
+           comment = c(ORCID = "0000-0003-4021-513X")),
+    person("Federico", "Rivadeneira",
+           role = c("aut"),
+           comment = c(ORCID = "0000-0001-7818-1225"))
+  )
 Description: A Grammar-based Toolkit for Scalable and Interactive Genomics Data Visualization. http://gosling-lang.org/. This R package is based on gosling.js. It uses R functions to create gosling plots that could be embedded onto R Shiny apps.
 License: MIT + file LICENSE
 Encoding: UTF-8
