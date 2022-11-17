@@ -15,13 +15,13 @@ permissions:
 
 jobs:
   build:
-    runs-on: [ubuntu-latest windows-latest macos-latest]
+    runs-on: [ubuntu-latest, windows-latest, macos-latest]
     strategy:
       matrix:
         r-version: ['release', 'devel', 'oldrel']
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Set up R ${{ matrix.r-version }}
         uses: r-lib/actions/setup-r@f57f1301a053485946083d7a45022b278929a78a
         with:
