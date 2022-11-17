@@ -5,3 +5,4 @@
 ^js$
 ^inst/WORDLIST$
 ^config\.yml$
+^\.lintr$
