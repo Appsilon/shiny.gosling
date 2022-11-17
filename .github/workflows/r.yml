@@ -6,13 +6,9 @@
 # See https://github.com/r-lib/actions/tree/master/examples#readme for
 # additional example workflows available for the R community.
 
-name: R
+name: CI
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+on: push
 
 permissions:
   contents: read
@@ -59,7 +55,7 @@ jobs:
             unlist()
           warnings_found <- any(grepl("expectation_warning", expectations))
           quit(status = warnings_found)
-          
+
       - name: Spell Check
         if : always()
         shell: Rscript {0}
