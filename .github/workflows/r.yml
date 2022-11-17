@@ -18,7 +18,7 @@ jobs:
     runs-on: [ubuntu-latest windows-latest macos-latest]
     strategy:
       matrix:
-        r-version: ['3.6.3', '4.1.1']
+        r-version: [release devel oldrel]
 
     steps:
       - uses: actions/checkout@v3
