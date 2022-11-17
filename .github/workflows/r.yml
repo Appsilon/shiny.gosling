@@ -13,8 +13,7 @@ jobs:
     runs-on: [ubuntu-latest]
     strategy:
       matrix:
-        r-version: ['release', 'devel', 'oldrel']
-
+        r-version: 'release'
     steps:
       - uses: actions/checkout@v2
       - name: Set up R ${{ matrix.r-version }}
