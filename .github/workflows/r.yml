@@ -29,12 +29,7 @@ jobs:
           sudo apt-get install libcurl4-openssl-dev
 
       - name: Install dependencies
-        run: |
-          install.packages(c(
-          "remotes", "rcmdcheck", "lintr", "spelling"
-          ))
-          remotes::install_deps(dependencies = TRUE)
-        shell: Rscript {0}
+        uses: r-lib/actions/setup-r-dependencies@v2
 
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
