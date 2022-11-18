@@ -27,6 +27,7 @@ Imports:
     shiny.react
 Suggests: 
     knitr,
+    mockery (>= 0.4.3),
     rmarkdown,
     sessioninfo,
     testthat (>= 3.0.0)

@@ -1,76 +1,16 @@
-test_that("add_multi_tracks() returns list", {
-  expect_true(is.list(
-    add_multi_tracks(
-      add_single_track(
-        mark = "rect"
-      ),
-      add_single_track(
-        mark = "brush",
-        x = visual_channel_x(linkingId = "mid-scale"),
-        strokeWidth = 1.5, stroke = "#0070DC",
-        color = "#AFD8FF", opacity = 0.5
-      )
-    )
-  ))
-})
+describe("add_multi_tracks()", {
+  it("Calls the json_list function and returns the expected output", {
+    # Arrange
+    result_json_list <- TRUE
+    mocked_json_list <- mockery::mock(result_json_list)
+    mockery::stub(add_multi_tracks, "json_list", mocked_json_list)
 
-test_that("add_multi_tracks() build validated json", {
-  # 1
-  track1 <- add_multi_tracks(
-    add_single_track(
-      mark = "rect"
-    ),
-    add_single_track(
-      mark = "brush",
-      x = visual_channel_x(linkingId = "mid-scale"),
-      strokeWidth = 1.5, stroke = "#0070DC",
-      color = "#AFD8FF", opacity = 0.5
-    )
-  )
+    # Act
+    result <- add_multi_tracks()
 
-  expect_true(
-    jsonlite::validate(
-      jsonlite::toJSON(
-        track1
-      )
-    )
-  )
+    # Assert
+    expect_equal(result, result_json_list)
+    mockery::expect_called(mocked_json_list, 1)
+  })
 
-  # 2
-  track2 <- add_multi_tracks(
-    add_single_track(
-      mark = "text"
-    ),
-    add_single_track(
-      mark = "triangleBottom", size = 5
-    )
-  )
-
-  expect_true(
-    jsonlite::validate(
-      jsonlite::toJSON(
-        track2
-      )
-    )
-  )
-
-  # 3
-  track3 <- add_multi_tracks(
-    add_single_track(
-      mark = "rect"
-    ),
-    add_single_track(
-      mark = "brush", x = visual_channel_x(linkingId = "mid-scale"),
-      strokeWidth = 1, stroke = "#94C2EF",
-      color = "#AFD8FF"
-    )
-  )
-
-  expect_true(
-    jsonlite::validate(
-      jsonlite::toJSON(
-        track3
-      )
-    )
-  )
 })
