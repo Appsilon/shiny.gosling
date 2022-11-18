@@ -45,6 +45,22 @@ jobs:
           error-on: '"note"'
           check-dir: '"check"'
 
+      - name: Setup R and Bioconductor
+        uses: grimbough/bioc-actions/setup-bioc@v1
+        with:
+          bioc-version: devel
+          bioc-mirror: https://ftp.gwdg.de/pub/misc/bioconductor
+
+      - name: Bioc Build, Install, Check
+        uses: grimbough/bioc-actions/build-install-check@v1
+
+      - name: Run BiocCheck
+        uses: grimbough/bioc-actions/run-BiocCheck@v1
+        with:
+          working-directory: shiny.gosling
+          error-on: 'warning'
+          arguments: '--no-check-bioc-views --no-check-bioc-help'
+
       - name: Lint
         if: always()
         shell: Rscript {0}
