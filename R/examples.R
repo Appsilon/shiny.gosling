@@ -8,6 +8,10 @@ package_name <- "shiny.gosling"
 #' Runs a shiny.gosling example
 #' @param example A character indicating a valid example.
 #'
+#' @examples
+#' if(interactive()) {
+#'   run_example("circularLinearWithBrush")
+#' }
 #' @export
 run_example <- function(example) {
   examples <- list.files(system.file("examples", package = package_name))

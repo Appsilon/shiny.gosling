@@ -12,3 +12,8 @@ run_example(example)
 \description{
 Runs a shiny.gosling example
 }
+\examples{
+if(interactive()) {
+  run_example("circularLinearWithBrush")
+}
+}
