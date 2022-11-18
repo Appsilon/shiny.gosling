@@ -40,7 +40,6 @@ jobs:
             any::htmltools
             any::shiny.react
           needs: check
-          error-on: 'error'
 
       - name: R CMD check
         uses: r-lib/actions/check-r-package@v2
