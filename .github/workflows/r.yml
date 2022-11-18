@@ -42,7 +42,7 @@ jobs:
         uses: r-lib/actions/check-r-package@v2
         with:
           args: 'c("--no-manual", "--as-cran")'
-          error-on: '"note"'
+          error-on: '"error"'
           check-dir: '"check"'
 
       - name: Setup R and Bioconductor
@@ -58,7 +58,7 @@ jobs:
         uses: grimbough/bioc-actions/run-BiocCheck@v1
         with:
           working-directory: shiny.gosling
-          error-on: 'warning'
+          error-on: 'error'
           arguments: '--no-check-bioc-views --no-check-bioc-help'
 
       - name: Lint
