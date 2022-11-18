@@ -11,7 +11,7 @@ on: push
 jobs:
   build:
     runs-on: [ubuntu-latest]
-    timeout-minutes: 30
+    timeout-minutes: 120
     strategy:
       matrix:
         r-version: ['oldrel', 'release', 'devel']
