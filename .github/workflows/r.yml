@@ -49,19 +49,8 @@ jobs:
           error-on: '"error"'
           check-dir: '"check"'
 
-      - name: ls
-        run: |
-          ls ../
-
-      - name: Bioc Build, Install, Check
-        uses: grimbough/bioc-actions/build-install-check@v1
-
       - name: Run BiocCheck
-        uses: grimbough/bioc-actions/run-BiocCheck@v1
-        with:
-          working-directory: shiny.gosling
-          error-on: 'error'
-          arguments: '--no-check-bioc-views --no-check-bioc-help'
+        uses: insightsengineering/bioc-check-action@v1
 
       - name: Lint
         if: always()
