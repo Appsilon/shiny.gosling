@@ -51,7 +51,7 @@ jobs:
 
       - name: ls
         run: |
-          ls
+          ls ../
 
       - name: Bioc Build, Install, Check
         uses: grimbough/bioc-actions/build-install-check@v1
