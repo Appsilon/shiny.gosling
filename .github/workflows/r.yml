@@ -49,8 +49,16 @@ jobs:
           error-on: '"error"'
           check-dir: '"check"'
 
+      - name: ls
+        shell: bash
+        run: r-lib/actions/check-r-package@v2
+
       - name: Run BiocCheck
-        uses: insightsengineering/bioc-check-action@v1
+        uses: grimbough/bioc-actions/run-BiocCheck@v1
+        with:
+          working-directory: check
+          error-on: 'error'
+          arguments: '--no-check-bioc-views --no-check-bioc-help'
 
       - name: Lint
         if: always()
