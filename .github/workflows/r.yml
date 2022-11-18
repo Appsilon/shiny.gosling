@@ -14,7 +14,7 @@ jobs:
     timeout-minutes: 120
     strategy:
       matrix:
-        r-version: ['oldrel', 'release', 'devel']
+        r-version: ['release']
 
     steps:
       - uses: actions/checkout@v2
@@ -36,6 +36,9 @@ jobs:
             any::lintr
             any::spelling
             any::config
+            any::shiny
+            any::htmltools
+            any::shiny.react
           needs: check
 
       - name: R CMD check
