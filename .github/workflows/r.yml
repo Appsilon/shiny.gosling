@@ -14,7 +14,7 @@ jobs:
     timeout-minutes: 120
     strategy:
       matrix:
-        r-version: ['release']
+        r-version: ['oldrel', 'release', 'devel']
 
     steps:
       - uses: actions/checkout@v2
@@ -48,6 +48,10 @@ jobs:
           args: 'c("--no-manual", "--as-cran")'
           error-on: '"error"'
           check-dir: '"check"'
+
+      - name: ls
+        run: |
+          ls
 
       - name: Bioc Build, Install, Check
         uses: grimbough/bioc-actions/build-install-check@v1
