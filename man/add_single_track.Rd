@@ -37,14 +37,14 @@ visual channel.
 
 Different marks support different visual channels:
 \itemize{
-\item point:    x, y, row, size, color, strokeWidth, opacity
-\item line:    x, y, row, color, strokeWidth
-\item rect:    x, xe, row, color, strokeWidth, opacity
-\item bar:    x, y, row, color, strokeWidth, opacity
-\item area:    x, y, row, color, strokeWidth
-\item link:    x, xe, x1, x1e, color, opacity
-\item triangle:    x, xe, row, size, color, opacity
-\item text:    x, xe, row, color, opacity
+\item point: x, y, row, size, color, strokeWidth, opacity
+\item line: x, y, row, color, strokeWidth
+\item rect: x, xe, row, color, strokeWidth, opacity
+\item bar: x, y, row, color, strokeWidth, opacity
+\item area: x, y, row, color, strokeWidth
+\item link: x, xe, x1, x1e, color, opacity
+\item triangle: x, xe, row, size, color, opacity
+\item text: x, xe, row, color, opacity
 }
 
 For more info visit http://gosling-lang.org/tutorials/}
