@@ -49,12 +49,6 @@ jobs:
           error-on: '"error"'
           check-dir: '"check"'
 
-      - name: Setup R and Bioconductor
-        uses: grimbough/bioc-actions/setup-bioc@v1
-        with:
-          bioc-version: devel
-          bioc-mirror: https://ftp.gwdg.de/pub/misc/bioconductor
-
       - name: Bioc Build, Install, Check
         uses: grimbough/bioc-actions/build-install-check@v1
 
