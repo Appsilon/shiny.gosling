@@ -10,7 +10,7 @@ name: CI
 on: push
 jobs:
   build:
-    runs-on: [windows-latest]
+    runs-on: [ubuntu-latest]
     timeout-minutes: 120
     strategy:
       matrix:
