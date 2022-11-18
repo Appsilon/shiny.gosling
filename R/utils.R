@@ -139,21 +139,32 @@ json_list <- function(...) {
   list(...)
 }
 
-#' Title
+#' is_atomic_field
+#'
+#' @param property_list A character or number or another atomic value.
+#'
+#' @return List.
+#'
+is_atomic_field <- function(field_name) {
+  invalid_names <- c(
+    "id", "mark", "width", "height", "title",
+    "subtitle", "alignment", "row"
+  )
+  !field_name %in% invalid_names
+}
+
+#' atomic_values_to_list
 #'
 #' @param property_list A character or number or another atomic value.
 #'
 #' @return List.
 #'
 atomic_values_to_list <- function(property_list) {
-  if(isTRUE(length(property_list) != 0)) {
-    for (x in seq(length(property_list))) {
+  if(!rlang::is_empty(property_list)) {
+    for (x in seq_along(property_list)) {
       if(!is.null(property_list[[x]])) {
-        if(isTRUE(!names(property_list[x]) %in% c(
-          "id", "mark", "width", "height", "title", "subtitle", "alignment",
-          "row"
-        )) &&
-           !is.list(property_list[[x]])) {
+        field_name <- names(property_list[x])
+        if((is_atomic_field(field_name)) && !is.list(property_list[[x]])) {
           property_list[[x]] <- list(
             value = property_list[[x]]
           )
