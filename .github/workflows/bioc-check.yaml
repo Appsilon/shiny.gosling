@@ -14,7 +14,18 @@ jobs:
     timeout-minutes: 120
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          cache-version: 2
+          extra-packages: |
+            any::rcmdcheck
+            any::lintr
+            any::spelling
+            any::config
+          needs: check
 
       - name: Setup R and Bioconductor
         uses: grimbough/bioc-actions/setup-bioc@v1
