@@ -48,7 +48,7 @@ jobs:
         run: |
           spell_check <- spelling::spell_check_package(use_wordlist = TRUE)
           cli::cli_alert_warning("There are {nrow(spell_check)} spelling error{?s}.")
-          if (nrow(spell_check) > 0 {
+          if (nrow(spell_check) > 0) {
             print(spell_check)
           }
           quit(status = nrow(spell_check) > 0)
