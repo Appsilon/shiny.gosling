@@ -50,8 +50,9 @@ jobs:
           check-dir: '"check"'
 
       - name: Run BiocCheck
-        uses: insightsengineering/bioc-check-action@v1
-        error-on: 'error'
+        uses: grimbough/bioc-actions/run-BiocCheck@v1
+        with:
+          error-on: 'note'
 
       - name: Lint
         if: always()
