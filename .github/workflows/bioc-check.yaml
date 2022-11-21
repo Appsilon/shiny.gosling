@@ -16,6 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Setup R and Bioconductor
+        uses: grimbough/bioc-actions/setup-bioc@v1
+        with:
+          bioc-version: release
+          bioc-mirror: https://ftp.gwdg.de/pub/misc/bioconductor
+
       - name: Install dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
@@ -26,12 +32,6 @@ jobs:
             any::spelling
             any::config
           needs: check
-
-      - name: Setup R and Bioconductor
-        uses: grimbough/bioc-actions/setup-bioc@v1
-        with:
-          bioc-version: release
-          bioc-mirror: https://ftp.gwdg.de/pub/misc/bioconductor
 
       - name: Build, Install, Check
         uses: grimbough/bioc-actions/build-install-check@v1
