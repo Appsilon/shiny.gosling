@@ -14,7 +14,7 @@ jobs:
     timeout-minutes: 120
     strategy:
       matrix:
-        r-version: ['oldrel', 'release', 'devel']
+        r-version: 'release'
 
     steps:
       - uses: actions/checkout@v3
