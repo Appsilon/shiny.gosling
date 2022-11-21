@@ -27,6 +27,7 @@ jobs:
         with:
           cache-version: 2
           needs: check
+          pak-version: 'devel'
 
       - name: R CMD check
         uses: r-lib/actions/check-r-package@v2
