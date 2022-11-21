@@ -33,3 +33,6 @@ jobs:
 
       - name: Run BiocCheck
         uses: insightsengineering/bioc-check-action@v1
+        with:
+          allow-failure: true
+          quit-with-status: true
