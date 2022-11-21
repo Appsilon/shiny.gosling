@@ -1,42 +1,30 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-#
-# See https://github.com/r-lib/actions/tree/master/examples#readme for
-# additional example workflows available for the R community.
+---
+name: BiocCheck
 
-name: Bioc Check
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
 jobs:
-  build:
-    runs-on: [ubuntu-latest]
-    timeout-minutes: 120
-
+  bioccheck:
+    runs-on: ubuntu-latest
+    name: BiocCheck
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup R and Bioconductor
-        uses: grimbough/bioc-actions/setup-bioc@v1
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: Setup Pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
         with:
-          bioc-version: release
-          bioc-mirror: https://ftp.gwdg.de/pub/misc/bioconductor
-
-      - name: Install dependencies
+          r-version: release
+          http-user-agent: release
+          use-public-rspm: true
+      - name: Install Deps
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          cache-version: 2
-          extra-packages: |
-            any::rcmdcheck
-            any::lintr
-            any::spelling
-            any::config
-          needs: check
-
-      - name: Build, Install, Check
-        uses: grimbough/bioc-actions/build-install-check@v1
-
+          cache: true
       - name: Run BiocCheck
-        uses: grimbough/bioc-actions/run-BiocCheck@v1
-        with:
-          error-on: 'note'
+        uses: insightsengineering/bioc-check-action@v1

@@ -14,7 +14,3 @@ Imports:
   htmltools,
   shiny,
   shiny.react
-Config/Needs/check:
-  htmltools,
-  shiny,
-  shiny.react
