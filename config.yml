@@ -1,6 +1,0 @@
-default:
-  ci:
-    lint:
-      threshold: 0
-    spelling:
-      threshold: 0
