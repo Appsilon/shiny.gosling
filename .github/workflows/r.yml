@@ -7,7 +7,7 @@ jobs:
     timeout-minutes: 120
     strategy:
       matrix:
-        r-version: ['oldrel', 'release', 'devel']
+        r-version: ['release']
 
     steps:
       - uses: actions/checkout@v3
@@ -20,6 +20,7 @@ jobs:
       - name: Setup libcurl
         run: |
           sudo apt-get install libcurl4-openssl-dev
+          sudo apt-get install -y r-cran-xml
 
       - name: Install dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
