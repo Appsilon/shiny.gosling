@@ -1,0 +1,31 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+#
+# See https://github.com/r-lib/actions/tree/master/examples#readme for
+# additional example workflows available for the R community.
+
+name: CI
+on: push
+jobs:
+  build:
+    runs-on: [ubuntu-latest]
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup R and Bioconductor
+        uses: grimbough/bioc-actions/setup-bioc@v1
+        with:
+          bioc-version: release
+          bioc-mirror: https://ftp.gwdg.de/pub/misc/bioconductor
+
+      - name: Build, Install, Check
+        uses: grimbough/bioc-actions/build-install-check@v1
+
+      - name: Run BiocCheck
+        uses: grimbough/bioc-actions/run-BiocCheck@v1
+        with:
+          error-on: 'note'

@@ -49,11 +49,6 @@ jobs:
           error-on: '"error"'
           check-dir: '"check"'
 
-      - name: Run BiocCheck
-        uses: grimbough/bioc-actions/run-BiocCheck@v1
-        with:
-          error-on: 'note'
-
       - name: Lint
         if: always()
         shell: Rscript {0}

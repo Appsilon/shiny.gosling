@@ -6,3 +6,4 @@
 ^inst/WORDLIST$
 ^config\.yml$
 ^\.lintr$
+^\.github$
