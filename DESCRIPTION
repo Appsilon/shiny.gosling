@@ -14,3 +14,11 @@ Imports:
   htmltools,
   shiny,
   shiny.react
+Suggests:
+  rcmdcheck,
+  lintr,
+  spelling,
+  config,
+  BiocManager,
+  optparse,
+  BiocCheck
