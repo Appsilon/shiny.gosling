@@ -27,6 +27,10 @@ jobs:
         with:
           cache-version: 2
           pak-version: 'devel'
+          extra-packages: |
+            any::BiocManager
+            any::optparse
+            any::BiocCheck
 
       - name: Run BiocCheck
         uses: insightsengineering/bioc-check-action@v1
