@@ -25,9 +25,16 @@ Imports:
     jsonlite,
     shiny,
     shiny.react
-Suggests: 
-    knitr,
+Suggests:
+    rcmdcheck,
     mockery (>= 0.4.3),
+    lintr,
+    spelling,
+    config,
+    BiocManager,
+    optparse,
+    BiocCheck,
+    knitr,
     rmarkdown,
     sessioninfo,
     testthat (>= 3.0.0)
