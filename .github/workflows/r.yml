@@ -1,6 +1,8 @@
 ---
 name: R CMD Check, Linters and Spelling
+
 on: push
+
 jobs:
   build:
     runs-on: [ubuntu-latest]

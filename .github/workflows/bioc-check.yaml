@@ -1,8 +1,7 @@
 ---
 name: BiocCheck
 
-on:
-  push:
+on: push
 
 jobs:
   bioccheck:
@@ -20,7 +19,7 @@ jobs:
         with:
           r-version: release
           http-user-agent: release
-          use-public-rspm: true
+          use-public-rspm: false
 
       - name: Install Deps
         uses: r-lib/actions/setup-r-dependencies@v2
