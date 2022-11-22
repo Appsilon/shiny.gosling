@@ -28,7 +28,7 @@ jobs:
           pak-version: 'devel'
 
       - name: Run BiocCheck
-        uses: insightsengineering/bioc-check-action@v1
+        uses: Appsilon/bioc-check-action@v1
         with:
           allow-failure: true
           no-cache: true
