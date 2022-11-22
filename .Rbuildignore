@@ -4,3 +4,6 @@
 ^\.Rproj\.user$
 ^js$
 ^LICENSE\.md$
+^config\.yml$
+^\.lintr$
+^\.github$
