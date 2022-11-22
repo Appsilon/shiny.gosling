@@ -21,4 +21,5 @@ Suggests:
   config,
   BiocManager,
   optparse,
-  BiocCheck
+  BiocCheck,
+  callr
