@@ -14,7 +14,14 @@ Imports:
   jsonlite,
   shiny,
   shiny.react
-Suggests: 
-    knitr,
-    rmarkdown
+Suggests:
+  rcmdcheck,
+  lintr,
+  spelling,
+  config,
+  BiocManager,
+  optparse,
+  BiocCheck,
+  knitr,
+  rmarkdown
 VignetteBuilder: knitr
