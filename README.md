@@ -1,4 +1,4 @@
-[![BiocCheck](https://github.com/Appsilon/shiny.gosling/actions/workflows/bioc-check.yaml/badge.svg)](https://github.com/Appsilon/shiny.gosling/actions/workflows/bioc-check.yaml)    [![R CMD Check, Linters and Spelling](https://github.com/Appsilon/shiny.gosling/actions/workflows/r.yml/badge.svg)](https://github.com/Appsilon/shiny.gosling/actions/workflows/r.yml)
+[![R CMD Check, Linters and Spelling](https://github.com/Appsilon/shiny.gosling/actions/workflows/r.yml/badge.svg)](https://github.com/Appsilon/shiny.gosling/actions/workflows/r.yml) [![BiocCheck](https://github.com/Appsilon/shiny.gosling/actions/workflows/bioc-check.yaml/badge.svg)](https://github.com/Appsilon/shiny.gosling/actions/workflows/bioc-check.yaml)
 
 <a href = "https://appsilon.com/careers/" target="_blank"><img src="http://d2v95fjda94ghc.cloudfront.net/hiring.png" alt="We are hiring!"/></a>
 
