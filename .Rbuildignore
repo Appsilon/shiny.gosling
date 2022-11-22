@@ -3,3 +3,6 @@
 ^shiny\.gosling\.Rproj$
 ^\.Rproj\.user$
 ^js$
+^config\.yml$
+^\.lintr$
+^\.github$
