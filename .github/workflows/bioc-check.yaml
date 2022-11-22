@@ -32,6 +32,5 @@ jobs:
         uses: insightsengineering/bioc-check-action@v1
         with:
           allow-failure: true
-          quit-with-status: true
           new-package: true
           no-cache: true
