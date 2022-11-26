@@ -215,12 +215,13 @@ default_track_styles <- function(text_stroke_width = NULL, text_stroke = NULL,
                                  outline_width = NULL, outline = NULL,
                                  mouse_over = NULL, matrix_extent = NULL,
                                  link_style = NULL, link_min_height = NULL,
-                                 link_connection_type = NULL, line_pattern = NULL,
-                                 legend_title = NULL, inline_legend = NULL,
-                                 enable_smooth_path = NULL, dy = NULL, dx = NULL,
-                                 dashed = NULL, curve = NULL, brush = NULL,
-                                 background_opacity = NULL, background = NULL,
-                                 align = NULL, ...) {
+                                 link_connection_type = NULL,
+                                 line_pattern = NULL, legend_title = NULL,
+                                 inline_legend = NULL,
+                                 enable_smooth_path = NULL, dy = NULL,
+                                 dx = NULL, dashed = NULL, curve = NULL,
+                                 brush = NULL, background_opacity = NULL,
+                                 background = NULL, align = NULL, ...) {
   list_rm_null(
     list(
       text_stroke_width = text_stroke_width, text_stroke = text_stroke,
