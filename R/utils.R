@@ -140,7 +140,7 @@ json_list <- function(...) {
 
 #' is_atomic_field
 #'
-#' @param property_list A character or number or another atomic value.
+#' @param field_name A character or number or another atomic value.
 #'
 #' @return List.
 #'
@@ -155,7 +155,7 @@ is_atomic_field <- function(field_name) {
 #' atomic_values_to_list
 #'
 #' @param property_list A character or number or another atomic value.
-#'
+#' @importFrom rlang is_empty
 #' @return List.
 #'
 atomic_values_to_list <- function(property_list) {

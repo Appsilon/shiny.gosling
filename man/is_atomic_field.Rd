@@ -7,7 +7,7 @@
 is_atomic_field(field_name)
 }
 \arguments{
-\item{property_list}{A character or number or another atomic value.}
+\item{field_name}{A character or number or another atomic value.}
 }
 \value{
 List.
