@@ -10,7 +10,7 @@ use_gosling()
 Gosling initiator HTML.
 }
 \description{
-Add this function at the begining of ui. This is needed for
+Add this function at the beginning of ui. This is needed for
 gosling to work in shiny plots.
 }
 \examples{

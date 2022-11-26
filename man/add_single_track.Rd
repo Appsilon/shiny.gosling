@@ -93,7 +93,7 @@ list object.
 Add a single track to the plot of a mark type ( plot type ). This function
 constructs a single track from the inputs. The inputs
 can be id, data, mark etc. Please check gosling.js documentation for
-advabced usage.
+advanced usage.
 }
 \examples{
 if (interactive()) {

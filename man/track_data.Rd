@@ -42,7 +42,7 @@ data fields.}
 list of data specs
 }
 \description{
-Build the data object for golsing plots
+Build the data object for gosling plots
 }
 \details{
 For info visit http://gosling-lang.org/docs/data.

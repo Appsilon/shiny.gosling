@@ -7,7 +7,7 @@
 gosling(component_id, composed_views, clean_braces = TRUE)
 }
 \arguments{
-\item{component_id}{Assign a component id to use other api like zoom.}
+\item{component_id}{Assign a component id to use other API like zoom.}
 
 \item{composed_views}{The views composed with arrange_views.}
 

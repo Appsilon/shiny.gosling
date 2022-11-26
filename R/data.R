@@ -1,7 +1,7 @@
 
 #' Data object builder
 #'
-#' Build the data object for golsing plots
+#' Build the data object for gosling plots
 #'
 #' @param url A character. Specify the URL address of the data file.
 #' @param type A character. Type of data. One of "csv", "json", "bigwig", "bam",

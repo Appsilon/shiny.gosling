@@ -3,7 +3,7 @@
 #' Add a single track to the plot of a mark type ( plot type ). This function
 #' constructs a single track from the inputs. The inputs
 #' can be id, data, mark etc. Please check gosling.js documentation for
-#' advabced usage.
+#' advanced usage.
 #'
 #' @param id Optional argument to assign an id to the track.
 #' @param data An object of from track_data() function.

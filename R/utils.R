@@ -176,7 +176,7 @@ atomic_values_to_list <- function(property_list) {
 
 #' Initiate gosling
 #'
-#' Add this function at the begining of ui. This is needed for
+#' Add this function at the beginning of ui. This is needed for
 #' gosling to work in shiny plots.
 #'
 #' @examples
@@ -289,7 +289,7 @@ use_gosling <- function() {
 
 #' Build gosling plot object
 #'
-#' @param component_id Assign a component id to use other api like zoom.
+#' @param component_id Assign a component id to use other API like zoom.
 #' @param composed_views The views composed with arrange_views.
 #' @param clean_braces Whether to remove extra square brackets from the
 #' json string.

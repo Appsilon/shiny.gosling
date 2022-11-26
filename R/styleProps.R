@@ -84,7 +84,7 @@ brush_styles <- function(stroke_width = NULL, stroke_opacity = NULL,
 #' @param link_min_height A number. The minimum height of withinLink and
 #' betweenLink marks. Unit is a percentagle. Default: 0.5.
 #' @param link_connection_type  A character. One of "straight", "curve",
-#' "corner". Specify the connetion type of betweenLink marks. Default: "corner".
+#' "corner". Specify the connection type of betweenLink marks. Default: "corner".
 #' @param line_pattern A list of the form list(size="number",type="string").
 #'  One of "triangleLeft", "triangleRight".) Specify the pattern of dashes
 #'  and gaps for rule marks.
