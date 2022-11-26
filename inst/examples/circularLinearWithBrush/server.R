@@ -56,11 +56,13 @@ circular_track1 <- add_single_track(
 
 # Circular track 2 ----
 circular_track2_data_transform1 <- track_data_transform(
-  type = "filter", field = "chr1", oneOf = list("1", "16", "14", "9", "6", "5", "3")
+  type = "filter", field = "chr1",
+  oneOf = list("1", "16", "14", "9", "6", "5", "3")
 )
 
 circular_track2_data_transform2 <- track_data_transform(
-  type = "filter", field = "chr2", oneOf = list("1", "16", "14", "9", "6", "5", "3")
+  type = "filter", field = "chr2",
+  oneOf = list("1", "16", "14", "9", "6", "5", "3")
 )
 
 circular_track2_data <- track_data(

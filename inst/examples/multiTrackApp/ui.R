@@ -3,10 +3,6 @@ navbarPage(
   tabPanel(
     "Single Track Plot",
     use_gosling(),
-    shinybusy::busy_start_up(
-      loader = shinybusy::spin_epic("orbit"),
-      text = "Loading ..."
-    ),
     includeCSS("www/styles.css"),
     sidebarLayout(
       sidebarPanel(
@@ -47,14 +43,14 @@ navbarPage(
             )
           )
         ),
-        PrimaryButton.shinyInput(
+        actionButton(
           "go_to_chr",
-          text = "Go to"
+          "Go to"
         ),
         br(),
-        PrimaryButton.shinyInput(
+        actionButton(
           "reset_rule_mark",
-          text = "Reset zoom"
+          "Reset zoom"
         )
       )
     )

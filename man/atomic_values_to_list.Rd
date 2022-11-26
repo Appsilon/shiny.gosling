@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{atomic_values_to_list}
 \alias{atomic_values_to_list}
-\title{Title}
+\title{atomic_values_to_list}
 \usage{
 atomic_values_to_list(property_list)
 }
@@ -13,5 +13,5 @@ atomic_values_to_list(property_list)
 List.
 }
 \description{
-Title
+atomic_values_to_list
 }

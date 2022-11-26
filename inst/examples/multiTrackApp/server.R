@@ -23,8 +23,10 @@ single_track <- add_single_track(
     legend = TRUE
   ),
   tooltip = visual_channel_tooltips(
-    visual_channel_tooltip(field = "start", type = "genomic", alt = "Start Position"),
-    visual_channel_tooltip(field = "end", type = "genomic", alt = "End Position"),
+    visual_channel_tooltip(field = "start", type = "genomic",
+                           alt = "Start Position"),
+    visual_channel_tooltip(field = "end", type = "genomic",
+                           alt = "End Position"),
     visual_channel_tooltip(
       field = "peak",
       type = "quantitative",
@@ -78,7 +80,7 @@ track1 <- add_single_track(
 )
 
 track2_data <- track_data(
-  url = "inst/examples/multiTrackApp/data/driver.df.scanb.complete.csv",
+  url = "https://s3.amazonaws.com/gosling-lang.org/data/SV/driver.df.scanb.complete.csv",
   type = "csv",
   chromosomeField = "Chr",
   genomicFields = c("ChrStart", "ChrEnd")
@@ -116,7 +118,8 @@ track3_styles <- default_track_styles(
   background = "lightgray", backgroundOpacity = 0.2
 )
 track3_data <- track_data(
-  url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/cnv.PD35930a.csv",
+  url =
+    "https://s3.amazonaws.com/gosling-lang.org/data/cancer/cnv.PD35930a.csv",
   type = "csv",
   headerNames = c(
     "id",
@@ -151,14 +154,15 @@ track3 <- add_single_track(
   style = track3_styles, alignment = "overlay",
   data = track3_data, dataTransform = track3_data_transform,
   tracks = track3_tracks, x = track3_x, xe = track3_xe,
-  color = "#FB6A4B", width = 500, height = 40
+  color = "#FB6A4B", width = 620, height = 40
 )
 
 track4_styles <- default_track_styles(
   background = "lightgray", backgroundOpacity = 0.2
 )
 track4_data <- track_data(
-  url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/cnv.PD35930a.csv",
+  url =
+    "https://s3.amazonaws.com/gosling-lang.org/data/cancer/cnv.PD35930a.csv",
   type = "csv",
   headerNames = c(
     "id",
@@ -248,7 +252,7 @@ track5 <- add_single_track(
   id = "track5", title = "Structural Variant",
   data = track5_data, mark = "withinLink",
   x = track5_x, xe = track5_xe,
-  color = track5_color, width = 500, height = 40, stroke = track5_stroke,
+  color = track5_color, width = 500, height = 80, stroke = track5_stroke,
   strokeWidth = 1, opacity = 0.6, style = track5_styles
 )
 
@@ -287,7 +291,8 @@ function(input, output, session) {
 
     all_reactive_values$single_composed_views <- arrange_views(
       title = "Single Track",
-      subtitle = "This is the simplest single track visualization with a linear layout",
+      subtitle =
+        "This is the simplest single track visualization with a linear layout",
       layout = input$layout_single, views = single_composed_track,
       xDomain = list(chromosome = "chr1", interval = c(1, 3000500))
     )

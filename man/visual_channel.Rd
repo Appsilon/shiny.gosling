@@ -24,5 +24,6 @@ List object.
 Generic visual channel builder
 }
 \details{
-For more info visit http://gosling-lang.org/docs/visual-channel#encode-a-visual-channel
+For more info visit
+http://gosling-lang.org/docs/visual-channel#encode-a-visual-channel
 }

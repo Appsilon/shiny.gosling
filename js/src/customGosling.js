@@ -103,9 +103,6 @@ class GoslingComponents {
       See the docs at http://gosling-lang.org/docs/js-api#zoomto`);
     }
   };
-<<<<<<< HEAD
-=======
-
   /**
    * Runs the zoomToGene API method from gosling.js
    * See more at http://gosling-lang.org/docs/js-api#zoomtogene)
@@ -127,7 +124,6 @@ class GoslingComponents {
       See the docs at http://gosling-lang.org/docs/js-api#zoomtogene)`);
     }
   };
->>>>>>> anirban.fede.more-apis
   /**
    * Runs the exportPng API method from gosling.js
    * See more at http://gosling-lang.org/docs/js-api#exportpng)

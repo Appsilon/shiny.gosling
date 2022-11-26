@@ -23,15 +23,19 @@ visual_channel_stroke(
 
 \item{type}{A character. Must be "genomic". Specify the data type.}
 
-\item{scaleOffset}{A number vector of the form c(1, 2). Whether to use offset of the domain proportionally. This is bound to brushes on the color legend. Default: c(0, 1).}
+\item{scaleOffset}{A number vector of the form c(1, 2). Whether to use
+offset of the domain proportionally. This is bound to brushes on the color
+legend. Default: c(0, 1).}
 
 \item{legend}{A Boolean. Whether to display legend. Default: FALSE.}
 
 \item{grid}{A Boolean. Whether to display grid. Default: FALSE.}
 
-\item{axis}{A character. One of "none", "top", "bottom", "left", "right". Specify where should the axis be put.}
+\item{axis}{A character. One of "none", "top", "bottom", "left", "right".
+Specify where should the axis be put.}
 
-\item{aggregate}{A character. One of "max", "min", "mean", "bin", "count". Specify how to aggregate data. Default: undefined.}
+\item{aggregate}{A character. One of "max", "min", "mean", "bin", "count".
+Specify how to aggregate data. Default: undefined.}
 
 \item{...}{Any other parameters to pass to gosling.js.}
 }
@@ -42,5 +46,103 @@ List object.
 stroke visual channel
 }
 \details{
-For more info visit http://gosling-lang.org/docs/visual-channel#stroke
+For more info visit
+http://gosling-lang.org/docs/visual-channel#stroke
+}
+\examples{
+if(interactive()) {
+  library(shiny)
+  library(shiny.gosling)
+
+  track5_styles <- default_track_styles(
+    legendTitle = "SV Class"
+  )
+  track5_data <- track_data(
+    url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+    type = "csv",
+    genomicFieldsToConvert = json_list(
+      json_list(
+        chromosomeField = "chr1",
+        genomicFields = c("start1", "end1")
+      ),
+      json_list(
+        chromosomeField = "chr2",
+        genomicFields = c("start2", "end2")
+      )
+    )
+  )
+  track5_tracks <- add_multi_tracks(
+    add_single_track(
+      mark = "rect"
+    ),
+    add_single_track(
+      mark = "withinLink", x = visual_channel_x(linkingId = "mid-scale"),
+      strokeWidth = 0
+    )
+  )
+  track5_color <- visual_channel_color(
+    field = "svclass",
+    type = "nominal",
+    legend = TRUE,
+    domain = json_list(
+      "tandem-duplication", "translocation", "delection", "inversion"
+    ),
+    range = json_list(
+      "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
+    )
+  )
+  track5_stroke <- visual_channel_stroke(
+    field = "svclass",
+    type = "nominal",
+    domain = json_list(
+      "tandem-duplication", "translocation", "delection", "inversion"
+    ),
+    range = json_list(
+      "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
+    )
+  )
+  track5_x <- visual_channel_x(field = "start1", type = "genomic")
+  track5_xe <- visual_channel_x(field = "end2", type = "genomic")
+  track5 <- add_single_track(
+    id = "track5", title = "Structural Variant",
+    data = track5_data, mark = "withinLink",
+    x = track5_x, xe = track5_xe,
+    color = track5_color, width = 500, height = 80, stroke = track5_stroke,
+    strokeWidth = 1, opacity = 0.6, style = track5_styles
+  )
+
+  composed_track <- compose_view(
+    multi = TRUE,
+    tracks = add_multi_tracks(
+      track5
+    ),
+    xOffset = 190, layout = "circular", spacing = 1
+  )
+
+  composed_views <- arrange_views(
+    views = composed_track,
+    arrangement = "vertical"
+  )
+
+  ui <- fluidPage(
+    use_gosling(),
+    fluidRow(
+      column(6, goslingOutput("gosling_plot"))
+    )
+  )
+
+
+  server <- function(input, output, session) {
+    output$gosling_plot <- renderGosling({
+      gosling(
+        component_id = "component_2",
+        composed_views, clean_braces = FALSE
+      )
+    })
+  }
+
+  shinyApp(ui, server)
+
+}
+
 }

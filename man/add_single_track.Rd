@@ -32,18 +32,19 @@ add_single_track(
 \item{data}{An object of from track_data() function.}
 
 \item{mark}{Type of plot. One of c("point", "line", "rect", "bar", "area",
-"link", "triangle", "text"). Each mark type has some supported visual channel.
+"link", "triangle", "text"). Each mark type has some supported
+visual channel.
 
 Different marks support different visual channels:
 \itemize{
-\item point:    x, y, row, size, color, strokeWidth, opacity
-\item line:    x, y, row, color, strokeWidth
-\item rect:    x, xe, row, color, strokeWidth, opacity
-\item bar:    x, y, row, color, strokeWidth, opacity
-\item area:    x, y, row, color, strokeWidth
-\item link:    x, xe, x1, x1e, color, opacity
-\item triangle:    x, xe, row, size, color, opacity
-\item text:    x, xe, row, color, opacity
+\item point: x, y, row, size, color, strokeWidth, opacity
+\item line: x, y, row, color, strokeWidth
+\item rect: x, xe, row, color, strokeWidth, opacity
+\item bar: x, y, row, color, strokeWidth, opacity
+\item area: x, y, row, color, strokeWidth
+\item link: x, xe, x1, x1e, color, opacity
+\item triangle: x, xe, row, size, color, opacity
+\item text: x, xe, row, color, opacity
 }
 
 For more info visit http://gosling-lang.org/tutorials/}
@@ -89,7 +90,104 @@ character of hex color code like "#123456".}
 list object.
 }
 \description{
-Add a single track to the plot of a mark type ( plot type ). This function constructs a single track from the inputs. The inputs
+Add a single track to the plot of a mark type ( plot type ). This function
+constructs a single track from the inputs. The inputs
 can be id, data, mark etc. Please check gosling.js documentation for
 advabced usage.
+}
+\examples{
+if(interactive()) {
+  library(shiny)
+  library(shiny.gosling)
+
+  cistrome_data <-
+    "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec"
+
+  single_track <- add_single_track(
+    id = "track1",
+    data = track_data(
+      url = cistrome_data,
+      type = "multivec",
+      row = "sample",
+      column = "position",
+      value = "peak",
+      categories = c("sample 1", "sample 2", "sample 3", "sample 4"),
+      binSize = 4,
+    ),
+    mark = "rect",
+    x = visual_channel_x(field = "start", type = "genomic", axis = "top"),
+    xe = visual_channel_x(field = "end", type = "genomic"),
+    row = visual_channel_row(
+      field = "sample",
+      type = "nominal",
+      legend = TRUE
+    ),
+    color = visual_channel_color(
+      field = "peak",
+      type = "quantitative",
+      legend = TRUE
+    ),
+    tooltip = visual_channel_tooltips(
+      visual_channel_tooltip(field = "start", type = "genomic",
+                             alt = "Start Position"),
+      visual_channel_tooltip(field = "end", type = "genomic",
+                             alt = "End Position"),
+      visual_channel_tooltip(
+        field = "peak",
+        type = "quantitative",
+        alt = "Value",
+        format = "0.2"
+      )
+    ),
+    width = 600,
+    height = 130
+  )
+
+  single_composed_track <- compose_view(
+    tracks = single_track
+  )
+
+  single_composed_views <- arrange_views(
+    title = "Single Track",
+    subtitle = "This is the simplest single track visualization with a linear layout",
+    layout = "circular", #"linear"
+    views = single_composed_track,
+    xDomain = list(
+      chromosome = "chr1",
+      interval = c(1, 3000500)
+    )
+  )
+
+  ui <- fluidPage(
+    use_gosling(),
+    fluidRow(
+      column(6, goslingOutput("gosling_plot")),
+      column(
+        1, br(), actionButton(
+          "download_png",
+          "PNG",
+          icon = icon("cloud-arrow-down")
+        )
+      )
+    )
+  )
+
+
+  server <- function(input, output, session) {
+    output$gosling_plot <- renderGosling({
+      gosling(
+        component_id = "component_1",
+        single_composed_views,
+        clean_braces = TRUE
+      )
+    })
+
+    observeEvent(input$download_png, {
+      export_png(component_id = "component_1")
+    })
+  }
+
+  shinyApp(ui, server)
+
+}
 }

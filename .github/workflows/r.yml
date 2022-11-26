@@ -1,0 +1,58 @@
+---
+name: R CMD Check, Linters and Spelling
+
+on: push
+
+jobs:
+  build:
+    runs-on: [ubuntu-latest]
+    timeout-minutes: 120
+    strategy:
+      matrix:
+        r-version: ['release']
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up R ${{ matrix.r-version }}
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: ${{ matrix.r-version }}
+
+      - name: Setup libcurl
+        run: |
+          sudo apt-get install libcurl4-openssl-dev
+          sudo apt-get install -y r-cran-xml
+
+      - name: Install dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          cache-version: 2
+          needs: check
+          pak-version: 'devel'
+
+      - name: R CMD check
+        uses: r-lib/actions/check-r-package@v2
+        with:
+          args: 'c("--no-manual", "--as-cran")'
+          error-on: '"error"'
+          check-dir: '"check"'
+
+      - name: Lint
+        if: always()
+        shell: Rscript {0}
+        run: |
+          lints <- lintr::lint_package()
+          for (lint in lints) print(lint)
+          quit(status = length(lints) > 0)
+
+      - name: Spell Check
+        if : always()
+        shell: Rscript {0}
+        run: |
+          spell_check <- spelling::spell_check_package(use_wordlist = TRUE)
+          cli::cli_alert_warning("There are {nrow(spell_check)} spelling error{?s}.")
+          if (nrow(spell_check) > 0) {
+            print(spell_check)
+          }
+          quit(status = nrow(spell_check) > 0)

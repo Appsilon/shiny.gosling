@@ -30,5 +30,6 @@ List object.
 stroke width visual channel
 }
 \details{
-For more info visit http://gosling-lang.org/docs/visual-channel#strokewidth
+For more info visit
+http://gosling-lang.org/docs/visual-channel#strokewidth
 }

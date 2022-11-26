@@ -8,9 +8,11 @@
 #' @param x1 An object returned by visual_channel_x().
 #' @param x1e An object returned by visual_channel_x().
 #' @param y An object returned by visual_channel_y().
-#' @param strokeWidth A number or an object returned by visual_channel_stroke_width().
+#' @param strokeWidth A number or an object returned by
+#' visual_channel_stroke_width().
 #' @param opacity  A number or an object returned by visual_channel_opacity().
-#' @param row A factor data column Channel row is used with channel y to stratify a visualization with categorical values.
+#' @param row A factor data column Channel row is used with channel y to
+#' stratify a visualization with categorical values.
 #' @param size A number or an object returned by visual_channel_size().
 #' @param color A character or an object returned by visual_channel_color().
 #' @param stroke A number or an object returned by visual_channel_stroke().
@@ -18,7 +20,6 @@
 #' @details For info visit http://gosling-lang.org/docs/mark
 #'
 #' @return list of mark specifications
-#' @export
 #'
 add_mark <- function(
     x = NULL, xe = NULL, x1 = NULL, x1e = NULL, y = NULL,
