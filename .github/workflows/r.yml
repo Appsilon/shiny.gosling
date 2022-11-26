@@ -42,6 +42,7 @@ jobs:
         if: always()
         shell: Rscript {0}
         run: |
+          install.packages("devtools")
           devtools::load_all()
           lints <- lintr::lint_package()
           for (lint in lints) print(lint)
