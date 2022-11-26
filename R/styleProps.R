@@ -19,7 +19,6 @@
 #' http://gosling-lang.org/docs/visual-channel/#type-eventstyle
 #'
 #' @return List object with event styles.
-#' @export
 #'
 event_styles <- function(
     strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
@@ -50,7 +49,6 @@ event_styles <- function(
 #' http://gosling-lang.org/docs/visual-channel/#type-brush
 #'
 #' @return List object with brush styles.
-#' @export
 #'
 brush_styles <- function(
     strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
@@ -114,7 +112,101 @@ brush_styles <- function(
 #' @param align A character. One of "left", "right". Specify the alignment
 #' of marks. This property is currently only supported for triangle marks.
 #' @param ... Any other styles to be passed to gosling.js.
+#' @examples
+#' if(interactive()) {
+#'   library(shiny)
+#'   library(shiny.gosling)
 #'
+#'   track5_styles <- default_track_styles(
+#'     legendTitle = "SV Class"
+#'   )
+#'   track5_data <- track_data(
+#'     url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+#'     type = "csv",
+#'     genomicFieldsToConvert = json_list(
+#'       json_list(
+#'         chromosomeField = "chr1",
+#'         genomicFields = c("start1", "end1")
+#'       ),
+#'       json_list(
+#'         chromosomeField = "chr2",
+#'         genomicFields = c("start2", "end2")
+#'       )
+#'     )
+#'   )
+#'   track5_tracks <- add_multi_tracks(
+#'     add_single_track(
+#'       mark = "rect"
+#'     ),
+#'     add_single_track(
+#'       mark = "withinLink", x = visual_channel_x(linkingId = "mid-scale"),
+#'       strokeWidth = 0
+#'     )
+#'   )
+#'   track5_color <- visual_channel_color(
+#'     field = "svclass",
+#'     type = "nominal",
+#'     legend = TRUE,
+#'     domain = json_list(
+#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'     ),
+#'     range = json_list(
+#'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
+#'     )
+#'   )
+#'   track5_stroke <- visual_channel_stroke(
+#'     field = "svclass",
+#'     type = "nominal",
+#'     domain = json_list(
+#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'     ),
+#'     range = json_list(
+#'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
+#'     )
+#'   )
+#'   track5_x <- visual_channel_x(field = "start1", type = "genomic")
+#'   track5_xe <- visual_channel_x(field = "end2", type = "genomic")
+#'   track5 <- add_single_track(
+#'     id = "track5", title = "Structural Variant",
+#'     data = track5_data, mark = "withinLink",
+#'     x = track5_x, xe = track5_xe,
+#'     color = track5_color, width = 500, height = 80, stroke = track5_stroke,
+#'     strokeWidth = 1, opacity = 0.6, style = track5_styles
+#'   )
+#'
+#'   composed_track <- compose_view(
+#'     multi = TRUE,
+#'     tracks = add_multi_tracks(
+#'       track5
+#'     ),
+#'     xOffset = 190, layout = "circular", spacing = 1
+#'   )
+#'
+#'   composed_views <- arrange_views(
+#'     views = composed_track,
+#'     arrangement = "vertical"
+#'   )
+#'
+#'   ui <- fluidPage(
+#'     use_gosling(),
+#'     fluidRow(
+#'       column(6, goslingOutput("gosling_plot"))
+#'     )
+#'   )
+#'
+#'
+#'   server <- function(input, output, session) {
+#'     output$gosling_plot <- renderGosling({
+#'       gosling(
+#'         component_id = "component_2",
+#'         composed_views, clean_braces = FALSE
+#'       )
+#'     })
+#'   }
+#'
+#'   shinyApp(ui, server)
+#'
+#' }
 #' @details For more info visit
 #' http://gosling-lang.org/docs/visual-channel/#style-related-properties
 #'

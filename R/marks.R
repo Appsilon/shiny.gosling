@@ -20,7 +20,6 @@
 #' @details For info visit http://gosling-lang.org/docs/mark
 #'
 #' @return list of mark specifications
-#' @export
 #'
 add_mark <- function(
     x = NULL, xe = NULL, x1 = NULL, x1e = NULL, y = NULL,
