@@ -4,11 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "gosling.js": "^0.9.21",
-    "higlass": "^1.11.11",
-    "pixi.js": "^6.4.2"
+    "gosling.js": "^0.9.25",
+    "higlass": "^1.11.8",
+    "pixi.js": "^6.3.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-react": "^7.18.6",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "style-loader": "^3.3.1",
     "webpack": "^5.73.0",
