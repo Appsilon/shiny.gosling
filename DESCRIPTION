@@ -11,19 +11,22 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
 biocViews: ShinyApps, Genetics, Visualization
 Imports:
-  htmltools,
-  jsonlite,
-  shiny,
-  shiny.react
+    htmltools,
+    jsonlite,
+    shiny,
+    shiny.react
 Suggests:
-  rcmdcheck,
-  lintr,
-  spelling,
-  config,
-  BiocManager,
-  optparse,
-  BiocCheck,
-  knitr,
-  rmarkdown,
-  sessioninfo
+    rcmdcheck,
+    mockery (>= 0.4.3),
+    lintr,
+    spelling,
+    config,
+    BiocManager,
+    optparse,
+    BiocCheck,
+    knitr,
+    rmarkdown,
+    sessioninfo,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
+Config/testthat/edition: 3
