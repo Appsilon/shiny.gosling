@@ -9,7 +9,7 @@ package_name <- "shiny.gosling"
 #' @param example A character indicating a valid example.
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   run_example("circularLinearWithBrush")
 #' }
 #' @export
@@ -18,7 +18,7 @@ run_example <- function(example) {
   app_dir <- system.file("examples", example, package = package_name)
   if (!example %in% valid_examples) {
     stop(
-      'Please select a valid example, the valid examples are:\n',
+      "Please select a valid example, the valid examples are:\n",
       paste(valid_examples, collapse = ", "),
       call. = FALSE
     )

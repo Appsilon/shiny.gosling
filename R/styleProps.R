@@ -20,9 +20,8 @@
 #'
 #' @return List object with event styles.
 #'
-event_styles <- function(
-    strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
-    color = NULL, arrange = NULL # c("behind", "front")
+event_styles <- function(strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
+                         color = NULL, arrange = NULL # c("behind", "front")
 ) {
   list_rm_null(list(
     strokeWidth = strokeWidth, strokeOpacity = strokeOpacity,
@@ -50,10 +49,8 @@ event_styles <- function(
 #'
 #' @return List object with brush styles.
 #'
-brush_styles <- function(
-    strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
-    color = NULL
-) {
+brush_styles <- function(strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
+                         color = NULL) {
   list_rm_null(list(
     strokeWidth = strokeWidth, strokeOpacity = strokeOpacity,
     stroke = stroke, opacity = opacity, color = color
@@ -113,7 +110,7 @@ brush_styles <- function(
 #' of marks. This property is currently only supported for triangle marks.
 #' @param ... Any other styles to be passed to gosling.js.
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -205,7 +202,6 @@ brush_styles <- function(
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #' @details For more info visit
 #' http://gosling-lang.org/docs/visual-channel/#style-related-properties
@@ -213,16 +209,14 @@ brush_styles <- function(
 #' @return List object with default styles.
 #' @export
 #'
-default_track_styles <- function(
-    textStrokeWidth = NULL, textStroke = NULL, textFontWeight = NULL,
-    textFontSize = NULL, textAnchor = NULL, select = NULL,
-    outlineWidth = NULL, outline = NULL, mouseOver = NULL,
-    matrixExtent = NULL, linkStyle = NULL, linkMinHeight = NULL,
-    linkConnectionType = NULL, linePattern = NULL, legendTitle = NULL,
-    inlineLegend = NULL, enableSmoothPath = NULL, dy = NULL, dx = NULL,
-    dashed = NULL, curve = NULL, brush = NULL,
-    backgroundOpacity = NULL, background = NULL, align = NULL, ...
-) {
+default_track_styles <- function(textStrokeWidth = NULL, textStroke = NULL, textFontWeight = NULL,
+                                 textFontSize = NULL, textAnchor = NULL, select = NULL,
+                                 outlineWidth = NULL, outline = NULL, mouseOver = NULL,
+                                 matrixExtent = NULL, linkStyle = NULL, linkMinHeight = NULL,
+                                 linkConnectionType = NULL, linePattern = NULL, legendTitle = NULL,
+                                 inlineLegend = NULL, enableSmoothPath = NULL, dy = NULL, dx = NULL,
+                                 dashed = NULL, curve = NULL, brush = NULL,
+                                 backgroundOpacity = NULL, background = NULL, align = NULL, ...) {
   list_rm_null(
     list(
       textStrokeWidth = textStrokeWidth, textStroke = textStroke,

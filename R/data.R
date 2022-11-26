@@ -19,7 +19,7 @@
 #' @param ... Any other parameters passed to json data object.
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -58,19 +58,21 @@
 #'     ),
 #'     size = 24,
 #'     color = "white",
-#'     visibility = list(list(
-#'       operation = "less-than",
-#'       measure = "width",
-#'       threshold = "|xe-x|",
-#'       transitionPadding = 30,
-#'       target = "mark"
-#'     ),
-#'     list(
-#'       operation = "LT",
-#'       measure = "zoomLevel",
-#'       threshold = 40,
-#'       target = "track"
-#'     ))
+#'     visibility = list(
+#'       list(
+#'         operation = "less-than",
+#'         measure = "width",
+#'         threshold = "|xe-x|",
+#'         transitionPadding = 30,
+#'         target = "mark"
+#'       ),
+#'       list(
+#'         operation = "LT",
+#'         measure = "zoomLevel",
+#'         threshold = 40,
+#'         target = "track"
+#'       )
+#'     )
 #'   )
 #'
 #'   view2_track3_x <- visual_channel_x(
@@ -145,7 +147,6 @@
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #' @details For info visit http://gosling-lang.org/docs/data.
 #' Check the various supported data formats and their parameters.
@@ -155,10 +156,8 @@
 #' @return list of data specs
 #' @export
 #'
-track_data <- function(
-    url, type, separator = NULL, sampleLength = NULL,
-    headerNames = NULL, genomicFields = NULL, chromosomeField = NULL, ...
-) {
+track_data <- function(url, type, separator = NULL, sampleLength = NULL,
+                       headerNames = NULL, genomicFields = NULL, chromosomeField = NULL, ...) {
   list_rm_null(
     list(
       url = url, type = type, separator = separator,
@@ -185,7 +184,7 @@ track_data <- function(
 #' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -224,19 +223,21 @@ track_data <- function(
 #'     ),
 #'     size = 24,
 #'     color = "white",
-#'     visibility = list(list(
-#'       operation = "less-than",
-#'       measure = "width",
-#'       threshold = "|xe-x|",
-#'       transitionPadding = 30,
-#'       target = "mark"
-#'     ),
-#'     list(
-#'       operation = "LT",
-#'       measure = "zoomLevel",
-#'       threshold = 40,
-#'       target = "track"
-#'     ))
+#'     visibility = list(
+#'       list(
+#'         operation = "less-than",
+#'         measure = "width",
+#'         threshold = "|xe-x|",
+#'         transitionPadding = 30,
+#'         target = "mark"
+#'       ),
+#'       list(
+#'         operation = "LT",
+#'         measure = "zoomLevel",
+#'         threshold = 40,
+#'         target = "track"
+#'       )
+#'     )
 #'   )
 #'
 #'   view2_track3_x <- visual_channel_x(
@@ -311,7 +312,6 @@ track_data <- function(
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #' @details For info visit http://gosling-lang.org/docs/data#data-transform
 #' There are multiple ways to transform data. Check documentation for details
@@ -320,10 +320,8 @@ track_data <- function(
 #' @return list of data transformations specs
 #' @export
 #'
-track_data_transform <- function(
-    type = NULL, field = NULL, oneOf = NULL,
-    not = NULL, ...
-) {
+track_data_transform <- function(type = NULL, field = NULL, oneOf = NULL,
+                                 not = NULL, ...) {
   list(
     list_rm_null(
       list(

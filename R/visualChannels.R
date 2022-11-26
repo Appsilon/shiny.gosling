@@ -11,9 +11,7 @@
 #'
 #' @return List object.
 #'
-visual_channel <- function(
-    field = NULL, type = NULL, range = NULL, domain = NULL, ...
-) {
+visual_channel <- function(field = NULL, type = NULL, range = NULL, domain = NULL, ...) {
   list_rm_null(list(
     field = field, type = type, range = range, domain = domain, ...
   ))
@@ -31,7 +29,7 @@ visual_channel <- function(
 #' Specify how to aggregate data. Default: undefined.
 #' @param ... Any other parameters to pass to gosling.js.
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -63,10 +61,14 @@ visual_channel <- function(
 #'       legend = TRUE
 #'     ),
 #'     tooltip = visual_channel_tooltips(
-#'       visual_channel_tooltip(field = "start", type = "genomic",
-#'                              alt = "Start Position"),
-#'       visual_channel_tooltip(field = "end", type = "genomic",
-#'                              alt = "End Position"),
+#'       visual_channel_tooltip(
+#'         field = "start", type = "genomic",
+#'         alt = "Start Position"
+#'       ),
+#'       visual_channel_tooltip(
+#'         field = "end", type = "genomic",
+#'         alt = "End Position"
+#'       ),
 #'       visual_channel_tooltip(
 #'         field = "peak",
 #'         type = "quantitative",
@@ -85,7 +87,7 @@ visual_channel <- function(
 #'   single_composed_views <- arrange_views(
 #'     title = "Single Track",
 #'     subtitle = "This is the simplest single track visualization with a linear layout",
-#'     layout = "circular", #"linear"
+#'     layout = "circular", # "linear"
 #'     views = single_composed_track,
 #'     xDomain = list(
 #'       chromosome = "chr1",
@@ -123,7 +125,6 @@ visual_channel <- function(
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #'
 #' @details For more info visit
@@ -131,12 +132,10 @@ visual_channel <- function(
 #'
 #' @return List object.
 #' @export
-visual_channel_x <- function(
-    field = NULL, type = NULL, legend = NULL, grid = NULL,
-    axis = NULL,
-    aggregate = NULL,
-    ...
-) {
+visual_channel_x <- function(field = NULL, type = NULL, legend = NULL, grid = NULL,
+                             axis = NULL,
+                             aggregate = NULL,
+                             ...) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
     axis = axis, aggregate = aggregate, ...
@@ -161,7 +160,7 @@ visual_channel_x <- function(
 #' Specify how to aggregate data. Default: undefined.
 #' @param ... Any other parameters to pass to gosling.js.
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -214,7 +213,7 @@ visual_channel_x <- function(
 #'     x = circular_track1_x, xe = circular_track1_xe,
 #'     y = circular_track1_y, row = circular_track1_row,
 #'     color = circular_track1_color,
-#'     stroke =  "black", strokeWidth = 0.3,
+#'     stroke = "black", strokeWidth = 0.3,
 #'     tracks = circular_track1_tracks,
 #'     style = circular_track1_styles,
 #'     width = 500, height = 100
@@ -256,9 +255,7 @@ visual_channel_x <- function(
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
-#'
 #'
 #' @details For more info visit
 #' http://gosling-lang.org/docs/visual-channel#y--ye
@@ -266,14 +263,12 @@ visual_channel_x <- function(
 #' @return List object.
 #' @export
 #'
-visual_channel_y <- function(
-    field = NULL, zeroBaseline = NULL,
-    type = NULL, # c("quantitative", "nominal", "genomic")
-    legend = NULL, grid = NULL, flip = NULL, baseline = NULL,
-    axis = NULL, # c("none", "top", "bottom", "left", "right")
-    aggregate = NULL, #c("max", "min", "mean", "bin", "count")
-    ...
-) {
+visual_channel_y <- function(field = NULL, zeroBaseline = NULL,
+                             type = NULL, # c("quantitative", "nominal", "genomic")
+                             legend = NULL, grid = NULL, flip = NULL, baseline = NULL,
+                             axis = NULL, # c("none", "top", "bottom", "left", "right")
+                             aggregate = NULL, # c("max", "min", "mean", "bin", "count")
+                             ...) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
     axis = axis, aggregate = aggregate, ...
@@ -296,7 +291,7 @@ visual_channel_y <- function(
 #' Specify how to aggregate data. Default: undefined.
 #' @param ... Any other parameters to pass to gosling.js.
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -349,7 +344,7 @@ visual_channel_y <- function(
 #'     x = circular_track1_x, xe = circular_track1_xe,
 #'     y = circular_track1_y, row = circular_track1_row,
 #'     color = circular_track1_color,
-#'     stroke =  "black", strokeWidth = 0.3,
+#'     stroke = "black", strokeWidth = 0.3,
 #'     tracks = circular_track1_tracks,
 #'     style = circular_track1_styles,
 #'     width = 500, height = 100
@@ -391,7 +386,6 @@ visual_channel_y <- function(
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #'
 #' @details For more info visit
@@ -400,11 +394,9 @@ visual_channel_y <- function(
 #' @return List object.
 #' @export
 #'
-visual_channel_row <- function(
-    field = NULL, type = NULL, padding = NULL,
-    legend = NULL, grid = NULL, clip = NULL, axis = NULL,
-    aggregate = NULL, ...
-) {
+visual_channel_row <- function(field = NULL, type = NULL, padding = NULL,
+                               legend = NULL, grid = NULL, clip = NULL, axis = NULL,
+                               aggregate = NULL, ...) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
     axis = axis, aggregate = aggregate, ...
@@ -426,10 +418,8 @@ visual_channel_row <- function(
 #' @return List object.
 #' @export
 #'
-visual_channel_size <- function(
-    field = NULL, type = NULL, # c("quantitative", "nominal")
-    range = NULL, domain = NULL, ...
-) {
+visual_channel_size <- function(field = NULL, type = NULL, # c("quantitative", "nominal")
+                                range = NULL, domain = NULL, ...) {
   visual_channel(
     field = field, type = type, range = range, domain = domain, ...
   )
@@ -444,7 +434,7 @@ visual_channel_size <- function(
 #' @param domain A vector of characters or numbers. Values of the data.
 #' @param ... Any other parameters to pass to gosling.js.
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -483,19 +473,21 @@ visual_channel_size <- function(
 #'     ),
 #'     size = 24,
 #'     color = "white",
-#'     visibility = list(list(
-#'       operation = "less-than",
-#'       measure = "width",
-#'       threshold = "|xe-x|",
-#'       transitionPadding = 30,
-#'       target = "mark"
-#'     ),
-#'     list(
-#'       operation = "LT",
-#'       measure = "zoomLevel",
-#'       threshold = 40,
-#'       target = "track"
-#'     ))
+#'     visibility = list(
+#'       list(
+#'         operation = "less-than",
+#'         measure = "width",
+#'         threshold = "|xe-x|",
+#'         transitionPadding = 30,
+#'         target = "mark"
+#'       ),
+#'       list(
+#'         operation = "LT",
+#'         measure = "zoomLevel",
+#'         threshold = 40,
+#'         target = "track"
+#'       )
+#'     )
 #'   )
 #'
 #'   view2_track3_x <- visual_channel_x(
@@ -570,9 +562,7 @@ visual_channel_size <- function(
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
-#'
 #'
 #' @details For more info visit
 #' http://gosling-lang.org/docs/visual-channel#text
@@ -580,9 +570,8 @@ visual_channel_size <- function(
 #' @return List object.
 #' @export
 #'
-visual_channel_text <- function(
-    field = NULL, type = NULL,
-    range = NULL, domain = NULL, ...) {
+visual_channel_text <- function(field = NULL, type = NULL,
+                                range = NULL, domain = NULL, ...) {
   visual_channel(
     field = field, type = type, range = range, domain = domain, ...
   )
@@ -605,7 +594,7 @@ visual_channel_text <- function(
 #' Specify how to aggregate data. Default: undefined.
 #' @param ... Any other parameters to pass to gosling.js.
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -644,19 +633,21 @@ visual_channel_text <- function(
 #'     ),
 #'     size = 24,
 #'     color = "white",
-#'     visibility = list(list(
-#'       operation = "less-than",
-#'       measure = "width",
-#'       threshold = "|xe-x|",
-#'       transitionPadding = 30,
-#'       target = "mark"
-#'     ),
-#'     list(
-#'       operation = "LT",
-#'       measure = "zoomLevel",
-#'       threshold = 40,
-#'       target = "track"
-#'     ))
+#'     visibility = list(
+#'       list(
+#'         operation = "less-than",
+#'         measure = "width",
+#'         threshold = "|xe-x|",
+#'         transitionPadding = 30,
+#'         target = "mark"
+#'       ),
+#'       list(
+#'         operation = "LT",
+#'         measure = "zoomLevel",
+#'         threshold = 40,
+#'         target = "track"
+#'       )
+#'     )
 #'   )
 #'
 #'   view2_track3_x <- visual_channel_x(
@@ -731,7 +722,6 @@ visual_channel_text <- function(
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #'
 #' @details For more info visit
@@ -740,11 +730,9 @@ visual_channel_text <- function(
 #' @return List object.
 #' @export
 #'
-visual_channel_color <- function(
-    field = NULL, title = NULL, type = NULL, scaleOffset = NULL,
-    scale = NULL, legend = NULL, grid = NULL, axis = NULL,
-    aggregate = NULL, ...
-) {
+visual_channel_color <- function(field = NULL, title = NULL, type = NULL, scaleOffset = NULL,
+                                 scale = NULL, legend = NULL, grid = NULL, axis = NULL,
+                                 aggregate = NULL, ...) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
     axis = axis, aggregate = aggregate, ...
@@ -768,7 +756,7 @@ visual_channel_color <- function(
 #' Specify how to aggregate data. Default: undefined.
 #' @param ... Any other parameters to pass to gosling.js.
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -860,7 +848,6 @@ visual_channel_color <- function(
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #'
 #' @details For more info visit
@@ -869,10 +856,8 @@ visual_channel_color <- function(
 #' @return List object.
 #' @export
 #'
-visual_channel_stroke <- function(
-    field = NULL, title = NULL, type = NULL, scaleOffset = NULL,
-    legend = NULL, grid = NULL, axis = NULL, aggregate = NULL,  ...
-) {
+visual_channel_stroke <- function(field = NULL, title = NULL, type = NULL, scaleOffset = NULL,
+                                  legend = NULL, grid = NULL, axis = NULL, aggregate = NULL, ...) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
     axis = axis, aggregate = aggregate, ...
@@ -893,10 +878,8 @@ visual_channel_stroke <- function(
 #' @return List object.
 #' @export
 #'
-visual_channel_stroke_width <- function(
-    field = NULL, type = NULL,
-    range = NULL, domain = NULL, ...
-) {
+visual_channel_stroke_width <- function(field = NULL, type = NULL,
+                                        range = NULL, domain = NULL, ...) {
   visual_channel(
     field = field, type = type, range = range, domain = domain, ...
   )
@@ -917,10 +900,8 @@ visual_channel_stroke_width <- function(
 #' @return List object.
 #' @export
 #'
-visual_channel_opacity <- function(
-    field = NULL, type = NULL,
-    range = NULL, domain = NULL, ...
-) {
+visual_channel_opacity <- function(field = NULL, type = NULL,
+                                   range = NULL, domain = NULL, ...) {
   visual_channel(
     field = field, type = type, range = range, domain = domain, ...
   )
@@ -935,7 +916,7 @@ visual_channel_opacity <- function(
 #' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -967,10 +948,14 @@ visual_channel_opacity <- function(
 #'       legend = TRUE
 #'     ),
 #'     tooltip = visual_channel_tooltips(
-#'       visual_channel_tooltip(field = "start", type = "genomic",
-#'                              alt = "Start Position"),
-#'       visual_channel_tooltip(field = "end", type = "genomic",
-#'                              alt = "End Position"),
+#'       visual_channel_tooltip(
+#'         field = "start", type = "genomic",
+#'         alt = "Start Position"
+#'       ),
+#'       visual_channel_tooltip(
+#'         field = "end", type = "genomic",
+#'         alt = "End Position"
+#'       ),
 #'       visual_channel_tooltip(
 #'         field = "peak",
 #'         type = "quantitative",
@@ -989,7 +974,7 @@ visual_channel_opacity <- function(
 #'   single_composed_views <- arrange_views(
 #'     title = "Single Track",
 #'     subtitle = "This is the simplest single track visualization with a linear layout",
-#'     layout = "circular", #"linear"
+#'     layout = "circular", # "linear"
 #'     views = single_composed_track,
 #'     xDomain = list(
 #'       chromosome = "chr1",
@@ -1027,7 +1012,6 @@ visual_channel_opacity <- function(
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #'
 #' @details For more info visit
@@ -1036,9 +1020,7 @@ visual_channel_opacity <- function(
 #' @return List object. list object with tooltip list object
 #' @export
 #'
-visual_channel_tooltip <- function(
-    field = NULL, type = NULL, alt = NULL, ...
-) {
+visual_channel_tooltip <- function(field = NULL, type = NULL, alt = NULL, ...) {
   visual_channel(
     field = field, type = type, alt = alt, ...
   )
@@ -1050,7 +1032,7 @@ visual_channel_tooltip <- function(
 #' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -1082,10 +1064,14 @@ visual_channel_tooltip <- function(
 #'       legend = TRUE
 #'     ),
 #'     tooltip = visual_channel_tooltips(
-#'       visual_channel_tooltip(field = "start", type = "genomic",
-#'                              alt = "Start Position"),
-#'       visual_channel_tooltip(field = "end", type = "genomic",
-#'                              alt = "End Position"),
+#'       visual_channel_tooltip(
+#'         field = "start", type = "genomic",
+#'         alt = "Start Position"
+#'       ),
+#'       visual_channel_tooltip(
+#'         field = "end", type = "genomic",
+#'         alt = "End Position"
+#'       ),
 #'       visual_channel_tooltip(
 #'         field = "peak",
 #'         type = "quantitative",
@@ -1104,7 +1090,7 @@ visual_channel_tooltip <- function(
 #'   single_composed_views <- arrange_views(
 #'     title = "Single Track",
 #'     subtitle = "This is the simplest single track visualization with a linear layout",
-#'     layout = "circular", #"linear"
+#'     layout = "circular", # "linear"
 #'     views = single_composed_track,
 #'     xDomain = list(
 #'       chromosome = "chr1",
@@ -1142,7 +1128,6 @@ visual_channel_tooltip <- function(
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #' @return List object. json list with tooltips combined into a single spec
 #' @export

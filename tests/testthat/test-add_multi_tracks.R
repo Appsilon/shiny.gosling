@@ -12,5 +12,4 @@ describe("add_multi_tracks()", {
     expect_equal(result, result_json_list)
     mockery::expect_called(mocked_json_list, 1)
   })
-
 })

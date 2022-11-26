@@ -16,7 +16,7 @@
 #' (Default: 1000).
 #' @param session A shiny session object.
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -55,10 +55,14 @@
 #'       legend = TRUE
 #'     ),
 #'     tooltip = visual_channel_tooltips(
-#'       visual_channel_tooltip(field = "start", type = "genomic",
-#'                              alt = "Start Position"),
-#'       visual_channel_tooltip(field = "end", type = "genomic",
-#'                              alt = "End Position"),
+#'       visual_channel_tooltip(
+#'         field = "start", type = "genomic",
+#'         alt = "Start Position"
+#'       ),
+#'       visual_channel_tooltip(
+#'         field = "end", type = "genomic",
+#'         alt = "End Position"
+#'       ),
 #'       visual_channel_tooltip(
 #'         field = "peak",
 #'         type = "quantitative",
@@ -77,7 +81,7 @@
 #'   single_composed_views <- arrange_views(
 #'     title = "Single Track",
 #'     subtitle = "This is the simplest single track visualization with a linear layout",
-#'     layout = "circular", #"linear"
+#'     layout = "circular", # "linear"
 #'     views = single_composed_track,
 #'     xDomain = list(
 #'       chromosome = "chr1",
@@ -127,7 +131,6 @@
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #'
 #' @return None.
@@ -136,7 +139,7 @@
 zoom_to <- function(component_id, view_id, position, padding = 0,
                     duration = 1000, session = getDefaultReactiveDomain()) {
   session$sendCustomMessage(
-    'zoom_to',
+    "zoom_to",
     list(
       component_id = component_id,
       view_id = view_id,

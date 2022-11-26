@@ -25,7 +25,7 @@ list_rm_null <- function(r_list) {
 #'
 build_json <- function(r_list, clean_braces = TRUE, pretty = TRUE,
                        auto_unbox = TRUE) {
-  if(clean_braces) {
+  if (clean_braces) {
     jsonlite::toJSON(r_list, pretty = pretty, auto_unbox = auto_unbox)
   } else {
     json <- jsonlite::toJSON(r_list, pretty = FALSE, auto_unbox = auto_unbox)
@@ -38,7 +38,7 @@ build_json <- function(r_list, clean_braces = TRUE, pretty = TRUE,
 #'
 #' @param ... Items to be put in a list
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -130,7 +130,6 @@ build_json <- function(r_list, clean_braces = TRUE, pretty = TRUE,
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #' @return list of items
 #' @export
@@ -160,11 +159,11 @@ is_atomic_field <- function(field_name) {
 #' @return List.
 #'
 atomic_values_to_list <- function(property_list) {
-  if(!rlang::is_empty(property_list)) {
+  if (!rlang::is_empty(property_list)) {
     for (x in seq_along(property_list)) {
-      if(!is.null(property_list[[x]])) {
+      if (!is.null(property_list[[x]])) {
         field_name <- names(property_list[x])
-        if((is_atomic_field(field_name)) && !is.list(property_list[[x]])) {
+        if ((is_atomic_field(field_name)) && !is.list(property_list[[x]])) {
           property_list[[x]] <- list(
             value = property_list[[x]]
           )
@@ -181,7 +180,7 @@ atomic_values_to_list <- function(property_list) {
 #' gosling to work in shiny plots.
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -273,7 +272,6 @@ atomic_values_to_list <- function(property_list) {
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #'
 #' @return Gosling initiator HTML.
@@ -297,7 +295,7 @@ use_gosling <- function() {
 #' json string.
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -350,7 +348,7 @@ use_gosling <- function() {
 #'     x = circular_track1_x, xe = circular_track1_xe,
 #'     y = circular_track1_y, row = circular_track1_row,
 #'     color = circular_track1_color,
-#'     stroke =  "black", strokeWidth = 0.3,
+#'     stroke = "black", strokeWidth = 0.3,
 #'     tracks = circular_track1_tracks,
 #'     style = circular_track1_styles,
 #'     width = 500, height = 100
@@ -392,7 +390,6 @@ use_gosling <- function() {
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #'
 #' @return Gosling component for rendering on R shiny apps
@@ -403,7 +400,8 @@ gosling <- function(component_id, composed_views, clean_braces = TRUE) {
     component_id = component_id,
     spec = shiny.react::JS(
       build_json(
-        composed_views, clean_braces = clean_braces
+        composed_views,
+        clean_braces = clean_braces
       )
     )
   )

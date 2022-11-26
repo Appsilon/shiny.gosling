@@ -7,7 +7,7 @@
 #' @param outputId ID of the output element
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -99,7 +99,6 @@
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #' @return reactOutput HTML for UI render
 #' @export
@@ -117,7 +116,7 @@ goslingOutput <- function(outputId) {
 #' Must be a gosling object built with shiny.gosling::gosling()
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -209,14 +208,12 @@ goslingOutput <- function(outputId) {
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #' @return A function which can be assigned to an output in a
 #' Shiny server function.
 #' @export
 #'
-renderGosling <- function(
-    expr) {
+renderGosling <- function(expr) {
   shiny.react::renderReact(
     expr = expr
   )

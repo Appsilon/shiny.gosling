@@ -46,7 +46,7 @@
 #' @param ... Any other arguments to be passed onto gosling.js.
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -78,10 +78,14 @@
 #'       legend = TRUE
 #'     ),
 #'     tooltip = visual_channel_tooltips(
-#'       visual_channel_tooltip(field = "start", type = "genomic",
-#'                              alt = "Start Position"),
-#'       visual_channel_tooltip(field = "end", type = "genomic",
-#'                              alt = "End Position"),
+#'       visual_channel_tooltip(
+#'         field = "start", type = "genomic",
+#'         alt = "Start Position"
+#'       ),
+#'       visual_channel_tooltip(
+#'         field = "end", type = "genomic",
+#'         alt = "End Position"
+#'       ),
 #'       visual_channel_tooltip(
 #'         field = "peak",
 #'         type = "quantitative",
@@ -100,7 +104,7 @@
 #'   single_composed_views <- arrange_views(
 #'     title = "Single Track",
 #'     subtitle = "This is the simplest single track visualization with a linear layout",
-#'     layout = "circular", #"linear"
+#'     layout = "circular", # "linear"
 #'     views = single_composed_track,
 #'     xDomain = list(
 #'       chromosome = "chr1",
@@ -138,17 +142,14 @@
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #' @return list object.
 #' @export
-add_single_track <- function(
-    id = NULL, data = NULL, mark = NULL, assembly = NULL, row = NULL,
-    size = NULL, color = NULL,
-    strokeWidth = NULL, opacity = NULL,
-    x = NULL, xe = NULL, x1 = NULL, x1e = NULL, y = NULL,
-    stroke = NULL, width = NULL, height = NULL, dataTransform = NULL, ...
-) {
+add_single_track <- function(id = NULL, data = NULL, mark = NULL, assembly = NULL, row = NULL,
+                             size = NULL, color = NULL,
+                             strokeWidth = NULL, opacity = NULL,
+                             x = NULL, xe = NULL, x1 = NULL, x1e = NULL, y = NULL,
+                             stroke = NULL, width = NULL, height = NULL, dataTransform = NULL, ...) {
   visual_channels <- add_mark(
     x, xe, x1, x1e, y,
     strokeWidth, opacity, row, size,
@@ -183,7 +184,7 @@ add_single_track <- function(
 #' @param ... More arguments passed along with view to gosling.js.
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -222,19 +223,21 @@ add_single_track <- function(
 #'     ),
 #'     size = 24,
 #'     color = "white",
-#'     visibility = list(list(
-#'       operation = "less-than",
-#'       measure = "width",
-#'       threshold = "|xe-x|",
-#'       transitionPadding = 30,
-#'       target = "mark"
-#'     ),
-#'     list(
-#'       operation = "LT",
-#'       measure = "zoomLevel",
-#'       threshold = 40,
-#'       target = "track"
-#'     ))
+#'     visibility = list(
+#'       list(
+#'         operation = "less-than",
+#'         measure = "width",
+#'         threshold = "|xe-x|",
+#'         transitionPadding = 30,
+#'         target = "mark"
+#'       ),
+#'       list(
+#'         operation = "LT",
+#'         measure = "zoomLevel",
+#'         threshold = 40,
+#'         target = "track"
+#'       )
+#'     )
 #'   )
 #'
 #'   view2_track3_x <- visual_channel_x(
@@ -309,19 +312,17 @@ add_single_track <- function(
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #'
 #' @return list object.
 #' @export
-compose_view <- function(
-    multi = FALSE,
-    layout = NULL, width = NULL, height = NULL,
-    centerRadius = NULL, tracks, ...
-) {
+compose_view <- function(multi = FALSE,
+                         layout = NULL, width = NULL, height = NULL,
+                         centerRadius = NULL, tracks, ...) {
   list_rm_null(
     list(
-      ..., layout = layout, width = width, height = height,
+      ...,
+      layout = layout, width = width, height = height,
       centerRadius = centerRadius,
       tracks = if (multi) tracks else list(tracks)
     )
@@ -338,7 +339,7 @@ compose_view <- function(
 #' @param ... More options passed to gosling.js.
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -377,19 +378,21 @@ compose_view <- function(
 #'     ),
 #'     size = 24,
 #'     color = "white",
-#'     visibility = list(list(
-#'       operation = "less-than",
-#'       measure = "width",
-#'       threshold = "|xe-x|",
-#'       transitionPadding = 30,
-#'       target = "mark"
-#'     ),
-#'     list(
-#'       operation = "LT",
-#'       measure = "zoomLevel",
-#'       threshold = 40,
-#'       target = "track"
-#'     ))
+#'     visibility = list(
+#'       list(
+#'         operation = "less-than",
+#'         measure = "width",
+#'         threshold = "|xe-x|",
+#'         transitionPadding = 30,
+#'         target = "mark"
+#'       ),
+#'       list(
+#'         operation = "LT",
+#'         measure = "zoomLevel",
+#'         threshold = 40,
+#'         target = "track"
+#'       )
+#'     )
 #'   )
 #'
 #'   view2_track3_x <- visual_channel_x(
@@ -464,16 +467,14 @@ compose_view <- function(
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #' @return list object.
 #' @export
-arrange_views <- function(
-    layout = NULL, views = NULL, listify = TRUE, ...
-) {
+arrange_views <- function(layout = NULL, views = NULL, listify = TRUE, ...) {
   list_rm_null(
     list(
-      ..., layout = layout,
+      ...,
+      layout = layout,
       views = if (listify) list(views) else views
     )
   )
@@ -484,7 +485,7 @@ arrange_views <- function(
 #' @param ... Multiple tracks from add_single_track() function.
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -576,7 +577,6 @@ arrange_views <- function(
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #' @return json list.
 #' @export
