@@ -80,7 +80,7 @@ track1 <- add_single_track(
 )
 
 track2_data <- track_data(
-  url = "inst/examples/multiTrackApp/data/driver.df.scanb.complete.csv",
+  url = "https://s3.amazonaws.com/gosling-lang.org/data/SV/driver.df.scanb.complete.csv",
   type = "csv",
   chromosomeField = "Chr",
   genomicFields = c("ChrStart", "ChrEnd")
@@ -154,7 +154,7 @@ track3 <- add_single_track(
   style = track3_styles, alignment = "overlay",
   data = track3_data, dataTransform = track3_data_transform,
   tracks = track3_tracks, x = track3_x, xe = track3_xe,
-  color = "#FB6A4B", width = 500, height = 40
+  color = "#FB6A4B", width = 620, height = 40
 )
 
 track4_styles <- default_track_styles(
@@ -252,7 +252,7 @@ track5 <- add_single_track(
   id = "track5", title = "Structural Variant",
   data = track5_data, mark = "withinLink",
   x = track5_x, xe = track5_xe,
-  color = track5_color, width = 500, height = 40, stroke = track5_stroke,
+  color = track5_color, width = 500, height = 80, stroke = track5_stroke,
   strokeWidth = 1, opacity = 0.6, style = track5_styles
 )
 
