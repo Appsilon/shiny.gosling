@@ -5,16 +5,22 @@
 #'
 #' @param url A character. Specify the URL address of the data file.
 #' @param type A character. Type of data. One of "csv", "json", "bigwig", "bam",
-#' "vcf", "vector", "multivec" and "beddb". For usage refer to http://gosling-lang.org/docs/data#supported-data-formats.
+#' "vcf", "vector", "multivec" and "beddb". For usage refer to
+#' http://gosling-lang.org/docs/data#supported-data-formats.
 #' @param separator A character. Specify file separator, Default: ','
-#' @param sampleLength A number. Specify the number of rows loaded from the URL. Default: 1000
-#' @param headerNames A character vector. Specify the names of data fields if a CSV file is headerless.
-#' @param genomicFields A character vector. Specify the name of genomic data fields.
-#' @param chromosomeField A character. Specify the name of chromosome data fields.
+#' @param sampleLength A number. Specify the number of rows loaded from
+#' the URL. Default: 1000
+#' @param headerNames A character vector. Specify the names of data fields
+#' if a CSV file is headerless.
+#' @param genomicFields A character vector. Specify the name of genomic
+#' data fields.
+#' @param chromosomeField A character. Specify the name of chromosome
+#' data fields.
 #' @param ... Any other parameters passed to json data object.
 #'
 #' @details For info visit http://gosling-lang.org/docs/data.
-#' Check the various supported data formats and their parameters. All of them can be
+#' Check the various supported data formats and their parameters.
+#' All of them can be
 #' constructed using this function.
 #'
 #' @return list of data specs
@@ -38,15 +44,20 @@ track_data <- function(
 #' Do data transformations
 #'
 #' @param type A character. One of "filter", "concat", "replace", "log",
-#'  "displace", "exonSplit", "coverage", "genomicLength", "svType" and "subjson".
+#'  "displace", "exonSplit", "coverage", "genomicLength", "svType"
+#'  and "subjson".
 #'  Check usage details at http://gosling-lang.org/docs/data/#data-transform.
-#' @param field A character.  filter is applied based on the values of the specified data field.
-#' @param oneOf A vector of characters or numbers. Check whether the value is an element in the provided list.
-#' @param not A Boolean. When {"not": true}, apply a NOT logical operation to the filter. Default: false.
+#' @param field A character.  filter is applied based on the values of the
+#' specified data field.
+#' @param oneOf A vector of characters or numbers. Check whether the value is
+#' an element in the provided list.
+#' @param not A Boolean. When {"not": true}, apply a NOT logical operation to
+#' the filter. Default: false.
 #' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @details For info visit http://gosling-lang.org/docs/data#data-transform
-#' There are multiple ways to transform data. Check documentation for details of usage.
+#' There are multiple ways to transform data. Check documentation for details
+#' of usage.
 #'
 #' @return list of data transformations specs
 #' @export

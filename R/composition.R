@@ -1,23 +1,25 @@
 #' Add a single track
 #'
-#' Add a single track to the plot of a mark type ( plot type ). This function constructs a single track from the inputs. The inputs
+#' Add a single track to the plot of a mark type ( plot type ). This function
+#' constructs a single track from the inputs. The inputs
 #' can be id, data, mark etc. Please check gosling.js documentation for
 #' advabced usage.
 #'
 #' @param id Optional argument to assign an id to the track.
 #' @param data An object of from track_data() function.
 #' @param mark Type of plot. One of c("point", "line", "rect", "bar", "area",
-#' "link", "triangle", "text"). Each mark type has some supported visual channel.
+#' "link", "triangle", "text"). Each mark type has some supported
+#' visual channel.
 #'
 #' Different marks support different visual channels:
-#' - point:	x, y, row, size, color, strokeWidth, opacity
-#' - line:	x, y, row, color, strokeWidth
-#' - rect:	x, xe, row, color, strokeWidth, opacity
-#' - bar:	x, y, row, color, strokeWidth, opacity
-#' - area:	x, y, row, color, strokeWidth
-#' - link:	x, xe, x1, x1e, color, opacity
-#' - triangle:	x, xe, row, size, color, opacity
-#' - text:	x, xe, row, color, opacity
+#' - point: x, y, row, size, color, strokeWidth, opacity
+#' - line: x, y, row, color, strokeWidth
+#' - rect: x, xe, row, color, strokeWidth, opacity
+#' - bar: x, y, row, color, strokeWidth, opacity
+#' - area: x, y, row, color, strokeWidth
+#' - link: x, xe, x1, x1e, color, opacity
+#' - triangle: x, xe, row, size, color, opacity
+#' - text: x, xe, row, color, opacity
 #'
 #' For more info visit http://gosling-lang.org/tutorials/
 #'

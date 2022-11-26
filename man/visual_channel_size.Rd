@@ -17,7 +17,8 @@ visual_channel_size(
 
 \item{type}{A character. Must be "genomic". Specify the data type.}
 
-\item{range}{A vector of characters or numbers. Values of the visual channel. Range to be specified like \code{range = c(min_size, max_size)}}
+\item{range}{A vector of characters or numbers. Values of the visual
+channel. Range to be specified like \code{range = c(min_size, max_size)}}
 
 \item{domain}{A vector of characters or numbers. Values of the data.}
 
@@ -30,5 +31,6 @@ List object.
 size visual channel
 }
 \details{
-For more info visit http://gosling-lang.org/docs/visual-channel#size
+For more info visit
+http://gosling-lang.org/docs/visual-channel#size
 }

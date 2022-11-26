@@ -30,5 +30,6 @@ List object.
 text visual channel
 }
 \details{
-For more info visit http://gosling-lang.org/docs/visual-channel#text
+For more info visit
+http://gosling-lang.org/docs/visual-channel#text
 }

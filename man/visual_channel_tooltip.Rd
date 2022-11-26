@@ -22,5 +22,6 @@ List object. list object with tooltip list object
 tooltip visual channel
 }
 \details{
-For more info visit https://gosling.js.org/ and check for tooltip implementation
+For more info visit
+https://gosling.js.org/ and check for tooltip implementation
 }

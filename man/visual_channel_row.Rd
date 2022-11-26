@@ -21,17 +21,21 @@ visual_channel_row(
 
 \item{type}{A character. Must be "genomic". Specify the data type.}
 
-\item{padding}{A number. Determines the size of inner white spaces on the top and bottom of individiual rows. Default: 0.}
+\item{padding}{A number. Determines the size of inner white spaces on the
+top and bottom of individiual rows. Default: 0.}
 
 \item{legend}{A Boolean. Whether to display legend. Default: FALSE.}
 
 \item{grid}{A Boolean. Whether to display grid. Default: FALSE.}
 
-\item{clip}{A Boolean. Clip row when the actual y value exceeds the max value of the y scale. Used only for bar marks at the moment. Default: TRUE.}
+\item{clip}{A Boolean. Clip row when the actual y value exceeds the max
+value of the y scale. Used only for bar marks at the moment. Default: TRUE.}
 
-\item{axis}{A character. One of "none", "top", "bottom", "left", "right". Specify where should the axis be put.}
+\item{axis}{A character. One of "none", "top", "bottom", "left", "right".
+Specify where should the axis be put.}
 
-\item{aggregate}{A character. One of "max", "min", "mean", "bin", "count". Specify how to aggregate data. Default: undefined.}
+\item{aggregate}{A character. One of "max", "min", "mean", "bin", "count".
+Specify how to aggregate data. Default: undefined.}
 
 \item{...}{Any other parameters to pass to gosling.js.}
 }
@@ -42,5 +46,6 @@ List object.
 row visual channel
 }
 \details{
-For more info visit http://gosling-lang.org/docs/visual-channel#row
+For more info visit
+http://gosling-lang.org/docs/visual-channel#row
 }

@@ -11,7 +11,8 @@ renderGosling(expr)
 Must be a gosling object built with shiny.gosling::gosling()}
 }
 \value{
-A function which can be assigned to an output in a Shiny server function.
+A function which can be assigned to an output in a
+Shiny server function.
 }
 \description{
 gosling render function for shiny use
