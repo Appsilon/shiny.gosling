@@ -115,7 +115,7 @@ We can then even add more tracks to it. So let's create a few more tracks just t
 ```{r, echo = FALSE}
 
 server <- function(input, output, session) {
-  output$gosling_plot <- renderGosling({
+  output$gosling_plot <- render_gosling({
     gosling(
       component_id = "component_1",
       single_composed_views,
@@ -126,7 +126,7 @@ server <- function(input, output, session) {
 
 ui <- fluidPage(
   use_gosling(),
-  goslingOutput("gosling_plot")
+  gosling_output("gosling_plot")
 )
 
 
