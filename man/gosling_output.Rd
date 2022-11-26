@@ -4,7 +4,7 @@
 \alias{gosling_output}
 \title{gosling output function}
 \usage{
-gosling_output(outputId)
+gosling_output(output_id)
 }
 \arguments{
 \item{outputId}{ID of the output element}

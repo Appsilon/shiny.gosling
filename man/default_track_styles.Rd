@@ -71,7 +71,8 @@ Default: 'circular' 'elliptical' will be used as a default option.}
 betweenLink marks. Unit is a percentagle. Default: 0.5.}
 
 \item{link_connection_type}{A character. One of "straight", "curve",
-"corner". Specify the connection type of betweenLink marks. Default: "corner".}
+"corner". Specify the connection type of betweenLink marks. Default:
+"corner".}
 
 \item{line_pattern}{A list of the form list(size="number",type="string").
 One of "triangleLeft", "triangleRight".) Specify the pattern of dashes

@@ -103,8 +103,8 @@
 #' @return reactOutput HTML for UI render
 #' @export
 #'
-gosling_output <- function(outputId) {
-  shiny.react::reactOutput(outputId)
+gosling_output <- function(output_id) {
+  shiny.react::reactOutput(output_id)
 }
 
 
