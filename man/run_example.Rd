@@ -13,7 +13,7 @@ run_example(example)
 Runs a shiny.gosling example
 }
 \examples{
-if(interactive()) {
+if (interactive()) {
   run_example("circularLinearWithBrush")
 }
 }

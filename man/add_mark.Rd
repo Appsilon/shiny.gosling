@@ -10,7 +10,7 @@ add_mark(
   x1 = NULL,
   x1e = NULL,
   y = NULL,
-  strokeWidth = NULL,
+  stroke_width = NULL,
   opacity = NULL,
   row = NULL,
   size = NULL,
@@ -29,7 +29,7 @@ add_mark(
 
 \item{y}{An object returned by visual_channel_y().}
 
-\item{strokeWidth}{A number or an object returned by
+\item{stroke_width}{A number or an object returned by
 visual_channel_stroke_width().}
 
 \item{opacity}{A number or an object returned by visual_channel_opacity().}

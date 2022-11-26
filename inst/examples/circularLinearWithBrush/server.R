@@ -1,6 +1,6 @@
 # Circular track 1 ----
 circular_track1_data <- track_data(
-  url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec",
+  url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec", # nolint
   type = "multivec",
   row = "sample",
   column = "position",
@@ -39,7 +39,7 @@ circular_track1_tracks <- add_multi_tracks(
 )
 
 circular_track1_styles <- default_track_styles(
-  outlineWidth = 0
+  outline_width = 0
 )
 
 circular_track1 <- add_single_track(
@@ -47,7 +47,7 @@ circular_track1 <- add_single_track(
   x = circular_track1_x, xe = circular_track1_xe,
   y = circular_track1_y, row = circular_track1_row,
   color = circular_track1_color,
-  stroke =  "black", strokeWidth = 0.3,
+  stroke =  "black", stroke_width = 0.3,
   tracks = circular_track1_tracks,
   style = circular_track1_styles,
   width = 500, height = 100
@@ -55,20 +55,20 @@ circular_track1 <- add_single_track(
 
 
 # Circular track 2 ----
-circular_track2_data_transform1 <- track_data_transform(
+circ_track2_data_transform1 <- track_data_transform(
   type = "filter", field = "chr1",
-  oneOf = list("1", "16", "14", "9", "6", "5", "3")
+  one_of = list("1", "16", "14", "9", "6", "5", "3")
 )
 
-circular_track2_data_transform2 <- track_data_transform(
+circ_track2_data_transform2 <- track_data_transform(
   type = "filter", field = "chr2",
-  oneOf = list("1", "16", "14", "9", "6", "5", "3")
+  one_of = list("1", "16", "14", "9", "6", "5", "3")
 )
 
 circular_track2_data <- track_data(
-  url = "https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/rearrangements.bulk.1639.simple.filtered.pub",
+  url = "https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/rearrangements.bulk.1639.simple.filtered.pub", # nolint
   type = "csv",
-  headerNames = c(
+  header_names = c(
     "chr1",
     "p1s",
     "p1e",
@@ -87,18 +87,18 @@ circular_track2_data <- track_data(
   separator = "\t",
   genomicFieldsToConvert = c(
     list(
-      chromosomeField = "chr1",
-      genomicFields = c("p1s", "p1e")
+      chromosome_field = "chr1",
+      genomic_fields = c("p1s", "p1e")
     ),
     list(
-      chromosomeField = "chr2",
-      genomicFields = c("p2s", "p2e")
+      chromosome_field = "chr2",
+      genomic_fields = c("p2s", "p2e")
     )
   )
 )
 
-circular_track2_dataTransform <- c(
-  circular_track2_data_transform1, circular_track2_data_transform2
+circ_track2_data_transform <- c(
+  circ_track2_data_transform1, circ_track2_data_transform2
 )
 
 circular_track2_x <- visual_channel_x(field = "p1s", type = "genomic")
@@ -113,14 +113,14 @@ circular_track2_stroke <- visual_channel_stroke(
 
 circular_track2 <- add_single_track(
   id = "circular_track2", data = circular_track2_data,
-  dataTransform = circular_track2_dataTransform,
+  data_transform = circ_track2_data_transform,
   mark = "withinLink",
   x = circular_track2_x,
   xe = circular_track2_xe,
   x1 = circular_track2_x1,
   x1e = circular_track2_x1e,
   stroke = ,
-  strokeWidth = 0.8,
+  stroke_width = 0.8,
   opacity = 0.15,
   width = 500, height = 100
 )
@@ -137,7 +137,7 @@ circular_composed_view <- compose_view(
 # Linear track 1 ----
 
 linear_track1_data <- track_data(
-  url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec",
+  url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec", # nolint
   type = "multivec",
   row = "sample",
   column = "position",
@@ -171,7 +171,7 @@ linear_track1 <- add_single_track(
   row = linear_track1_row,
   color = linear_track1_color,
   stroke = "black",
-  strokeWidth = 0.3,
+  stroke_width = 0.3,
   default_track_styles(background = "blue"),
   width = 245, height = 150
 )
@@ -179,7 +179,7 @@ linear_track1 <- add_single_track(
 # Linear track 2 ----
 
 linear_track2_data <- track_data(
-  url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec",
+  url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec", # nolint
   type = "multivec",
   row = "sample",
   column = "position",
@@ -213,7 +213,7 @@ linear_track2 <- add_single_track(
   row = linear_track2_row,
   color = linear_track2_color,
   stroke = "black",
-  strokeWidth = 0.3,
+  stroke_width = 0.3,
   default_track_styles(background = "red"),
   width = 245, height = 150
 )
@@ -223,7 +223,7 @@ linear_composed_view <- compose_view(
   multi = TRUE,
   tracks = add_multi_tracks(linear_track1, linear_track2),
   spacing = 10, arrangement = "horizontal",
-  style = default_track_styles(backgroundOpacity = 0.1)
+  style = default_track_styles(background_opacity = 0.1)
 )
 
 # Arrange final view
@@ -250,7 +250,7 @@ function(input, output, session) {
     )
   })
 
-  output$gosling_plot_circular <- renderGosling({
+  output$gosling_plot_circular <- render_gosling({
     gosling(
       component_id = "circular_component",
       circular_linear_view, clean_braces = FALSE

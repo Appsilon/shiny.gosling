@@ -7,7 +7,7 @@ navbarPage(
     fluidPage(
       mainPanel(
         width = 8,
-        goslingOutput("gosling_plot_circular"),
+        gosling_output("gosling_plot_circular"),
         br(),
         fluidRow(
           column(
@@ -44,4 +44,3 @@ navbarPage(
     )
   )
 )
-

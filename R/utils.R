@@ -43,19 +43,19 @@ build_json <- function(r_list, clean_braces = TRUE, pretty = TRUE,
 #'   library(shiny.gosling)
 #'
 #'   track5_styles <- default_track_styles(
-#'     legendTitle = "SV Class"
+#'     legend_title = "SV Class"
 #'   )
 #'   track5_data <- track_data(
-#'     url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+#'     url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv", # nolint
 #'     type = "csv",
 #'     genomicFieldsToConvert = json_list(
 #'       json_list(
-#'         chromosomeField = "chr1",
-#'         genomicFields = c("start1", "end1")
+#'         chromosome_field = "chr1",
+#'         genomic_fields = c("start1", "end1")
 #'       ),
 #'       json_list(
-#'         chromosomeField = "chr2",
-#'         genomicFields = c("start2", "end2")
+#'         chromosome_field = "chr2",
+#'         genomic_fields = c("start2", "end2")
 #'       )
 #'     )
 #'   )
@@ -65,7 +65,7 @@ build_json <- function(r_list, clean_braces = TRUE, pretty = TRUE,
 #'     ),
 #'     add_single_track(
 #'       mark = "withinLink", x = visual_channel_x(linkingId = "mid-scale"),
-#'       strokeWidth = 0
+#'       stroke_width = 0
 #'     )
 #'   )
 #'   track5_color <- visual_channel_color(
@@ -96,7 +96,7 @@ build_json <- function(r_list, clean_braces = TRUE, pretty = TRUE,
 #'     data = track5_data, mark = "withinLink",
 #'     x = track5_x, xe = track5_xe,
 #'     color = track5_color, width = 500, height = 80, stroke = track5_stroke,
-#'     strokeWidth = 1, opacity = 0.6, style = track5_styles
+#'     stroke_width = 1, opacity = 0.6, style = track5_styles
 #'   )
 #'
 #'   composed_track <- compose_view(
@@ -115,13 +115,13 @@ build_json <- function(r_list, clean_braces = TRUE, pretty = TRUE,
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot"))
+#'       column(6, gosling_output("gosling_plot"))
 #'     )
 #'   )
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "component_2",
 #'         composed_views, clean_braces = FALSE
@@ -185,19 +185,19 @@ atomic_values_to_list <- function(property_list) {
 #'   library(shiny.gosling)
 #'
 #'   track5_styles <- default_track_styles(
-#'     legendTitle = "SV Class"
+#'     legend_title = "SV Class"
 #'   )
 #'   track5_data <- track_data(
-#'     url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+#'     url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv", # nolint
 #'     type = "csv",
 #'     genomicFieldsToConvert = json_list(
 #'       json_list(
-#'         chromosomeField = "chr1",
-#'         genomicFields = c("start1", "end1")
+#'         chromosome_field = "chr1",
+#'         genomic_fields = c("start1", "end1")
 #'       ),
 #'       json_list(
-#'         chromosomeField = "chr2",
-#'         genomicFields = c("start2", "end2")
+#'         chromosome_field = "chr2",
+#'         genomic_fields = c("start2", "end2")
 #'       )
 #'     )
 #'   )
@@ -207,7 +207,7 @@ atomic_values_to_list <- function(property_list) {
 #'     ),
 #'     add_single_track(
 #'       mark = "withinLink", x = visual_channel_x(linkingId = "mid-scale"),
-#'       strokeWidth = 0
+#'       stroke_width = 0
 #'     )
 #'   )
 #'   track5_color <- visual_channel_color(
@@ -238,7 +238,7 @@ atomic_values_to_list <- function(property_list) {
 #'     data = track5_data, mark = "withinLink",
 #'     x = track5_x, xe = track5_xe,
 #'     color = track5_color, width = 500, height = 80, stroke = track5_stroke,
-#'     strokeWidth = 1, opacity = 0.6, style = track5_styles
+#'     stroke_width = 1, opacity = 0.6, style = track5_styles
 #'   )
 #'
 #'   composed_track <- compose_view(
@@ -257,13 +257,13 @@ atomic_values_to_list <- function(property_list) {
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot"))
+#'       column(6, gosling_output("gosling_plot"))
 #'     )
 #'   )
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "component_2",
 #'         composed_views, clean_braces = FALSE
@@ -277,7 +277,7 @@ atomic_values_to_list <- function(property_list) {
 #' @return Gosling initiator HTML.
 #' @export
 use_gosling <- function() {
-  GoslingComponent(
+  gosling_component(
     spec = shiny.react::JS(
       build_json(
         NULL
@@ -301,7 +301,7 @@ use_gosling <- function() {
 #'
 #'   # Circular track 1 ----
 #'   circular_track1_data <- track_data(
-#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec",
+#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec", # nolint
 #'     type = "multivec",
 #'     row = "sample",
 #'     column = "position",
@@ -313,7 +313,7 @@ use_gosling <- function() {
 #'   circular_track1_x <- visual_channel_x(field = "start", type = "genomic")
 #'   circular_track1_xe <- visual_channel_x(field = "end", type = "genomic")
 #'
-#'   circular_track1_y <- visual_channel_y(field = "peak", type = "quantitative")
+#'   circular_track1_y <- visual_channel_y(field = "peak", type = "quantitative") # nolint
 #'
 #'   circular_track1_row <- visual_channel_row(
 #'     field = "sample", type = "nominal"
@@ -340,15 +340,15 @@ use_gosling <- function() {
 #'   )
 #'
 #'   circular_track1_styles <- default_track_styles(
-#'     outlineWidth = 0
+#'     outline_width = 0
 #'   )
 #'
 #'   circular_track1 <- add_single_track(
-#'     id = "circular_track1", alignment = "overlay", data = circular_track1_data,
+#'     id = "circular_track1", alignment = "overlay", data = circular_track1_data, # nolint
 #'     x = circular_track1_x, xe = circular_track1_xe,
 #'     y = circular_track1_y, row = circular_track1_row,
 #'     color = circular_track1_color,
-#'     stroke = "black", strokeWidth = 0.3,
+#'     stroke = "black", stroke_width = 0.3,
 #'     tracks = circular_track1_tracks,
 #'     style = circular_track1_styles,
 #'     width = 500, height = 100
@@ -375,13 +375,13 @@ use_gosling <- function() {
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot"))
+#'       column(6, gosling_output("gosling_plot"))
 #'     )
 #'   )
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "circular_component",
 #'         circular_linear_view, clean_braces = FALSE
@@ -396,7 +396,7 @@ use_gosling <- function() {
 #' @export
 #'
 gosling <- function(component_id, composed_views, clean_braces = TRUE) {
-  GoslingComponent(
+  gosling_component(
     component_id = component_id,
     spec = shiny.react::JS(
       build_json(

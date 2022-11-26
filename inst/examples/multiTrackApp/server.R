@@ -1,7 +1,7 @@
 single_track <- add_single_track(
   id = "track1",
   data = track_data(
-    url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec",
+    url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec", # nolint
     type = "multivec",
     row = "sample",
     column = "position",
@@ -43,10 +43,10 @@ single_composed_track <- compose_view(
 )
 
 track1_data <- track_data(
-  url = "https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/UCSC.HG38.Human.CytoBandIdeogram.csv",
+  url = "https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/UCSC.HG38.Human.CytoBandIdeogram.csv", # nolint
   type = "csv",
-  chromosomeField = "Chromosome",
-  genomicFields = c("chromStart", "chromEnd")
+  chromosome_field = "Chromosome",
+  genomic_fields = c("chromStart", "chromEnd")
 )
 
 track_1_tracks <- add_multi_tracks(
@@ -56,7 +56,7 @@ track_1_tracks <- add_multi_tracks(
   add_single_track(
     mark = "brush",
     x = visual_channel_x(linkingId = "mid-scale"),
-    strokeWidth = 1.5, stroke = "#0070DC",
+    stroke_width = 1.5, stroke = "#0070DC",
     color = "#AFD8FF", opacity = 0.5
   )
 )
@@ -76,18 +76,18 @@ track1 <- add_single_track(
   id = "track2", title = "Patient Overview (PD35930a)",
   alignment = "overlay", data = track1_data, tracks = track_1_tracks,
   color = track1_color, size = 18, x = track1_x, xe = track1_xe,
-  stroke = "gray", strokeWidth = 0.3, width = 500, height = 100
+  stroke = "gray", stroke_width = 0.3, width = 500, height = 100
 )
 
 track2_data <- track_data(
-  url = "https://s3.amazonaws.com/gosling-lang.org/data/SV/driver.df.scanb.complete.csv",
+  url = "https://s3.amazonaws.com/gosling-lang.org/data/SV/driver.df.scanb.complete.csv", # nolint
   type = "csv",
-  chromosomeField = "Chr",
-  genomicFields = c("ChrStart", "ChrEnd")
+  chromosome_field = "Chr",
+  genomic_fields = c("ChrStart", "ChrEnd")
 )
 
 track2_data_transform <- track_data_transform(
-  type = "filter", field = "Sample", oneOf = list("PD35930a")
+  type = "filter", field = "Sample", one_of = list("PD35930a")
 )
 
 track2_tracks <- add_multi_tracks(
@@ -104,24 +104,24 @@ track2_xe <- visual_channel_x(field = "ChrEnd", type = "genomic")
 
 track2_text <- visual_channel_text(field = "Gene", type = "nominal")
 track2_style <- default_track_styles(
-  textFontWeight = "normal", dx = -10, outlineWidth = 0
+  text_font_weight = "normal", dx = -10, outline_width = 0
 )
 track2 <- add_single_track(
   id = "track3", title = "Putative Driver",
   alignment = "overlay", data = track2_data,
-  dataTransform = track2_data_transform, tracks = track2_tracks,
+  data_transform = track2_data_transform, tracks = track2_tracks,
   x = track2_x, xe = track2_xe, text = track2_text,
   color = "black", style = track2_style, width = 500, height = 40
 )
 
 track3_styles <- default_track_styles(
-  background = "lightgray", backgroundOpacity = 0.2
+  background = "lightgray", background_opacity = 0.2
 )
 track3_data <- track_data(
   url =
     "https://s3.amazonaws.com/gosling-lang.org/data/cancer/cnv.PD35930a.csv",
   type = "csv",
-  headerNames = c(
+  header_names = c(
     "id",
     "chr",
     "start",
@@ -131,11 +131,11 @@ track3_data <- track_data(
     "total_cn_tumor",
     "minor_cn_tumor"
   ),
-  chromosomeField = "chr",
-  genomicFields = c("start", "end")
+  chromosome_field = "chr",
+  genomic_fields = c("start", "end")
 )
 track3_data_transform <- track_data_transform(
-  type = "filter", field = "minor_cn_tumor", oneOf = list("0")
+  type = "filter", field = "minor_cn_tumor", one_of = list("0")
 )
 track3_tracks <- add_multi_tracks(
   add_single_track(
@@ -143,7 +143,7 @@ track3_tracks <- add_multi_tracks(
   ),
   add_single_track(
     mark = "brush", x = visual_channel_x(linkingId = "mid-scale"),
-    strokeWidth = 1, stroke = "#94C2EF",
+    stroke_width = 1, stroke = "#94C2EF",
     color = "#AFD8FF"
   )
 )
@@ -152,19 +152,19 @@ track3_xe <- visual_channel_x(field = "end", type = "genomic")
 track3 <- add_single_track(
   id = "track3", title = "LOH",
   style = track3_styles, alignment = "overlay",
-  data = track3_data, dataTransform = track3_data_transform,
+  data = track3_data, data_transform = track3_data_transform,
   tracks = track3_tracks, x = track3_x, xe = track3_xe,
   color = "#FB6A4B", width = 620, height = 40
 )
 
 track4_styles <- default_track_styles(
-  background = "lightgray", backgroundOpacity = 0.2
+  background = "lightgray", background_opacity = 0.2
 )
 track4_data <- track_data(
   url =
     "https://s3.amazonaws.com/gosling-lang.org/data/cancer/cnv.PD35930a.csv",
   type = "csv",
-  headerNames = c(
+  header_names = c(
     "id",
     "chr",
     "start",
@@ -174,8 +174,8 @@ track4_data <- track_data(
     "total_cn_tumor",
     "minor_cn_tumor"
   ),
-  chromosomeField = "chr",
-  genomicFields = c("start", "end")
+  chromosome_field = "chr",
+  genomic_fields = c("start", "end")
 )
 track4_data_transform <- track_data_transform(
   type = "filter", field = "total_cn_tumor", inRange = c(4.5, 900)
@@ -186,7 +186,7 @@ track4_tracks <- add_multi_tracks(
   ),
   add_single_track(
     mark = "brush", x = visual_channel_x(linkingId = "mid-scale"),
-    strokeWidth = 0
+    stroke_width = 0
   )
 )
 track4_x <- visual_channel_x(field = "start", type = "genomic")
@@ -194,25 +194,25 @@ track4_xe <- visual_channel_x(field = "end", type = "genomic")
 track4 <- add_single_track(
   id = "track4", title = "Gain",
   style = track4_styles, alignment = "overlay",
-  data = track4_data, dataTransform = track4_data_transform,
+  data = track4_data, data_transform = track4_data_transform,
   tracks = track4_tracks, x = track4_x, xe = track4_xe,
   color = "#73C475", width = 500, height = 40
 )
 
 track5_styles <- default_track_styles(
-  legendTitle = "SV Class"
+  legend_title = "SV Class"
 )
 track5_data <- track_data(
-  url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+  url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv", # nolint
   type = "csv",
   genomicFieldsToConvert = json_list(
     json_list(
-      chromosomeField = "chr1",
-      genomicFields = c("start1", "end1")
+      chromosome_field = "chr1",
+      genomic_fields = c("start1", "end1")
     ),
     json_list(
-      chromosomeField = "chr2",
-      genomicFields = c("start2", "end2")
+      chromosome_field = "chr2",
+      genomic_fields = c("start2", "end2")
     )
   )
 )
@@ -222,7 +222,7 @@ track5_tracks <- add_multi_tracks(
   ),
   add_single_track(
     mark = "withinLink", x = visual_channel_x(linkingId = "mid-scale"),
-    strokeWidth = 0
+    stroke_width = 0
   )
 )
 track5_color <- visual_channel_color(
@@ -253,7 +253,7 @@ track5 <- add_single_track(
   data = track5_data, mark = "withinLink",
   x = track5_x, xe = track5_xe,
   color = track5_color, width = 500, height = 80, stroke = track5_stroke,
-  strokeWidth = 1, opacity = 0.6, style = track5_styles
+  stroke_width = 1, opacity = 0.6, style = track5_styles
 )
 
 function(input, output, session) {
@@ -296,7 +296,7 @@ function(input, output, session) {
       layout = input$layout_single, views = single_composed_track,
       xDomain = list(chromosome = "chr1", interval = c(1, 3000500))
     )
-    output$gosling_plot_single <- renderGosling({
+    output$gosling_plot_single <- render_gosling({
       gosling(
         component_id = "component_1",
         all_reactive_values$single_composed_views, clean_braces = TRUE
@@ -320,12 +320,12 @@ function(input, output, session) {
       title = "Breast Cancer Variant (Staaf et al. 2019)",
       subtitle = "Genetic characteristics of RAD51C- and PALB2-altered TNBCs",
       layout = "linear", views = all_reactive_values$composed_views,
-      arrangement = "vertical", centerRadius = 0.5, assembly = "hg19",
+      arrangement = "vertical", center_radius = 0.5, assembly = "hg19",
       spacing = 40, style = default_track_styles(
-        enableSmoothPath = FALSE, outline = "lightgray", outlineWidth = 1
+        enable_smooth_path = FALSE, outline = "lightgray", outline_width = 1
       )
     )
-    output$gosling_plot_multi <- renderGosling({
+    output$gosling_plot_multi <- render_gosling({
       gosling(
         component_id = "component_2",
         all_reactive_values$composed_views, clean_braces = FALSE

@@ -5,85 +5,85 @@
 \title{Default styles for tracks}
 \usage{
 default_track_styles(
-  textStrokeWidth = NULL,
-  textStroke = NULL,
-  textFontWeight = NULL,
-  textFontSize = NULL,
-  textAnchor = NULL,
+  text_stroke_width = NULL,
+  text_stroke = NULL,
+  text_font_weight = NULL,
+  text_font_size = NULL,
+  text_anchor = NULL,
   select = NULL,
-  outlineWidth = NULL,
+  outline_width = NULL,
   outline = NULL,
-  mouseOver = NULL,
-  matrixExtent = NULL,
-  linkStyle = NULL,
-  linkMinHeight = NULL,
-  linkConnectionType = NULL,
-  linePattern = NULL,
-  legendTitle = NULL,
-  inlineLegend = NULL,
-  enableSmoothPath = NULL,
+  mouse_over = NULL,
+  matrix_extent = NULL,
+  link_style = NULL,
+  link_min_height = NULL,
+  link_connection_type = NULL,
+  line_pattern = NULL,
+  legend_title = NULL,
+  inline_legend = NULL,
+  enable_smooth_path = NULL,
   dy = NULL,
   dx = NULL,
   dashed = NULL,
   curve = NULL,
   brush = NULL,
-  backgroundOpacity = NULL,
+  background_opacity = NULL,
   background = NULL,
   align = NULL,
   ...
 )
 }
 \arguments{
-\item{textStrokeWidth}{A number. Specify the stroke width of text marks.
-Can also be specified using the strokeWidth channel option of text marks.}
+\item{text_stroke_width}{A number. Specify the stroke width of text marks.
+Can also be specified using the stroke_width channel option of text marks.}
 
-\item{textStroke}{A character. Specify the stroke of text marks. Can also
+\item{text_stroke}{A character. Specify the stroke of text marks. Can also
 be specified using the stroke channel option of text marks.}
 
-\item{textFontWeight}{A character. One of "bold", "normal". Specify the
+\item{text_font_weight}{A character. One of "bold", "normal". Specify the
 font weight of text marks.}
 
-\item{textFontSize}{A number. Specify the font size of text marks. Can
+\item{text_font_size}{A number. Specify the font size of text marks. Can
 also be specified using the size channel option of text marks.}
 
-\item{textAnchor}{A character. One of "start", "middle", "end". Specify
+\item{text_anchor}{A character. One of "start", "middle", "end". Specify
 the alignment of text marks to a given point.}
 
 \item{select}{An object returned by event_styles(). Customize visual
 effects of rangeSelect events on marks.}
 
-\item{outlineWidth}{A number.}
+\item{outline_width}{A number.}
 
 \item{outline}{A character.}
 
-\item{mouseOver}{An object returned by event_styles(). Customize
-visual effects of mouseOver events on marks.}
+\item{mouse_over}{An object returned by event_styles(). Customize
+visual effects of mouse_over events on marks.}
 
-\item{matrixExtent}{A character.One of "full", "upper-right", "lower-left".
+\item{matrix_extent}{A character.One of "full", "upper-right", "lower-left".
 Determine to show only one side of the diagonal in a HiGlass matrix.
 Default: "full".}
 
-\item{linkStyle}{A character. One of "elliptical", "circular", "straight",
+\item{link_style}{A character. One of "elliptical", "circular", "straight",
 "experimentalEdgeBundling". The style of withinLink and betweenLink marks.
 Default: 'circular' 'elliptical' will be used as a default option.}
 
-\item{linkMinHeight}{A number. The minimum height of withinLink and
+\item{link_min_height}{A number. The minimum height of withinLink and
 betweenLink marks. Unit is a percentagle. Default: 0.5.}
 
-\item{linkConnectionType}{A character. One of "straight", "curve",
+\item{link_connection_type}{A character. One of "straight", "curve",
 "corner". Specify the connetion type of betweenLink marks. Default: "corner".}
 
-\item{linePattern}{A list of the form list(size="number",type="string").
+\item{line_pattern}{A list of the form list(size="number",type="string").
 One of "triangleLeft", "triangleRight".) Specify the pattern of dashes
 and gaps for rule marks.}
 
-\item{legendTitle}{A character. If defined, show legend title on the top
+\item{legend_title}{A character. If defined, show legend title on the top
 or left.}
 
-\item{inlineLegend}{A Boolean. Specify whether to show legend in a single
+\item{inline_legend}{A Boolean. Specify whether to show legend in a single
 horizontal line?}
 
-\item{enableSmoothPath}{A Boolean. Whether to enable smooth paths when
+\item{enable_smooth_path}{A Boolean. Whether to enable smooth paths when
 drawing curves. Default: FALSE.}
 
 \item{dy}{A number. Offset the position of marks in y direction. This
@@ -101,7 +101,7 @@ Specify the curve of rule marks.}
 \item{brush}{An object returned by brush_styles(). Customize the
 style of the brush mark in the rangeSelect mouse event.}
 
-\item{backgroundOpacity}{A number.}
+\item{background_opacity}{A number.}
 
 \item{background}{A character.}
 
@@ -121,24 +121,24 @@ For more info visit
 http://gosling-lang.org/docs/visual-channel/#style-related-properties
 }
 \examples{
-if(interactive()) {
+if (interactive()) {
   library(shiny)
   library(shiny.gosling)
 
   track5_styles <- default_track_styles(
-    legendTitle = "SV Class"
+    legend_title = "SV Class"
   )
   track5_data <- track_data(
-    url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+    url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv", # nolint
     type = "csv",
     genomicFieldsToConvert = json_list(
       json_list(
-        chromosomeField = "chr1",
-        genomicFields = c("start1", "end1")
+        chromosome_field = "chr1",
+        genomic_fields = c("start1", "end1")
       ),
       json_list(
-        chromosomeField = "chr2",
-        genomicFields = c("start2", "end2")
+        chromosome_field = "chr2",
+        genomic_fields = c("start2", "end2")
       )
     )
   )
@@ -148,7 +148,7 @@ if(interactive()) {
     ),
     add_single_track(
       mark = "withinLink", x = visual_channel_x(linkingId = "mid-scale"),
-      strokeWidth = 0
+      stroke_width = 0
     )
   )
   track5_color <- visual_channel_color(
@@ -179,7 +179,7 @@ if(interactive()) {
     data = track5_data, mark = "withinLink",
     x = track5_x, xe = track5_xe,
     color = track5_color, width = 500, height = 80, stroke = track5_stroke,
-    strokeWidth = 1, opacity = 0.6, style = track5_styles
+    stroke_width = 1, opacity = 0.6, style = track5_styles
   )
 
   composed_track <- compose_view(
@@ -198,13 +198,13 @@ if(interactive()) {
   ui <- fluidPage(
     use_gosling(),
     fluidRow(
-      column(6, goslingOutput("gosling_plot"))
+      column(6, gosling_output("gosling_plot"))
     )
   )
 
 
   server <- function(input, output, session) {
-    output$gosling_plot <- renderGosling({
+    output$gosling_plot <- render_gosling({
       gosling(
         component_id = "component_2",
         composed_views, clean_braces = FALSE
@@ -213,6 +213,5 @@ if(interactive()) {
   }
 
   shinyApp(ui, server)
-
 }
 }

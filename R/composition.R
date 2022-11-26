@@ -12,11 +12,11 @@
 #' visual channel.
 #'
 #' Different marks support different visual channels:
-#' - point: x, y, row, size, color, strokeWidth, opacity
-#' - line: x, y, row, color, strokeWidth
-#' - rect: x, xe, row, color, strokeWidth, opacity
-#' - bar: x, y, row, color, strokeWidth, opacity
-#' - area: x, y, row, color, strokeWidth
+#' - point: x, y, row, size, color, stroke_width, opacity
+#' - line: x, y, row, color, stroke_width
+#' - rect: x, xe, row, color, stroke_width, opacity
+#' - bar: x, y, row, color, stroke_width, opacity
+#' - area: x, y, row, color, stroke_width
 #' - link: x, xe, x1, x1e, color, opacity
 #' - triangle: x, xe, row, size, color, opacity
 #' - text: x, xe, row, color, opacity
@@ -29,7 +29,7 @@
 #' @param size An object of from visual_channel_size() OR an atomic number.
 #' @param color An object of from visual_channel_color() OR and atomic
 #' character hex code of the form "#123456".
-#' @param strokeWidth An object of from visual_channel_stroke_width() OR an
+#' @param stroke_width An object of from visual_channel_stroke_width() OR an
 #' atomic number.
 #' @param opacity An object of from visual_channel_opacity() OR and atomic
 #' ratio from 0 to 1.
@@ -42,7 +42,7 @@
 #' character of hex color code like "#123456".
 #' @param width A number interpreted in units of pixel.
 #' @param height A number interpreted in units of pixel.
-#' @param dataTransform An object of from track_data_transform() function.
+#' @param data_transform An object of from track_data_transform() function.
 #' @param ... Any other arguments to be passed onto gosling.js.
 #'
 #' @examples
@@ -51,7 +51,7 @@
 #'   library(shiny.gosling)
 #'
 #'   cistrome_data <-
-#'     "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec"
+#'     "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec" # nolint
 #'
 #'   single_track <- add_single_track(
 #'     id = "track1",
@@ -103,7 +103,7 @@
 #'
 #'   single_composed_views <- arrange_views(
 #'     title = "Single Track",
-#'     subtitle = "This is the simplest single track visualization with a linear layout",
+#'     subtitle = "This is the simplest single track visualization with a linear layout", # nolint
 #'     layout = "circular", # "linear"
 #'     views = single_composed_track,
 #'     xDomain = list(
@@ -115,7 +115,7 @@
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot")),
+#'       column(6, gosling_output("gosling_plot")),
 #'       column(
 #'         1, br(), actionButton(
 #'           "download_png",
@@ -128,7 +128,7 @@
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "component_1",
 #'         single_composed_views,
@@ -145,18 +145,19 @@
 #' }
 #' @return list object.
 #' @export
-add_single_track <- function(id = NULL, data = NULL, mark = NULL, assembly = NULL, row = NULL,
-                             size = NULL, color = NULL,
-                             strokeWidth = NULL, opacity = NULL,
-                             x = NULL, xe = NULL, x1 = NULL, x1e = NULL, y = NULL,
-                             stroke = NULL, width = NULL, height = NULL, dataTransform = NULL, ...) {
+add_single_track <- function(id = NULL, data = NULL, mark = NULL,
+                             assembly = NULL, row = NULL, size = NULL,
+                             color = NULL, stroke_width = NULL, opacity = NULL,
+                             x = NULL, xe = NULL, x1 = NULL, x1e = NULL,
+                             y = NULL, stroke = NULL, width = NULL,
+                             height = NULL, data_transform = NULL, ...) {
   visual_channels <- add_mark(
     x, xe, x1, x1e, y,
-    strokeWidth, opacity, row, size,
+    stroke_width, opacity, row, size,
     color, stroke
   )
   defaults <- list(
-    id = id, data = data, dataTransform = dataTransform, mark = mark,
+    id = id, data = data, data_transform = data_transform, mark = mark,
     assembly = assembly, width = width, height = height
   )
   options <- list(...)
@@ -178,7 +179,7 @@ add_single_track <- function(id = NULL, data = NULL, mark = NULL, assembly = NUL
 #' @param layout One of "linear" or "circular".
 #' @param width A number interpreted in units of pixel.
 #' @param height A number interpreted in units of pixel.
-#' @param centerRadius Specify the proportion of the radius of
+#' @param center_radius Specify the proportion of the radius of
 #'  the center white space. A number between c(0,1), default=0.3
 #' @param tracks The tracks with add_multi_tracks() function.
 #' @param ... More arguments passed along with view to gosling.js.
@@ -190,7 +191,7 @@ add_single_track <- function(id = NULL, data = NULL, mark = NULL, assembly = NUL
 #'
 #'   # View 2 Track 3----
 #'   view2_track3_data <- track_data(
-#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec",
+#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec", # nolint
 #'     type = "multivec",
 #'     row = "base",
 #'     column = "position",
@@ -208,10 +209,10 @@ add_single_track <- function(id = NULL, data = NULL, mark = NULL, assembly = NUL
 #'   )
 #'
 #'   view2_track3b <- add_single_track(
-#'     dataTransform = track_data_transform(
+#'     data_transform = track_data_transform(
 #'       type = "filter",
 #'       field = "count",
-#'       oneOf = list(0),
+#'       one_of = list(0),
 #'       not = TRUE
 #'     ),
 #'     mark = "text",
@@ -256,7 +257,7 @@ add_single_track <- function(id = NULL, data = NULL, mark = NULL, assembly = NUL
 #'   )
 #'
 #'   view2_track3_style <- default_track_styles(
-#'     inlineLegend = TRUE
+#'     inline_legend = TRUE
 #'   )
 #'
 #'   view2_track3 <- add_single_track(
@@ -275,7 +276,7 @@ add_single_track <- function(id = NULL, data = NULL, mark = NULL, assembly = NUL
 #'
 #'   view2 <- compose_view(
 #'     multi = TRUE,
-#'     centerRadius = 0,
+#'     center_radius = 0,
 #'     xDomain = list(interval = c(1, 29903)),
 #'     linkingId = "detail",
 #'     alignment = "stack",
@@ -297,13 +298,13 @@ add_single_track <- function(id = NULL, data = NULL, mark = NULL, assembly = NUL
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot"))
+#'       column(6, gosling_output("gosling_plot"))
 #'     )
 #'   )
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "sars_cov2",
 #'         combined_view
@@ -318,12 +319,12 @@ add_single_track <- function(id = NULL, data = NULL, mark = NULL, assembly = NUL
 #' @export
 compose_view <- function(multi = FALSE,
                          layout = NULL, width = NULL, height = NULL,
-                         centerRadius = NULL, tracks, ...) {
+                         center_radius = NULL, tracks, ...) {
   list_rm_null(
     list(
       ...,
       layout = layout, width = width, height = height,
-      centerRadius = centerRadius,
+      center_radius = center_radius,
       tracks = if (multi) tracks else list(tracks)
     )
   )
@@ -345,7 +346,7 @@ compose_view <- function(multi = FALSE,
 #'
 #'   # View 2 Track 3----
 #'   view2_track3_data <- track_data(
-#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec",
+#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec", # nolint
 #'     type = "multivec",
 #'     row = "base",
 #'     column = "position",
@@ -363,10 +364,10 @@ compose_view <- function(multi = FALSE,
 #'   )
 #'
 #'   view2_track3b <- add_single_track(
-#'     dataTransform = track_data_transform(
+#'     data_transform = track_data_transform(
 #'       type = "filter",
 #'       field = "count",
-#'       oneOf = list(0),
+#'       one_of = list(0),
 #'       not = TRUE
 #'     ),
 #'     mark = "text",
@@ -411,7 +412,7 @@ compose_view <- function(multi = FALSE,
 #'   )
 #'
 #'   view2_track3_style <- default_track_styles(
-#'     inlineLegend = TRUE
+#'     inline_legend = TRUE
 #'   )
 #'
 #'   view2_track3 <- add_single_track(
@@ -430,7 +431,7 @@ compose_view <- function(multi = FALSE,
 #'
 #'   view2 <- compose_view(
 #'     multi = TRUE,
-#'     centerRadius = 0,
+#'     center_radius = 0,
 #'     xDomain = list(interval = c(1, 29903)),
 #'     linkingId = "detail",
 #'     alignment = "stack",
@@ -452,13 +453,13 @@ compose_view <- function(multi = FALSE,
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot"))
+#'       column(6, gosling_output("gosling_plot"))
 #'     )
 #'   )
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "sars_cov2",
 #'         combined_view
@@ -490,19 +491,19 @@ arrange_views <- function(layout = NULL, views = NULL, listify = TRUE, ...) {
 #'   library(shiny.gosling)
 #'
 #'   track5_styles <- default_track_styles(
-#'     legendTitle = "SV Class"
+#'     legend_title = "SV Class"
 #'   )
 #'   track5_data <- track_data(
-#'     url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+#'     url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv", # nolint
 #'     type = "csv",
 #'     genomicFieldsToConvert = json_list(
 #'       json_list(
-#'         chromosomeField = "chr1",
-#'         genomicFields = c("start1", "end1")
+#'         chromosome_field = "chr1",
+#'         genomic_fields = c("start1", "end1")
 #'       ),
 #'       json_list(
-#'         chromosomeField = "chr2",
-#'         genomicFields = c("start2", "end2")
+#'         chromosome_field = "chr2",
+#'         genomic_fields = c("start2", "end2")
 #'       )
 #'     )
 #'   )
@@ -512,7 +513,7 @@ arrange_views <- function(layout = NULL, views = NULL, listify = TRUE, ...) {
 #'     ),
 #'     add_single_track(
 #'       mark = "withinLink", x = visual_channel_x(linkingId = "mid-scale"),
-#'       strokeWidth = 0
+#'       stroke_width = 0
 #'     )
 #'   )
 #'   track5_color <- visual_channel_color(
@@ -543,7 +544,7 @@ arrange_views <- function(layout = NULL, views = NULL, listify = TRUE, ...) {
 #'     data = track5_data, mark = "withinLink",
 #'     x = track5_x, xe = track5_xe,
 #'     color = track5_color, width = 500, height = 80, stroke = track5_stroke,
-#'     strokeWidth = 1, opacity = 0.6, style = track5_styles
+#'     stroke_width = 1, opacity = 0.6, style = track5_styles
 #'   )
 #'
 #'   composed_track <- compose_view(
@@ -562,13 +563,13 @@ arrange_views <- function(layout = NULL, views = NULL, listify = TRUE, ...) {
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot"))
+#'       column(6, gosling_output("gosling_plot"))
 #'     )
 #'   )
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "component_2",
 #'         composed_views, clean_braces = FALSE

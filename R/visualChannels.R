@@ -11,7 +11,8 @@
 #'
 #' @return List object.
 #'
-visual_channel <- function(field = NULL, type = NULL, range = NULL, domain = NULL, ...) {
+visual_channel <- function(field = NULL, type = NULL, range = NULL,
+                           domain = NULL, ...) {
   list_rm_null(list(
     field = field, type = type, range = range, domain = domain, ...
   ))
@@ -34,7 +35,7 @@ visual_channel <- function(field = NULL, type = NULL, range = NULL, domain = NUL
 #'   library(shiny.gosling)
 #'
 #'   cistrome_data <-
-#'     "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec"
+#'     "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec" # nolint
 #'
 #'   single_track <- add_single_track(
 #'     id = "track1",
@@ -86,7 +87,7 @@ visual_channel <- function(field = NULL, type = NULL, range = NULL, domain = NUL
 #'
 #'   single_composed_views <- arrange_views(
 #'     title = "Single Track",
-#'     subtitle = "This is the simplest single track visualization with a linear layout",
+#'     subtitle = "This is the simplest single track visualization with a linear layout", # nolint
 #'     layout = "circular", # "linear"
 #'     views = single_composed_track,
 #'     xDomain = list(
@@ -98,7 +99,7 @@ visual_channel <- function(field = NULL, type = NULL, range = NULL, domain = NUL
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot")),
+#'       column(6, gosling_output("gosling_plot")),
 #'       column(
 #'         1, br(), actionButton(
 #'           "download_pdf",
@@ -111,7 +112,7 @@ visual_channel <- function(field = NULL, type = NULL, range = NULL, domain = NUL
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "component_1",
 #'         single_composed_views,
@@ -132,10 +133,8 @@ visual_channel <- function(field = NULL, type = NULL, range = NULL, domain = NUL
 #'
 #' @return List object.
 #' @export
-visual_channel_x <- function(field = NULL, type = NULL, legend = NULL, grid = NULL,
-                             axis = NULL,
-                             aggregate = NULL,
-                             ...) {
+visual_channel_x <- function(field = NULL, type = NULL, legend = NULL,
+                             grid = NULL, axis = NULL, aggregate = NULL, ...) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
     axis = axis, aggregate = aggregate, ...
@@ -145,7 +144,7 @@ visual_channel_x <- function(field = NULL, type = NULL, legend = NULL, grid = NU
 #' y and ye axis visual channel
 #'
 #' @param field A character. Name of the data field.
-#' @param zeroBaseline A Boolean. Specify whether to use zero baseline.
+#' @param zero_baseline A Boolean. Specify whether to use zero baseline.
 #' Default: TRUE.
 #' @param type A character. Must be "genomic". Specify the data type.
 #' @param legend A Boolean. Whether to display legend. Default: FALSE.
@@ -166,7 +165,7 @@ visual_channel_x <- function(field = NULL, type = NULL, legend = NULL, grid = NU
 #'
 #'   # Circular track 1 ----
 #'   circular_track1_data <- track_data(
-#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec",
+#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec", # nolint
 #'     type = "multivec",
 #'     row = "sample",
 #'     column = "position",
@@ -178,7 +177,9 @@ visual_channel_x <- function(field = NULL, type = NULL, legend = NULL, grid = NU
 #'   circular_track1_x <- visual_channel_x(field = "start", type = "genomic")
 #'   circular_track1_xe <- visual_channel_x(field = "end", type = "genomic")
 #'
-#'   circular_track1_y <- visual_channel_y(field = "peak", type = "quantitative")
+#'   circular_track1_y <- visual_channel_y(
+#'     field = "peak", type = "quantitative"
+#'   )
 #'
 #'   circular_track1_row <- visual_channel_row(
 #'     field = "sample", type = "nominal"
@@ -205,15 +206,16 @@ visual_channel_x <- function(field = NULL, type = NULL, legend = NULL, grid = NU
 #'   )
 #'
 #'   circular_track1_styles <- default_track_styles(
-#'     outlineWidth = 0
+#'     outline_width = 0
 #'   )
 #'
 #'   circular_track1 <- add_single_track(
-#'     id = "circular_track1", alignment = "overlay", data = circular_track1_data,
+#'     id = "circular_track1", alignment = "overlay",
+#'     data = circular_track1_data,
 #'     x = circular_track1_x, xe = circular_track1_xe,
 #'     y = circular_track1_y, row = circular_track1_row,
 #'     color = circular_track1_color,
-#'     stroke = "black", strokeWidth = 0.3,
+#'     stroke = "black", stroke_width = 0.3,
 #'     tracks = circular_track1_tracks,
 #'     style = circular_track1_styles,
 #'     width = 500, height = 100
@@ -240,13 +242,13 @@ visual_channel_x <- function(field = NULL, type = NULL, legend = NULL, grid = NU
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot"))
+#'       column(6, gosling_output("gosling_plot"))
 #'     )
 #'   )
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "circular_component",
 #'         circular_linear_view, clean_braces = FALSE
@@ -263,12 +265,10 @@ visual_channel_x <- function(field = NULL, type = NULL, legend = NULL, grid = NU
 #' @return List object.
 #' @export
 #'
-visual_channel_y <- function(field = NULL, zeroBaseline = NULL,
-                             type = NULL, # c("quantitative", "nominal", "genomic")
-                             legend = NULL, grid = NULL, flip = NULL, baseline = NULL,
-                             axis = NULL, # c("none", "top", "bottom", "left", "right")
-                             aggregate = NULL, # c("max", "min", "mean", "bin", "count")
-                             ...) {
+visual_channel_y <- function(field = NULL, zero_baseline = NULL,
+                             type = NULL, legend = NULL, grid = NULL,
+                             flip = NULL, baseline = NULL, axis = NULL,
+                             aggregate = NULL, ...) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
     axis = axis, aggregate = aggregate, ...
@@ -297,7 +297,7 @@ visual_channel_y <- function(field = NULL, zeroBaseline = NULL,
 #'
 #'   # Circular track 1 ----
 #'   circular_track1_data <- track_data(
-#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec",
+#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec", # nolint
 #'     type = "multivec",
 #'     row = "sample",
 #'     column = "position",
@@ -309,7 +309,9 @@ visual_channel_y <- function(field = NULL, zeroBaseline = NULL,
 #'   circular_track1_x <- visual_channel_x(field = "start", type = "genomic")
 #'   circular_track1_xe <- visual_channel_x(field = "end", type = "genomic")
 #'
-#'   circular_track1_y <- visual_channel_y(field = "peak", type = "quantitative")
+#'   circular_track1_y <- visual_channel_y(
+#'     field = "peak", type = "quantitative"
+#'   )
 #'
 #'   circular_track1_row <- visual_channel_row(
 #'     field = "sample", type = "nominal"
@@ -336,15 +338,16 @@ visual_channel_y <- function(field = NULL, zeroBaseline = NULL,
 #'   )
 #'
 #'   circular_track1_styles <- default_track_styles(
-#'     outlineWidth = 0
+#'     outline_width = 0
 #'   )
 #'
 #'   circular_track1 <- add_single_track(
-#'     id = "circular_track1", alignment = "overlay", data = circular_track1_data,
+#'     id = "circular_track1", alignment = "overlay",
+#'     data = circular_track1_data,
 #'     x = circular_track1_x, xe = circular_track1_xe,
 #'     y = circular_track1_y, row = circular_track1_row,
 #'     color = circular_track1_color,
-#'     stroke = "black", strokeWidth = 0.3,
+#'     stroke = "black", stroke_width = 0.3,
 #'     tracks = circular_track1_tracks,
 #'     style = circular_track1_styles,
 #'     width = 500, height = 100
@@ -371,13 +374,13 @@ visual_channel_y <- function(field = NULL, zeroBaseline = NULL,
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot"))
+#'       column(6, gosling_output("gosling_plot"))
 #'     )
 #'   )
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "circular_component",
 #'         circular_linear_view, clean_braces = FALSE
@@ -395,8 +398,8 @@ visual_channel_y <- function(field = NULL, zeroBaseline = NULL,
 #' @export
 #'
 visual_channel_row <- function(field = NULL, type = NULL, padding = NULL,
-                               legend = NULL, grid = NULL, clip = NULL, axis = NULL,
-                               aggregate = NULL, ...) {
+                               legend = NULL, grid = NULL, clip = NULL,
+                               axis = NULL, aggregate = NULL, ...) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
     axis = axis, aggregate = aggregate, ...
@@ -418,7 +421,7 @@ visual_channel_row <- function(field = NULL, type = NULL, padding = NULL,
 #' @return List object.
 #' @export
 #'
-visual_channel_size <- function(field = NULL, type = NULL, # c("quantitative", "nominal")
+visual_channel_size <- function(field = NULL, type = NULL,
                                 range = NULL, domain = NULL, ...) {
   visual_channel(
     field = field, type = type, range = range, domain = domain, ...
@@ -440,7 +443,7 @@ visual_channel_size <- function(field = NULL, type = NULL, # c("quantitative", "
 #'
 #'   # View 2 Track 3----
 #'   view2_track3_data <- track_data(
-#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec",
+#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec", # nolint
 #'     type = "multivec",
 #'     row = "base",
 #'     column = "position",
@@ -458,10 +461,10 @@ visual_channel_size <- function(field = NULL, type = NULL, # c("quantitative", "
 #'   )
 #'
 #'   view2_track3b <- add_single_track(
-#'     dataTransform = track_data_transform(
+#'     data_transform = track_data_transform(
 #'       type = "filter",
 #'       field = "count",
-#'       oneOf = list(0),
+#'       one_of = list(0),
 #'       not = TRUE
 #'     ),
 #'     mark = "text",
@@ -506,7 +509,7 @@ visual_channel_size <- function(field = NULL, type = NULL, # c("quantitative", "
 #'   )
 #'
 #'   view2_track3_style <- default_track_styles(
-#'     inlineLegend = TRUE
+#'     inline_legend = TRUE
 #'   )
 #'
 #'   view2_track3 <- add_single_track(
@@ -525,7 +528,7 @@ visual_channel_size <- function(field = NULL, type = NULL, # c("quantitative", "
 #'
 #'   view2 <- compose_view(
 #'     multi = TRUE,
-#'     centerRadius = 0,
+#'     center_radius = 0,
 #'     xDomain = list(interval = c(1, 29903)),
 #'     linkingId = "detail",
 #'     alignment = "stack",
@@ -547,13 +550,13 @@ visual_channel_size <- function(field = NULL, type = NULL, # c("quantitative", "
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot"))
+#'       column(6, gosling_output("gosling_plot"))
 #'     )
 #'   )
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "sars_cov2",
 #'         combined_view
@@ -582,7 +585,7 @@ visual_channel_text <- function(field = NULL, type = NULL,
 #' @param field A character. Name of the data field.
 #' @param title A character. Title of the legend. Default: undefined.
 #' @param type A character. Must be "genomic". Specify the data type.
-#' @param scaleOffset A number vector of the form c(1, 2). Whether
+#' @param scale_offset A number vector of the form c(1, 2). Whether
 #' to use offset of the domain proportionally. This is bound to brushes
 #' on the color legend. Default: c(0, 1).
 #' @param scale A character. One of "linear", "log".
@@ -600,7 +603,7 @@ visual_channel_text <- function(field = NULL, type = NULL,
 #'
 #'   # View 2 Track 3----
 #'   view2_track3_data <- track_data(
-#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec",
+#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec", # nolint
 #'     type = "multivec",
 #'     row = "base",
 #'     column = "position",
@@ -618,10 +621,10 @@ visual_channel_text <- function(field = NULL, type = NULL,
 #'   )
 #'
 #'   view2_track3b <- add_single_track(
-#'     dataTransform = track_data_transform(
+#'     data_transform = track_data_transform(
 #'       type = "filter",
 #'       field = "count",
-#'       oneOf = list(0),
+#'       one_of = list(0),
 #'       not = TRUE
 #'     ),
 #'     mark = "text",
@@ -666,7 +669,7 @@ visual_channel_text <- function(field = NULL, type = NULL,
 #'   )
 #'
 #'   view2_track3_style <- default_track_styles(
-#'     inlineLegend = TRUE
+#'     inline_legend = TRUE
 #'   )
 #'
 #'   view2_track3 <- add_single_track(
@@ -685,7 +688,7 @@ visual_channel_text <- function(field = NULL, type = NULL,
 #'
 #'   view2 <- compose_view(
 #'     multi = TRUE,
-#'     centerRadius = 0,
+#'     center_radius = 0,
 #'     xDomain = list(interval = c(1, 29903)),
 #'     linkingId = "detail",
 #'     alignment = "stack",
@@ -707,13 +710,13 @@ visual_channel_text <- function(field = NULL, type = NULL,
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot"))
+#'       column(6, gosling_output("gosling_plot"))
 #'     )
 #'   )
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "sars_cov2",
 #'         combined_view
@@ -730,8 +733,9 @@ visual_channel_text <- function(field = NULL, type = NULL,
 #' @return List object.
 #' @export
 #'
-visual_channel_color <- function(field = NULL, title = NULL, type = NULL, scaleOffset = NULL,
-                                 scale = NULL, legend = NULL, grid = NULL, axis = NULL,
+visual_channel_color <- function(field = NULL, title = NULL, type = NULL,
+                                 scale_offset = NULL, scale = NULL,
+                                 legend = NULL, grid = NULL, axis = NULL,
                                  aggregate = NULL, ...) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
@@ -745,7 +749,7 @@ visual_channel_color <- function(field = NULL, title = NULL, type = NULL, scaleO
 #' @param field A character. Name of the data field.
 #' @param title A character. Title of the legend. Default: undefined.
 #' @param type A character. Must be "genomic". Specify the data type.
-#' @param scaleOffset A number vector of the form c(1, 2). Whether to use
+#' @param scale_offset A number vector of the form c(1, 2). Whether to use
 #' offset of the domain proportionally. This is bound to brushes on the color
 #' legend. Default: c(0, 1).
 #' @param legend A Boolean. Whether to display legend. Default: FALSE.
@@ -761,19 +765,19 @@ visual_channel_color <- function(field = NULL, title = NULL, type = NULL, scaleO
 #'   library(shiny.gosling)
 #'
 #'   track5_styles <- default_track_styles(
-#'     legendTitle = "SV Class"
+#'     legend_title = "SV Class"
 #'   )
 #'   track5_data <- track_data(
-#'     url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+#'     url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv", # nolint
 #'     type = "csv",
 #'     genomicFieldsToConvert = json_list(
 #'       json_list(
-#'         chromosomeField = "chr1",
-#'         genomicFields = c("start1", "end1")
+#'         chromosome_field = "chr1",
+#'         genomic_fields = c("start1", "end1")
 #'       ),
 #'       json_list(
-#'         chromosomeField = "chr2",
-#'         genomicFields = c("start2", "end2")
+#'         chromosome_field = "chr2",
+#'         genomic_fields = c("start2", "end2")
 #'       )
 #'     )
 #'   )
@@ -783,7 +787,7 @@ visual_channel_color <- function(field = NULL, title = NULL, type = NULL, scaleO
 #'     ),
 #'     add_single_track(
 #'       mark = "withinLink", x = visual_channel_x(linkingId = "mid-scale"),
-#'       strokeWidth = 0
+#'       stroke_width = 0
 #'     )
 #'   )
 #'   track5_color <- visual_channel_color(
@@ -814,7 +818,7 @@ visual_channel_color <- function(field = NULL, title = NULL, type = NULL, scaleO
 #'     data = track5_data, mark = "withinLink",
 #'     x = track5_x, xe = track5_xe,
 #'     color = track5_color, width = 500, height = 80, stroke = track5_stroke,
-#'     strokeWidth = 1, opacity = 0.6, style = track5_styles
+#'     stroke_width = 1, opacity = 0.6, style = track5_styles
 #'   )
 #'
 #'   composed_track <- compose_view(
@@ -833,13 +837,13 @@ visual_channel_color <- function(field = NULL, title = NULL, type = NULL, scaleO
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot"))
+#'       column(6, gosling_output("gosling_plot"))
 #'     )
 #'   )
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "component_2",
 #'         composed_views, clean_braces = FALSE
@@ -856,8 +860,10 @@ visual_channel_color <- function(field = NULL, title = NULL, type = NULL, scaleO
 #' @return List object.
 #' @export
 #'
-visual_channel_stroke <- function(field = NULL, title = NULL, type = NULL, scaleOffset = NULL,
-                                  legend = NULL, grid = NULL, axis = NULL, aggregate = NULL, ...) {
+visual_channel_stroke <- function(field = NULL, title = NULL, type = NULL,
+                                  scale_offset = NULL, legend = NULL,
+                                  grid = NULL, axis = NULL, aggregate = NULL,
+                                  ...) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
     axis = axis, aggregate = aggregate, ...
@@ -873,7 +879,7 @@ visual_channel_stroke <- function(field = NULL, title = NULL, type = NULL, scale
 #' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @details For more info visit
-#' http://gosling-lang.org/docs/visual-channel#strokewidth
+#' http://gosling-lang.org/docs/visual-channel#stroke_width
 #'
 #' @return List object.
 #' @export
@@ -921,7 +927,7 @@ visual_channel_opacity <- function(field = NULL, type = NULL,
 #'   library(shiny.gosling)
 #'
 #'   cistrome_data <-
-#'     "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec"
+#'     "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec" # nolint
 #'
 #'   single_track <- add_single_track(
 #'     id = "track1",
@@ -973,7 +979,7 @@ visual_channel_opacity <- function(field = NULL, type = NULL,
 #'
 #'   single_composed_views <- arrange_views(
 #'     title = "Single Track",
-#'     subtitle = "This is the simplest single track visualization with a linear layout",
+#'     subtitle = "This is the simplest single track visualization with a linear layout", # nolint
 #'     layout = "circular", # "linear"
 #'     views = single_composed_track,
 #'     xDomain = list(
@@ -985,7 +991,7 @@ visual_channel_opacity <- function(field = NULL, type = NULL,
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot")),
+#'       column(6, gosling_output("gosling_plot")),
 #'       column(
 #'         1, br(), actionButton(
 #'           "download_pdf",
@@ -998,7 +1004,7 @@ visual_channel_opacity <- function(field = NULL, type = NULL,
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "component_1",
 #'         single_composed_views,
@@ -1037,7 +1043,7 @@ visual_channel_tooltip <- function(field = NULL, type = NULL, alt = NULL, ...) {
 #'   library(shiny.gosling)
 #'
 #'   cistrome_data <-
-#'     "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec"
+#'     "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec" # nolint
 #'
 #'   single_track <- add_single_track(
 #'     id = "track1",
@@ -1089,7 +1095,7 @@ visual_channel_tooltip <- function(field = NULL, type = NULL, alt = NULL, ...) {
 #'
 #'   single_composed_views <- arrange_views(
 #'     title = "Single Track",
-#'     subtitle = "This is the simplest single track visualization with a linear layout",
+#'     subtitle = "This is the simplest single track visualization with a linear layout", # nolint
 #'     layout = "circular", # "linear"
 #'     views = single_composed_track,
 #'     xDomain = list(
@@ -1101,7 +1107,7 @@ visual_channel_tooltip <- function(field = NULL, type = NULL, alt = NULL, ...) {
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot")),
+#'       column(6, gosling_output("gosling_plot")),
 #'       column(
 #'         1, br(), actionButton(
 #'           "download_pdf",
@@ -1114,7 +1120,7 @@ visual_channel_tooltip <- function(field = NULL, type = NULL, alt = NULL, ...) {
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "component_1",
 #'         single_composed_views,

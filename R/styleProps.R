@@ -3,9 +3,9 @@
 #' The styles defined here will be applied to the targets of mouse events,
 #' such as a point mark after user click mouse.
 #'
-#' @param strokeWidth A number. stroke width of the marks when mouse events
+#' @param stroke_width A number. stroke width of the marks when mouse events
 #' are triggered.
-#' @param strokeOpacity A number.
+#' @param stroke_opacity A number.
 #' @param stroke A character. Stroke color of the marks when mouse events are
 #' triggered.
 #' @param opacity A number. Opacity of the marks when mouse events
@@ -20,11 +20,11 @@
 #'
 #' @return List object with event styles.
 #'
-event_styles <- function(strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
-                         color = NULL, arrange = NULL # c("behind", "front")
-) {
+event_styles <- function(stroke_width = NULL, stroke_opacity = NULL,
+                         stroke = NULL, opacity = NULL, color = NULL,
+                         arrange = NULL) {
   list_rm_null(list(
-    strokeWidth = strokeWidth, strokeOpacity = strokeOpacity,
+    stroke_width = stroke_width, stroke_opacity = stroke_opacity,
     stroke = stroke, opacity = opacity, color = color,
     arrange = arrange
   ))
@@ -34,9 +34,9 @@ event_styles <- function(strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL
 #'
 #' Customize the style of the brush mark in the `rangeSelect` mouse event.
 #'
-#' @param strokeWidth A number. stroke width of the marks when mouse events
+#' @param stroke_width A number. stroke width of the marks when mouse events
 #' are triggered.
-#' @param strokeOpacity A number.
+#' @param stroke_opacity A number.
 #' @param stroke A character. Stroke color of the marks when mouse events
 #' are triggered.
 #' @param opacity A number. Opacity of the marks when mouse events are
@@ -49,50 +49,50 @@ event_styles <- function(strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL
 #'
 #' @return List object with brush styles.
 #'
-brush_styles <- function(strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
-                         color = NULL) {
+brush_styles <- function(stroke_width = NULL, stroke_opacity = NULL,
+                         stroke = NULL, opacity = NULL, color = NULL) {
   list_rm_null(list(
-    strokeWidth = strokeWidth, strokeOpacity = strokeOpacity,
+    stroke_width = stroke_width, stroke_opacity = stroke_opacity,
     stroke = stroke, opacity = opacity, color = color
   ))
 }
 
 #' Default styles for tracks
 #'
-#' @param textStrokeWidth A number. Specify the stroke width of text marks.
-#' Can also be specified using the strokeWidth channel option of text marks.
-#' @param textStroke A character. Specify the stroke of text marks. Can also
+#' @param text_stroke_width A number. Specify the stroke width of text marks.
+#' Can also be specified using the stroke_width channel option of text marks.
+#' @param text_stroke A character. Specify the stroke of text marks. Can also
 #' be specified using the stroke channel option of text marks.
-#' @param textFontWeight A character. One of "bold", "normal". Specify the
+#' @param text_font_weight A character. One of "bold", "normal". Specify the
 #' font weight of text marks.
-#' @param textFontSize A number. Specify the font size of text marks. Can
+#' @param text_font_size A number. Specify the font size of text marks. Can
 #' also be specified using the size channel option of text marks.
-#' @param textAnchor A character. One of "start", "middle", "end". Specify
+#' @param text_anchor A character. One of "start", "middle", "end". Specify
 #' the alignment of text marks to a given point.
 #' @param select An object returned by event_styles(). Customize visual
 #' effects of rangeSelect events on marks.
-#' @param outlineWidth A number.
+#' @param outline_width A number.
 #' @param outline A character.
-#' @param mouseOver An object returned by event_styles(). Customize
-#' visual effects of mouseOver events on marks.
-#' @param matrixExtent A character.One of "full", "upper-right", "lower-left".
+#' @param mouse_over An object returned by event_styles(). Customize
+#' visual effects of mouse_over events on marks.
+#' @param matrix_extent A character.One of "full", "upper-right", "lower-left".
 #' Determine to show only one side of the diagonal in a HiGlass matrix.
 #' Default: "full".
-#' @param linkStyle A character. One of "elliptical", "circular", "straight",
+#' @param link_style A character. One of "elliptical", "circular", "straight",
 #' "experimentalEdgeBundling". The style of withinLink and betweenLink marks.
 #' Default: 'circular' 'elliptical' will be used as a default option.
-#' @param linkMinHeight A number. The minimum height of withinLink and
+#' @param link_min_height A number. The minimum height of withinLink and
 #' betweenLink marks. Unit is a percentagle. Default: 0.5.
-#' @param linkConnectionType  A character. One of "straight", "curve",
+#' @param link_connection_type  A character. One of "straight", "curve",
 #' "corner". Specify the connetion type of betweenLink marks. Default: "corner".
-#' @param linePattern A list of the form list(size="number",type="string").
+#' @param line_pattern A list of the form list(size="number",type="string").
 #'  One of "triangleLeft", "triangleRight".) Specify the pattern of dashes
 #'  and gaps for rule marks.
-#' @param legendTitle A character. If defined, show legend title on the top
+#' @param legend_title A character. If defined, show legend title on the top
 #' or left.
-#' @param inlineLegend A Boolean. Specify whether to show legend in a single
+#' @param inline_legend A Boolean. Specify whether to show legend in a single
 #' horizontal line?
-#' @param enableSmoothPath A Boolean. Whether to enable smooth paths when
+#' @param enable_smooth_path A Boolean. Whether to enable smooth paths when
 #' drawing curves. Default: FALSE.
 #' @param dy A number. Offset the position of marks in y direction. This
 #' property is currently only supported for text marks.
@@ -104,7 +104,7 @@ brush_styles <- function(strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL
 #' Specify the curve of rule marks.
 #' @param brush An object returned by brush_styles(). Customize the
 #' style of the brush mark in the rangeSelect mouse event.
-#' @param backgroundOpacity A number.
+#' @param background_opacity A number.
 #' @param background A character.
 #' @param align A character. One of "left", "right". Specify the alignment
 #' of marks. This property is currently only supported for triangle marks.
@@ -115,19 +115,19 @@ brush_styles <- function(strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL
 #'   library(shiny.gosling)
 #'
 #'   track5_styles <- default_track_styles(
-#'     legendTitle = "SV Class"
+#'     legend_title = "SV Class"
 #'   )
 #'   track5_data <- track_data(
-#'     url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+#'     url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv", # nolint
 #'     type = "csv",
 #'     genomicFieldsToConvert = json_list(
 #'       json_list(
-#'         chromosomeField = "chr1",
-#'         genomicFields = c("start1", "end1")
+#'         chromosome_field = "chr1",
+#'         genomic_fields = c("start1", "end1")
 #'       ),
 #'       json_list(
-#'         chromosomeField = "chr2",
-#'         genomicFields = c("start2", "end2")
+#'         chromosome_field = "chr2",
+#'         genomic_fields = c("start2", "end2")
 #'       )
 #'     )
 #'   )
@@ -137,7 +137,7 @@ brush_styles <- function(strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL
 #'     ),
 #'     add_single_track(
 #'       mark = "withinLink", x = visual_channel_x(linkingId = "mid-scale"),
-#'       strokeWidth = 0
+#'       stroke_width = 0
 #'     )
 #'   )
 #'   track5_color <- visual_channel_color(
@@ -168,7 +168,7 @@ brush_styles <- function(strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL
 #'     data = track5_data, mark = "withinLink",
 #'     x = track5_x, xe = track5_xe,
 #'     color = track5_color, width = 500, height = 80, stroke = track5_stroke,
-#'     strokeWidth = 1, opacity = 0.6, style = track5_styles
+#'     stroke_width = 1, opacity = 0.6, style = track5_styles
 #'   )
 #'
 #'   composed_track <- compose_view(
@@ -187,13 +187,13 @@ brush_styles <- function(strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot"))
+#'       column(6, gosling_output("gosling_plot"))
 #'     )
 #'   )
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "component_2",
 #'         composed_views, clean_braces = FALSE
@@ -209,26 +209,30 @@ brush_styles <- function(strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL
 #' @return List object with default styles.
 #' @export
 #'
-default_track_styles <- function(textStrokeWidth = NULL, textStroke = NULL, textFontWeight = NULL,
-                                 textFontSize = NULL, textAnchor = NULL, select = NULL,
-                                 outlineWidth = NULL, outline = NULL, mouseOver = NULL,
-                                 matrixExtent = NULL, linkStyle = NULL, linkMinHeight = NULL,
-                                 linkConnectionType = NULL, linePattern = NULL, legendTitle = NULL,
-                                 inlineLegend = NULL, enableSmoothPath = NULL, dy = NULL, dx = NULL,
+default_track_styles <- function(text_stroke_width = NULL, text_stroke = NULL,
+                                 text_font_weight = NULL, text_font_size = NULL,
+                                 text_anchor = NULL, select = NULL,
+                                 outline_width = NULL, outline = NULL,
+                                 mouse_over = NULL, matrix_extent = NULL,
+                                 link_style = NULL, link_min_height = NULL,
+                                 link_connection_type = NULL, line_pattern = NULL,
+                                 legend_title = NULL, inline_legend = NULL,
+                                 enable_smooth_path = NULL, dy = NULL, dx = NULL,
                                  dashed = NULL, curve = NULL, brush = NULL,
-                                 backgroundOpacity = NULL, background = NULL, align = NULL, ...) {
+                                 background_opacity = NULL, background = NULL,
+                                 align = NULL, ...) {
   list_rm_null(
     list(
-      textStrokeWidth = textStrokeWidth, textStroke = textStroke,
-      textFontWeight = textFontWeight, textFontSize = textFontSize,
-      textAnchor = textAnchor, select = select, outlineWidth = outlineWidth,
-      outline = outline, mouseOver = mouseOver, mouseOver = mouseOver,
-      linkStyle = linkStyle, linkMinHeight = linkMinHeight,
-      linkConnectionType = linkConnectionType, linePattern = linePattern,
-      legendTitle = legendTitle, inlineLegend = inlineLegend,
-      enableSmoothPath = enableSmoothPath, dy = dy, dx = dx,
+      text_stroke_width = text_stroke_width, text_stroke = text_stroke,
+      text_font_weight = text_font_weight, text_font_size = text_font_size,
+      text_anchor = text_anchor, select = select, outline_width = outline_width,
+      outline = outline, mouse_over = mouse_over, mouse_over = mouse_over,
+      link_style = link_style, link_min_height = link_min_height,
+      link_connection_type = link_connection_type, line_pattern = line_pattern,
+      legend_title = legend_title, inline_legend = inline_legend,
+      enable_smooth_path = enable_smooth_path, dy = dy, dx = dx,
       dashed = dashed, curve = curve, brush = brush,
-      backgroundOpacity = backgroundOpacity, background = background,
+      background_opacity = background_opacity, background = background,
       align = align, ...
     )
   )

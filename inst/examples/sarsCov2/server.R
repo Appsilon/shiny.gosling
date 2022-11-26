@@ -1,25 +1,25 @@
 # View 1 ----
 view1_data <- track_data(
-  url = "https://s3.amazonaws.com/gosling-lang.org/data/COVID/NC_045512.2-Genes.csv",
+  url = "https://s3.amazonaws.com/gosling-lang.org/data/COVID/NC_045512.2-Genes.csv", # nolint
   type = "csv",
-  chromosomeField = "Accession",
-  genomicFields = c("Start", "Stop")
+  chromosome_field = "Accession",
+  genomic_fields = c("Start", "Stop")
 )
 
 view1_track1 <- add_single_track(
   mark = "rect",
   color = "#0072B2",
   stroke = "white",
-  strokeWidth = 2
+  stroke_width = 2
 )
 
 view1_track2 <- add_single_track(
   mark = "rule",
   color = "white",
   opacity = 0.6,
-  strokeWidth = 0,
+  stroke_width = 0,
   style = default_track_styles(
-    linePattern = list(
+    line_pattern = list(
       type = "triangleRight", size = 10
     )
   )
@@ -30,7 +30,7 @@ view1_track3 <- add_single_track(
   text = list(
     field = "Gene symbol", type = "nominal"
   ),
-  color = "black", stroke = "white", strokeWidth = 3,
+  color = "black", stroke = "white", stroke_width = 3,
   visibility = list(list(
     target = "mark", measure = "width", threshold = "|xe-x|",
     operation = "LTET", transitionPadding = 30
@@ -73,10 +73,10 @@ view1 <- compose_view(
 # View 2 ----
 # View 2 Track 1----
 view2_track1_data <- track_data(
-  url = "https://s3.amazonaws.com/gosling-lang.org/data/COVID/sars-cov-2_Sprot_annot_sorted.bed",
+  url = "https://s3.amazonaws.com/gosling-lang.org/data/COVID/sars-cov-2_Sprot_annot_sorted.bed", # nolint
   type = "csv",
-  chromosomeField = "Accession",
-  genomicFields = c("Start", "Stop")
+  chromosome_field = "Accession",
+  genomic_fields = c("Start", "Stop")
 )
 
 view2_track1a_color <- visual_channel_color(
@@ -105,7 +105,7 @@ view2_track1b_text <- visual_channel_text(
 )
 
 view2_track1b_style <- default_track_styles(
-  textAnchor = "end"
+  text_anchor = "end"
 )
 
 view2_track1b <- add_single_track(
@@ -113,7 +113,7 @@ view2_track1b <- add_single_track(
   text = view2_track1b_text,
   color = "#333",
   stroke = "white",
-  strokeWidth = 3,
+  stroke_width = 3,
   style = view2_track1b_style
 )
 
@@ -148,26 +148,26 @@ view2_track1 <- add_single_track(
 
 # View 2 Track 2----
 view2_track2_data <- track_data(
-  url = "https://s3.amazonaws.com/gosling-lang.org/data/COVID/NC_045512.2-Genes.csv",
+  url = "https://s3.amazonaws.com/gosling-lang.org/data/COVID/NC_045512.2-Genes.csv", # nolint
   type = "csv",
-  chromosomeField = "Accession",
-  genomicFields = c("Start", "Stop")
+  chromosome_field = "Accession",
+  genomic_fields = c("Start", "Stop")
 )
 
 view2_track2a <- add_single_track(
   mark = "rect",
   color = "#0072B2",
   stroke = "white",
-  strokeWidth = 2
+  stroke_width = 2
 )
 
 view2_track2b <- add_single_track(
   mark = "rule",
   color = "white",
   opacity = 0.6,
-  strokeWidth = 0,
+  stroke_width = 0,
   style = default_track_styles(
-    linePattern = list(
+    line_pattern = list(
       type = "triangleRight", size = 10
     )
   )
@@ -180,7 +180,7 @@ view2_track2c <- add_single_track(
   ),
   color = "black",
   stroke = "white",
-  strokeWidth = 3,
+  stroke_width = 3,
   visibility = list(list(
     target = "mark",
     measure = "width",
@@ -212,7 +212,7 @@ view2_track2 <- add_single_track(
 
 # View 2 Track 3----
 view2_track3_data <- track_data(
-  url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec",
+  url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec", # nolint
   type = "multivec",
   row = "base",
   column = "position",
@@ -230,10 +230,10 @@ view2_track3a <- add_single_track(
 )
 
 view2_track3b <- add_single_track(
-  dataTransform = track_data_transform(
+  data_transform = track_data_transform(
     type = "filter",
     field = "count",
-    oneOf = list(0),
+    one_of = list(0),
     not = TRUE
   ),
   mark = "text",
@@ -276,7 +276,7 @@ view2_track3_text <- visual_channel_text(
 )
 
 view2_track3_style <- default_track_styles(
-  inlineLegend = TRUE
+  inline_legend = TRUE
 )
 
 view2_track3 <- add_single_track(
@@ -295,10 +295,10 @@ view2_track3 <- add_single_track(
 
 # View 2 Track 4----
 view2_track4_data <- track_data(
-  url = "https://s3.amazonaws.com/gosling-lang.org/data/COVID/TRS-L-dependent_recombinationEvents_sorted.bed",
+  url = "https://s3.amazonaws.com/gosling-lang.org/data/COVID/TRS-L-dependent_recombinationEvents_sorted.bed", # nolint
   type = "csv",
-  chromosomeField = "Accession",
-  genomicFields = c("Start1", "Stop1", "Start2", "Stop2")
+  chromosome_field = "Accession",
+  genomic_fields = c("Start1", "Stop1", "Start2", "Stop2")
 )
 
 view2_track4_x <- visual_channel_x(
@@ -335,7 +335,7 @@ view2_track4 <- add_single_track(
 
 view2 <- compose_view(
   multi = TRUE,
-  centerRadius = 0,
+  center_radius = 0,
   xDomain = list(interval = c(1, 29903)),
   linkingId = "detail",
   alignment = "stack",
@@ -372,7 +372,7 @@ function(input, output, session) {
     )
   })
 
-  output$gosling_plot_sars_cov2 <- renderGosling({
+  output$gosling_plot_sars_cov2 <- render_gosling({
     gosling(
       component_id = "sars_cov2",
       combined_view

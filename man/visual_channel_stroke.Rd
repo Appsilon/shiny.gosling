@@ -8,7 +8,7 @@ visual_channel_stroke(
   field = NULL,
   title = NULL,
   type = NULL,
-  scaleOffset = NULL,
+  scale_offset = NULL,
   legend = NULL,
   grid = NULL,
   axis = NULL,
@@ -23,7 +23,7 @@ visual_channel_stroke(
 
 \item{type}{A character. Must be "genomic". Specify the data type.}
 
-\item{scaleOffset}{A number vector of the form c(1, 2). Whether to use
+\item{scale_offset}{A number vector of the form c(1, 2). Whether to use
 offset of the domain proportionally. This is bound to brushes on the color
 legend. Default: c(0, 1).}
 
@@ -50,24 +50,24 @@ For more info visit
 http://gosling-lang.org/docs/visual-channel#stroke
 }
 \examples{
-if(interactive()) {
+if (interactive()) {
   library(shiny)
   library(shiny.gosling)
 
   track5_styles <- default_track_styles(
-    legendTitle = "SV Class"
+    legend_title = "SV Class"
   )
   track5_data <- track_data(
-    url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+    url = "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv", # nolint
     type = "csv",
     genomicFieldsToConvert = json_list(
       json_list(
-        chromosomeField = "chr1",
-        genomicFields = c("start1", "end1")
+        chromosome_field = "chr1",
+        genomic_fields = c("start1", "end1")
       ),
       json_list(
-        chromosomeField = "chr2",
-        genomicFields = c("start2", "end2")
+        chromosome_field = "chr2",
+        genomic_fields = c("start2", "end2")
       )
     )
   )
@@ -77,7 +77,7 @@ if(interactive()) {
     ),
     add_single_track(
       mark = "withinLink", x = visual_channel_x(linkingId = "mid-scale"),
-      strokeWidth = 0
+      stroke_width = 0
     )
   )
   track5_color <- visual_channel_color(
@@ -108,7 +108,7 @@ if(interactive()) {
     data = track5_data, mark = "withinLink",
     x = track5_x, xe = track5_xe,
     color = track5_color, width = 500, height = 80, stroke = track5_stroke,
-    strokeWidth = 1, opacity = 0.6, style = track5_styles
+    stroke_width = 1, opacity = 0.6, style = track5_styles
   )
 
   composed_track <- compose_view(
@@ -127,13 +127,13 @@ if(interactive()) {
   ui <- fluidPage(
     use_gosling(),
     fluidRow(
-      column(6, goslingOutput("gosling_plot"))
+      column(6, gosling_output("gosling_plot"))
     )
   )
 
 
   server <- function(input, output, session) {
-    output$gosling_plot <- renderGosling({
+    output$gosling_plot <- render_gosling({
       gosling(
         component_id = "component_2",
         composed_views, clean_braces = FALSE
@@ -142,7 +142,6 @@ if(interactive()) {
   }
 
   shinyApp(ui, server)
-
 }
 
 }

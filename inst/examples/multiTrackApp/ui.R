@@ -14,7 +14,7 @@ navbarPage(
       ),
       mainPanel(
         width = 8,
-        goslingOutput("gosling_plot_single"),
+        gosling_output("gosling_plot_single"),
         br(),
         fluidRow(
           column(
@@ -68,9 +68,8 @@ navbarPage(
       ),
       mainPanel(
         width = 8,
-        goslingOutput("gosling_plot_multi")
+        gosling_output("gosling_plot_multi")
       )
     )
   )
 )
-

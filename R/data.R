@@ -8,13 +8,13 @@
 #' "vcf", "vector", "multivec" and "beddb". For usage refer to
 #' http://gosling-lang.org/docs/data#supported-data-formats.
 #' @param separator A character. Specify file separator, Default: ','
-#' @param sampleLength A number. Specify the number of rows loaded from
+#' @param sample_length A number. Specify the number of rows loaded from
 #' the URL. Default: 1000
-#' @param headerNames A character vector. Specify the names of data fields
+#' @param header_names A character vector. Specify the names of data fields
 #' if a CSV file is headerless.
-#' @param genomicFields A character vector. Specify the name of genomic
+#' @param genomic_fields A character vector. Specify the name of genomic
 #' data fields.
-#' @param chromosomeField A character. Specify the name of chromosome
+#' @param chromosome_field A character. Specify the name of chromosome
 #' data fields.
 #' @param ... Any other parameters passed to json data object.
 #'
@@ -25,7 +25,7 @@
 #'
 #'   # View 2 Track 3----
 #'   view2_track3_data <- track_data(
-#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec",
+#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec", # nolint
 #'     type = "multivec",
 #'     row = "base",
 #'     column = "position",
@@ -43,10 +43,10 @@
 #'   )
 #'
 #'   view2_track3b <- add_single_track(
-#'     dataTransform = track_data_transform(
+#'     data_transform = track_data_transform(
 #'       type = "filter",
 #'       field = "count",
-#'       oneOf = list(0),
+#'       one_of = list(0),
 #'       not = TRUE
 #'     ),
 #'     mark = "text",
@@ -91,7 +91,7 @@
 #'   )
 #'
 #'   view2_track3_style <- default_track_styles(
-#'     inlineLegend = TRUE
+#'     inline_legend = TRUE
 #'   )
 #'
 #'   view2_track3 <- add_single_track(
@@ -110,7 +110,7 @@
 #'
 #'   view2 <- compose_view(
 #'     multi = TRUE,
-#'     centerRadius = 0,
+#'     center_radius = 0,
 #'     xDomain = list(interval = c(1, 29903)),
 #'     linkingId = "detail",
 #'     alignment = "stack",
@@ -132,13 +132,13 @@
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot"))
+#'       column(6, gosling_output("gosling_plot"))
 #'     )
 #'   )
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "sars_cov2",
 #'         combined_view
@@ -156,13 +156,14 @@
 #' @return list of data specs
 #' @export
 #'
-track_data <- function(url, type, separator = NULL, sampleLength = NULL,
-                       headerNames = NULL, genomicFields = NULL, chromosomeField = NULL, ...) {
+track_data <- function(url, type, separator = NULL, sample_length = NULL,
+                       header_names = NULL, genomic_fields = NULL,
+                       chromosome_field = NULL, ...) {
   list_rm_null(
     list(
       url = url, type = type, separator = separator,
-      sampleLength = sampleLength, headerNames = headerNames,
-      genomicFields = genomicFields, chromosomeField = chromosomeField, ...
+      sample_length = sample_length, header_names = header_names,
+      genomic_fields = genomic_fields, chromosome_field = chromosome_field, ...
     )
   )
 }
@@ -177,7 +178,7 @@ track_data <- function(url, type, separator = NULL, sampleLength = NULL,
 #'  Check usage details at http://gosling-lang.org/docs/data/#data-transform.
 #' @param field A character.  filter is applied based on the values of the
 #' specified data field.
-#' @param oneOf A vector of characters or numbers. Check whether the value is
+#' @param one_of A vector of characters or numbers. Check whether the value is
 #' an element in the provided list.
 #' @param not A Boolean. When {"not": true}, apply a NOT logical operation to
 #' the filter. Default: false.
@@ -190,7 +191,7 @@ track_data <- function(url, type, separator = NULL, sampleLength = NULL,
 #'
 #'   # View 2 Track 3----
 #'   view2_track3_data <- track_data(
-#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec",
+#'     url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec", # nolint
 #'     type = "multivec",
 #'     row = "base",
 #'     column = "position",
@@ -208,10 +209,10 @@ track_data <- function(url, type, separator = NULL, sampleLength = NULL,
 #'   )
 #'
 #'   view2_track3b <- add_single_track(
-#'     dataTransform = track_data_transform(
+#'     data_transform = track_data_transform(
 #'       type = "filter",
 #'       field = "count",
-#'       oneOf = list(0),
+#'       one_of = list(0),
 #'       not = TRUE
 #'     ),
 #'     mark = "text",
@@ -256,7 +257,7 @@ track_data <- function(url, type, separator = NULL, sampleLength = NULL,
 #'   )
 #'
 #'   view2_track3_style <- default_track_styles(
-#'     inlineLegend = TRUE
+#'     inline_legend = TRUE
 #'   )
 #'
 #'   view2_track3 <- add_single_track(
@@ -275,7 +276,7 @@ track_data <- function(url, type, separator = NULL, sampleLength = NULL,
 #'
 #'   view2 <- compose_view(
 #'     multi = TRUE,
-#'     centerRadius = 0,
+#'     center_radius = 0,
 #'     xDomain = list(interval = c(1, 29903)),
 #'     linkingId = "detail",
 #'     alignment = "stack",
@@ -297,13 +298,13 @@ track_data <- function(url, type, separator = NULL, sampleLength = NULL,
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot"))
+#'       column(6, gosling_output("gosling_plot"))
 #'     )
 #'   )
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "sars_cov2",
 #'         combined_view
@@ -320,13 +321,13 @@ track_data <- function(url, type, separator = NULL, sampleLength = NULL,
 #' @return list of data transformations specs
 #' @export
 #'
-track_data_transform <- function(type = NULL, field = NULL, oneOf = NULL,
+track_data_transform <- function(type = NULL, field = NULL, one_of = NULL,
                                  not = NULL, ...) {
   list(
     list_rm_null(
       list(
         type = type, field = field,
-        oneOf = oneOf, not = not, ...
+        one_of = one_of, not = not, ...
       )
     )
   )

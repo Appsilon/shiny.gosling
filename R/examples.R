@@ -1,6 +1,6 @@
 valid_examples <- c(
-  "circularLinearWithBrush", "circularVisualEncoding", "multiTrackApp", "sarsCov2", "staticCircularBar",
-  "structuralVariant", "textAnnotation"
+  "circularLinearWithBrush", "circularVisualEncoding", "multiTrackApp",
+  "sarsCov2", "staticCircularBar", "structuralVariant", "textAnnotation"
 )
 
 package_name <- "shiny.gosling"
@@ -14,7 +14,6 @@ package_name <- "shiny.gosling"
 #' }
 #' @export
 run_example <- function(example) {
-  examples <- list.files(system.file("examples", package = package_name))
   app_dir <- system.file("examples", example, package = package_name)
   if (!example %in% valid_examples) {
     stop(
