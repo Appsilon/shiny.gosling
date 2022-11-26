@@ -5,8 +5,9 @@ goslingDependency <- function() {
   htmltools::htmlDependency(
     name = "gosling",
     version = "0.1.0",
-    package = "shiny.gosling",
-    src = "www",
+    src = c(
+      href = "https://cdn.jsdelivr.net/gh/Appsilon/shiny.gosling.js@main/www/"
+    ),
     script = "gosling.js"
   )
 }
