@@ -23,7 +23,7 @@ library(sessioninfo)
 
 # Introduction to shiny.gosling
 
-This package is an R shiny implementation of the [**Gosling.js**](http://gosling-lang.org/) library. Gosling js is a highly *expressive* library based on a *Grammer for scalable and interactive Gnenomics Data visualization*. This library is build upon the [**React** wrapper of the Gosling.js](https://github.com/gosling-lang/gosling-react). Which is powered by [**Shiny.React**](https://github.com/gosling-lang/gosling-react). Thus most of the Charts can be directly build using this package.
+This package is an R shiny implementation of the [**Gosling.js**](http://gosling-lang.org/) library. Gosling js is a highly *expressive* library based on a *Grammar for scalable and interactive Gnenomics Data visualization*. This library is build upon the [**React** wrapper of the Gosling.js](https://github.com/gosling-lang/gosling-react). Which is powered by [**Shiny.React**](https://github.com/gosling-lang/gosling-react). Thus most of the Charts can be directly build using this package.
 
 Let's start with an example. For that let's read a csv file which has some Genomic data with chromosome start stop indicators. This dataset is directly picked from github [here](https://github.com/sehilyi/gemini-datasets). You can read more about the dataset by going to there website [here](https://gemini.readthedocs.io/en/latest/index.html). In short GEMINI (GEnome MINIng) is a flexible framework for exploring genetic variation in the context of the wealth of genome annotations available for the human genome.
 
