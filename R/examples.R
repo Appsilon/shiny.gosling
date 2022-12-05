@@ -12,6 +12,7 @@ package_name <- "shiny.gosling"
 #' if (interactive()) {
 #'   run_example("circularLinearWithBrush")
 #' }
+#' @return None.
 #' @export
 run_example <- function(example) {
   app_dir <- system.file("examples", example, package = package_name)
