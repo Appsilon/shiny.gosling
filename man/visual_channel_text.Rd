@@ -34,13 +34,13 @@ For more info visit
 http://gosling-lang.org/docs/visual-channel#text
 }
 \examples{
-if(interactive()) {
+if (interactive()) {
   library(shiny)
   library(shiny.gosling)
 
   # View 2 Track 3----
   view2_track3_data <- track_data(
-    url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec",
+    url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec", # nolint
     type = "multivec",
     row = "base",
     column = "position",
@@ -58,10 +58,10 @@ if(interactive()) {
   )
 
   view2_track3b <- add_single_track(
-    dataTransform = track_data_transform(
+    data_transform = track_data_transform(
       type = "filter",
       field = "count",
-      oneOf = list(0),
+      one_of = list(0),
       not = TRUE
     ),
     mark = "text",
@@ -73,19 +73,21 @@ if(interactive()) {
     ),
     size = 24,
     color = "white",
-    visibility = list(list(
-      operation = "less-than",
-      measure = "width",
-      threshold = "|xe-x|",
-      transitionPadding = 30,
-      target = "mark"
-    ),
-    list(
-      operation = "LT",
-      measure = "zoomLevel",
-      threshold = 40,
-      target = "track"
-    ))
+    visibility = list(
+      list(
+        operation = "less-than",
+        measure = "width",
+        threshold = "|xe-x|",
+        transitionPadding = 30,
+        target = "mark"
+      ),
+      list(
+        operation = "LT",
+        measure = "zoomLevel",
+        threshold = 40,
+        target = "track"
+      )
+    )
   )
 
   view2_track3_x <- visual_channel_x(
@@ -104,7 +106,7 @@ if(interactive()) {
   )
 
   view2_track3_style <- default_track_styles(
-    inlineLegend = TRUE
+    inline_legend = TRUE
   )
 
   view2_track3 <- add_single_track(
@@ -123,7 +125,7 @@ if(interactive()) {
 
   view2 <- compose_view(
     multi = TRUE,
-    centerRadius = 0,
+    center_radius = 0,
     xDomain = list(interval = c(1, 29903)),
     linkingId = "detail",
     alignment = "stack",
@@ -145,13 +147,13 @@ if(interactive()) {
   ui <- fluidPage(
     use_gosling(),
     fluidRow(
-      column(6, goslingOutput("gosling_plot"))
+      column(6, gosling_output("gosling_plot"))
     )
   )
 
 
   server <- function(input, output, session) {
-    output$gosling_plot <- renderGosling({
+    output$gosling_plot <- render_gosling({
       gosling(
         component_id = "sars_cov2",
         combined_view
@@ -160,8 +162,6 @@ if(interactive()) {
   }
 
   shinyApp(ui, server)
-
 }
-
 
 }

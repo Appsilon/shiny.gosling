@@ -1,7 +1,7 @@
 #' Setup gosling dependencies
 #'
 #' @return list of dependencies for Gosling
-goslingDependency <- function() {
+gosling_dependency <- function() {
   htmltools::htmlDependency(
     name = "gosling",
     version = "0.1.0",
@@ -18,15 +18,17 @@ goslingDependency <- function() {
 #'
 #' @return function to create react element
 component <- function(name) {
-  function(...) shiny.react::reactElement(
-    module = "gosling.js",
-    name = name,
-    props = shiny.react::asProps(...),
-    deps = goslingDependency()
-  )
+  function(...) {
+    shiny.react::reactElement(
+      module = "gosling.js",
+      name = name,
+      props = shiny.react::asProps(...),
+      deps = gosling_dependency()
+    )
+  }
 }
 
 #' Create Gosling component
 #' @param ... Name of component.
 #' @return A function to create the gosling component.
-GoslingComponent <- component("customGosling")
+gosling_component <- component("customGosling")

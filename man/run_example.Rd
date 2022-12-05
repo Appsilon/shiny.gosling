@@ -9,11 +9,14 @@ run_example(example)
 \arguments{
 \item{example}{A character indicating a valid example.}
 }
+\value{
+None.
+}
 \description{
 Runs a shiny.gosling example
 }
 \examples{
-if(interactive()) {
+if (interactive()) {
   run_example("circularLinearWithBrush")
 }
 }

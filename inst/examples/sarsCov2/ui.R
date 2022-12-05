@@ -9,7 +9,7 @@ navbarPage(
       fluidRow(
         column(
           width = 8,
-          goslingOutput("gosling_plot_sars_cov2")
+          gosling_output("gosling_plot_sars_cov2")
         ),
         column(
           width = 4,
@@ -46,4 +46,3 @@ navbarPage(
     )
   )
 )
-

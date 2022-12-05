@@ -6,8 +6,14 @@ describe("add_single_track()", {
     mockery::stub(add_single_track, "add_mark", mocked_add_mark)
 
     result_atomic_values_to_list <- "atomic_values_to_list"
-    mocked_atomic_values_to_list <- mockery::mock(result_atomic_values_to_list, cycle = TRUE)
-    mockery::stub(add_single_track, "atomic_values_to_list", mocked_atomic_values_to_list)
+    mocked_atomic_values_to_list <- mockery::mock(
+      result_atomic_values_to_list, cycle = TRUE
+    )
+    mockery::stub(
+      add_single_track,
+      "atomic_values_to_list",
+      mocked_atomic_values_to_list
+    )
     expected_result <- replicate(3, result_atomic_values_to_list)
 
     # Act

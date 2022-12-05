@@ -5,18 +5,18 @@
 \title{style of the brush mark}
 \usage{
 brush_styles(
-  strokeWidth = NULL,
-  strokeOpacity = NULL,
+  stroke_width = NULL,
+  stroke_opacity = NULL,
   stroke = NULL,
   opacity = NULL,
   color = NULL
 )
 }
 \arguments{
-\item{strokeWidth}{A number. stroke width of the marks when mouse events
+\item{stroke_width}{A number. stroke width of the marks when mouse events
 are triggered.}
 
-\item{strokeOpacity}{A number.}
+\item{stroke_opacity}{A number.}
 
 \item{stroke}{A character. Stroke color of the marks when mouse events
 are triggered.}

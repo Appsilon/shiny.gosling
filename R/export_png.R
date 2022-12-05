@@ -8,12 +8,12 @@
 #' should be transparent or not (Default: false).
 #' @param session A shiny session object.
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
 #'   cistrome_data <-
-#'     "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec"
+#'     "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec" # nolint
 #'
 #'   single_track <- add_single_track(
 #'     id = "track1",
@@ -40,10 +40,14 @@
 #'       legend = TRUE
 #'     ),
 #'     tooltip = visual_channel_tooltips(
-#'       visual_channel_tooltip(field = "start", type = "genomic",
-#'                              alt = "Start Position"),
-#'       visual_channel_tooltip(field = "end", type = "genomic",
-#'                              alt = "End Position"),
+#'       visual_channel_tooltip(
+#'         field = "start", type = "genomic",
+#'         alt = "Start Position"
+#'       ),
+#'       visual_channel_tooltip(
+#'         field = "end", type = "genomic",
+#'         alt = "End Position"
+#'       ),
 #'       visual_channel_tooltip(
 #'         field = "peak",
 #'         type = "quantitative",
@@ -61,8 +65,8 @@
 #'
 #'   single_composed_views <- arrange_views(
 #'     title = "Single Track",
-#'     subtitle = "This is the simplest single track visualization with a linear layout",
-#'     layout = "circular", #"linear"
+#'     subtitle = "This is the simplest single track visualization with a linear layout", # nolint
+#'     layout = "circular", # "linear"
 #'     views = single_composed_track,
 #'     xDomain = list(
 #'       chromosome = "chr1",
@@ -73,7 +77,7 @@
 #'   ui <- fluidPage(
 #'     use_gosling(),
 #'     fluidRow(
-#'       column(6, goslingOutput("gosling_plot")),
+#'       column(6, gosling_output("gosling_plot")),
 #'       column(
 #'         1, br(), actionButton(
 #'           "download_png",
@@ -86,7 +90,7 @@
 #'
 #'
 #'   server <- function(input, output, session) {
-#'     output$gosling_plot <- renderGosling({
+#'     output$gosling_plot <- render_gosling({
 #'       gosling(
 #'         component_id = "component_1",
 #'         single_composed_views,
@@ -100,7 +104,6 @@
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #'
 #' @return None.
@@ -109,7 +112,7 @@
 export_png <- function(component_id, transparent_background = FALSE,
                        session = getDefaultReactiveDomain()) {
   session$sendCustomMessage(
-    'export_png',
+    "export_png",
     list(
       component_id = component_id,
       transparent_background = transparent_background

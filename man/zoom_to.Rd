@@ -16,7 +16,7 @@ zoom_to(
 \arguments{
 \item{component_id}{A character. The id of the component_id prop passed
 to the
-GoslingComponent function.}
+gosling_component function.}
 
 \item{view_id}{A character. The ID of a view that you want to control.
 This ID
@@ -41,7 +41,7 @@ None.
 Zooms  to a specific genomic position with the animated transition.
 }
 \examples{
-if(interactive()) {
+if (interactive()) {
   library(shiny)
   library(shiny.gosling)
 
@@ -53,7 +53,7 @@ if(interactive()) {
   )
 
   cistrome_data <-
-    "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec"
+    "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec" # nolint
 
   single_track <- add_single_track(
     id = "track1",
@@ -80,10 +80,14 @@ if(interactive()) {
       legend = TRUE
     ),
     tooltip = visual_channel_tooltips(
-      visual_channel_tooltip(field = "start", type = "genomic",
-                             alt = "Start Position"),
-      visual_channel_tooltip(field = "end", type = "genomic",
-                             alt = "End Position"),
+      visual_channel_tooltip(
+        field = "start", type = "genomic",
+        alt = "Start Position"
+      ),
+      visual_channel_tooltip(
+        field = "end", type = "genomic",
+        alt = "End Position"
+      ),
       visual_channel_tooltip(
         field = "peak",
         type = "quantitative",
@@ -101,8 +105,8 @@ if(interactive()) {
 
   single_composed_views <- arrange_views(
     title = "Single Track",
-    subtitle = "This is the simplest single track visualization with a linear layout",
-    layout = "circular", #"linear"
+    subtitle = "This is the simplest single track visualization with a linear layout", # nolint
+    layout = "circular", # "linear"
     views = single_composed_track,
     xDomain = list(
       chromosome = "chr1",
@@ -113,7 +117,7 @@ if(interactive()) {
   ui <- fluidPage(
     use_gosling(),
     fluidRow(
-      column(6, goslingOutput("gosling_plot")),
+      column(6, gosling_output("gosling_plot")),
       column(
         1, br(), actionButton(
           "zoom_out",
@@ -134,7 +138,7 @@ if(interactive()) {
 
 
   server <- function(input, output, session) {
-    output$gosling_plot <- renderGosling({
+    output$gosling_plot <- render_gosling({
       gosling(
         component_id = "component_1",
         single_composed_views,
@@ -152,7 +156,6 @@ if(interactive()) {
   }
 
   shinyApp(ui, server)
-
 }
 
 }

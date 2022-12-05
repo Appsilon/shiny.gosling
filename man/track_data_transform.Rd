@@ -4,7 +4,7 @@
 \alias{track_data_transform}
 \title{Data transformer}
 \usage{
-track_data_transform(type = NULL, field = NULL, oneOf = NULL, not = NULL, ...)
+track_data_transform(type = NULL, field = NULL, one_of = NULL, not = NULL, ...)
 }
 \arguments{
 \item{type}{A character. One of "filter", "concat", "replace", "log",
@@ -15,7 +15,7 @@ Check usage details at http://gosling-lang.org/docs/data/#data-transform.}
 \item{field}{A character.  filter is applied based on the values of the
 specified data field.}
 
-\item{oneOf}{A vector of characters or numbers. Check whether the value is
+\item{one_of}{A vector of characters or numbers. Check whether the value is
 an element in the provided list.}
 
 \item{not}{A Boolean. When {"not": true}, apply a NOT logical operation to
@@ -35,13 +35,13 @@ There are multiple ways to transform data. Check documentation for details
 of usage.
 }
 \examples{
-if(interactive()) {
+if (interactive()) {
   library(shiny)
   library(shiny.gosling)
 
   # View 2 Track 3----
   view2_track3_data <- track_data(
-    url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec",
+    url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec", # nolint
     type = "multivec",
     row = "base",
     column = "position",
@@ -59,10 +59,10 @@ if(interactive()) {
   )
 
   view2_track3b <- add_single_track(
-    dataTransform = track_data_transform(
+    data_transform = track_data_transform(
       type = "filter",
       field = "count",
-      oneOf = list(0),
+      one_of = list(0),
       not = TRUE
     ),
     mark = "text",
@@ -74,19 +74,21 @@ if(interactive()) {
     ),
     size = 24,
     color = "white",
-    visibility = list(list(
-      operation = "less-than",
-      measure = "width",
-      threshold = "|xe-x|",
-      transitionPadding = 30,
-      target = "mark"
-    ),
-    list(
-      operation = "LT",
-      measure = "zoomLevel",
-      threshold = 40,
-      target = "track"
-    ))
+    visibility = list(
+      list(
+        operation = "less-than",
+        measure = "width",
+        threshold = "|xe-x|",
+        transitionPadding = 30,
+        target = "mark"
+      ),
+      list(
+        operation = "LT",
+        measure = "zoomLevel",
+        threshold = 40,
+        target = "track"
+      )
+    )
   )
 
   view2_track3_x <- visual_channel_x(
@@ -105,7 +107,7 @@ if(interactive()) {
   )
 
   view2_track3_style <- default_track_styles(
-    inlineLegend = TRUE
+    inline_legend = TRUE
   )
 
   view2_track3 <- add_single_track(
@@ -124,7 +126,7 @@ if(interactive()) {
 
   view2 <- compose_view(
     multi = TRUE,
-    centerRadius = 0,
+    center_radius = 0,
     xDomain = list(interval = c(1, 29903)),
     linkingId = "detail",
     alignment = "stack",
@@ -146,13 +148,13 @@ if(interactive()) {
   ui <- fluidPage(
     use_gosling(),
     fluidRow(
-      column(6, goslingOutput("gosling_plot"))
+      column(6, gosling_output("gosling_plot"))
     )
   )
 
 
   server <- function(input, output, session) {
-    output$gosling_plot <- renderGosling({
+    output$gosling_plot <- render_gosling({
       gosling(
         component_id = "sars_cov2",
         combined_view
@@ -161,6 +163,5 @@ if(interactive()) {
   }
 
   shinyApp(ui, server)
-
 }
 }

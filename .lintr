@@ -1,2 +1,3 @@
-linters: linters_with_defaults(camel_case_linter = NULL,
-              snake_case_linter = NULL)
+linters: linters_with_defaults()
+exclusions: list(
+  "vignettes/intro.Rmd")

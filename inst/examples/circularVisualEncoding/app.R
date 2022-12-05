@@ -1,4 +1,4 @@
-if(interactive()) {
+if (interactive()) {
   library(shiny)
   library(shiny.gosling)
 
@@ -51,7 +51,7 @@ if(interactive()) {
 
   single_composed_views <- arrange_views(
     title = "Single Track",
-    subtitle = "This is the simplest single track visualization with a linear layout",
+    subtitle = "This is the simplest single track visualization with a linear layout", # nolint
     layout = "circular", #"linear"
     views = single_composed_track,
     xDomain = list(
@@ -63,7 +63,7 @@ if(interactive()) {
   ui <- fluidPage(
     use_gosling(),
     fluidRow(
-      column(6, goslingOutput("gosling_plot")),
+      column(6, gosling_output("gosling_plot")),
       column(
         1, br(), actionButton(
           "download_pdf",
@@ -76,7 +76,7 @@ if(interactive()) {
 
 
   server <- function(input, output, session) {
-    output$gosling_plot <- renderGosling({
+    output$gosling_plot <- render_gosling({
       gosling(
         component_id = "component_1",
         single_composed_views,

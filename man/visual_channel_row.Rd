@@ -50,13 +50,13 @@ For more info visit
 http://gosling-lang.org/docs/visual-channel#row
 }
 \examples{
-if(interactive()) {
+if (interactive()) {
   library(shiny)
   library(shiny.gosling)
 
   # Circular track 1 ----
   circular_track1_data <- track_data(
-    url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec",
+    url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec", # nolint
     type = "multivec",
     row = "sample",
     column = "position",
@@ -68,7 +68,9 @@ if(interactive()) {
   circular_track1_x <- visual_channel_x(field = "start", type = "genomic")
   circular_track1_xe <- visual_channel_x(field = "end", type = "genomic")
 
-  circular_track1_y <- visual_channel_y(field = "peak", type = "quantitative")
+  circular_track1_y <- visual_channel_y(
+    field = "peak", type = "quantitative"
+  )
 
   circular_track1_row <- visual_channel_row(
     field = "sample", type = "nominal"
@@ -95,15 +97,16 @@ if(interactive()) {
   )
 
   circular_track1_styles <- default_track_styles(
-    outlineWidth = 0
+    outline_width = 0
   )
 
   circular_track1 <- add_single_track(
-    id = "circular_track1", alignment = "overlay", data = circular_track1_data,
+    id = "circular_track1", alignment = "overlay",
+    data = circular_track1_data,
     x = circular_track1_x, xe = circular_track1_xe,
     y = circular_track1_y, row = circular_track1_row,
     color = circular_track1_color,
-    stroke =  "black", strokeWidth = 0.3,
+    stroke = "black", stroke_width = 0.3,
     tracks = circular_track1_tracks,
     style = circular_track1_styles,
     width = 500, height = 100
@@ -130,13 +133,13 @@ if(interactive()) {
   ui <- fluidPage(
     use_gosling(),
     fluidRow(
-      column(6, goslingOutput("gosling_plot"))
+      column(6, gosling_output("gosling_plot"))
     )
   )
 
 
   server <- function(input, output, session) {
-    output$gosling_plot <- renderGosling({
+    output$gosling_plot <- render_gosling({
       gosling(
         component_id = "circular_component",
         circular_linear_view, clean_braces = FALSE
@@ -145,7 +148,6 @@ if(interactive()) {
   }
 
   shinyApp(ui, server)
-
 }
 
 }
