@@ -108,7 +108,6 @@
 #' @export
 export_png <- function(component_id, transparent_background = FALSE,
                        session = getDefaultReactiveDomain()) {
-  install()
   session$sendCustomMessage(
     "export_png",
     list(
