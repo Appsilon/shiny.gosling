@@ -30,6 +30,5 @@ jobs:
       - name: Run BiocCheck
         uses: Appsilon/bioc-check-action@v1
         with:
-          allow-failure: true
           new-package: true
           no-cache: true
