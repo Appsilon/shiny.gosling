@@ -24,12 +24,10 @@ jobs:
       - name: Install Deps
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          cache-version: 2
+          cache: false
           pak-version: 'devel'
 
       - name: Run BiocCheck
         uses: Appsilon/bioc-check-action@v1.1
         with:
-          allow-failure: false
           new-package: true
-          no-cache: true
