@@ -22,7 +22,7 @@
 #'
 event_styles <- function(
     strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
-    color = NULL, arrange = NULL # c("behind", "front")
+    color = NULL, arrange = NULL
 ) {
   list_rm_null(list(
     strokeWidth = strokeWidth, strokeOpacity = strokeOpacity,

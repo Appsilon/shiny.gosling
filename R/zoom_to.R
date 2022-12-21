@@ -136,7 +136,7 @@
 zoom_to <- function(component_id, view_id, position, padding = 0,
                     duration = 1000, session = getDefaultReactiveDomain()) {
   session$sendCustomMessage(
-    'zoom_to',
+    "zoom_to",
     list(
       component_id = component_id,
       view_id = view_id,

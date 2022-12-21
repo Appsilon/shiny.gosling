@@ -114,7 +114,7 @@
 zoom_to_extent <- function(component_id, view_id, duration = 1000,
                            session = getDefaultReactiveDomain()) {
   session$sendCustomMessage(
-    'zoom_to_extent',
+    "zoom_to_extent",
     list(
       component_id = component_id,
       view_id = view_id,

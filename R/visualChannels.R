@@ -268,10 +268,10 @@ visual_channel_x <- function(
 #'
 visual_channel_y <- function(
     field = NULL, zeroBaseline = NULL,
-    type = NULL, # c("quantitative", "nominal", "genomic")
+    type = NULL,
     legend = NULL, grid = NULL, flip = NULL, baseline = NULL,
-    axis = NULL, # c("none", "top", "bottom", "left", "right")
-    aggregate = NULL, #c("max", "min", "mean", "bin", "count")
+    axis = NULL,
+    aggregate = NULL,
     ...
 ) {
   visual_channel(
@@ -427,7 +427,7 @@ visual_channel_row <- function(
 #' @export
 #'
 visual_channel_size <- function(
-    field = NULL, type = NULL, # c("quantitative", "nominal")
+    field = NULL, type = NULL,
     range = NULL, domain = NULL, ...
 ) {
   visual_channel(

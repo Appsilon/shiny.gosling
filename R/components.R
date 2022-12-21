@@ -18,15 +18,17 @@ goslingDependency <- function() {
 #'
 #' @return function to create react element
 component <- function(name) {
-  function(...) shiny.react::reactElement(
-    module = "gosling.js",
-    name = name,
-    props = shiny.react::asProps(...),
-    deps = goslingDependency()
-  )
+  function(...) {
+    shiny.react::reactElement(
+      module = "gosling.js",
+      name = name,
+      props = shiny.react::asProps(...),
+      deps = goslingDependency()
+    )
+  }
 }
 
 #' Create Gosling component
 #' @param ... Name of component.
 #' @return A function to create the gosling component.
-GoslingComponent <- component("customGosling")
+GoslingComponent <- component("customGosling") # nolint

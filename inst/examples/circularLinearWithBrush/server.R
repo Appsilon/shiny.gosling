@@ -55,18 +55,18 @@ circular_track1 <- add_single_track(
 
 
 # Circular track 2 ----
-circular_track2_data_transform1 <- track_data_transform(
+circular_track2_transform1 <- track_data_transform(
   type = "filter", field = "chr1",
   oneOf = list("1", "16", "14", "9", "6", "5", "3")
 )
 
-circular_track2_data_transform2 <- track_data_transform(
+circular_track2_transform2 <- track_data_transform(
   type = "filter", field = "chr2",
   oneOf = list("1", "16", "14", "9", "6", "5", "3")
 )
 
 circular_track2_data <- track_data(
-  url = "https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/rearrangements.bulk.1639.simple.filtered.pub",
+  url = "https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/rearrangements.bulk.1639.simple.filtered.pub", # nolint
   type = "csv",
   headerNames = c(
     "chr1",
@@ -97,8 +97,8 @@ circular_track2_data <- track_data(
   )
 )
 
-circular_track2_dataTransform <- c(
-  circular_track2_data_transform1, circular_track2_data_transform2
+circular_track2_data_transform <- c(
+  circular_track2_transform1, circular_track2_transform2
 )
 
 circular_track2_x <- visual_channel_x(field = "p1s", type = "genomic")
@@ -113,7 +113,7 @@ circular_track2_stroke <- visual_channel_stroke(
 
 circular_track2 <- add_single_track(
   id = "circular_track2", data = circular_track2_data,
-  dataTransform = circular_track2_dataTransform,
+  dataTransform = circular_track2_data_transform,
   mark = "withinLink",
   x = circular_track2_x,
   xe = circular_track2_xe,
