@@ -14,7 +14,7 @@ package_name <- "shiny.gosling"
 #' }
 #' @export
 run_example <- function(example) {
-  examples <- list.files(system.file("examples", package = package_name)) # nolint
+  valid_examples <- list.files(system.file("examples", package = package_name))
   app_dir <- system.file("examples", example, package = package_name)
   if (!example %in% valid_examples) {
     stop(
