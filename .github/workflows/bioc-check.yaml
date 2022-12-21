@@ -31,3 +31,4 @@ jobs:
         uses: Appsilon/bioc-check-action@v1.1
         with:
           new-package: true
+          no-cache: true
