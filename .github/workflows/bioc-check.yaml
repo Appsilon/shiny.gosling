@@ -19,7 +19,7 @@ jobs:
         with:
           r-version: release
           http-user-agent: release
-          use-public-rspm: false
+          use-public-rspm: true
 
       - name: Install Deps
         uses: r-lib/actions/setup-r-dependencies@v2
