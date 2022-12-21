@@ -1,7 +1,7 @@
 
 #' Data object builder
 #'
-#' Build the data object for golsing plots
+#' Build the data object for gosling plots
 #'
 #' @param url A character. Specify the URL address of the data file.
 #' @param type A character. Type of data. One of "csv", "json", "bigwig", "bam",
@@ -11,7 +11,7 @@
 #' @param sampleLength A number. Specify the number of rows loaded from
 #' the URL. Default: 1000
 #' @param headerNames A character vector. Specify the names of data fields
-#' if a CSV file is headerless.
+#' if a CSV file does not have header row.
 #' @param genomicFields A character vector. Specify the name of genomic
 #' data fields.
 #' @param chromosomeField A character. Specify the name of chromosome

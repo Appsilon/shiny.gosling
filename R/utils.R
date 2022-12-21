@@ -177,7 +177,7 @@ atomic_values_to_list <- function(property_list) {
 
 #' Initiate gosling
 #'
-#' Add this function at the begining of ui. This is needed for
+#' Add this function at the beginning of ui. This is needed for
 #' gosling to work in shiny plots.
 #'
 #' @examples

@@ -28,7 +28,7 @@ http://gosling-lang.org/docs/data#supported-data-formats.}
 the URL. Default: 1000}
 
 \item{headerNames}{A character vector. Specify the names of data fields
-if a CSV file is headerless.}
+if a CSV file does not have header row.}
 
 \item{genomicFields}{A character vector. Specify the name of genomic
 data fields.}
@@ -42,7 +42,7 @@ data fields.}
 list of data specs
 }
 \description{
-Build the data object for golsing plots
+Build the data object for gosling plots
 }
 \details{
 For info visit http://gosling-lang.org/docs/data.

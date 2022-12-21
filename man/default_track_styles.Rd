@@ -68,10 +68,10 @@ Default: "full".}
 Default: 'circular' 'elliptical' will be used as a default option.}
 
 \item{linkMinHeight}{A number. The minimum height of withinLink and
-betweenLink marks. Unit is a percentagle. Default: 0.5.}
+betweenLink marks. Unit is a percentage Default: 0.5.}
 
 \item{linkConnectionType}{A character. One of "straight", "curve",
-"corner". Specify the connetion type of betweenLink marks. Default: "corner".}
+"corner". Specify the connection type of betweenLink marks. Default: "corner".}
 
 \item{linePattern}{A list of the form list(size="number",type="string").
 One of "triangleLeft", "triangleRight".) Specify the pattern of dashes

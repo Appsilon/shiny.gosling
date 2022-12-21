@@ -285,7 +285,7 @@ visual_channel_y <- function(
 #' @param field A character. Name of the data field.
 #' @param type A character. Must be "genomic". Specify the data type.
 #' @param padding A number. Determines the size of inner white spaces on the
-#' top and bottom of individiual rows. Default: 0.
+#' top and bottom of individual rows. Default: 0.
 #' @param legend A Boolean. Whether to display legend. Default: FALSE.
 #' @param grid A Boolean. Whether to display grid. Default: FALSE.
 #' @param clip A Boolean. Clip row when the actual y value exceeds the max
