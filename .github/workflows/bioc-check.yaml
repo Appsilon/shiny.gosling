@@ -33,3 +33,4 @@ jobs:
           allow-failure: true
           new-package: true
           no-cache: true
+          quit-with-status: true
