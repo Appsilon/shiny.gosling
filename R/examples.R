@@ -12,6 +12,7 @@ package_name <- "shiny.gosling"
 #' if(interactive()) {
 #'   run_example("circularLinearWithBrush")
 #' }
+#' @return A Shiny App is launched.
 #' @export
 run_example <- function(example) {
   valid_examples <- list.files(system.file("examples", package = package_name))
