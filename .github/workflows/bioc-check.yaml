@@ -1,8 +1,7 @@
 ---
 name: BiocCheck
 
-on:
-  push:
+on: push
 
 jobs:
   bioccheck:
@@ -27,9 +26,10 @@ jobs:
         with:
           cache: false
           pak-version: 'devel'
-          extra-packages: |
-            any::BiocManager
-            any::optparse
-            any::BiocCheck
+
       - name: Run BiocCheck
-        uses: insightsengineering/bioc-check-action@v1
+        uses: Appsilon/bioc-check-action@v1.1
+        with:
+          new-package: true
+          no-cache: true
+          allow-failure: false
