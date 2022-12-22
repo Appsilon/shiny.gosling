@@ -25,7 +25,8 @@ jobs:
       - name: Install Deps
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          cache-version: 2
+          cache: false
+          pak-version: 'devel'
           extra-packages: |
             any::BiocManager
             any::optparse
