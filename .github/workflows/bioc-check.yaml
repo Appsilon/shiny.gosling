@@ -1,7 +1,8 @@
 ---
 name: BiocCheck
 
-on: push
+on:
+  push:
 
 jobs:
   bioccheck:
@@ -24,12 +25,10 @@ jobs:
       - name: Install Deps
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          cache: false
-          pak-version: 'devel'
+          cache-version: 2
           extra-packages: |
             any::BiocManager
             any::optparse
             any::BiocCheck
-
       - name: Run BiocCheck
-        uses: Appsilon/bioc-check-action@v1
+        uses: insightsengineering/bioc-check-action@v1
