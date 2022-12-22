@@ -26,6 +26,10 @@ jobs:
         with:
           cache: false
           pak-version: 'devel'
+          extra-packages: |
+            any::BiocManager
+            any::optparse
+            any::BiocCheck
 
       - name: Run BiocCheck
         uses: Appsilon/bioc-check-action@v1
