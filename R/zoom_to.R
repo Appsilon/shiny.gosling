@@ -135,7 +135,6 @@
 #' @export
 zoom_to <- function(component_id, view_id, position, padding = 0,
                     duration = 1000, session = getDefaultReactiveDomain()) {
-  install()
   session$sendCustomMessage(
     "zoom_to",
     list(
