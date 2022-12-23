@@ -28,7 +28,7 @@ jobs:
           pak-version: 'devel'
 
       - name: Run BiocCheck
-        uses: Appsilon/bioc-check-action@v1.3
+        uses: Appsilon/bioc-check-action@v1.4
         with:
           new-package: true
           no-cache: true
