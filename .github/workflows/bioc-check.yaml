@@ -32,4 +32,4 @@ jobs:
         with:
           new-package: true
           no-cache: true
-          allow-failure: false
+          allow-failure: true
