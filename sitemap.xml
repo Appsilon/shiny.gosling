@@ -1,150 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/404.html</loc>
   </url>
   <url>
-    <loc>/LICENSE-text.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>/LICENSE.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/LICENSE.html</loc>
   </url>
   <url>
-    <loc>/articles/index.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/articles/index.html</loc>
   </url>
   <url>
-    <loc>/articles/intro.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/articles/intro.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/index.html</loc>
   </url>
   <url>
-    <loc>/news/index.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/news/index.html</loc>
   </url>
   <url>
-    <loc>/reference/GoslingComponent.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/GoslingComponent.html</loc>
   </url>
   <url>
-    <loc>/reference/add_mark.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/add_mark.html</loc>
   </url>
   <url>
-    <loc>/reference/add_multi_tracks.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/add_multi_tracks.html</loc>
   </url>
   <url>
-    <loc>/reference/add_single_track.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/add_single_track.html</loc>
   </url>
   <url>
-    <loc>/reference/arrange_views.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/arrange_views.html</loc>
   </url>
   <url>
-    <loc>/reference/atomic_values_to_list.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/atomic_values_to_list.html</loc>
   </url>
   <url>
-    <loc>/reference/brush_styles.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/brush_styles.html</loc>
   </url>
   <url>
-    <loc>/reference/build_json.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/build_json.html</loc>
   </url>
   <url>
-    <loc>/reference/component.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/component.html</loc>
   </url>
   <url>
-    <loc>/reference/compose_view.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/compose_view.html</loc>
   </url>
   <url>
-    <loc>/reference/default_track_styles.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/default_track_styles.html</loc>
   </url>
   <url>
-    <loc>/reference/event_styles.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/event_styles.html</loc>
   </url>
   <url>
-    <loc>/reference/export_pdf.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/export_pdf.html</loc>
   </url>
   <url>
-    <loc>/reference/export_png.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/export_png.html</loc>
   </url>
   <url>
-    <loc>/reference/gosling.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/gosling.html</loc>
   </url>
   <url>
-    <loc>/reference/goslingDependency.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/goslingDependency.html</loc>
   </url>
   <url>
-    <loc>/reference/goslingOutput.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/goslingOutput.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/is_atomic_field.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/is_atomic_field.html</loc>
   </url>
   <url>
-    <loc>/reference/json_list.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/json_list.html</loc>
   </url>
   <url>
-    <loc>/reference/list_rm_null.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/list_rm_null.html</loc>
   </url>
   <url>
-    <loc>/reference/renderGosling.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/renderGosling.html</loc>
   </url>
   <url>
-    <loc>/reference/run_example.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/run_example.html</loc>
   </url>
   <url>
-    <loc>/reference/track_data.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/track_data.html</loc>
   </url>
   <url>
-    <loc>/reference/track_data_transform.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/track_data_transform.html</loc>
   </url>
   <url>
-    <loc>/reference/track_data_transforms.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/track_data_transforms.html</loc>
   </url>
   <url>
-    <loc>/reference/use_gosling.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/use_gosling.html</loc>
   </url>
   <url>
-    <loc>/reference/visual_channel.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/visual_channel.html</loc>
   </url>
   <url>
-    <loc>/reference/visual_channel_color.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/visual_channel_color.html</loc>
   </url>
   <url>
-    <loc>/reference/visual_channel_opacity.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/visual_channel_opacity.html</loc>
   </url>
   <url>
-    <loc>/reference/visual_channel_row.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/visual_channel_row.html</loc>
   </url>
   <url>
-    <loc>/reference/visual_channel_size.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/visual_channel_size.html</loc>
   </url>
   <url>
-    <loc>/reference/visual_channel_stroke.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/visual_channel_stroke.html</loc>
   </url>
   <url>
-    <loc>/reference/visual_channel_stroke_width.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/visual_channel_stroke_width.html</loc>
   </url>
   <url>
-    <loc>/reference/visual_channel_text.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/visual_channel_text.html</loc>
   </url>
   <url>
-    <loc>/reference/visual_channel_tooltip.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/visual_channel_tooltip.html</loc>
   </url>
   <url>
-    <loc>/reference/visual_channel_tooltips.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/visual_channel_tooltips.html</loc>
   </url>
   <url>
-    <loc>/reference/visual_channel_x.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/visual_channel_x.html</loc>
   </url>
   <url>
-    <loc>/reference/visual_channel_y.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/visual_channel_y.html</loc>
   </url>
   <url>
-    <loc>/reference/zoom_to.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/zoom_to.html</loc>
   </url>
   <url>
-    <loc>/reference/zoom_to_extent.html</loc>
+    <loc>https://appsilon.github.io/shiny.gosling/reference/zoom_to_extent.html</loc>
   </url>
 </urlset>
