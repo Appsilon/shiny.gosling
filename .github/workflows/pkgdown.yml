@@ -26,6 +26,7 @@ jobs:
         with:
           extra-packages: any::pkgdown, local::.
           needs: website
+          pak-version: 'devel'
 
       - name: Deploy to gh-pages branch
         run: |
