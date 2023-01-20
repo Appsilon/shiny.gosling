@@ -24,6 +24,7 @@ biocViews: ShinyApps, Genetics, Visualization
 Imports:
     htmltools,
     jsonlite,
+    rlang,
     shiny,
     shiny.react
 Suggests:
