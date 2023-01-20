@@ -124,7 +124,7 @@
 </h2>
 <p>This package is an R shiny implementation of the <a href="http://gosling-lang.org/" class="external-link"><strong>Gosling.js</strong></a> library.
 Gosling js is a highly <em>expressive</em> library based on a
-<em>Grammer for scalable and interactive Gnenomics Data
+<em>Grammar for scalable and interactive Genomics Data
 visualization</em>. This library is build upon the <a href="https://github.com/gosling-lang/gosling-react" class="external-link"><strong>React</strong>
 wrapper of the Gosling.js</a>. Which is powered by <a href="https://github.com/gosling-lang/gosling-react" class="external-link"><strong>Shiny.React</strong></a>.
 Thus most of the Charts can be directly build using this package.</p>
@@ -132,11 +132,11 @@ Thus most of the Charts can be directly build using this package.</p>
 some Genomic data with chromosome start stop indicators. This dataset is
 directly picked from github <a href="https://github.com/sehilyi/gemini-datasets" class="external-link">here</a>. You can read
 more about the dataset by going to there website <a href="https://gemini.readthedocs.io/en/latest/index.html" class="external-link">here</a>. In
-short GEMINI (GEnome MINIng) is a flexible framework for exploring
+short GEMINI (Genome MINIng) is a flexible framework for exploring
 genetic variation in the context of the wealth of genome annotations
 available for the human genome.</p>
 <div class="sourceCode" id="section-cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">gemini_github_path</span> <span class="op">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/UCSC.HG38.Human.CytoBandIdeogram.csv"</span></span>
+<code class="sourceCode R"><span><span class="va">gemini_github_path</span> <span class="op">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/UCSC.HG38.Human.CytoBandIdeogram.csv"</span> <span class="co"># nolint</span></span>
 <span></span>
 <span><span class="va">cancer_data</span> <span class="op">&lt;-</span> <span class="st">"https://s3.amazonaws.com/gosling-lang.org/data/cancer/cnv.PD35930a.csv"</span></span>
 <span></span>
@@ -209,16 +209,16 @@ constructs a single track from the inputs.</p>
 <code class="sourceCode R"><span><span class="va">single_composed_views</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/arrange_views.html">arrange_views</a></span><span class="op">(</span></span>
 <span>      title <span class="op">=</span> <span class="st">"Single Track"</span>,</span>
 <span>      subtitle <span class="op">=</span> <span class="st">"This is the simplest single track visualization with a linear layout"</span>,</span>
-<span>      layout <span class="op">=</span> <span class="st">"circular"</span>, <span class="co">#"linear" </span></span>
+<span>      layout <span class="op">=</span> <span class="st">"circular"</span>,</span>
 <span>      views <span class="op">=</span> <span class="va">single_composed_track</span>,</span>
 <span>      xDomain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>        chromosome <span class="op">=</span> <span class="st">"chr1"</span>, </span>
+<span>        chromosome <span class="op">=</span> <span class="st">"chr1"</span>,</span>
 <span>        interval <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3000500</span><span class="op">)</span></span>
 <span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
 <p>We can then even add more tracks to it. So let’s create a few more
 tracks just to make a better and more beautiful graph.</p>
-<iframe data-deferred-src="appfac004568ba912c3643af6e2a03ec44b/?w=&amp;__subapp__=1" width="100%" height="700" class="shiny-frame shiny-frame-deferred"></iframe>
+<iframe data-deferred-src="appfb6db6169fadd79c166354b6ee8db3d8/?w=&amp;__subapp__=1" width="100%" height="700" class="shiny-frame shiny-frame-deferred"></iframe>
 <div class="sourceCode" id="section-cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html" class="external-link">session_info</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────</span></span></span>
@@ -231,7 +231,7 @@ tracks just to make a better and more beautiful graph.</p>
 <span><span class="co">#&gt;  collate  C.UTF-8</span></span>
 <span><span class="co">#&gt;  ctype    C.UTF-8</span></span>
 <span><span class="co">#&gt;  tz       UTC</span></span>
-<span><span class="co">#&gt;  date     2023-01-12</span></span>
+<span><span class="co">#&gt;  date     2023-01-20</span></span>
 <span><span class="co">#&gt;  pandoc   2.19.2 @ /usr/bin/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────</span></span></span>
@@ -242,12 +242,12 @@ tracks just to make a better and more beautiful graph.</p>
 <span><span class="co">#&gt;  desc            1.4.2   <span style="color: #555555;">2022-09-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  digest          0.6.31  <span style="color: #555555;">2022-12-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  ellipsis        0.3.2   <span style="color: #555555;">2021-04-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  evaluate        0.19    <span style="color: #555555;">2022-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  evaluate        0.20    <span style="color: #555555;">2023-01-17</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  fastmap         1.1.0   <span style="color: #555555;">2021-01-25</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  fs              1.5.2   <span style="color: #555555;">2021-12-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  glue            1.6.2   <span style="color: #555555;">2022-02-24</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  htmltools       0.5.4   <span style="color: #555555;">2022-12-07</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  httpuv          1.6.7   <span style="color: #555555;">2022-12-14</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  httpuv          1.6.8   <span style="color: #555555;">2023-01-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  jquerylib       0.1.4   <span style="color: #555555;">2021-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  jsonlite        1.8.4   <span style="color: #555555;">2022-12-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  knitr           1.41    <span style="color: #555555;">2022-11-18</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
@@ -260,7 +260,7 @@ tracks just to make a better and more beautiful graph.</p>
 <span><span class="co">#&gt;  promises        1.2.0.1 <span style="color: #555555;">2021-02-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  purrr           1.0.1   <span style="color: #555555;">2023-01-10</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  R6              2.5.1   <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  ragg            1.2.4   <span style="color: #555555;">2022-10-24</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  ragg            1.2.5   <span style="color: #555555;">2023-01-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  Rcpp            1.0.9   <span style="color: #555555;">2022-07-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  rlang           1.0.6   <span style="color: #555555;">2022-09-24</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  rmarkdown       2.19    <span style="color: #555555;">2022-12-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
@@ -268,9 +268,9 @@ tracks just to make a better and more beautiful graph.</p>
 <span><span class="co">#&gt;  sass            0.4.4   <span style="color: #555555;">2022-11-24</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  sessioninfo   * 1.2.2   <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  shiny         * 1.7.4   <span style="color: #555555;">2022-12-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  shiny.gosling * 0.99.0  <span style="color: #555555;">2023-01-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
+<span><span class="co">#&gt;  shiny.gosling * 0.99.0  <span style="color: #555555;">2023-01-20</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
 <span><span class="co">#&gt;  shiny.react     0.3.0   <span style="color: #555555;">2022-12-25</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  stringi         1.7.8   <span style="color: #555555;">2022-07-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  stringi         1.7.12  <span style="color: #555555;">2023-01-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  stringr         1.5.0   <span style="color: #555555;">2022-12-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  systemfonts     1.0.4   <span style="color: #555555;">2022-02-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  textshaping     0.3.6   <span style="color: #555555;">2021-10-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
