@@ -19,17 +19,17 @@ jobs:
         with:
           r-version: release
           http-user-agent: release
-          use-public-rspm: false
+          use-public-rspm: true
 
       - name: Install Deps
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          cache-version: 2
+          cache: false
           pak-version: 'devel'
 
       - name: Run BiocCheck
-        uses: Appsilon/bioc-check-action@v1
+        uses: Appsilon/bioc-check-action@v1.2
         with:
-          allow-failure: true
           new-package: true
           no-cache: true
+          allow-failure: true

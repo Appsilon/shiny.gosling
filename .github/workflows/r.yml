@@ -23,6 +23,7 @@ jobs:
         run: |
           sudo apt-get install libcurl4-openssl-dev
           sudo apt-get install -y r-cran-xml
+          sudo apt-get install -y libharfbuzz-dev libfribidi-dev
 
       - name: Install dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
@@ -30,12 +31,13 @@ jobs:
           cache-version: 2
           needs: check
           pak-version: 'devel'
+          extra-packages: local::. # Necessary to avoid object usage linter errors.
 
       - name: R CMD check
         uses: r-lib/actions/check-r-package@v2
         with:
           args: 'c("--no-manual", "--as-cran")'
-          error-on: '"error"'
+          error-on: '"note"'
           check-dir: '"check"'
 
       - name: Lint
