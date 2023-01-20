@@ -27,17 +27,17 @@ Imports:
     shiny,
     shiny.react
 Suggests:
-    rcmdcheck,
-    mockery (>= 0.4.3),
-    lintr,
-    spelling,
-    config,
-    BiocManager,
-    optparse,
     BiocCheck,
+    BiocManager,
+    config,
     knitr,
+    lintr,
+    mockery (>= 0.4.3),
+    optparse,
+    rcmdcheck,
     rmarkdown,
     sessioninfo,
+    spelling,
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Config/testthat/edition: 3

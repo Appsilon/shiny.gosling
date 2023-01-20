@@ -3,7 +3,6 @@
 ^shiny\.gosling\.Rproj$
 ^\.Rproj\.user$
 ^js$
-^LICENSE\.md$
 ^config\.yml$
 ^\.lintr$
 ^\.github$
