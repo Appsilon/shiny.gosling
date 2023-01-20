@@ -23,12 +23,12 @@ library(sessioninfo)
 
 # Introduction to shiny.gosling
 
-This package is an R shiny implementation of the [**Gosling.js**](http://gosling-lang.org/) library. Gosling js is a highly *expressive* library based on a *Grammer for scalable and interactive Gnenomics Data visualization*. This library is build upon the [**React** wrapper of the Gosling.js](https://github.com/gosling-lang/gosling-react). Which is powered by [**Shiny.React**](https://github.com/gosling-lang/gosling-react). Thus most of the Charts can be directly build using this package.
+This package is an R shiny implementation of the [**Gosling.js**](http://gosling-lang.org/) library. Gosling js is a highly *expressive* library based on a *Grammar for scalable and interactive Genomics Data visualization*. This library is build upon the [**React** wrapper of the Gosling.js](https://github.com/gosling-lang/gosling-react). Which is powered by [**Shiny.React**](https://github.com/gosling-lang/gosling-react). Thus most of the Charts can be directly build using this package.
 
-Let's start with an example. For that let's read a csv file which has some Genomic data with chromosome start stop indicators. This dataset is directly picked from github [here](https://github.com/sehilyi/gemini-datasets). You can read more about the dataset by going to there website [here](https://gemini.readthedocs.io/en/latest/index.html). In short GEMINI (GEnome MINIng) is a flexible framework for exploring genetic variation in the context of the wealth of genome annotations available for the human genome.
+Let's start with an example. For that let's read a csv file which has some Genomic data with chromosome start stop indicators. This dataset is directly picked from github [here](https://github.com/sehilyi/gemini-datasets). You can read more about the dataset by going to there website [here](https://gemini.readthedocs.io/en/latest/index.html). In short GEMINI (Genome MINIng) is a flexible framework for exploring genetic variation in the context of the wealth of genome annotations available for the human genome.
 
 ```{r}
-gemini_github_path <- "https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/UCSC.HG38.Human.CytoBandIdeogram.csv"
+gemini_github_path <- "https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/UCSC.HG38.Human.CytoBandIdeogram.csv" # nolint
 
 cancer_data <- "https://s3.amazonaws.com/gosling-lang.org/data/cancer/cnv.PD35930a.csv"
 
@@ -102,10 +102,10 @@ single_composed_track <- compose_view(
 single_composed_views <- arrange_views(
       title = "Single Track",
       subtitle = "This is the simplest single track visualization with a linear layout",
-      layout = "circular", #"linear" 
+      layout = "circular",
       views = single_composed_track,
       xDomain = list(
-        chromosome = "chr1", 
+        chromosome = "chr1",
         interval = c(1, 3000500)
       )
     )
@@ -117,11 +117,11 @@ We can then even add more tracks to it. So let's create a few more tracks just t
 ```{r, echo = FALSE}
 
 server <- function(input, output, session) {
-  
+
   output$gosling_plot <- renderGosling({
     gosling(
       component_id = "component_1",
-      single_composed_views, 
+      single_composed_views,
       clean_braces = TRUE
     )
   })

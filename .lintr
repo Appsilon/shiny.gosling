@@ -1,2 +1,1 @@
-linters: linters_with_defaults(camel_case_linter = NULL,
-              snake_case_linter = NULL)
+linters: linters_with_defaults(line_length_linter(120), object_name_linter(c("camelCase", "snake_case")))

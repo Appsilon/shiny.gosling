@@ -109,7 +109,7 @@
 export_pdf <- function(component_id, transparent_background = FALSE,
                        session = getDefaultReactiveDomain()) {
   session$sendCustomMessage(
-    'export_pdf',
+    "export_pdf",
     list(
       component_id = component_id,
       transparent_background = transparent_background

@@ -268,10 +268,10 @@ visual_channel_x <- function(
 #'
 visual_channel_y <- function(
     field = NULL, zeroBaseline = NULL,
-    type = NULL, # c("quantitative", "nominal", "genomic")
+    type = NULL,
     legend = NULL, grid = NULL, flip = NULL, baseline = NULL,
-    axis = NULL, # c("none", "top", "bottom", "left", "right")
-    aggregate = NULL, #c("max", "min", "mean", "bin", "count")
+    axis = NULL,
+    aggregate = NULL,
     ...
 ) {
   visual_channel(
@@ -285,7 +285,7 @@ visual_channel_y <- function(
 #' @param field A character. Name of the data field.
 #' @param type A character. Must be "genomic". Specify the data type.
 #' @param padding A number. Determines the size of inner white spaces on the
-#' top and bottom of individiual rows. Default: 0.
+#' top and bottom of individual rows. Default: 0.
 #' @param legend A Boolean. Whether to display legend. Default: FALSE.
 #' @param grid A Boolean. Whether to display grid. Default: FALSE.
 #' @param clip A Boolean. Clip row when the actual y value exceeds the max
@@ -427,7 +427,7 @@ visual_channel_row <- function(
 #' @export
 #'
 visual_channel_size <- function(
-    field = NULL, type = NULL, # c("quantitative", "nominal")
+    field = NULL, type = NULL,
     range = NULL, domain = NULL, ...
 ) {
   visual_channel(

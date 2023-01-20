@@ -22,7 +22,7 @@
 #'
 event_styles <- function(
     strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
-    color = NULL, arrange = NULL # c("behind", "front")
+    color = NULL, arrange = NULL
 ) {
   list_rm_null(list(
     strokeWidth = strokeWidth, strokeOpacity = strokeOpacity,
@@ -85,9 +85,9 @@ brush_styles <- function(
 #' "experimentalEdgeBundling". The style of withinLink and betweenLink marks.
 #' Default: 'circular' 'elliptical' will be used as a default option.
 #' @param linkMinHeight A number. The minimum height of withinLink and
-#' betweenLink marks. Unit is a percentagle. Default: 0.5.
+#' betweenLink marks. Unit is a percentage Default: 0.5.
 #' @param linkConnectionType  A character. One of "straight", "curve",
-#' "corner". Specify the connetion type of betweenLink marks. Default: "corner".
+#' "corner". Specify the connection type of betweenLink marks. Default: "corner".
 #' @param linePattern A list of the form list(size="number",type="string").
 #'  One of "triangleLeft", "triangleRight".) Specify the pattern of dashes
 #'  and gaps for rule marks.

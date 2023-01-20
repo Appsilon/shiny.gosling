@@ -9,6 +9,9 @@ run_example(example)
 \arguments{
 \item{example}{A character indicating a valid example.}
 }
+\value{
+A Shiny App is launched.
+}
 \description{
 Runs a shiny.gosling example
 }

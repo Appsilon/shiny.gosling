@@ -25,7 +25,7 @@ list_rm_null <- function(r_list) {
 #'
 build_json <- function(r_list, clean_braces = TRUE, pretty = TRUE,
                        auto_unbox = TRUE) {
-  if(clean_braces) {
+  if (clean_braces) {
     jsonlite::toJSON(r_list, pretty = pretty, auto_unbox = auto_unbox)
   } else {
     json <- jsonlite::toJSON(r_list, pretty = FALSE, auto_unbox = auto_unbox)
@@ -160,11 +160,11 @@ is_atomic_field <- function(field_name) {
 #' @return List.
 #'
 atomic_values_to_list <- function(property_list) {
-  if(!rlang::is_empty(property_list)) {
+  if (!rlang::is_empty(property_list)) {
     for (x in seq_along(property_list)) {
-      if(!is.null(property_list[[x]])) {
+      if (!is.null(property_list[[x]])) {
         field_name <- names(property_list[x])
-        if((is_atomic_field(field_name)) && !is.list(property_list[[x]])) {
+        if ((is_atomic_field(field_name)) && !is.list(property_list[[x]])) {
           property_list[[x]] <- list(
             value = property_list[[x]]
           )
@@ -177,7 +177,7 @@ atomic_values_to_list <- function(property_list) {
 
 #' Initiate gosling
 #'
-#' Add this function at the begining of ui. This is needed for
+#' Add this function at the beginning of ui. This is needed for
 #' gosling to work in shiny plots.
 #'
 #' @examples

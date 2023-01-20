@@ -22,7 +22,7 @@ visual_channel_row(
 \item{type}{A character. Must be "genomic". Specify the data type.}
 
 \item{padding}{A number. Determines the size of inner white spaces on the
-top and bottom of individiual rows. Default: 0.}
+top and bottom of individual rows. Default: 0.}
 
 \item{legend}{A Boolean. Whether to display legend. Default: FALSE.}
 

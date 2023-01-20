@@ -12,13 +12,14 @@ package_name <- "shiny.gosling"
 #' if(interactive()) {
 #'   run_example("circularLinearWithBrush")
 #' }
+#' @return A Shiny App is launched.
 #' @export
 run_example <- function(example) {
-  examples <- list.files(system.file("examples", package = package_name))
+  valid_examples <- list.files(system.file("examples", package = package_name))
   app_dir <- system.file("examples", example, package = package_name)
   if (!example %in% valid_examples) {
     stop(
-      'Please select a valid example, the valid examples are:\n',
+      "Please select a valid example, the valid examples are:\n",
       paste(valid_examples, collapse = ", "),
       call. = FALSE
     )

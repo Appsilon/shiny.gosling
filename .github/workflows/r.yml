@@ -23,6 +23,7 @@ jobs:
         run: |
           sudo apt-get install libcurl4-openssl-dev
           sudo apt-get install -y r-cran-xml
+          sudo apt-get install -y libharfbuzz-dev libfribidi-dev
 
       - name: Install dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
@@ -42,6 +43,8 @@ jobs:
         if: always()
         shell: Rscript {0}
         run: |
+          remotes::install_cran("devtools")
+          devtools::load_all()
           lints <- lintr::lint_package()
           for (lint in lints) print(lint)
           quit(status = length(lints) > 0)
