@@ -3,7 +3,7 @@
 on:
   push:
     branches:
-      - dev # This needs to be updated after moving to main branch
+      - main
   workflow_dispatch:
 
 name: pkgdown
