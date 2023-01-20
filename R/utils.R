@@ -141,7 +141,7 @@ json_list <- function(...) {
 
 #' is_atomic_field
 #'
-#' @param property_list A character or number or another atomic value.
+#' @param field_name A character or number or another atomic value.
 #'
 #' @return List.
 #'
