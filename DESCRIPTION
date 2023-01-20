@@ -16,7 +16,7 @@ Authors@R:
            comment = c(ORCID = "0000-0001-7818-1225"))
   )
 Description: A Grammar-based Toolkit for Scalable and Interactive Genomics Data Visualization. http://gosling-lang.org/. This R package is based on gosling.js. It uses R functions to create gosling plots that could be embedded onto R Shiny apps.
-License: MIT + file LICENSE
+License: LGPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
@@ -28,17 +28,17 @@ Imports:
     shiny,
     shiny.react
 Suggests:
-    rcmdcheck,
-    mockery (>= 0.4.3),
-    lintr,
-    spelling,
-    config,
-    BiocManager,
-    optparse,
     BiocCheck,
+    BiocManager,
+    config,
     knitr,
+    lintr,
+    mockery (>= 0.4.3),
+    optparse,
+    rcmdcheck,
     rmarkdown,
     sessioninfo,
+    spelling,
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Config/testthat/edition: 3
