@@ -28,10 +28,10 @@ jobs:
       - name: Install dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          xtra-packages: local::. # Necessary to avoid object usage linter errors.
           cache-version: 2
           needs: check
           pak-version: 'devel'
+          extra-packages: local::. # Necessary to avoid object usage linter errors.
 
       - name: R CMD check
         uses: r-lib/actions/check-r-package@v2
