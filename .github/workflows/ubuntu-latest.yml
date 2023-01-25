@@ -1,5 +1,5 @@
 ---
-name: R CMD Check, Linters and Spelling
+name: R CMD Check:ubuntu-latest
 
 on: push
 

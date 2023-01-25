@@ -1,6 +1,6 @@
 on: push
 
-name: R-CMD-check
+name: R-CMD-check:macOS-latest
 
 jobs:
   main:
