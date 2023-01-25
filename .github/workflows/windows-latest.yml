@@ -1,6 +1,6 @@
 on: push
 
-name: R-CMD-check:windows
+name: R-CMD-check:windows-latest
 
 jobs:
   main:
