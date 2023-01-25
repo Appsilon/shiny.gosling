@@ -15,14 +15,14 @@ jobs:
       matrix:
         config:
         - {os: macOS-latest,   r: 'release'}
-        - {os: windows-latest, r: 'release'}
-        - {os: ubuntu-22.04, r: 'devel'}
-        - {os: ubuntu-22.04, r: 'release'}
-        - {os: ubuntu-22.04, r: 'oldrel'}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Setup libcurl
+        run: |
+          brew install pandoc
 
       - name: Install R
         uses: r-lib/actions/setup-r@v2
