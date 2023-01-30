@@ -22,19 +22,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Pandoc for ${{ matrix.config.os }}
+      - name: Setup Pandoc for windows-latest
         if: matrix.config.os == 'windows-latest'
         run: |
           Set-ExecutionPolicy AllSigned
           Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
           choco install pandoc
-      - name: Setup Pandoc for ${{ matrix.config.os }}
+
+      - name: Setup Pandoc for ubuntu-latest
         if: matrix.config.os == 'ubuntu-latest'
         run: |
           sudo apt-get install libcurl4-openssl-dev
           sudo apt-get install -y r-cran-xml
           sudo apt-get install -y libharfbuzz-dev libfribidi-dev
-      - name: Setup Pandoc for ${{ matrix.config.os }}
+
+      - name: Setup Pandoc for macOS-latest
         if: matrix.config.os == 'macOS-latest'
         run: |
           brew install pandoc
