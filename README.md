@@ -4,7 +4,7 @@
 
 <!-- badges: start -->
 [![BiocCheck](https://github.com/Appsilon/shiny.gosling/actions/workflows/bioc-check.yaml/badge.svg)](https://github.com/Appsilon/shiny.gosling/actions/workflows/bioc-check.yaml)
-[![R-CMD-check](https://github.com/Appsilon/shiny.gosling/actions/workflows/r.yml/badge.svg)](https://github.com/Appsilon/shiny.gosling/actions/workflows/r.yml)
+[![R-CMD-checks](https://github.com/Appsilon/shiny.gosling/actions/workflows/r-cmd-check.yml/badge.svg)](https://github.com/Appsilon/shiny.gosling/actions/workflows/r-cmd-check.yml)
 <!-- badges: end -->
 
 Based on [gosling.js](http://gosling-lang.org/) and powered by [shiny.react](https://appsilon.github.io/shiny.react/).
