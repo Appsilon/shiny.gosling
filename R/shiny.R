@@ -215,9 +215,4 @@ goslingOutput <- function(outputId) {
 #' Shiny server function.
 #' @export
 #'
-renderGosling <- function(
-    expr) {
-  shiny.react::renderReact(
-    expr = expr
-  )
-}
+renderGosling <- shiny.react::renderReact
