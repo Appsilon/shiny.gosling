@@ -4,11 +4,7 @@
 \alias{renderGosling}
 \title{gosling render function}
 \usage{
-renderGosling(expr)
-}
-\arguments{
-\item{expr}{The code for rendering gosling plot.
-Must be a gosling object built with shiny.gosling::gosling()}
+renderGosling(expr, env = parent.frame(), quoted = FALSE)
 }
 \value{
 A function which can be assigned to an output in a

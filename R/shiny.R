@@ -113,8 +113,6 @@ goslingOutput <- function(outputId) {
 #'
 #' gosling render function for shiny use
 #'
-#' @param expr The code for rendering gosling plot.
-#' Must be a gosling object built with shiny.gosling::gosling()
 #'
 #' @examples
 #' if(interactive()) {
