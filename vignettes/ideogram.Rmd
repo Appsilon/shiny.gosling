@@ -1,0 +1,88 @@
+---
+title: "Marking ideogram in shiny.gosling"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to shiny.gosling}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+runtime: shiny
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r, echo = FALSE}
+library(shiny.gosling)
+library(shiny)
+library(sessioninfo)
+```
+
+# Plotting a simple ideogram plot
+
+```{r, eval = FALSE}
+ui <- fluidPage(
+  use_gosling(),
+  goslingOutput("gosling_plot")
+)
+server <- function(input, output, session) {
+  output$gosling_plot <- renderGosling({
+    gosling(
+      component_id = "component_1",
+      arrange_views(
+        title = "Basic Marks: rect",
+        subtitle = "Tutorial Examples",
+        views = compose_view(
+          tracks = add_single_track(
+            layout = "linear",
+            width = 800,
+            height = 180,
+            data = track_data(
+              url = "https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/UCSC.HG38.Human.CytoBandIdeogram.csv",
+              type = "csv",
+              chromosomeField = "Chromosome",
+              genomicFields = list("chromStart", "chromEnd")
+            ),
+            mark = "rect",
+            dataTransform = track_data_transform(
+              type = "filter",
+              field = "Stain",
+              oneOf = list("acen"),
+              not = TRUE
+            ),
+            color = visual_channel_color(
+              field = "Stain",
+              type = "nominal",
+              domain = list("gneg", "gpos25", "gpos50", "gpos75", "gpos100", "gvar"),
+              range = list("white", "#D9D9D9", "#979797", "#636363", "black", "#A0A0F2")
+            ),
+            x = visual_channel_x(
+              field = "chromStart",
+              type = "genomic",
+              domain = list(chromosome = "chr1"),
+              axis = "top"
+            ),
+            xe = visual_channel_x(field = "chromEnd", type = "genomic"),
+            size = visual_channel_size(value = 20),
+            stroke = visual_channel_stroke(value = "gray"),
+            strokeWidth = visual_channel_stroke(value = 0.5),
+            style = list(outline = "white")
+          )
+        )
+      )
+    )
+  })
+}
+shiny::shinyApp(ui, server)
+```
+
+```{r, echo = FALSE}
+library(htmltools)
+tags$div(
+  class = "shiny-app-frame",
+  tags$iframe(src = "https://connect.appsilon.com/shiny-gosling-ideogram/", width = 950, height = 350)
+)
+```

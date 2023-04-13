@@ -1,0 +1,72 @@
+---
+title: "Marking bar in shiny.gosling"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to shiny.gosling}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+runtime: shiny
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r, echo = FALSE}
+library(shiny.gosling)
+library(shiny)
+library(sessioninfo)
+```
+
+# Marking bar in a simple shiny.gosling plot
+
+```{r, eval = FALSE}
+ui <- fluidPage(
+  use_gosling(),
+  goslingOutput("gosling_plot")
+)
+server <- function(input, output, session) {
+  output$gosling_plot <- renderGosling({
+    gosling(
+      component_id = "component_1",
+      arrange_views(
+        title = "Basic Marks: bar",
+        subtitle = "Tutorial Examples",
+        views = compose_view(
+          tracks = add_single_track(
+            layout = "linear",
+            width = 800,
+            height = 180,
+            data = list(
+              url = "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
+              type = "multivec",
+              row = "sample",
+              column = "position",
+              categories = list("sample 1"),
+              value = "peak",
+              binSize = 5
+            ),
+            mark = "bar",
+            x = visual_channel_x(field = "start", type = "genomic", axis = "bottom"),
+            xe = visual_channel_x(field = "end", type = "genomic"),
+            y = visual_channel_y(field = "peak", type = "quantitative", axis = "right"),
+            size = visual_channel_size(value = 5)
+          )
+        )
+      )
+    )
+  })
+}
+shiny::shinyApp(ui, server)
+```
+
+```{r, echo = FALSE}
+library(htmltools)
+tags$div(
+  class = "shiny-app-frame",
+  tags$iframe(src = "https://connect.appsilon.com/shiny-gosling-bar/", width = 950, height = 350)
+)
+```
