@@ -288,6 +288,17 @@ use_gosling <- function() {
   )
 }
 
+#' Print method for the gosling component
+#'
+#' @param r_list An r list with NULL values
+#'
+#' @return r list without NULL values
+#'
+print.gosling <- function(x, ...) {
+  component_json <- gsub("(^[^{]+)|([^}]+$)", "", htmltools::HTML(as.character(x))) |>
+    rjson::fromJSON()
+  print(str(rjson::fromJSON(component_json$props$value$spec$value)), ...)
+}
 
 #' Build gosling plot object
 #'
@@ -399,12 +410,15 @@ use_gosling <- function() {
 #' @export
 #'
 gosling <- function(component_id, composed_views, clean_braces = TRUE) {
-  GoslingComponent(
-    component_id = component_id,
-    spec = shiny.react::JS(
-      build_json(
-        composed_views, clean_braces = clean_braces
+  structure(
+    GoslingComponent(
+      component_id = component_id,
+      spec = shiny.react::JS(
+        build_json(
+          composed_views, clean_braces = clean_braces
+        )
       )
-    )
+    ),
+    class = c("gosling", "shiny.tag")
   )
 }
