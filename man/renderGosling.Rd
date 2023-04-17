@@ -6,6 +6,13 @@
 \usage{
 renderGosling(expr, env = parent.frame(), quoted = FALSE)
 }
+\arguments{
+\item{expr}{Expression returning the HTML / 'React' to render.}
+
+\item{env}{Environment in which to evaluate expr.}
+
+\item{quoted}{Is \code{expr} a quoted expression?}
+}
 \value{
 A function which can be assigned to an output in a
 Shiny server function.

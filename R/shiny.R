@@ -209,6 +209,7 @@ goslingOutput <- function(outputId) {
 #'   shinyApp(ui, server)
 #'
 #' }
+#' @inheritParams shiny.react::renderReact 
 #' @return A function which can be assigned to an output in a
 #' Shiny server function.
 #' @export
