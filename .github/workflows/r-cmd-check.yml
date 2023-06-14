@@ -79,3 +79,8 @@ jobs:
             print(spell_check)
           }
           quit(status = nrow(spell_check) > 0)
+
+      - name: Test coverage
+        if: matrix.config.os == 'ubuntu-latest' && matrix.config.r == 'release'
+        run: |
+          Rscript -e 'covr::codecov()'
