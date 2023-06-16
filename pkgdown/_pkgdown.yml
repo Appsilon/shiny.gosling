@@ -37,6 +37,9 @@ navbar:
     - icon: fa-university
       text: "Tutorial"
       href: articles/intro.html
+    - icon: fa-university
+      text: "Using GRanges"
+      href: articles/GRanges.html
     - icon: fa-file-code-o
       text: "Reference"
       href: reference/index.html

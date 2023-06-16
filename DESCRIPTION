@@ -29,7 +29,8 @@ Imports:
     shiny.react,
     fs,
     digest,
-    rjson
+    rjson,
+    GenomicRanges
 Suggests:
     BiocManager,
     config,
