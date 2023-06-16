@@ -28,7 +28,6 @@ We will be loading the peaks data from ChipSeq dataset with the GEO accession [G
 `GSM1295076_CBX6_BF_ChipSeq_mergedReps_peaks.bed.gz` file will be used to create a sample GRanges object.
 
 ```{r, reading-data}
-library(RCurl)
 url <- "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSM1295076&format=file&file=GSM1295076%5FCBX6%5FBF%5FChipSeq%5FmergedReps%5Fpeaks%2Ebed%2Egz" # nolint
 temp_file <- file.path(tempdir(), "GSM1295076_CBX6_BF_ChipSeq_mergedReps_peaks.bed.gz")
 download.file(url, destfile = temp_file)

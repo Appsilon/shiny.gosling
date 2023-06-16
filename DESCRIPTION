@@ -29,8 +29,7 @@ Imports:
     shiny.react,
     fs,
     digest,
-    rjson,
-    GenomicRanges
+    rjson
 Suggests:
     BiocManager,
     config,
@@ -42,6 +41,7 @@ Suggests:
     rmarkdown,
     sessioninfo,
     spelling,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    GenomicRanges
 VignetteBuilder: knitr
 Config/testthat/edition: 3
