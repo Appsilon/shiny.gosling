@@ -26,16 +26,17 @@ Imports:
     jsonlite,
     rlang,
     shiny,
-    shiny.react
+    shiny.react,
+    fs,
+    digest,
+    rjson
 Suggests:
-    BiocCheck,
     BiocManager,
     config,
     covr,
     knitr,
     lintr,
     mockery (>= 0.4.3),
-    optparse,
     rcmdcheck,
     rmarkdown,
     sessioninfo,

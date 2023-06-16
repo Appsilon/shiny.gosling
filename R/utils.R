@@ -179,6 +179,8 @@ atomic_values_to_list <- function(property_list) {
 #' Add this function at the beginning of ui. This is needed for
 #' gosling to work in shiny plots.
 #'
+#' @param clear_files default FALSE. To clear the locally stored csv files created by gosling or not.
+#'
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -300,14 +302,15 @@ use_gosling <- function(clear_files = TRUE) {
 
 #' Print method for the gosling component
 #'
-#' @param r_list An r list with NULL values
+#' @param x A gosling object
 #'
 #' @return r list without NULL values
 #'
-print.gosling <- function(x, ...) {
+#' @export
+print.gosling <- function(x) {
   component_json <- gsub("(^[^{]+)|([^}]+$)", "", htmltools::HTML(as.character(x))) |>
     rjson::fromJSON()
-  print(str(rjson::fromJSON(component_json$props$value$spec$value)), ...)
+  print(utils::str(rjson::fromJSON(component_json$props$value$spec$value)))
 }
 
 #' Build gosling plot object

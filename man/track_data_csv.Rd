@@ -5,16 +5,21 @@
 \title{Data object builder for a csv file}
 \usage{
 track_data_csv(
-  url,
+  file,
+  genomicFields = NULL,
+  chromosomeField = NULL,
   separator = ",",
   sampleLength = 1000,
   headerNames = NULL,
-  genomicFields = NULL,
-  chromosomeField = NULL
+  ...
 )
 }
 \arguments{
-\item{url}{A character. Specify the URL address of the data file.}
+\item{file}{A character. Specify the URL address or local file name in the www directory of the data file.}
+
+\item{genomicFields}{A character vector. Specify the name of genomic data fields.}
+
+\item{chromosomeField}{A character. Specify the name of chromosome data fields.}
 
 \item{separator}{A character. Specify file separator, Default: ','}
 
@@ -23,12 +28,6 @@ the URL. Default: 1000}
 
 \item{headerNames}{A character vector. Specify the names of data fields
 if a CSV file does not have header row.}
-
-\item{genomicFields}{A character vector. Specify the name of genomic
-data fields.}
-
-\item{chromosomeField}{A character. Specify the name of chromosome
-data fields.}
 
 \item{...}{Any other parameters passed to json data object.}
 }

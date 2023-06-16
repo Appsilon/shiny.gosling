@@ -207,7 +207,7 @@ track_data_csv <- function(
 track_data_gr <- function(granges) {
   file_name <- paste0(digest::digest(granges), ".csv")
   if (!file_name %in% list.files(".gosling")) {
-    write.csv(granges, paste0(".gosling/", file_name), row.names = FALSE)
+    utils::write.csv(granges, paste0(".gosling/", file_name), row.names = FALSE)
   }
   track_data_csv(
     file = file_name,
