@@ -303,14 +303,16 @@ use_gosling <- function(clear_files = TRUE) {
 #' Print method for the gosling component
 #'
 #' @param x A gosling object
+#' @param ... further arguments passed to or from other methods.
 #'
 #' @return r list without NULL values
 #'
 #' @export
-print.gosling <- function(x) {
+print.gosling <- function(x, ...) {
   component_json <- gsub("(^[^{]+)|([^}]+$)", "", htmltools::HTML(as.character(x))) |>
     rjson::fromJSON()
-  print(utils::str(rjson::fromJSON(component_json$props$value$spec$value)))
+  print(utils::str(rjson::fromJSON(component_json$props$value$spec$value)), ...)
+  invisible(x)
 }
 
 #' Build gosling plot object

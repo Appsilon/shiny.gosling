@@ -4,10 +4,12 @@
 \alias{print.gosling}
 \title{Print method for the gosling component}
 \usage{
-\method{print}{gosling}(x)
+\method{print}{gosling}(x, ...)
 }
 \arguments{
 \item{x}{A gosling object}
+
+\item{...}{further arguments passed to or from other methods.}
 }
 \value{
 r list without NULL values
