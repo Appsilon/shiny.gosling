@@ -1,4 +1,3 @@
-
 #' Data object builder
 #'
 #' Build the data object for gosling plots
@@ -19,7 +18,7 @@
 #' @param ... Any other parameters passed to json data object.
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -58,19 +57,21 @@
 #'     ),
 #'     size = 24,
 #'     color = "white",
-#'     visibility = list(list(
-#'       operation = "less-than",
-#'       measure = "width",
-#'       threshold = "|xe-x|",
-#'       transitionPadding = 30,
-#'       target = "mark"
-#'     ),
-#'     list(
-#'       operation = "LT",
-#'       measure = "zoomLevel",
-#'       threshold = 40,
-#'       target = "track"
-#'     ))
+#'     visibility = list(
+#'       list(
+#'         operation = "less-than",
+#'         measure = "width",
+#'         threshold = "|xe-x|",
+#'         transitionPadding = 30,
+#'         target = "mark"
+#'       ),
+#'       list(
+#'         operation = "LT",
+#'         measure = "zoomLevel",
+#'         threshold = 40,
+#'         target = "track"
+#'       )
+#'     )
 #'   )
 #'
 #'   view2_track3_x <- visual_channel_x(
@@ -145,7 +146,6 @@
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #' @details For info visit http://gosling-lang.org/docs/data.
 #' Check the various supported data formats and their parameters.
@@ -157,8 +157,7 @@
 #'
 track_data <- function(
     url, type, separator = NULL, sampleLength = NULL,
-    headerNames = NULL, genomicFields = NULL, chromosomeField = NULL, ...
-) {
+    headerNames = NULL, genomicFields = NULL, chromosomeField = NULL, ...) {
   list_rm_null(
     list(
       url = url, type = type, separator = separator,
@@ -167,6 +166,56 @@ track_data <- function(
     )
   )
 }
+
+
+#' Data object builder for a csv file
+#'
+#' Build the data object for gosling plots
+#'
+#' @param file A character. Specify the URL address or local file name in the www directory of the data file.
+#' @param genomicFields A character vector. Specify the name of genomic data fields.
+#' @param chromosomeField A character. Specify the name of chromosome data fields.
+#' @param separator A character. Specify file separator, Default: ','
+#' @param sampleLength A number. Specify the number of rows loaded from
+#' the URL. Default: 1000
+#' @param headerNames A character vector. Specify the names of data fields
+#' if a CSV file does not have header row.
+#' @param ... Any other parameters passed to json data object.
+#'
+#' @return list of data specs for a csv file
+#' @export
+track_data_csv <- function(
+    file, genomicFields = NULL, chromosomeField = NULL,
+    separator = ",", sampleLength = 1000, headerNames = NULL, ...) {
+  list_rm_null(
+    list(
+      url = file, type = "csv",
+      genomicFields = genomicFields, chromosomeField = chromosomeField,
+      separator = separator, sampleLength = sampleLength, headerNames = headerNames, ...
+    )
+  )
+}
+
+#' Data object builder for a GRanges object by locally saving it
+#'
+#' Build the data object for gosling plots
+#'
+#' @param granges A GRanges object from the GenomicRanges package with seqnames and ranges
+#'
+#' @return list of data specs for a csv file
+#' @export
+track_data_gr <- function(granges) {
+  file_name <- paste0(digest::digest(granges), ".csv")
+  if (!file_name %in% list.files(".gosling")) {
+    write.csv(granges, paste0(".gosling/", file_name), row.names = FALSE)
+  }
+  track_data_csv(
+    file = file_name,
+    chromosomeField = "seqnames",
+    genomicFields = c("start", "end")
+  )
+}
+
 
 #' Data transformer
 #'
@@ -185,7 +234,7 @@ track_data <- function(
 #' @param ... Any other parameters to pass to gosling.js.
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -224,19 +273,21 @@ track_data <- function(
 #'     ),
 #'     size = 24,
 #'     color = "white",
-#'     visibility = list(list(
-#'       operation = "less-than",
-#'       measure = "width",
-#'       threshold = "|xe-x|",
-#'       transitionPadding = 30,
-#'       target = "mark"
-#'     ),
-#'     list(
-#'       operation = "LT",
-#'       measure = "zoomLevel",
-#'       threshold = 40,
-#'       target = "track"
-#'     ))
+#'     visibility = list(
+#'       list(
+#'         operation = "less-than",
+#'         measure = "width",
+#'         threshold = "|xe-x|",
+#'         transitionPadding = 30,
+#'         target = "mark"
+#'       ),
+#'       list(
+#'         operation = "LT",
+#'         measure = "zoomLevel",
+#'         threshold = 40,
+#'         target = "track"
+#'       )
+#'     )
 #'   )
 #'
 #'   view2_track3_x <- visual_channel_x(
@@ -311,7 +362,6 @@ track_data <- function(
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #' @details For info visit http://gosling-lang.org/docs/data#data-transform
 #' There are multiple ways to transform data. Check documentation for details
@@ -322,8 +372,7 @@ track_data <- function(
 #'
 track_data_transform <- function(
     type = NULL, field = NULL, oneOf = NULL,
-    not = NULL, ...
-) {
+    not = NULL, ...) {
   list(
     list_rm_null(
       list(

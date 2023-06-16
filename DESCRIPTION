@@ -19,7 +19,7 @@ Description: A Grammar-based Toolkit for Scalable and Interactive Genomics Data 
 License: LGPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 biocViews: ShinyApps, Genetics, Visualization
 Imports:
     htmltools,

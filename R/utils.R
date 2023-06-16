@@ -38,7 +38,7 @@ build_json <- function(r_list, clean_braces = TRUE, pretty = TRUE,
 #'
 #' @param ... Items to be put in a list
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -130,7 +130,6 @@ build_json <- function(r_list, clean_braces = TRUE, pretty = TRUE,
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #' @return list of items
 #' @export
@@ -181,7 +180,7 @@ atomic_values_to_list <- function(property_list) {
 #' gosling to work in shiny plots.
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -273,12 +272,23 @@ atomic_values_to_list <- function(property_list) {
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #'
 #' @return Gosling initiator HTML.
 #' @export
-use_gosling <- function() {
+use_gosling <- function(clear_files = TRUE) {
+  if (!dir.exists(".gosling")) {
+    dir.create(".gosling")
+  }
+  shiny::addResourcePath(".gosling", fs::path_wd(".gosling"))
+  if (clear_files) {
+    shiny::onStop(
+      function() {
+        unlink(".gosling", recursive = TRUE)
+      },
+      session = shiny::getDefaultReactiveDomain()
+    )
+  }
   GoslingComponent(
     spec = shiny.react::JS(
       build_json(
@@ -288,6 +298,17 @@ use_gosling <- function() {
   )
 }
 
+#' Print method for the gosling component
+#'
+#' @param r_list An r list with NULL values
+#'
+#' @return r list without NULL values
+#'
+print.gosling <- function(x, ...) {
+  component_json <- gsub("(^[^{]+)|([^}]+$)", "", htmltools::HTML(as.character(x))) |>
+    rjson::fromJSON()
+  print(str(rjson::fromJSON(component_json$props$value$spec$value)), ...)
+}
 
 #' Build gosling plot object
 #'
@@ -297,7 +318,7 @@ use_gosling <- function() {
 #' json string.
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   library(shiny)
 #'   library(shiny.gosling)
 #'
@@ -350,7 +371,7 @@ use_gosling <- function() {
 #'     x = circular_track1_x, xe = circular_track1_xe,
 #'     y = circular_track1_y, row = circular_track1_row,
 #'     color = circular_track1_color,
-#'     stroke =  "black", strokeWidth = 0.3,
+#'     stroke = "black", strokeWidth = 0.3,
 #'     tracks = circular_track1_tracks,
 #'     style = circular_track1_styles,
 #'     width = 500, height = 100
@@ -392,19 +413,22 @@ use_gosling <- function() {
 #'   }
 #'
 #'   shinyApp(ui, server)
-#'
 #' }
 #'
 #' @return Gosling component for rendering on R shiny apps
 #' @export
 #'
 gosling <- function(component_id, composed_views, clean_braces = TRUE) {
-  GoslingComponent(
-    component_id = component_id,
-    spec = shiny.react::JS(
-      build_json(
-        composed_views, clean_braces = clean_braces
+  structure(
+    GoslingComponent(
+      component_id = component_id,
+      spec = shiny.react::JS(
+        build_json(
+          composed_views,
+          clean_braces = clean_braces
+        )
       )
-    )
+    ),
+    class = c("gosling", "shiny.tag")
   )
 }
