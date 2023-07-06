@@ -188,7 +188,7 @@ track_data <- function(
 #' library(shiny)
 #' library(GenomicRanges)
 #'
-#' url <- "https://rb.gy/7y3fx" # nolint
+#' url <- "https://rb.gy/7y3fx"
 #' temp_file <- file.path(tempdir(), "GSM1295076_CBX6_BF_ChipSeq_mergedReps_peaks.bed.gz")
 #' download.file(url, destfile = temp_file)
 #' df <- read.delim(
