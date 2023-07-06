@@ -316,6 +316,14 @@ add_file_to_resource_path <- function(file_path = NULL, object = NULL) {
 #' Build the data object for gosling plots
 #'
 #' @param granges A GRanges object from the GenomicRanges package with seqnames and ranges
+#' @param genomicFields A character vector. Specify the name of genomic data fields.
+#' @param chromosomeField A character. Specify the name of chromosome data fields.
+#' @param separator A character. Specify file separator, Default: ','
+#' @param sampleLength A number. Specify the number of rows loaded from
+#' the URL. Default: 1000
+#' @param headerNames A character vector. Specify the names of data fields
+#' if a CSV file does not have header row.
+#' @param ... Any other parameters passed to json data object.
 #'
 #' @examples
 #' if (interactive()) {
