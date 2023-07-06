@@ -16,6 +16,20 @@ track_data_gr(
 }
 \arguments{
 \item{granges}{A GRanges object from the GenomicRanges package with seqnames and ranges}
+
+\item{chromosomeField}{A character. Specify the name of chromosome data fields.}
+
+\item{genomicFields}{A character vector. Specify the name of genomic data fields.}
+
+\item{separator}{A character. Specify file separator, Default: ','}
+
+\item{sampleLength}{A number. Specify the number of rows loaded from
+the URL. Default: 1000}
+
+\item{headerNames}{A character vector. Specify the names of data fields
+if a CSV file does not have header row.}
+
+\item{...}{Any other parameters passed to json data object.}
 }
 \value{
 list of data specs for a csv file
