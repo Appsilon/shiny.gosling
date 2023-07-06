@@ -302,7 +302,7 @@ get_file_track_data <- function(
 #' @return list of data specs for a local csv file
 add_file_to_resource_path <- function(file_path = NULL, object = NULL) {
   if (!is.null(file_path)) {
-    object <- read.csv(file_path)
+    object <- utils::read.csv(file_path)
   }
   file_name <- paste0(digest::digest(object), ".csv")
   if (!file_name %in% list.files(".gosling")) {
