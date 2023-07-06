@@ -4,7 +4,15 @@
 \alias{track_data_gr}
 \title{Data object builder for a GRanges object by locally saving it}
 \usage{
-track_data_gr(granges)
+track_data_gr(
+  granges,
+  chromosomeField = NULL,
+  genomicFields = NULL,
+  separator = ",",
+  sampleLength = 1000,
+  headerNames = NULL,
+  ...
+)
 }
 \arguments{
 \item{granges}{A GRanges object from the GenomicRanges package with seqnames and ranges}

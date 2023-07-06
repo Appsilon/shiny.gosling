@@ -187,13 +187,35 @@ track_data <- function(
 track_data_csv <- function(
     file, genomicFields = NULL, chromosomeField = NULL,
     separator = ",", sampleLength = 1000, headerNames = NULL, ...) {
+  file_name <- add_file_to_resource_path(file_path = file)
+  get_file_track_data(
+    file_name,
+    genomicFields = genomicFields, chromosomeField = chromosomeField,
+    separator = separator, sampleLength = sampleLength, headerNames = headerNames, ...
+  )
+}
+
+get_file_track_data <- function(
+    file_name, chromosomeField = NULL, genomicFields = NULL,
+    separator = ",", sampleLength = 1000, headerNames = NULL, ...) {
   list_rm_null(
-    list(
-      url = file, type = "csv",
+    track_data(
+      url = paste0("gosling/", file_name), type = "csv",
       genomicFields = genomicFields, chromosomeField = chromosomeField,
       separator = separator, sampleLength = sampleLength, headerNames = headerNames, ...
     )
   )
+}
+
+add_file_to_resource_path <- function(file_path = NULL, object = NULL) {
+  if (!is.null(file_path)) {
+    object <- read.csv(file_path)
+  }
+  file_name <- paste0(digest::digest(object), ".csv")
+  if (!file_name %in% list.files(".gosling")) {
+    utils::write.csv(object, paste0(".gosling/", file_name), row.names = FALSE)
+  }
+  file_name
 }
 
 #' Data object builder for a GRanges object by locally saving it
@@ -204,15 +226,14 @@ track_data_csv <- function(
 #'
 #' @return list of data specs for a csv file
 #' @export
-track_data_gr <- function(granges) {
-  file_name <- paste0(digest::digest(granges), ".csv")
-  if (!file_name %in% list.files(".gosling")) {
-    utils::write.csv(granges, paste0(".gosling/", file_name), row.names = FALSE)
-  }
-  track_data_csv(
-    file = file_name,
-    chromosomeField = "seqnames",
-    genomicFields = c("start", "end")
+track_data_gr <- function(
+    granges, chromosomeField = NULL, genomicFields = NULL,
+    separator = ",", sampleLength = 1000, headerNames = NULL, ...) {
+  file_name <- add_file_to_resource_path(object = granges)
+  get_file_track_data(
+    file_name,
+    genomicFields = genomicFields, chromosomeField = chromosomeField,
+    separator = separator, sampleLength = sampleLength, headerNames = headerNames, ...
   )
 }
 
