@@ -22,10 +22,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Before Script
-        run: |
-           git config --system core.longpaths true
-
       - name: Setup Pandoc for windows-latest
         if: matrix.config.os == 'windows-latest'
         run: |
