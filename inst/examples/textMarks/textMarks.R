@@ -84,7 +84,7 @@ single_track <- add_single_track(
   ),
   stretch = TRUE,
   text = visual_channel_text(
-    field ="base", type = "nominal"
+    field = "base", type = "nominal"
   )
 )
 

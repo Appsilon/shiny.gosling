@@ -12,6 +12,7 @@ track_data(
   headerNames = NULL,
   genomicFields = NULL,
   chromosomeField = NULL,
+  genomicFieldsToConvert = NULL,
   ...
 )
 }
@@ -36,10 +37,10 @@ data fields.}
 \item{chromosomeField}{A character. Specify the name of chromosome
 data fields.}
 
-\item{...}{Any other parameters passed to json data object.}
-
 \item{genomicFieldsToConvert}{Define the genomic fields from the data
 in list format.}
+
+\item{...}{Any other parameters passed to json data object.}
 }
 \value{
 list of data specs

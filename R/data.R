@@ -159,7 +159,8 @@
 #'
 track_data <- function(
     url = NULL, type, separator = NULL, sampleLength = NULL,
-    headerNames = NULL, genomicFields = NULL, chromosomeField = NULL, ...) {
+    headerNames = NULL, genomicFields = NULL, chromosomeField = NULL,
+    genomicFieldsToConvert = NULL, ...) {
   list_rm_null(
     list(
       url = url, type = type, separator = separator,
