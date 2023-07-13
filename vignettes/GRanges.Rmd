@@ -20,6 +20,7 @@ library(shiny.gosling)
 library(shiny)
 library(GenomicRanges)
 install.packages("data.table", repos = "http://cran.us.r-project.org")
+install.packages("R.utils", repos = "http://cran.us.r-project.org")
 ```
 
 # Getting a sample data for the GRanges object
