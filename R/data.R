@@ -156,7 +156,7 @@
 #' @export
 #'
 track_data <- function(
-    url, type, separator = NULL, sampleLength = NULL,
+    url = NULL, type, separator = NULL, sampleLength = NULL,
     headerNames = NULL, genomicFields = NULL, chromosomeField = NULL, ...) {
   list_rm_null(
     list(

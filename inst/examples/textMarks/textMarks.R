@@ -79,7 +79,7 @@ single_track <- add_single_track(
   color = visual_channel_color(
     field = "base", type = "nominal", domain = list("A", "T", "G", "C")
   ),
-  style = shiny.gosling::default_track_styles(
+  style = default_track_styles(
     textStrokeWidth = 0
   ),
   stretch = TRUE,

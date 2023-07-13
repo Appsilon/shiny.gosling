@@ -5,7 +5,7 @@
 \title{Data object builder}
 \usage{
 track_data(
-  url,
+  url = NULL,
   type,
   separator = NULL,
   sampleLength = NULL,
