@@ -78,10 +78,10 @@ track_1 <- add_single_track(
 # Create second track ----
 track_2_data <- track_data(
   type = "json",
-  values = list(
-    list(c = "chr2", p = 100000, v = 0.0001),
-    list(c = "chr5", p = 100000, v = 0.0004),
-    list(c = "chr10", p = 100000, v = 0.0009)
+  values = json_list(
+    json_list(c = "chr2", p = 100000, v = 0.0001),
+    json_list(c = "chr5", p = 100000, v = 0.0004),
+    json_list(c = "chr10", p = 100000, v = 0.0009)
   ),
   chromosomeField = "c",
   genomicFields = list("p")
@@ -107,10 +107,10 @@ track_2 <- add_single_track(
 # Create third track ----
 track_3_data <- track_data(
   type = "json",
-  values = list(
-    list(c = "chr2", p = 100000, v = 0.0001),
-    list(c = "chr5", p = 100000, v = 0.0004),
-    list(c = "chr10", p = 100000, v = 0.0009)
+  values = json_list(
+    json_list(c = "chr2", p = 100000, v = 0.0001),
+    json_list(c = "chr5", p = 100000, v = 0.0004),
+    json_list(c = "chr10", p = 100000, v = 0.0009)
   ),
   chromosomeField = "c",
   genomicFields = list("p")

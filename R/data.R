@@ -15,6 +15,8 @@
 #' data fields.
 #' @param chromosomeField A character. Specify the name of chromosome
 #' data fields.
+#' @param genomicFieldsToConvert Define the genomic fields from the data
+#' in list format.
 #' @param ... Any other parameters passed to json data object.
 #'
 #' @examples

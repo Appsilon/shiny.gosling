@@ -37,6 +37,9 @@ data fields.}
 data fields.}
 
 \item{...}{Any other parameters passed to json data object.}
+
+\item{genomicFieldsToConvert}{Define the genomic fields from the data
+in list format.}
 }
 \value{
 list of data specs
