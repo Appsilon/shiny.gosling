@@ -56,7 +56,7 @@ view1_x <- visual_channel_x(
   field = "position", type = "genomic", axis = "bottom"
 )
 
-view1_y <- shiny.gosling::visual_channel_y(
+view1_y <- visual_channel_y(
   field = "peak", type = "quantitative", axis = "right"
 )
 

@@ -56,7 +56,7 @@ view1_x <- visual_channel_x(
   )
 )
 
-view1_xe <- shiny.gosling::visual_channel_x(
+view1_xe <- visual_channel_x(
   field = "chromEnd", type = "genomic"
 )
 
@@ -69,7 +69,7 @@ single_track <- add_single_track(
   dataTransform = shiny.gosling::track_data_transform(
     type = "filter", field = "Stain", oneOf = list("acen"), not = TRUE
   ),
-  color = shiny.gosling::visual_channel_color(
+  color = visual_channel_color(
     field = "Stain", type = "nominal", domain = list(
       "gneg", "gpos25", "gpos50", "gpos75", "gpos100", "gvar"
     ), range = list(
@@ -87,7 +87,7 @@ single_track <- add_single_track(
   strokeWidth = visual_channel_stroke_width(
     value = 0.5
   ),
-  style = shiny.gosling::default_track_styles(
+  style = default_track_styles(
     outline = "white"
   )
 )
