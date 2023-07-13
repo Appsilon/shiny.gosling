@@ -29,8 +29,10 @@ We will be loading the peaks data from ChipSeq dataset with the GEO accession [G
 
 ```{r, reading-data}
 url <- "https://rb.gy/7y3fx"
-temp_file <- normalizePath(file.path(tempdir(), "data.gz"))
+temp_file <- file.path(tempdir(), "data.gz")
 download.file(url, destfile = temp_file)
+print(temp_file)
+print(file.exists(temp_file))
 df <- read.delim(
     temp_file,
     header = FALSE,
