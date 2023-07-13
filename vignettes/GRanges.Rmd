@@ -19,6 +19,7 @@ knitr::opts_chunk$set(
 library(shiny.gosling)
 library(shiny)
 library(GenomicRanges)
+install.packages("data.table")
 ```
 
 # Getting a sample data for the GRanges object
