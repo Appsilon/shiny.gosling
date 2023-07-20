@@ -38,7 +38,8 @@ data fields.}
 data fields.}
 
 \item{genomicFieldsToConvert}{Define the genomic fields from the data
-in list format.}
+in list format. Experimental Proerty. Each object follows the format
+{"chromosomeField":"string","genomicFields":"string[]"} ( )}
 
 \item{...}{Any other parameters passed to json data object.}
 }
