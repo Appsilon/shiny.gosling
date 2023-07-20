@@ -15,6 +15,9 @@
 #' data fields.
 #' @param chromosomeField A character. Specify the name of chromosome
 #' data fields.
+#' @param genomicFieldsToConvert Define the genomic fields from the data
+#' in list format. Experimental Property. Each object follows the format
+#' {"chromosomeField":"string","genomicFields":"string[]"} ( )
 #' @param ... Any other parameters passed to json data object.
 #'
 #' @examples
@@ -156,8 +159,9 @@
 #' @export
 #'
 track_data <- function(
-    url, type, separator = NULL, sampleLength = NULL,
-    headerNames = NULL, genomicFields = NULL, chromosomeField = NULL, ...) {
+    url = NULL, type, separator = NULL, sampleLength = NULL,
+    headerNames = NULL, genomicFields = NULL, chromosomeField = NULL,
+    genomicFieldsToConvert = NULL, ...) {
   list_rm_null(
     list(
       url = url, type = type, separator = separator,

@@ -1,8 +1,3 @@
-valid_examples <- c(
-  "circularLinearWithBrush", "circularVisualEncoding", "multiTrackApp", "sarsCov2", "staticCircularBar",
-  "structuralVariant", "textAnnotation"
-)
-
 package_name <- "shiny.gosling"
 
 #' Runs a shiny.gosling example

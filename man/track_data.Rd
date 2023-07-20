@@ -5,13 +5,14 @@
 \title{Data object builder}
 \usage{
 track_data(
-  url,
+  url = NULL,
   type,
   separator = NULL,
   sampleLength = NULL,
   headerNames = NULL,
   genomicFields = NULL,
   chromosomeField = NULL,
+  genomicFieldsToConvert = NULL,
   ...
 )
 }
@@ -35,6 +36,10 @@ data fields.}
 
 \item{chromosomeField}{A character. Specify the name of chromosome
 data fields.}
+
+\item{genomicFieldsToConvert}{Define the genomic fields from the data
+in list format. Experimental Property. Each object follows the format
+{"chromosomeField":"string","genomicFields":"string[]"} ( )}
 
 \item{...}{Any other parameters passed to json data object.}
 }
