@@ -100,15 +100,15 @@ single_composed_track <- compose_view(
 
 ```{r}
 single_composed_views <- arrange_views(
-      title = "Single Track",
-      subtitle = "This is the simplest single track visualization with a linear layout",
-      layout = "circular",
-      views = single_composed_track,
-      xDomain = list(
-        chromosome = "chr1",
-        interval = c(1, 3000500)
-      )
-    )
+  title = "Single Track",
+  subtitle = "This is the simplest single track visualization with a linear layout",
+  layout = "circular",
+  views = single_composed_track,
+  xDomain = list(
+    chromosome = "chr1",
+    interval = c(1, 3000500)
+  )
+)
 
 ```
 
