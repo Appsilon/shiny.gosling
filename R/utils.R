@@ -282,7 +282,7 @@ use_gosling <- function(clear_files = TRUE) {
   if (!dir.exists(".gosling")) {
     dir.create(".gosling")
   }
-  shiny::addResourcePath(".gosling", fs::path_wd(".gosling"))
+  shiny::addResourcePath("gosling", fs::path_wd(".gosling/"))
   if (clear_files) {
     shiny::onStop(
       function() {
