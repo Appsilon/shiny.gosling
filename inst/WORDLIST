@@ -1,6 +1,7 @@
 BiocCheck
 CMD
 CoV
+ChipSeq
 GoslingComponent
 HiGlass
 MINIng
@@ -20,7 +21,10 @@ exonSplit
 experimentalEdgeBundling
 expr
 genomicLength
+GenomicRanges
 github
+GRanges
+GSM
 hg
 http
 https
@@ -35,6 +39,7 @@ reactOutput
 rect
 Rhinoverse
 scalable
+seqnames
 strokeWidth
 strokewidth
 subjson
@@ -45,5 +50,8 @@ triangleLeft
 triangleRight
 ui
 vcf
+www
 withinLink
 xe
+chromosomeField
+genomicFields

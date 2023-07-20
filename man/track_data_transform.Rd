@@ -35,7 +35,7 @@ There are multiple ways to transform data. Check documentation for details
 of usage.
 }
 \examples{
-if(interactive()) {
+if (interactive()) {
   library(shiny)
   library(shiny.gosling)
 
@@ -74,19 +74,21 @@ if(interactive()) {
     ),
     size = 24,
     color = "white",
-    visibility = list(list(
-      operation = "less-than",
-      measure = "width",
-      threshold = "|xe-x|",
-      transitionPadding = 30,
-      target = "mark"
-    ),
-    list(
-      operation = "LT",
-      measure = "zoomLevel",
-      threshold = 40,
-      target = "track"
-    ))
+    visibility = list(
+      list(
+        operation = "less-than",
+        measure = "width",
+        threshold = "|xe-x|",
+        transitionPadding = 30,
+        target = "mark"
+      ),
+      list(
+        operation = "LT",
+        measure = "zoomLevel",
+        threshold = 40,
+        target = "track"
+      )
+    )
   )
 
   view2_track3_x <- visual_channel_x(
@@ -161,6 +163,5 @@ if(interactive()) {
   }
 
   shinyApp(ui, server)
-
 }
 }

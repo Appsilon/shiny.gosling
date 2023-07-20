@@ -365,7 +365,7 @@ function(input, output, session) {
     export_pdf(component_id = "sars_cov2")
   })
 
-    observeEvent(input$zoom_out, {
+  observeEvent(input$zoom_out, {
     zoom_to_extent(
       component_id = "sars_cov2",
       view_id = "view2_track1"
