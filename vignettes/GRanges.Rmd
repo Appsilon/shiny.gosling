@@ -10,8 +10,8 @@ runtime: shiny
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(
-    collapse = TRUE,
-    comment = "#>"
+  collapse = TRUE,
+  comment = "#>"
 )
 ```
 
@@ -32,14 +32,14 @@ url <- "https://rb.gy/7y3fx"
 temp_file <- file.path(tempdir(), "data.gz")
 download.file(url, destfile = temp_file, method = "auto", mode = "wb")
 df <- read.delim(
-    temp_file,
-    header = FALSE,
-    comment.char = "#",
-    sep = ""
+  temp_file,
+  header = FALSE,
+  comment.char = "#",
+  sep = ""
 )
 gr <- GRanges(
-    seqnames = df$V1,
-    ranges = IRanges(df$V2, df$V3)
+  seqnames = df$V1,
+  ranges = IRanges(df$V2, df$V3)
 )
 gr
 ```
@@ -55,8 +55,8 @@ Note: Make sure to run the Shiny app using the `shiny::runApp()` rather than int
 ```{r, method-1, eval=FALSE}
 
 ui <- fluidPage(
-    use_gosling(clear_files = FALSE),
-    goslingOutput("gosling_plot")
+  use_gosling(clear_files = FALSE),
+  goslingOutput("gosling_plot")
 )
 
 track_1 <- add_single_track(
@@ -106,13 +106,13 @@ You can save the `GRanges` object as a `csv` file inside the www directory which
 
 ```{r, method-2, eval=FALSE}
 if (!dir.exists("data")) {
-    dir.create("data")
+  dir.create("data")
 }
 utils::write.csv(gr, "data/ChipSeqPeaks.csv", row.names = FALSE)
 
 ui <- fluidPage(
-    use_gosling(clear_files = FALSE),
-    goslingOutput("gosling_plot")
+  use_gosling(clear_files = FALSE),
+  goslingOutput("gosling_plot")
 )
 
 track_1 <- add_single_track(
