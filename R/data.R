@@ -16,7 +16,7 @@
 #' @param chromosomeField A character. Specify the name of chromosome
 #' data fields.
 #' @param genomicFieldsToConvert Define the genomic fields from the data
-#' in list format. Experimental Proerty. Each object follows the format
+#' in list format. Experimental Property. Each object follows the format
 #' {"chromosomeField":"string","genomicFields":"string[]"} ( )
 #' @param ... Any other parameters passed to json data object.
 #'
