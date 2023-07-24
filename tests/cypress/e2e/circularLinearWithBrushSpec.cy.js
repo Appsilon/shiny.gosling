@@ -2,9 +2,7 @@ describe('circularLinearWithBrush Snapshots', () => {
   it('Screenshots are matching up', () => {
     cy.visit('http://localhost:8888')
       .then(() => {
-        // cy.get('#gosling_plot_circular .gosling-component', { timeout: 10000 })
-          // .should('be.visible')
-          cy.wait(10000);
+          cy.wait(10000); // TODO (Fede Jul 24 2023) Remove explicit waits when we found an onRender/onAnimateTransform, etc.
 
           cy.get(".center-track")
             .should('have.length', 3)
@@ -27,8 +25,4 @@ describe('circularLinearWithBrush Snapshots', () => {
             })
       });
   })
-
-  // it('Chromosome selector works', () => {
-  //   cy.visit("")
-  // })
 });
