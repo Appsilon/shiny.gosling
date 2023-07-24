@@ -55,7 +55,3 @@ inst/doc
 data/
 
 *.DS_Store
-
-# Cypress
-tests/yarn-error.log
-tests/cypress/downloads
