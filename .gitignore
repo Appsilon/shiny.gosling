@@ -59,3 +59,4 @@ data/
 # Cypress
 tests/yarn-error.log
 tests/cypress/downloads
+tests/cypress/videos
