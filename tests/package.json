@@ -11,6 +11,6 @@
   "scripts": {
     "installDependencies": "Rscript cypress/r_scripts/install_dependencies.R",
     "circularLinearWithBrush": "Rscript cypress/r_scripts/run_circular_linear_with_brush.R",
-    "e2e-circularLinearWithBrush": "start-server-and-test circularLinearWithBrush http://localhost:8888 'cypress open'"
+    "e2e-circularLinearWithBrush": "start-server-and-test circularLinearWithBrush http://localhost:8888 'cypress run --record false'"
   }
 }
