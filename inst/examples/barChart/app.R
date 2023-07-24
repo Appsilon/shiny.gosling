@@ -1,5 +1,4 @@
 # Based in https://gosling.js.org/?example=doc_bar
-
 library(shiny)
 library(shiny.gosling)
 
@@ -118,4 +117,4 @@ server <- function(input, output, session) {
   })
 }
 
-shinyApp(ui, server)
+shinyApp(ui, server, options = list(port = 8888))
