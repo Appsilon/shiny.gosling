@@ -11,6 +11,8 @@
   "scripts": {
     "installDependencies": "Rscript cypress/r_scripts/install_dependencies.R",
     "circularLinearWithBrush": "Rscript cypress/r_scripts/run_circular_linear_with_brush.R",
-    "e2e-circularLinearWithBrush": "start-server-and-test circularLinearWithBrush http://localhost:8888 'cypress run --record false'"
+    "barChart": "Rscript cypress/r_scripts/run_barchart.R",
+    "e2e-circularLinearWithBrush": "start-server-and-test circularLinearWithBrush http://localhost:8888 'cypress run --spec \"cypress/e2e/circularLinearWithBrushSpec.cy.js\" --record false'",
+    "e2e-barChart": "start-server-and-test barChart http://localhost:8888 'cypress run --spec \"cypress/e2e/barChart.cy.js\" --record false'"
   }
 }
