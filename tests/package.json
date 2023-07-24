@@ -13,8 +13,10 @@
     "circularLinearWithBrush": "Rscript cypress/r_scripts/run_circular_linear_with_brush.R",
     "barChart": "Rscript cypress/r_scripts/run_barchart.R",
     "areaChart": "Rscript cypress/r_scripts/run_area_chart.R",
+    "circularVisualEncoding": "Rscript cypress/r_scripts/run_circularVisualEncoding.R",
     "e2e-circularLinearWithBrush": "start-server-and-test circularLinearWithBrush http://localhost:8888 'cypress run --spec \"cypress/e2e/circularLinearWithBrushSpec.cy.js\" --record false'",
     "e2e-barChart": "start-server-and-test barChart http://localhost:8888 'cypress run --spec \"cypress/e2e/barChart.cy.js\" --record false'",
-    "e2e-areaChart": "start-server-and-test areaChart http://localhost:8888 'cypress run --spec \"cypress/e2e/areaChart.cy.js\" --record false'"
+    "e2e-areaChart": "start-server-and-test areaChart http://localhost:8888 'cypress run --spec \"cypress/e2e/areaChart.cy.js\" --record false'",
+    "e2e-circularVisualEncoding": "start-server-and-test circularVisualEncoding http://localhost:8888 'cypress run --spec \"cypress/e2e/circularVisualEncoding.cy.js\" --record false'"
   }
 }
