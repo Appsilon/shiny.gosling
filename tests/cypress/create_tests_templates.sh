@@ -13,7 +13,7 @@ package_json=../package.json
 # Escape special characters in the custom_text to use in sed
 escaped_custom_text=$(printf '%s\n' "$custom_text" | sed -e 's/[\/&]/\\&/g')
 
-# Perform the replacement in-place using sed
+# Replace with sed
 cat "r_scripts/template.R" | sed "s/<<<var_1>>>/$escaped_custom_text/g"  >> r_scripts/$r_script_out
 cat "e2e/template.template" | sed "s/<<<var_1>>>/$escaped_custom_text/g"  >> e2e/$cy_spec_out
 
