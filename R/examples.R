@@ -1,20 +1,15 @@
-valid_examples <- c(
-  "circularLinearWithBrush", "circularVisualEncoding", "multiTrackApp", "sarsCov2", "staticCircularBar",
-  "structuralVariant", "textAnnotation"
-)
-
 package_name <- "shiny.gosling"
 
 #' Runs a shiny.gosling example
 #' @param example A character indicating a valid example.
 #'
 #' @examples
-#' if(interactive()) {
+#' if (interactive()) {
 #'   run_example("circularLinearWithBrush")
 #' }
 #' @return A Shiny App is launched.
 #' @export
-run_example <- function(example) {
+run_example <- function(example = NA) {
   valid_examples <- list.files(system.file("examples", package = package_name))
   app_dir <- system.file("examples", example, package = package_name)
   if (!example %in% valid_examples) {

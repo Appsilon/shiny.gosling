@@ -143,11 +143,11 @@
 #' @return list object.
 #' @export
 add_single_track <- function(
-    id = NULL, data = NULL, mark = NULL, assembly = NULL, row = NULL,
-    size = NULL, color = NULL,
-    strokeWidth = NULL, opacity = NULL,
-    x = NULL, xe = NULL, x1 = NULL, x1e = NULL, y = NULL,
-    stroke = NULL, width = NULL, height = NULL, dataTransform = NULL, ...
+  id = NULL, data = NULL, mark = NULL, assembly = NULL, row = NULL,
+  size = NULL, color = NULL,
+  strokeWidth = NULL, opacity = NULL,
+  x = NULL, xe = NULL, x1 = NULL, x1e = NULL, y = NULL,
+  stroke = NULL, width = NULL, height = NULL, dataTransform = NULL, ...
 ) {
   visual_channels <- add_mark(
     x, xe, x1, x1e, y,
@@ -315,9 +315,9 @@ add_single_track <- function(
 #' @return list object.
 #' @export
 compose_view <- function(
-    multi = FALSE,
-    layout = NULL, width = NULL, height = NULL,
-    centerRadius = NULL, tracks, ...
+  multi = FALSE,
+  layout = NULL, width = NULL, height = NULL,
+  centerRadius = NULL, tracks, ...
 ) {
   list_rm_null(
     list(
@@ -469,7 +469,7 @@ compose_view <- function(
 #' @return list object.
 #' @export
 arrange_views <- function(
-    layout = NULL, views = NULL, listify = TRUE, ...
+  layout = NULL, views = NULL, listify = TRUE, ...
 ) {
   list_rm_null(
     list(

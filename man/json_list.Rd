@@ -16,7 +16,7 @@ list of items
 Create list
 }
 \examples{
-if(interactive()) {
+if (interactive()) {
   library(shiny)
   library(shiny.gosling)
 
@@ -108,6 +108,5 @@ if(interactive()) {
   }
 
   shinyApp(ui, server)
-
 }
 }

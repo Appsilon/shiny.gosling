@@ -66,7 +66,7 @@ circular_track2_transform2 <- track_data_transform(
 )
 
 circular_track2_data <- track_data(
-  url = "https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/rearrangements.bulk.1639.simple.filtered.pub", # nolint
+  url = "https://rb.gy/zvr5s",
   type = "csv",
   headerNames = c(
     "chr1",

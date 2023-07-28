@@ -21,7 +21,7 @@ Gosling component for rendering on R shiny apps
 Build gosling plot object
 }
 \examples{
-if(interactive()) {
+if (interactive()) {
   library(shiny)
   library(shiny.gosling)
 
@@ -74,7 +74,7 @@ if(interactive()) {
     x = circular_track1_x, xe = circular_track1_xe,
     y = circular_track1_y, row = circular_track1_row,
     color = circular_track1_color,
-    stroke =  "black", strokeWidth = 0.3,
+    stroke = "black", strokeWidth = 0.3,
     tracks = circular_track1_tracks,
     style = circular_track1_styles,
     width = 500, height = 100
@@ -116,7 +116,6 @@ if(interactive()) {
   }
 
   shinyApp(ui, server)
-
 }
 
 }

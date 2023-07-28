@@ -4,7 +4,10 @@
 \alias{use_gosling}
 \title{Initiate gosling}
 \usage{
-use_gosling()
+use_gosling(clear_files = TRUE)
+}
+\arguments{
+\item{clear_files}{default FALSE. To clear the locally stored csv files created by gosling or not.}
 }
 \value{
 Gosling initiator HTML.
@@ -14,7 +17,7 @@ Add this function at the beginning of ui. This is needed for
 gosling to work in shiny plots.
 }
 \examples{
-if(interactive()) {
+if (interactive()) {
   library(shiny)
   library(shiny.gosling)
 
@@ -106,7 +109,6 @@ if(interactive()) {
   }
 
   shinyApp(ui, server)
-
 }
 
 }

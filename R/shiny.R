@@ -113,8 +113,6 @@ goslingOutput <- function(outputId) {
 #'
 #' gosling render function for shiny use
 #'
-#' @param expr The code for rendering gosling plot.
-#' Must be a gosling object built with shiny.gosling::gosling()
 #'
 #' @examples
 #' if(interactive()) {
@@ -211,13 +209,9 @@ goslingOutput <- function(outputId) {
 #'   shinyApp(ui, server)
 #'
 #' }
+#' @inheritParams shiny.react::renderReact
 #' @return A function which can be assigned to an output in a
 #' Shiny server function.
 #' @export
 #'
-renderGosling <- function(
-    expr) {
-  shiny.react::renderReact(
-    expr = expr
-  )
-}
+renderGosling <- shiny.react::renderReact

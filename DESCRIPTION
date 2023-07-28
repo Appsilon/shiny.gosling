@@ -26,20 +26,22 @@ Imports:
     jsonlite,
     rlang,
     shiny,
-    shiny.react
+    shiny.react,
+    fs,
+    digest,
+    rjson
 Suggests:
-    BiocCheck,
     BiocManager,
     config,
     covr,
     knitr,
     lintr,
     mockery (>= 0.4.3),
-    optparse,
     rcmdcheck,
     rmarkdown,
     sessioninfo,
     spelling,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    GenomicRanges
 VignetteBuilder: knitr
 Config/testthat/edition: 3
