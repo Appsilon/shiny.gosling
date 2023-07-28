@@ -42,7 +42,7 @@
 #'     type = "nominal",
 #'     legend = TRUE,
 #'     domain = json_list(
-#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'       "tandem-duplication", "translocation", "deletion", "inversion"
 #'     ),
 #'     range = json_list(
 #'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -52,7 +52,7 @@
 #'     field = "svclass",
 #'     type = "nominal",
 #'     domain = json_list(
-#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'       "tandem-duplication", "translocation", "deletion", "inversion"
 #'     ),
 #'     range = json_list(
 #'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -152,7 +152,7 @@ goslingOutput <- function(outputId) {
 #'     type = "nominal",
 #'     legend = TRUE,
 #'     domain = json_list(
-#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'       "tandem-duplication", "translocation", "deletion", "inversion"
 #'     ),
 #'     range = json_list(
 #'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -162,7 +162,7 @@ goslingOutput <- function(outputId) {
 #'     field = "svclass",
 #'     type = "nominal",
 #'     domain = json_list(
-#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'       "tandem-duplication", "translocation", "deletion", "inversion"
 #'     ),
 #'     range = json_list(
 #'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"

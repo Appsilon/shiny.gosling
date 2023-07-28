@@ -73,7 +73,7 @@ build_json <- function(r_list, clean_braces = TRUE, pretty = TRUE,
 #'     type = "nominal",
 #'     legend = TRUE,
 #'     domain = json_list(
-#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'       "tandem-duplication", "translocation", "deletion", "inversion"
 #'     ),
 #'     range = json_list(
 #'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -83,7 +83,7 @@ build_json <- function(r_list, clean_braces = TRUE, pretty = TRUE,
 #'     field = "svclass",
 #'     type = "nominal",
 #'     domain = json_list(
-#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'       "tandem-duplication", "translocation", "deletion", "inversion"
 #'     ),
 #'     range = json_list(
 #'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -216,7 +216,7 @@ atomic_values_to_list <- function(property_list) {
 #'     type = "nominal",
 #'     legend = TRUE,
 #'     domain = json_list(
-#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'       "tandem-duplication", "translocation", "deletion", "inversion"
 #'     ),
 #'     range = json_list(
 #'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -226,7 +226,7 @@ atomic_values_to_list <- function(property_list) {
 #'     field = "svclass",
 #'     type = "nominal",
 #'     domain = json_list(
-#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'       "tandem-duplication", "translocation", "deletion", "inversion"
 #'     ),
 #'     range = json_list(
 #'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
