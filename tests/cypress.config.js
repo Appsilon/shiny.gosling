@@ -1,5 +1,5 @@
 const { defineConfig } = require("cypress");
-const { initPlugin } = require('cypress-plugin-snapshots/plugin');
+const { initPlugin } = require("cypress-plugin-snapshots/plugin");
 
 module.exports = defineConfig({
   e2e: {
@@ -13,4 +13,12 @@ module.exports = defineConfig({
       "**/__image_snapshots__/*"
     ]
   },
+  env: {
+    "cypress-plugin-snapshots": {
+      "imageConfig": {
+        "threshold": 5,             // Amount in pixels or percentage before snapshot image is invalid
+        "thresholdType": "percent"     // Can be either "pixels" or "percent"
+      },
+    }
+  }
 });
