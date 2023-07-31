@@ -8,7 +8,7 @@ vignette: >
 runtime: shiny
 ---
 
-```{r, include=FALSE}
+```{r, include=FALSE, eval=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 ## Call required libraries. Initialize gosling with `use_gosling()`
 
-```{r setup, message=FALSE}
+```{r setup, eval=FALSE, message=FALSE}
 suppressPackageStartupMessages(library(StructuralVariantAnnotation))
 suppressPackageStartupMessages(require(ggbio))
 library(shiny)
@@ -28,7 +28,7 @@ use_gosling(clear_files = FALSE)
 ## Loading a VCF data
 StructuralVariantAnnotation is built on top of the Bioconductor package VariantAnnotation. VCF files are loaded using VariantAnnotation::readVcf, and converted to breakpoint GRanges notation using breakpointRanges Any non-structural variants such as single nucleotide variants in a VCF will be silently ignored by StructuralVariantAnnotation. More information about VCF objects can be found by consulting the vignettes in the VariantAnnotation package with browseVignettes("VariantAnnotation").
 
-```{r reading-data}
+```{r reading-data, eval=FALSE}
 colo829_vcf <- VariantAnnotation::readVcf(
   system.file(
     "extdata",
@@ -45,7 +45,7 @@ We can visualize breakpoints with a circos plot.
 
 To plot structural variant breakpoints in a circos plot using shiny.gosling, we need to first prepare the breakpoint GRanges. The function requires a special column, indicating the end of the link using GRanges format.
 
-```{r process-data}
+```{r process-data, eval=FALSE}
 gr_circos <- colo829_bpgr[seqnames(colo829_bpgr) %in% seqlevels(biovizBase::hg19sub)]
 seqlevels(gr_circos) <- seqlevels(biovizBase::hg19sub)
 mcols(gr_circos)$to.gr <- granges(partner(gr_circos))
@@ -60,7 +60,7 @@ mcols(gr_circos)$to.gr <- granges(partner(gr_circos))
 
 We will have 3 tracks in this circos plot. The outermost layer displays the width of a sequence as a bar plot in maroon.
 
-```{r track-1}
+```{r track-1, eval=FALSE}
 
 track1 <- add_single_track(
   id = "track1",
@@ -84,7 +84,7 @@ track1 <- add_single_track(
 
 The middle layer plots the start of the sequence to its end.
 
-```{r track-2}
+```{r track-2, eval=FALSE}
 
 track2 <- add_single_track(
   id = "track2",
@@ -108,7 +108,7 @@ track2 <- add_single_track(
 
 Finally, the innermost layer shows the changes in sequences.
 
-```{r track-3}
+```{r track-3, eval=FALSE}
 
 track3 <- add_single_track(
   id = "track3",
@@ -184,7 +184,7 @@ track3 <- add_single_track(
 
 #### Final View
 
-```{r single_composed_track}
+```{r single_composed_track, eval=FALSE}
 
 single_composed_track <- compose_view(
   title = "Circos",
