@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e
+
 yarn e2e-areaChart
 yarn e2e-barChart
 yarn e2e-circularLinearWithBrush
