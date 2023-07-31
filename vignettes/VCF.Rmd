@@ -1,8 +1,8 @@
 ---
-title: "VCF"
+title: "3. Circos plot with VCF data"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Using a GRanges object in shiny.gosling}
+  %\VignetteIndexEntry{3. Circos plot with VCF data}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 runtime: shiny
@@ -15,7 +15,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup, echo=TRUE, message=FALSE}
+## Call required libraries. Initialize gosling with `use_gosling()`
+
+```{r setup, message=FALSE}
 suppressPackageStartupMessages(library(StructuralVariantAnnotation))
 suppressPackageStartupMessages(require(ggbio))
 library(shiny)
@@ -23,36 +25,36 @@ library(shiny.gosling)
 use_gosling(clear_files = FALSE)
 ```
 
-# Loading a VCF data
+## Loading a VCF data
 StructuralVariantAnnotation is built on top of the Bioconductor package VariantAnnotation. VCF files are loaded using VariantAnnotation::readVcf, and converted to breakpoint GRanges notation using breakpointRanges Any non-structural variants such as single nucleotide variants in a VCF will be silently ignored by StructuralVariantAnnotation. More information about VCF objects can be found by consulting the vignettes in the VariantAnnotation package with browseVignettes("VariantAnnotation").
 
-```{r, echo=TRUE, reading-data}
+```{r reading-data}
 colo829_vcf <- VariantAnnotation::readVcf(system.file("extdata", "COLO829T.purple.sv.ann.vcf.gz", package = "StructuralVariantAnnotation"))
 colo829_bpgr <- breakpointRanges(colo829_vcf)
 ```
 
-# Visualising breakpoint pairs via circos plots
+## Visualising breakpoint pairs via circos plots
 
 We can visualoze breakpoints with a circos plot.
 
 To plot structural variant breakpoints in a circos plot using shiny.gosling, we need to first prepare the breakpoint GRanges. The function requires a special column, indicating the end of the link using GRanges format.
 
-```{r, echo=TRUE, reading-data}
+```{r process-data}
 gr.circos <- colo829_bpgr[seqnames(colo829_bpgr) %in% seqlevels(biovizBase::hg19sub)]
 seqlevels(gr.circos) <- seqlevels(biovizBase::hg19sub)
 mcols(gr.circos)$to.gr <- granges(partner(gr.circos))
 ```
 
 
-# Using the GRanges object for a plot using shiny.gosling
+## Using the GRanges object for a plot using shiny.gosling
 
-## Setup Tracks
+### Setup Tracks
 
-### Track 1
+#### Track 1
 
 We will have 3 tracks in this ciscos plot. The outermost layer displays the width of a sequence as a bar plot in maroon.
 
-```{r, echo=TRUE, track-1, eval=FALSE}
+```{r track-1}
 
 track1 <- add_single_track(
   id = "track1",
@@ -72,11 +74,11 @@ track1 <- add_single_track(
 )
 ```
 
-### Track 2
+#### Track 2
 
 The middle layer plots the start of the sequence to its end.
 
-```{r, echo=TRUE, track-2, eval=FALSE}
+```{r track-2}
 
 track2 <- add_single_track(
   id = "track2",
@@ -96,11 +98,11 @@ track2 <- add_single_track(
 )
 ```
 
-### Track 3
+#### Track 3
 
 Finally, the innermost layer shows the changes in sequences.
 
-```{r, echo=TRUE, track-3, eval=FALSE}
+```{r track-3}
 
 track3 <- add_single_track(
   id = "track3",
@@ -174,9 +176,9 @@ track3 <- add_single_track(
 )
 ```
 
-### Final View
+#### Final View
 
-```{r, echo=TRUE, single_composed_track, eval=FALSE}
+```{r single_composed_track}
 
 single_composed_track <- compose_view(
   title = "Circos",
@@ -191,9 +193,9 @@ single_composed_track <- compose_view(
 )
 ```
 
-### Run App
+#### Run App
 
-```{r, echo=TRUE, run_app, eval=FALSE}
+```{r run_app, eval=FALSE}
 
 ui <- fluidPage(
   use_gosling(),
@@ -225,9 +227,11 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 ```
 
-### Session Info
+![](VCF.png){width=500px}
 
-```{r, echo=FALSE, run_app, eval=FALSE}
+## Session Info
+
+```{r session_info}
 
 sessionInfo()
 ```

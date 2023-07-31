@@ -1,8 +1,8 @@
 ---
-title: "Using a GRanges object in shiny.gosling"
+title: "2. Using a GRanges object in shiny.gosling"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Using a GRanges object in shiny.gosling}
+  %\VignetteIndexEntry{2. Using a GRanges object in shiny.gosling}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 runtime: shiny
@@ -15,13 +15,15 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup, echo=FALSE, message=FALSE}
+## Call required libraries.
+
+```{r setup, message=FALSE}
 library(shiny.gosling)
 library(shiny)
 library(GenomicRanges)
 ```
 
-# Getting a sample data for the GRanges object
+## Getting a sample data for the GRanges object
 
 We will be loading the peaks data from ChipSeq dataset with the GEO accession [GSM1295076](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM1295076)
 
@@ -44,9 +46,9 @@ gr <- GRanges(
 gr
 ```
 
-# Using the GRanges object for a plot using shiny.gosling
+## Using the GRanges object for a plot using shiny.gosling
 
-## Method 1 - Using the `track_data_gr` function
+### Method 1 - Using the `track_data_gr` function
 
 You can use the `track_data_gr` to pass the `GRanges` object inside a track.
 
@@ -100,7 +102,7 @@ server <- function(input, output, session) {
 shiny::shinyApp(ui, server)
 ```
 
-## Method 2 - Using the `track_data_csv` function
+### Method 2 - Using the `track_data_csv` function
 
 You can save the `GRanges` object as a `csv` file inside the www directory which can be used in the shiny.gosling plot.
 
@@ -109,11 +111,6 @@ if (!dir.exists("data")) {
   dir.create("data")
 }
 utils::write.csv(gr, "data/ChipSeqPeaks.csv", row.names = FALSE)
-
-ui <- fluidPage(
-  use_gosling(clear_files = FALSE),
-  goslingOutput("gosling_plot")
-)
 
 track_1 <- add_single_track(
   width = 800,
@@ -144,21 +141,24 @@ arranged_view <- arrange_views(
   views = composed_view
 )
 
-server <- function(input, output, session) {
+shiny::shinyApp(ui = fluidPage(
+  use_gosling(clear_files = FALSE),
+  goslingOutput("gosling_plot")
+), server = function(input, output, session) {
   output$gosling_plot <- renderGosling({
     gosling(
       component_id = "component_1",
       arranged_view
     )
   })
-}
-
-shiny::shinyApp(ui, server)
+}, options = list(height = 1000))
 ```
 
-### Session Info
+![](GRanges.png){width=500px}
 
-```{r, echo=FALSE, run_app, eval=FALSE}
+## Session Info
+
+```{r session_info}
 
 sessionInfo()
 ```
