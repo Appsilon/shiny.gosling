@@ -15,6 +15,7 @@ jobs:
         with:
           node-version: 18
           cache: 'yarn'
+          cache-dependency-path: tests/yarn.lock
       - run: yarn install
       
       - name: Install R
