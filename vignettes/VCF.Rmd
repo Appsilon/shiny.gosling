@@ -58,7 +58,7 @@ mcols(gr_circos)$to.gr <- granges(partner(gr_circos))
 
 #### Track 1
 
-We will have 3 tracks in this ciscos plot. The outermost layer displays the width of a sequence as a bar plot in maroon.
+We will have 3 tracks in this circos plot. The outermost layer displays the width of a sequence as a bar plot in maroon.
 
 ```{r track-1}
 
