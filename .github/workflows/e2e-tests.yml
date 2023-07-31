@@ -45,6 +45,5 @@ jobs:
       
       - name: Cypress Run
         uses: cypress-io/github-action@v5
-      - run: yarn install
         with:
           start: yarn e2e-areaChart
