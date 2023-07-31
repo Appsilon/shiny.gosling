@@ -1,2 +1,6 @@
 devtools::load_all()
-shiny::shinyAppDir("../inst/examples/sarsCov2/", options = list(port = 8888))
+port <- commandArgs(TRUE)
+shiny::shinyAppDir(
+  appDir = "../inst/examples/sarsCov2/",
+  port = port = as.numeric(port)
+)

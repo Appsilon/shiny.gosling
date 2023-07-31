@@ -1,2 +1,6 @@
 devtools::load_all()
-shiny::runApp("../inst/examples/textAnnotation/app.R")
+port <- commandArgs(TRUE)
+shiny::runApp(
+  appDir = "../inst/examples/textAnnotation/app.R",
+  port = port = as.numeric(port)
+)

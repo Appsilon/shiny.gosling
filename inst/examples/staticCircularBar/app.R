@@ -91,4 +91,4 @@ output$gosling_plot <- renderGosling({
 })
 }
 
-shinyApp(ui, server, options = list(port = 8888))
+shinyApp(ui, server)

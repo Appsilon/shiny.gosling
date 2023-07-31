@@ -1,2 +1,6 @@
 devtools::load_all()
-shiny::runApp("../inst/examples/staticCircularBar/app.R")
+port <- commandArgs(TRUE)
+shiny::runApp(
+  appDir = "../inst/examples/staticCircularBar/app.R",
+  port = port = as.numeric(port)
+)

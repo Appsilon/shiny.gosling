@@ -1,2 +1,6 @@
 devtools::load_all()
-shiny::runApp("../inst/examples/pointPlot/app.R")
+port <- commandArgs(TRUE)
+shiny::runApp(
+  appDir = "../inst/examples/pointPlot/app.R",
+  port = port = as.numeric(port)
+)

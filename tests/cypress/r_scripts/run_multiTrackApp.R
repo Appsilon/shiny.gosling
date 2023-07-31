@@ -1,2 +1,6 @@
 devtools::load_all()
-shiny::shinyAppDir("../inst/examples/multiTrackApp", options = list(port = 8888))
+port <- commandArgs(TRUE)
+shiny::shinyAppDir(
+  appDir = "../inst/examples/multiTrackApp",
+  port = port = as.numeric(port)
+)
