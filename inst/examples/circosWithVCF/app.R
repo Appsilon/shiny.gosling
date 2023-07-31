@@ -59,7 +59,7 @@ track3 <- add_single_track(
     url = "https://raw.githubusercontent.com/vigsterkr/circos/master/data/5/segdup.txt",
     type = "csv",
     headerNames = c("id", "chr", "p1", "p2"),
-    chromosomePrefix ="hs",
+    chromosomePrefix = "hs",
     chromosomeField = "chr",
     genomicFields = c("p1", "p2"),
     separator = " ",

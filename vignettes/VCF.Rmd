@@ -29,24 +29,30 @@ use_gosling(clear_files = FALSE)
 StructuralVariantAnnotation is built on top of the Bioconductor package VariantAnnotation. VCF files are loaded using VariantAnnotation::readVcf, and converted to breakpoint GRanges notation using breakpointRanges Any non-structural variants such as single nucleotide variants in a VCF will be silently ignored by StructuralVariantAnnotation. More information about VCF objects can be found by consulting the vignettes in the VariantAnnotation package with browseVignettes("VariantAnnotation").
 
 ```{r reading-data}
-colo829_vcf <- VariantAnnotation::readVcf(system.file("extdata", "COLO829T.purple.sv.ann.vcf.gz", package = "StructuralVariantAnnotation"))
+colo829_vcf <- VariantAnnotation::readVcf(
+  system.file(
+    "extdata",
+    "COLO829T.purple.sv.ann.vcf.gz",
+    package = "StructuralVariantAnnotation"
+  )
+)
 colo829_bpgr <- breakpointRanges(colo829_vcf)
 ```
 
 ## Visualising breakpoint pairs via circos plots
 
-We can visualoze breakpoints with a circos plot.
+We can visualize breakpoints with a circos plot.
 
 To plot structural variant breakpoints in a circos plot using shiny.gosling, we need to first prepare the breakpoint GRanges. The function requires a special column, indicating the end of the link using GRanges format.
 
 ```{r process-data}
-gr.circos <- colo829_bpgr[seqnames(colo829_bpgr) %in% seqlevels(biovizBase::hg19sub)]
-seqlevels(gr.circos) <- seqlevels(biovizBase::hg19sub)
-mcols(gr.circos)$to.gr <- granges(partner(gr.circos))
+gr_circos <- colo829_bpgr[seqnames(colo829_bpgr) %in% seqlevels(biovizBase::hg19sub)]
+seqlevels(gr_circos) <- seqlevels(biovizBase::hg19sub)
+mcols(gr_circos)$to.gr <- granges(partner(gr_circos))
 ```
 
 
-## Using the GRanges object for a plot using shiny.gosling
+## Using the GRanges object for a circos plot using shiny.gosling
 
 ### Setup Tracks
 
@@ -60,7 +66,7 @@ track1 <- add_single_track(
   id = "track1",
   title = "Width",
   data = track_data_gr(
-    gr.circos, chromosomeField = "seqnames",
+    gr_circos, chromosomeField = "seqnames",
     genomicFields = c("start", "end")
   ),
   mark = "bar",
@@ -84,7 +90,7 @@ track2 <- add_single_track(
   id = "track2",
   title = "REF (ATGC)",
   data = track_data_gr(
-    gr.circos, chromosomeField = "seqnames",
+    gr_circos, chromosomeField = "seqnames",
     genomicFields = c("start", "end")
   ),
   mark = "rect",
@@ -108,7 +114,7 @@ track3 <- add_single_track(
   id = "track3",
   title = "Highlight Chr 10 to others",
   data = track_data_gr(
-    gr.circos, chromosomeField = "to.gr.seqnames",
+    gr_circos, chromosomeField = "to.gr.seqnames",
     genomicFields = c("to.gr.start", "to.gr.end"),
     longToWideId = "event"
   ),
