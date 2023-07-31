@@ -39,7 +39,7 @@ colo829_vcf <- VariantAnnotation::readVcf(
 colo829_bpgr <- breakpointRanges(colo829_vcf)
 ```
 
-## Visualising breakpoint pairs via circos plots
+## Visualizing breakpoint pairs via circos plots
 
 We can visualize breakpoints with a circos plot.
 
