@@ -10,14 +10,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install node dependencies
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'yarn'
-          cache-dependency-path: tests/yarn.lock
-      - run: yarn install
-      
       - name: Install R
         uses: r-lib/actions/setup-r@v2
         with:
@@ -31,8 +23,13 @@ jobs:
           pak-version: 'devel'
           extra-packages: local::. # Necessary to avoid object usage linter errors.
       
-      - name: E2E tests
+      - name: Install node dependencies
+        uses: actions/setup-node@v3
         uses: cypress-io/github-action@v5
+      - run: yarn install
+        with:
+          node-version: 18
+          cache: 'yarn'
+          cache-dependency-path: tests/yarn.lock
         with:
           start: yarn e2e-areaChart
-      
