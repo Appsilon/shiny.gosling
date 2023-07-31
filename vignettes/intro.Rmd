@@ -139,3 +139,10 @@ shiny::shinyApp(ui, server, options = list(height = 700))
 ```{r}
 session_info()
 ```
+
+### Session Info
+
+```{r, echo=FALSE, run_app, eval=FALSE}
+
+sessionInfo()
+```
