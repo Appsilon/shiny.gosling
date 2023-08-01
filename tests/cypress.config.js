@@ -16,9 +16,12 @@ module.exports = defineConfig({
   env: {
     "cypress-plugin-snapshots": {
       "imageConfig": {
-        "threshold": 5,             // Amount in pixels or percentage before snapshot image is invalid
-        "thresholdType": "percent"     // Can be either "pixels" or "percent"
+        "threshold": 5, // Amount in pixels or percentage before snapshot image is invalid
+        "thresholdType": "percent" // Can be either "pixels" or "percent"
       },
-    }
+    },
+    "screenshotConfig": {
+      "timeout": 60000
+    },
   }
 });
