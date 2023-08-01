@@ -32,7 +32,7 @@ yarn e2e-myNewShinyApp
 The scripts in `package.json` that are running e2e tests for each one of the example shiny apps are using the `e2e-` prefix in their scripts names. For example:  
 ```json
  "scripts": {
-    "e2e-myNewShinyApp": "start-server-and-test myNewShinyApp http://localhost:8888 'cypress run --spec \"cypress/e2e/myNewShinyApp.cy.js\" --record false'",
+    "e2e-myNewShinyApp": "start-server-and-test myNewShinyApp http://127.0.0.1:8888 'cypress run --spec \"cypress/e2e/myNewShinyApp.cy.js\" --record false'",
     ...
   }
 ```
