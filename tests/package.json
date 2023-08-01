@@ -14,7 +14,6 @@
     "circularLinearWithBrush": "Rscript cypress/r_scripts/run_circular_linear_with_brush.R 8888",
     "circularVisualEncoding": "Rscript cypress/r_scripts/run_circularVisualEncoding.R 8888",
     "ideogram": "Rscript cypress/r_scripts/run_ideogram.R 8888",
-    "installDependencies": "Rscript cypress/r_scripts/install_dependencies.R",
     "lineChart": "Rscript cypress/r_scripts/run_lineChart.R 8888",
     "multiTrackApp": "Rscript cypress/r_scripts/run_multiTrackApp.R 8888",
     "pointPlot": "Rscript cypress/r_scripts/run_pointPlot.R 8888",
