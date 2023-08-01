@@ -41,9 +41,10 @@ jobs:
           cache-version: 2
           needs: check
           pak-version: 'devel'
-          extra-packages: local::. # Necessary to avoid object usage linter errors.
-      
-      - name: Cypress Run
+          extra-packages: any::devtools, local::.
+
+      - name: Cypress install and run
         uses: cypress-io/github-action@v5
         with:
-          start: yarn e2e-areaChart
+          working-directory: tests
+          command: bash run_cypress_tests.sh
