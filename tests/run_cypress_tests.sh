@@ -1,17 +1,22 @@
 #!/bin/bash
 set -e
 
-yarn e2e-areaChart
-yarn e2e-barChart
-yarn e2e-circularLinearWithBrush
-yarn e2e-circularVisualEncoding
-yarn e2e-ideogram
-yarn e2e-lineChart
-yarn e2e-multiTrackApp
-yarn e2e-pointPlot
-yarn e2e-ruleMarks
-yarn e2e-sarsCov2
-yarn e2e-staticCircularBar
-yarn e2e-structuralVariant
-yarn e2e-textAnnotation
-yarn e2e-textMarks
+if [ "$#" -ne 1 ]; then
+  # Store the output of ls command in a variable
+  files=$(ls cypress/e2e/*.cy.js)
+
+  # Iterate over the files using a for loop
+  for file in $files; do
+      # Spec command
+      command="cypress run --spec \"$file\" --record false"
+      # App name
+      app_name=$(echo "$file" | grep -oP '(?<=/)[^/]+(?=\.cy\.js)')
+      # Execute e2e test
+      yarn start-test "Rscript run_example_app.R --app=$app_name" http://127.0.0.1:8888 "$command"
+  done
+else
+  spec_path="cypress/e2e/$1.cy.js"
+  command="cypress run --spec \"$spec_path\" --record false"
+  yarn start-test "Rscript run_example_app.R --app=$1" http://127.0.0.1:8888 "$command"
+fi
+

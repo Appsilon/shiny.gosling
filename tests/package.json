@@ -9,33 +9,6 @@
     "start-server-and-test": "^2.0.0"
   },
   "scripts": {
-    "areaChart": "Rscript cypress/r_scripts/run_area_chart.R 8888",
-    "barChart": "Rscript cypress/r_scripts/run_barchart.R 8888",
-    "circularLinearWithBrush": "Rscript cypress/r_scripts/run_circular_linear_with_brush.R 8888",
-    "circularVisualEncoding": "Rscript cypress/r_scripts/run_circularVisualEncoding.R 8888",
-    "ideogram": "Rscript cypress/r_scripts/run_ideogram.R 8888",
-    "lineChart": "Rscript cypress/r_scripts/run_lineChart.R 8888",
-    "multiTrackApp": "Rscript cypress/r_scripts/run_multiTrackApp.R 8888",
-    "pointPlot": "Rscript cypress/r_scripts/run_pointPlot.R 8888",
-    "ruleMarks": "Rscript cypress/r_scripts/run_ruleMarks.R 8888",
-    "sarsCov2": "Rscript cypress/r_scripts/run_sarsCov2.R 8888",
-    "staticCircularBar": "Rscript cypress/r_scripts/run_staticCircularBar.R 8888",
-    "structuralVariant": "Rscript cypress/r_scripts/run_structuralVariant.R 8888",
-    "textAnnotation": "Rscript cypress/r_scripts/run_textAnnotation.R 8888",
-    "textMarks": "Rscript cypress/r_scripts/run_textMarks.R 8888",
-    "e2e-areaChart": "start-server-and-test areaChart http://127.0.0.1:8888 'cypress run --spec \"cypress/e2e/areaChart.cy.js\" --record false'",
-    "e2e-barChart": "start-server-and-test barChart http://127.0.0.1:8888 'cypress run --spec \"cypress/e2e/barChart.cy.js\" --record false'",
-    "e2e-circularLinearWithBrush": "start-server-and-test circularLinearWithBrush http://127.0.0.1:8888 'cypress run --spec \"cypress/e2e/circularLinearWithBrushSpec.cy.js\" --record false'",
-    "e2e-circularVisualEncoding": "start-server-and-test circularVisualEncoding http://127.0.0.1:8888 'cypress run --spec \"cypress/e2e/circularVisualEncoding.cy.js\" --record false'",
-    "e2e-ideogram": "start-server-and-test ideogram http://127.0.0.1:8888 'cypress run --spec \"cypress/e2e/ideogram.cy.js\" --record false'",
-    "e2e-lineChart": "start-server-and-test lineChart http://127.0.0.1:8888 'cypress run --spec \"cypress/e2e/lineChart.cy.js\" --record false'",
-    "e2e-multiTrackApp": "start-server-and-test multiTrackApp http://127.0.0.1:8888 'cypress run --spec \"cypress/e2e/multiTrackApp.cy.js\" --record false'",
-    "e2e-pointPlot": "start-server-and-test pointPlot http://127.0.0.1:8888 'cypress run --spec \"cypress/e2e/pointPlot.cy.js\" --record false'",
-    "e2e-ruleMarks": "start-server-and-test ruleMarks http://127.0.0.1:8888 'cypress run --spec \"cypress/e2e/ruleMarks.cy.js\" --record false'",
-    "e2e-sarsCov2": "start-server-and-test sarsCov2 http://127.0.0.1:8888 'cypress run --spec \"cypress/e2e/sarsCov2.cy.js\" --record false'",
-    "e2e-staticCircularBar": "start-server-and-test staticCircularBar http://127.0.0.1:8888 'cypress run --spec \"cypress/e2e/staticCircularBar.cy.js\" --record false'",
-    "e2e-structuralVariant": "start-server-and-test structuralVariant http://127.0.0.1:8888 'cypress run --spec \"cypress/e2e/structuralVariant.cy.js\" --record false'",
-    "e2e-textAnnotation": "start-server-and-test textAnnotation http://127.0.0.1:8888 'cypress run --spec \"cypress/e2e/textAnnotation.cy.js\" --record false'",
-    "e2e-textMarks": "start-server-and-test textMarks http://127.0.0.1:8888 'cypress run --spec \"cypress/e2e/textMarks.cy.js\" --record false'"
+    "e2e-test": "bash run_cypress_tests.sh"
   }
 }
