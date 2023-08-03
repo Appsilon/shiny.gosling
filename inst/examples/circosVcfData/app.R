@@ -153,12 +153,6 @@ ui <- fluidPage(
         icon = icon("cloud-arrow-down")
       )
     )
-      1, br(), actionButton(
-        "download_pdf",
-        "PDF",
-        icon = icon("cloud-arrow-down")
-      )
-    )
   )
 )
 
