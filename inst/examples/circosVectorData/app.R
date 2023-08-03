@@ -57,7 +57,7 @@ track2 <- add_single_track(
 
 track3 <- add_single_track(
   id = "track3",
-  title = "Highlight chr 1 to others",
+  title = "Highlight similarities of chr 1 with others",
   data = track_data(
     url = "https://raw.githubusercontent.com/vigsterkr/circos/master/data/5/segdup.txt",
     type = "csv",

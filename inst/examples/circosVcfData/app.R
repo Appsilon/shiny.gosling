@@ -59,7 +59,7 @@ track2 <- add_single_track(
 
 track3 <- add_single_track(
   id = "track3",
-  title = "Highlight Chr 10 to others",
+  title = "Highlight similarities of Chr 10 with others",
   data = track_data_gr(
     gr_circos, chromosomeField = "to.gr.seqnames",
     genomicFields = c("to.gr.start", "to.gr.end"),
