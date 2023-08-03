@@ -93,6 +93,13 @@ mcols(gr_circos)$to.gr <- granges(partner(gr_circos))
 
 We will have 3 tracks in this circos plot. The outermost layer displays the width of a sequence as a bar plot in maroon.
 
+In the track below, we first give it an `id`. 
+In the following line, we assign a title to it. This title will be displayed at the top of the rings.
+Next, we prepare and pass the data with `track_data_gr`, which takes the gRanges object, the chromosome field names and the genomic fireld names.
+We set the mark to `bar` as we need a simple bar plot here.
+We define x and y via `visual_channel_x` and `visual_channel_y`.
+Finally, we set the color of the bar plot and the width & height.
+
 ```{r track-1, eval=FALSE}
 
 track1 <- add_single_track(
@@ -116,6 +123,13 @@ track1 <- add_single_track(
 #### Track 2
 
 The middle layer plots the start of the sequence to its end.
+
+In this layer, we begin similarly by setting the id and the title of the layer.
+Next we pass the same data object as our data will not change. But other data can be used here. We just need to pass the appropriate `chromosomeField` and `genomicFields`.
+We set this as `mark = "rect"` as we want to fill the ring with a color if data is a certain value. These are called ideograms.
+We set the `strokeWidth` to 0.5.
+We set the stroke itself to have different colors based on the value in the `field` argument. Since "REF" is passed as field, and it has 4 values: A, C, G and T, we set the domain and range accordingly. A corresponds to color `#73A97D` and so on.
+Finally, we set the `x` and `xe`. Since this is a `rect` ( rectangle ) plot, it only has `x` and `xe` and no `y`.
 
 ```{r track-2, eval=FALSE}
 
@@ -146,6 +160,12 @@ track2 <- add_single_track(
 #### Track 3
 
 Finally, the innermost layer shows the changes in sequences.
+
+For the last layer, we start off again by setting the id and the title.
+We set the data with `track_data_gr` but we now set the `chromosomeField` and `genomicFields` to `to.gr` columns. We also set `longToWideId`. This will spread the data based on `event` column. So the new data will have double the number of columns and will have a new column for every existing column with the suffix `_2`. So `to.gr.start` will have a corresponding column `to.gr.start_2` added to the DB. This is essentially widening the dataset.
+We set alignment to overlay, as we wat the tracks to be plotted on top of each other.
+We then add 2 sub-tracks to this track. The sub-tracks inherits all the data from the parent track. These tracks are set with `mark = "withinLink"` so that the 2 tracks are linked with each other. And we set `x`, `xe`, `x1` and `x1e` to refer to the correct columns in the data. The 1st track traces all variations that are not a part of `ch10` and the 2nd tracks traces the ones that are a part of `ch10`. The 1st sub-track will trace on grey color and the 2nd sub-track will trace in various colors based on its seqname.
+In the end we also specify the width, height and the stroke width.
 
 ```{r track-3, eval=FALSE}
 
@@ -223,6 +243,8 @@ track3 <- add_single_track(
 
 #### Final View
 
+Finally we put all the 3 main tracks together along with some parameters to control the layout style, the alignment and so on.
+
 ```{r single_composed_track, eval=FALSE}
 
 single_composed_track <- compose_view(
@@ -239,6 +261,8 @@ single_composed_track <- compose_view(
 ```
 
 #### Run App
+
+We put all of this in a shiny app.
 
 ```{r run_app, eval=FALSE}
 
