@@ -1,6 +1,6 @@
 if (interactive()) {
-  library(shiny)
-  library(shiny.gosling)
+  require(shiny)
+  require(shiny.gosling)
 
   # Circular track 1 ----
   circular_track1_data <- track_data(

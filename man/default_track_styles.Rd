@@ -122,8 +122,8 @@ http://gosling-lang.org/docs/visual-channel/#style-related-properties
 }
 \examples{
 if(interactive()) {
-  library(shiny)
-  library(shiny.gosling)
+  require(shiny)
+  require(shiny.gosling)
 
   track5_styles <- default_track_styles(
     legendTitle = "SV Class"

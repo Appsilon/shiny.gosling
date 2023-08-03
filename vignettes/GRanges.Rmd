@@ -18,9 +18,9 @@ knitr::opts_chunk$set(
 ## Call required libraries.
 
 ```{r setup, message=FALSE, eval=FALSE}
-library(shiny.gosling)
-library(shiny)
-library(GenomicRanges)
+require(shiny.gosling)
+require(shiny)
+require(GenomicRanges)
 ```
 
 ## Getting a sample data for the GRanges object

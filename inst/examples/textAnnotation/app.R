@@ -1,6 +1,6 @@
 if (interactive()) {
-  library(shiny)
-  library(shiny.gosling)
+  require(shiny)
+  require(shiny.gosling)
 
   # View 2 Track 3----
   view2_track3_data <- track_data(

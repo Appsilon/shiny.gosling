@@ -17,8 +17,8 @@ Create list
 }
 \examples{
 if (interactive()) {
-  library(shiny)
-  library(shiny.gosling)
+  require(shiny)
+  require(shiny.gosling)
 
   track5_styles <- default_track_styles(
     legendTitle = "SV Class"

@@ -1,7 +1,7 @@
-suppressPackageStartupMessages(library(StructuralVariantAnnotation))
-suppressPackageStartupMessages(require(ggbio))
-library(shiny)
-library(shiny.gosling)
+require(StructuralVariantAnnotation)
+require(ggbio)
+require(shiny)
+require(shiny.gosling)
 
 colo829_vcf <- VariantAnnotation::readVcf(
   system.file(

@@ -18,10 +18,10 @@ knitr::opts_chunk$set(
 ## Call required libraries. Initialize gosling with `use_gosling()`
 
 ```{r setup, eval=FALSE, message=FALSE}
-suppressPackageStartupMessages(library(StructuralVariantAnnotation))
-suppressPackageStartupMessages(require(ggbio))
-library(shiny)
-library(shiny.gosling)
+require(StructuralVariantAnnotation)
+require(ggbio)
+require(shiny)
+require(shiny.gosling)
 use_gosling(clear_files = FALSE)
 ```
 

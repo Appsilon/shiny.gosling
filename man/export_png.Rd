@@ -28,8 +28,8 @@ Exports PNG
 }
 \examples{
 if(interactive()) {
-  library(shiny)
-  library(shiny.gosling)
+  require(shiny)
+  require(shiny.gosling)
 
   cistrome_data <-
     "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec"

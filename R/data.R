@@ -22,8 +22,8 @@
 #'
 #' @examples
 #' if (interactive()) {
-#'   library(shiny)
-#'   library(shiny.gosling)
+#'   require(shiny)
+#'   require(shiny.gosling)
 #'
 #'   # View 2 Track 3----
 #'   view2_track3_data <- track_data(
@@ -188,9 +188,9 @@ track_data <- function(
 #'
 #' @examples
 #' if (interactive()) {
-#' library(shiny.gosling)
-#' library(shiny)
-#' library(GenomicRanges)
+#' require(shiny.gosling)
+#' require(shiny)
+#' require(GenomicRanges)
 #'
 #' url <- "https://rb.gy/7y3fx"
 #' temp_file <- file.path(tempdir(), "GSM1295076_CBX6_BF_ChipSeq_mergedReps_peaks.bed.gz")
@@ -331,9 +331,9 @@ add_file_to_resource_path <- function(file_path = NULL, object = NULL) {
 #'
 #' @examples
 #' if (interactive()) {
-#' library(shiny.gosling)
-#' library(shiny)
-#' library(GenomicRanges)
+#' require(shiny.gosling)
+#' require(shiny)
+#' require(GenomicRanges)
 #'
 #' url <- "https://rb.gy/7y3fx"
 #' temp_file <- file.path(tempdir(), "GSM1295076_CBX6_BF_ChipSeq_mergedReps_peaks.bed.gz")
@@ -426,8 +426,8 @@ track_data_gr <- function(
 #'
 #' @examples
 #' if (interactive()) {
-#'   library(shiny)
-#'   library(shiny.gosling)
+#'   require(shiny)
+#'   require(shiny.gosling)
 #'
 #'   # View 2 Track 3----
 #'   view2_track3_data <- track_data(

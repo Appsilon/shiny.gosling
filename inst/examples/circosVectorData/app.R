@@ -1,11 +1,12 @@
-library(shiny)
-library(shiny.gosling)
+require(shiny)
+require(shiny.gosling)
 
 circos_data <-
   "https://resgen.io/api/v1/tileset_info/?d=VLFaiSVjTjW6mkbjRjWREA"
 
 track1 <- add_single_track(
   id = "track1",
+  title = "Peak",
   data = track_data(
     url = circos_data,
     type = "vector",
@@ -24,6 +25,7 @@ track1 <- add_single_track(
 
 track2 <- add_single_track(
   id = "track2",
+  title = "Stain",
   data = track_data(
     url = "https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/UCSC.HG38.Human.CytoBandIdeogram.csv",
     type = "csv",
@@ -55,6 +57,7 @@ track2 <- add_single_track(
 
 track3 <- add_single_track(
   id = "track3",
+  title = "Highlight chr 1 to others",
   data = track_data(
     url = "https://raw.githubusercontent.com/vigsterkr/circos/master/data/5/segdup.txt",
     type = "csv",
@@ -129,8 +132,8 @@ track3 <- add_single_track(
 )
 
 single_composed_track <- compose_view(
-  title = "Single Track",
-  subtitle = "This is the simplest single track visualization with a linear layout",
+  title = "Circos",
+  subtitle = "http://circos.ca/intro/genomic_data/",
   layout = "circular", #"linear"
   static = TRUE,
   spacing = 1,

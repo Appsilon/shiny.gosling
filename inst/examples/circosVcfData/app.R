@@ -1,8 +1,8 @@
-suppressPackageStartupMessages(library(StructuralVariantAnnotation))
-suppressPackageStartupMessages(require(ggbio))
-library(shiny)
-library(shiny.gosling)
-use_gosling(clear_files = FALSE)
+require(StructuralVariantAnnotation)
+require(ggbio)
+require(shiny)
+require(shiny.gosling)
+use_gosling()
 
 colo829_vcf <- VariantAnnotation::readVcf(
   system.file(
@@ -19,14 +19,14 @@ mcols(gr_circos)$to.gr <- granges(partner(gr_circos))
 
 track1 <- add_single_track(
   id = "track1",
-  title = "Width",
+  title = "Quality",
   data = track_data_gr(
     gr_circos, chromosomeField = "seqnames",
     genomicFields = c("start", "end")
   ),
   mark = "bar",
   x = visual_channel_x(field = "start", type = "genomic", axis = "bottom"),
-  y = visual_channel_y(field = "width", type = "quantitative", axis = "right"),
+  y = visual_channel_y(field = "QUAL", type = "quantitative", axis = "right"),
   color = visual_channel_color(
     value = "#BB3114"
   ),
@@ -36,7 +36,7 @@ track1 <- add_single_track(
 
 track2 <- add_single_track(
   id = "track2",
-  title = "REF (ATGC)",
+  title = "REF",
   data = track_data_gr(
     gr_circos, chromosomeField = "seqnames",
     genomicFields = c("start", "end")
@@ -44,6 +44,12 @@ track2 <- add_single_track(
   mark = "rect",
   strokeWidth = visual_channel_stroke_width(
     value = 0.5
+  ),
+  stroke = visual_channel_stroke(
+    field = "REF",
+    type = "nominal",
+    domain = list("A", "C", "G", "T"),
+    range = list("#73A97D", "#C1BB78", "#1F5E89", "#CF784B")
   ),
   x = visual_channel_x(field = "start", type = "genomic"),
   xe = visual_channel_x(field = "end", type = "genomic"),
@@ -124,7 +130,7 @@ track3 <- add_single_track(
 
 single_composed_track <- compose_view(
   title = "Circos",
-  subtitle = "This is the simplest single track visualization with a linear layout",
+  subtitle = "http://circos.ca/intro/genomic_data/",
   layout = "circular",
   static = TRUE,
   spacing = 1,

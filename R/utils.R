@@ -39,8 +39,8 @@ build_json <- function(r_list, clean_braces = TRUE, pretty = TRUE,
 #' @param ... Items to be put in a list
 #' @examples
 #' if (interactive()) {
-#'   library(shiny)
-#'   library(shiny.gosling)
+#'   require(shiny)
+#'   require(shiny.gosling)
 #'
 #'   track5_styles <- default_track_styles(
 #'     legendTitle = "SV Class"
@@ -183,8 +183,8 @@ atomic_values_to_list <- function(property_list) {
 #'
 #' @examples
 #' if (interactive()) {
-#'   library(shiny)
-#'   library(shiny.gosling)
+#'   require(shiny)
+#'   require(shiny.gosling)
 #'
 #'   track5_styles <- default_track_styles(
 #'     legendTitle = "SV Class"
@@ -324,8 +324,8 @@ print.gosling <- function(x, ...) {
 #'
 #' @examples
 #' if (interactive()) {
-#'   library(shiny)
-#'   library(shiny.gosling)
+#'   require(shiny)
+#'   require(shiny.gosling)
 #'
 #'   # Circular track 1 ----
 #'   circular_track1_data <- track_data(
