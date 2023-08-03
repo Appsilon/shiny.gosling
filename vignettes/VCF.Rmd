@@ -95,7 +95,7 @@ We will have 3 tracks in this circos plot. The outermost layer displays the widt
 
 In the track below, we first give it an `id`. 
 In the following line, we assign a title to it. This title will be displayed at the top of the rings.
-Next, we prepare and pass the data with `track_data_gr`, which takes the gRanges object, the chromosome field names and the genomic fireld names.
+Next, we prepare and pass the data with `track_data_gr`, which takes the GRanges object, the chromosome field names and the genomic field names.
 We set the mark to `bar` as we need a simple bar plot here.
 We define x and y via `visual_channel_x` and `visual_channel_y`.
 Finally, we set the color of the bar plot and the width & height.
@@ -163,8 +163,8 @@ Finally, the innermost layer shows the changes in sequences.
 
 For the last layer, we start off again by setting the id and the title.
 We set the data with `track_data_gr` but we now set the `chromosomeField` and `genomicFields` to `to.gr` columns. We also set `longToWideId`. This will spread the data based on `event` column. So the new data will have double the number of columns and will have a new column for every existing column with the suffix `_2`. So `to.gr.start` will have a corresponding column `to.gr.start_2` added to the DB. This is essentially widening the dataset.
-We set alignment to overlay, as we wat the tracks to be plotted on top of each other.
-We then add 2 sub-tracks to this track. The sub-tracks inherits all the data from the parent track. These tracks are set with `mark = "withinLink"` so that the 2 tracks are linked with each other. And we set `x`, `xe`, `x1` and `x1e` to refer to the correct columns in the data. The 1st track traces all variations that are not a part of `ch10` and the 2nd tracks traces the ones that are a part of `ch10`. The 1st sub-track will trace on grey color and the 2nd sub-track will trace in various colors based on its seqname.
+We set alignment to overlay, as we want the tracks to be plotted on top of each other.
+We then add 2 sub-tracks to this track. The sub-tracks inherits all the data from the parent track. These tracks are set with `mark = "withinLink"` so that the 2 tracks are linked with each other. And we set `x`, `xe`, `x1` and `x1e` to refer to the correct columns in the data. The 1st track traces all variations that are not a part of `ch10` and the 2nd tracks traces the ones that are a part of `ch10`. The 1st sub-track will trace on gray color and the 2nd sub-track will trace in various colors based on its sequence names.
 In the end we also specify the width, height and the stroke width.
 
 ```{r track-3, eval=FALSE}
