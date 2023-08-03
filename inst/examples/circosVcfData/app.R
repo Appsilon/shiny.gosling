@@ -145,6 +145,14 @@ ui <- fluidPage(
   fluidRow(
     column(6, goslingOutput("gosling_plot")),
     column(
+      width = 1,
+      br(),
+      actionButton(
+        inputId = "download_pdf",
+        label = "PDF",
+        icon = icon("cloud-arrow-down")
+      )
+    )
       1, br(), actionButton(
         "download_pdf",
         "PDF",
