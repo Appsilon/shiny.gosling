@@ -31,7 +31,6 @@ Imports:
     digest,
     rjson
 Suggests:
-    BiocManager,
     config,
     covr,
     knitr,
@@ -42,6 +41,10 @@ Suggests:
     sessioninfo,
     spelling,
     testthat (>= 3.0.0),
-    GenomicRanges
+    GenomicRanges,
+    VariantAnnotation,
+    StructuralVariantAnnotation,
+    biovizBase,
+    ggbio
 VignetteBuilder: knitr
 Config/testthat/edition: 3
