@@ -47,6 +47,8 @@ require(shiny.gosling)
 # platform for investigating various aspects of cancer biology and
 # therapeutic development.
 
+# See more info about this cell line at https://www.cellosaurus.org/CVCL_1137
+
 colo829_vcf <- VariantAnnotation::readVcf(
   system.file(
     "extdata",
