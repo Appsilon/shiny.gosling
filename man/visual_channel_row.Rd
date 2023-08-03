@@ -51,8 +51,8 @@ http://gosling-lang.org/docs/visual-channel#row
 }
 \examples{
 if(interactive()) {
-  require(shiny)
-  require(shiny.gosling)
+  library(shiny)
+  library(shiny.gosling)
 
   # Circular track 1 ----
   circular_track1_data <- track_data(

@@ -17,8 +17,8 @@
 #' @param session A shiny session object.
 #' @examples
 #' if(interactive()) {
-#'   require(shiny)
-#'   require(shiny.gosling)
+#'   library(shiny)
+#'   library(shiny.gosling)
 #'
 #'   chromosome_options <- c(
 #'     "Chr 1" = "chr1",

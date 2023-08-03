@@ -38,8 +38,8 @@ Compose views from add_single_track() and add_multi_tracks() functions.
 }
 \examples{
 if(interactive()) {
-  require(shiny)
-  require(shiny.gosling)
+  library(shiny)
+  library(shiny.gosling)
 
   # View 2 Track 3----
   view2_track3_data <- track_data(

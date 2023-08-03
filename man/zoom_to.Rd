@@ -42,8 +42,8 @@ Zooms  to a specific genomic position with the animated transition.
 }
 \examples{
 if(interactive()) {
-  require(shiny)
-  require(shiny.gosling)
+  library(shiny)
+  library(shiny.gosling)
 
   chromosome_options <- c(
     "Chr 1" = "chr1",

@@ -114,8 +114,8 @@ brush_styles <- function(
 #' @param ... Any other styles to be passed to gosling.js.
 #' @examples
 #' if(interactive()) {
-#'   require(shiny)
-#'   require(shiny.gosling)
+#'   library(shiny)
+#'   library(shiny.gosling)
 #'
 #'   track5_styles <- default_track_styles(
 #'     legendTitle = "SV Class"

@@ -47,8 +47,8 @@
 #'
 #' @examples
 #' if(interactive()) {
-#'   require(shiny)
-#'   require(shiny.gosling)
+#'   library(shiny)
+#'   library(shiny.gosling)
 #'
 #'   cistrome_data <-
 #'     "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec"
@@ -184,8 +184,8 @@ add_single_track <- function(
 #'
 #' @examples
 #' if(interactive()) {
-#'   require(shiny)
-#'   require(shiny.gosling)
+#'   library(shiny)
+#'   library(shiny.gosling)
 #'
 #'   # View 2 Track 3----
 #'   view2_track3_data <- track_data(
@@ -339,8 +339,8 @@ compose_view <- function(
 #'
 #' @examples
 #' if(interactive()) {
-#'   require(shiny)
-#'   require(shiny.gosling)
+#'   library(shiny)
+#'   library(shiny.gosling)
 #'
 #'   # View 2 Track 3----
 #'   view2_track3_data <- track_data(
@@ -485,8 +485,8 @@ arrange_views <- function(
 #'
 #' @examples
 #' if(interactive()) {
-#'   require(shiny)
-#'   require(shiny.gosling)
+#'   library(shiny)
+#'   library(shiny.gosling)
 #'
 #'   track5_styles <- default_track_styles(
 #'     legendTitle = "SV Class"

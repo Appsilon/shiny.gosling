@@ -33,8 +33,8 @@ Zooms out to see the entire view_id passed to this function.
 }
 \examples{
 if(interactive()) {
-  require(shiny)
-  require(shiny.gosling)
+  library(shiny)
+  library(shiny.gosling)
 
   cistrome_data <-
     "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec"

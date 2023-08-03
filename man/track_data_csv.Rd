@@ -39,9 +39,9 @@ Build the data object for gosling plots
 }
 \examples{
 if (interactive()) {
-require(shiny.gosling)
-require(shiny)
-require(GenomicRanges)
+library(shiny.gosling)
+library(shiny)
+library(GenomicRanges)
 
 url <- "https://rb.gy/7y3fx"
 temp_file <- file.path(tempdir(), "GSM1295076_CBX6_BF_ChipSeq_mergedReps_peaks.bed.gz")

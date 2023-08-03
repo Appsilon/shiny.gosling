@@ -51,8 +51,8 @@ http://gosling-lang.org/docs/visual-channel#stroke
 }
 \examples{
 if(interactive()) {
-  require(shiny)
-  require(shiny.gosling)
+  library(shiny)
+  library(shiny.gosling)
 
   track5_styles <- default_track_styles(
     legendTitle = "SV Class"

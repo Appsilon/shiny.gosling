@@ -97,8 +97,8 @@ usage.
 }
 \examples{
 if(interactive()) {
-  require(shiny)
-  require(shiny.gosling)
+  library(shiny)
+  library(shiny.gosling)
 
   cistrome_data <-
     "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec"
