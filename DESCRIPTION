@@ -31,7 +31,6 @@ Imports:
     digest,
     rjson
 Suggests:
-    BiocManager,
     config,
     covr,
     knitr,
