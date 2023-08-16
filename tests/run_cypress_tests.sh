@@ -10,7 +10,7 @@ if [ "$#" -ne 1 ]; then
       # Spec command
       command="cypress run --spec \"$file\" --record false"
       # App name
-      app_name=$(echo "$file" | grep -oP '(?<=/)[^/]+(?=\.cy\.js)')
+      app_name=$(echo "$file" | awk -F'/' '{print $NF}' | sed -e 's/\.cy\.js$//')
       # Execute e2e test
       yarn start-test "Rscript run_example_app.R --app=$app_name" http://127.0.0.1:8888 "$command"
   done
