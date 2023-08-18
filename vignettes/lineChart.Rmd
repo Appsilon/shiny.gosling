@@ -1,8 +1,8 @@
 ---
-title: "4. Creating a line chart with shiny.gosling"
+title: "4. Creating an Interactive Line Chart with shiny.gosling"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{4. Creating a line chart with shiny.gosling}
+  %\VignetteIndexEntry{4. Creating an Interactive Line Chart with shiny.gosling}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 runtime: shiny
@@ -15,7 +15,25 @@ knitr::opts_chunk$set(
 )
 ```
 
-This is a Shiny app written in R that uses the shiny and shiny.gosling packages to create an interactive line chart visualization of genomic data.
+In this tutorial, we'll explore how to create an interactive line chart visualization of genomic data using the shiny and shiny.gosling packages in R. This visualization will enable users to explore trends and patterns within genomic datasets.
+
+## Introduction
+
+The shiny and shiny.gosling packages offer powerful tools for building interactive data visualizations within Shiny apps. In this tutorial, we'll demonstrate the process of constructing an interactive line chart visualization using genomic data. This example leverages the shiny package for user interface design and the shiny.gosling package for generating the visualizations.
+
+## Understanding Multivec Data
+
+Multivec is a term commonly used in genomics to describe a specific data format suitable for visualizing multi-dimensional numerical data across genomic coordinates. It's widely utilized for representing various genomic experiments such as ChIP-seq, ATAC-seq, and Hi-C, where measurements are taken at different genomic positions.
+
+Multivec data is essentially a matrix where rows correspond to genomic positions or regions, and columns correspond to different samples or experiments. Each matrix entry represents a value associated with a specific genomic position and sample. The genomic positions are typically represented as chromosomal coordinates (chromosome name and base pair position), allowing accurate alignment with the genome. Tools like the UCSC Genome Browser, IGV, and libraries like shiny.gosling can visualize multivec data effectively.
+
+To delve deeper into multivec data and its application in genomics, explore these resources:
+
+[UCSC Genome Browser](https://genome.ucsc.edu/goldenPath/help/bigWig.html): A versatile tool for visualizing genomic data, including multivec data. Learn how to visualize multivec data in the UCSC Genome Browser.
+
+[Integrative Genomics Viewer (IGV)](https://software.broadinstitute.org/software/igv/multivec): Another popular genome visualization tool supporting multivec data. Discover how to load and visualize multivec data in IGV.
+
+[BedGraph and BigWig Formats](https://genome.ucsc.edu/goldenPath/help/bigWig.html): These common formats are used to represent multivec data. Explore explanations of the BedGraph and BigWig formats.
 
 ## Call required libraries.
 
@@ -24,34 +42,9 @@ require(shiny)
 require(shiny.gosling)
 ```
 
-## Loading the url to a multivec dataset
+## Creating the Data Object
 
-The track_data function is used to create a data object named view1_data.
-The data is loaded from the specified URL, which points to a multivec data source.
-The data is structured as a matrix with rows representing different samples, columns representing positions, and values representing peak measurements.
-The categories parameter specifies a list with a single category name ("sample 1").
-
-"Multivec" is a term used in genomics to refer to a specific type of data format used for representing and visualizing multi-dimensional numerical data across genomic coordinates. It's commonly used for representing data like ChIP-seq, ATAC-seq, Hi-C, and other genomic experiments where signals or measurements are collected at various genomic positions.
-
-Multivec data is essentially a matrix where rows correspond to different genomic positions or regions, and columns correspond to different samples or experiments. Each entry in the matrix represents a value associated with a specific genomic position and sample. The genomic positions along the rows of the matrix are usually represented as chromosomal coordinates (chromosome name and base pair position). This allows the data to be aligned with the genome, enabling accurate visualization and analysis. There are different tools and file formats that support multivec data, allowing researchers to work with and visualize this type of data. The bigWig and bedGraph formats are commonly used for representing multivec data. Visualization tools and libraries like the UCSC Genome Browser, IGV (Integrative Genomics Viewer), and libraries like "shiny.gosling" can render multivec data visualizations.
-
-Here are some resources and links where you can learn more about multivec data and how it's used in genomics research:
-
-UCSC Genome Browser:
-
-The UCSC Genome Browser is a widely used tool for visualizing genomic data, including multivec data.
-[Tutorial on visualizing multivec data in the UCSC Genome Browser](https://genome.ucsc.edu/goldenPath/help/bigWig.html)
-
-IGV (Integrative Genomics Viewer):
-
-IGV is another popular genome visualization tool that supports multivec data.
-[Tutorial on loading and visualizing multivec data in IGV](https://software.broadinstitute.org/software/igv/multivec)
-
-BedGraph and BigWig Formats:
-
-These are common file formats used for representing multivec data.
-[Explanation of the BedGraph format](https://genome.ucsc.edu/goldenPath/help/bedgraph.html)
-[Explanation of the BigWig format](https://genome.ucsc.edu/goldenPath/help/bigWig.html)
+We'll begin by fetching the multivec data using the track_data function. This function retrieves data from a specified URL, where the data is organized as a matrix with rows representing samples and columns representing positions. We'll define the row, column, and value attributes along with the sample categories. The categories parameter should contain a list of category names (e.g., "sample 1").
 
 ```{r, reading-data, eval=FALSE}
 
@@ -66,17 +59,9 @@ view1_data <- track_data(
 )
 ```
 
-## Creating a Single Track
+## Constructing the Line Chart Track
 
-view1_x and view1_y are visual channel definitions.
-view1_x specifies that the x-axis should represent the "position" field using genomic coordinates and be positioned at the bottom.
-view1_y specifies that the y-axis should represent the "peak" field as a quantitative value and be positioned on the right.
-
-The add_single_track function is used to create a single line chart track visualization.
-The width and height parameters determine the dimensions of the plot.
-The data source is specified as view1_data, and the visualization uses a "line" mark.
-The x and y visual channels are defined using view1_x and view1_y.
-The size of the line is set using the visual_channel_size function.
+To visualize the data, we'll define the visual channels for the line chart. We'll specify that the x-axis should represent genomic positions and the y-axis should represent peak values. The add_single_track function creates a line chart visualization using these visual channels. Additionally, we'll set the width and height of the plot and specify the data source.
 
 ```{r single_track, eval=FALSE}
 
@@ -103,7 +88,7 @@ single_track <- add_single_track(
 )
 ```
 
-## Composing the track
+## Composing and Arranging the View
 
 The compose_view function is used to create a composed view that contains the single line chart track.
 The layout of the view is specified as "linear".
