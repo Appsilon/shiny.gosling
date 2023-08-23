@@ -26,5 +26,5 @@ jobs:
       - name: Cypress install and run
         uses: cypress-io/github-action@v5
         with:
-          working-directory: tests
+          working-directory: e2e
           command: yarn e2e-test

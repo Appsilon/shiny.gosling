@@ -1,3 +1,4 @@
+# nocov start
 library(optparse)
 devtools::load_all()
 
@@ -44,7 +45,7 @@ port <- as.numeric(opt$port)
 # Defining paths
 package_path <- path.package(package = "shiny.gosling")
 app_path <- file.path(package_path, "inst", "examples", app_name)
-spec_path <- file.path(package_path, "tests", "cypress", "e2e", paste0(app_name, ".cy.js"))
+spec_path <- file.path(package_path, "e2e", "cypress", "e2e", paste0(app_name, ".cy.js"))
 
 # Assert that the paths to the Example apps and the spec files exist
 assert_if_app_exists(app_path, app_name)
@@ -61,3 +62,4 @@ tryCatch({
     options = list(port = as.numeric(port))
   )
 })
+# nocov end
