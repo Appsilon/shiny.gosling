@@ -18,7 +18,7 @@ assert_if_spec_exists <- function(spec_path, app_name) {
 }
 
 # Parsing options
-option_list = list(
+option_list <- list(
   make_option(
     opt_str = c("-p", "--port"),
     type = "character",
@@ -29,15 +29,15 @@ option_list = list(
   make_option(
     opt_str = c("-a", "--app"),
     type = "character",
-    default = NULL, 
+    default = NULL,
     help = "Name of the application as it is named in the inst/examples folder",
     metavar = "character"
   )
-); 
+)
 
 # Reading options
-opt_parser = OptionParser(option_list = option_list)
-opt = parse_args(opt_parser)
+opt_parser <- OptionParser(option_list = option_list)
+opt <- parse_args(opt_parser)
 app_name <- opt$app
 port <- as.numeric(opt$port)
 
