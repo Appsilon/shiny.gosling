@@ -9,3 +9,4 @@
 ^pkgdown$
 ^tests/cypress$
 ^tests/node_modules$
+^tests/run_example_app\.R$
