@@ -23,10 +23,14 @@ single_track <- add_single_track(
     legend = TRUE
   ),
   tooltip = visual_channel_tooltips(
-    visual_channel_tooltip(field = "start", type = "genomic",
-                           alt = "Start Position"),
-    visual_channel_tooltip(field = "end", type = "genomic",
-                           alt = "End Position"),
+    visual_channel_tooltip(
+      field = "start", type = "genomic",
+      alt = "Start Position"
+    ),
+    visual_channel_tooltip(
+      field = "end", type = "genomic",
+      alt = "End Position"
+    ),
     visual_channel_tooltip(
       field = "peak",
       type = "quantitative",
@@ -288,7 +292,6 @@ function(input, output, session) {
   })
 
   observeEvent(input$layout_single, {
-
     all_reactive_values$single_composed_views <- arrange_views(
       title = "Single Track",
       subtitle =

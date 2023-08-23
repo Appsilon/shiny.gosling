@@ -21,10 +21,10 @@ jobs:
           cache-version: 2
           needs: check
           pak-version: 'devel'
-          extra-packages: any::devtools, local::.
+          extra-packages: any::devtools, any::optparse, local::.
 
       - name: Cypress install and run
         uses: cypress-io/github-action@v5
         with:
-          working-directory: tests
-          command: bash run_cypress_tests.sh
+          working-directory: e2e
+          command: yarn e2e-test

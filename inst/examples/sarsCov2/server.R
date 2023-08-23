@@ -245,19 +245,21 @@ view2_track3b <- add_single_track(
   ),
   size = 24,
   color = "white",
-  visibility = list(list(
-    operation = "less-than",
-    measure = "width",
-    threshold = "|xe-x|",
-    transitionPadding = 30,
-    target = "mark"
-  ),
-  list(
-    operation = "LT",
-    measure = "zoomLevel",
-    threshold = 40,
-    target = "track"
-  ))
+  visibility = list(
+    list(
+      operation = "less-than",
+      measure = "width",
+      threshold = "|xe-x|",
+      transitionPadding = 30,
+      target = "mark"
+    ),
+    list(
+      operation = "LT",
+      measure = "zoomLevel",
+      threshold = 40,
+      target = "track"
+    )
+  )
 )
 
 view2_track3_x <- visual_channel_x(
@@ -356,7 +358,6 @@ combined_view <- arrange_views(
 )
 
 function(input, output, session) {
-
   observeEvent(input$download_png, {
     export_png(component_id = "sars_cov2")
   })

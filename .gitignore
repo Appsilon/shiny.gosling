@@ -57,6 +57,6 @@ data/
 *.DS_Store
 
 # Cypress
-tests/yarn-error.log
-tests/cypress/downloads
-tests/cypress/videos
+e2e/yarn-error.log
+e2e/cypress/downloads
+e2e/cypress/videos

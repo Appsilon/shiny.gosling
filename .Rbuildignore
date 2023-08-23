@@ -7,3 +7,4 @@
 ^\.lintr$
 ^\.github$
 ^pkgdown$
+^e2e
