@@ -1,4 +1,4 @@
-library(shiny.gosling)
+require(shiny.gosling)
 
 chromosome_options <- c(
   "Chr 1" = "chr1",

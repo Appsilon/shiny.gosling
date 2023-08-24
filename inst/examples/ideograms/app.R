@@ -1,7 +1,7 @@
 # Based on https://gosling.js.org/?example=doc_rect
 
-library(shiny)
-library(shiny.gosling)
+require(shiny)
+require(shiny.gosling)
 
 ui <- navbarPage(
   title = "shiny.gosling",

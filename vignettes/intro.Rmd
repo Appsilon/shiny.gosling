@@ -1,8 +1,8 @@
 ---
-title: "Introduction to shiny.gosling"
+title: "1. Introduction to shiny.gosling"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Introduction to shiny.gosling}
+  %\VignetteIndexEntry{1. Introduction to shiny.gosling}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 runtime: shiny
@@ -15,19 +15,21 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(shiny.gosling)
-library(shiny)
-library(sessioninfo)
+## Call required libraries.
+
+```{r setup, message=FALSE, eval=FALSE}
+require(shiny.gosling)
+require(shiny)
+require(sessioninfo)
 ```
 
-# Introduction to shiny.gosling
+## Introduction to shiny.gosling
 
 This package is an R shiny implementation of the [**Gosling.js**](http://gosling-lang.org/) library. Gosling js is a highly *expressive* library based on a *Grammar for scalable and interactive Genomics Data visualization*. This library is build upon the [**React** wrapper of the Gosling.js](https://github.com/gosling-lang/gosling-react). Which is powered by [**Shiny.React**](https://github.com/gosling-lang/gosling-react). Thus most of the Charts can be directly build using this package.
 
 Let's start with an example. For that let's read a csv file which has some Genomic data with chromosome start stop indicators. This dataset is directly picked from github [here](https://github.com/sehilyi/gemini-datasets). You can read more about the dataset by going to there website [here](https://gemini.readthedocs.io/en/latest/index.html). In short GEMINI (Genome MINIng) is a flexible framework for exploring genetic variation in the context of the wealth of genome annotations available for the human genome.
 
-```{r}
+```{r store-data-links, eval=FALSE}
 gemini_github_path <- "https://rb.gy/ezv5k"
 
 cancer_data <- "https://s3.amazonaws.com/gosling-lang.org/data/cancer/cnv.PD35930a.csv"
@@ -49,7 +51,7 @@ Let's start by creating a track. Let's define the first track and add more prope
 
 Let's build the layers for the plot. So we can build multiple tracks to represent the genome. `add_single_track` function constructs a single track from the inputs.
 
-```{r}
+```{r setup-track, eval=FALSE}
 single_track <- add_single_track(
   id = "track1",
   data = track_data(
@@ -92,13 +94,13 @@ single_track <- add_single_track(
 
 now let's create a final view for the
 
-```{r}
+```{r compose-track, eval=FALSE}
 single_composed_track <- compose_view(
   tracks = single_track
 )
 ```
 
-```{r}
+```{r final-view, eval=FALSE}
 single_composed_views <- arrange_views(
   title = "Single Track",
   subtitle = "This is the simplest single track visualization with a linear layout",
@@ -114,7 +116,7 @@ single_composed_views <- arrange_views(
 
 We can then even add more tracks to it. So let's create a few more tracks just to make a better and more beautiful graph.
 
-```{r, echo = FALSE}
+```{r run-app, eval=FALSE, eval=FALSE}
 
 server <- function(input, output, session) {
 
@@ -136,6 +138,11 @@ ui <- fluidPage(
 shiny::shinyApp(ui, server, options = list(height = 700))
 ```
 
-```{r}
-session_info()
+![](intro.png){width=500px}
+
+## Session Info
+
+```{r, session_info}
+
+sessionInfo()
 ```

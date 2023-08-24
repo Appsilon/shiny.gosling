@@ -1,2 +1,2 @@
-library(shiny.gosling)
-library(shiny)
+require(shiny.gosling)
+require(shiny)
