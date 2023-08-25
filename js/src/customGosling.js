@@ -2,6 +2,27 @@ import React, { useRef, useEffect } from "react";
 import { GoslingComponent } from 'gosling.js';
 
 /**
+ * A component to handle errors
+ */
+class ErrorBoundary extends React.Component {
+  
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidCatch(error, errorInfo) {
+    const errorObject = {
+      'name': error.name,
+      'message': error.message,
+    };
+    Shiny.setInputValue("shiny_gosling_js_logs", errorObject, {priority: 'event'});
+  }
+  render() {
+    return this.props.children; 
+  }
+}
+
+/**
  * An extension of the GoslingComponent from gosling.js
  * @param {*} props
  * @returns
@@ -15,7 +36,9 @@ export const customGosling = (props) => {
 
   return(
     <div>
-      <GoslingComponent ref = {goslingReference} {...props}/>
+      <ErrorBoundary>
+        <GoslingComponent ref = {goslingReference} {...props}/>  
+      </ErrorBoundary>
     </div>
   );
 };
