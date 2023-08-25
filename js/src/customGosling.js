@@ -101,7 +101,7 @@ class GoslingComponents {
         );
       }
     } else {
-      warnign(`You should provide a viewId to call this method:
+      console.warn(`You should provide a viewId to call this method:
       See the docs at http://gosling-lang.org/docs/js-api#zoomtoextent)`);
     }
   };
@@ -122,7 +122,7 @@ class GoslingComponents {
         );
       }
     } else {
-      warnign(`You should provide a viewId to call this method:
+      console.warn(`You should provide a viewId to call this method:
       See the docs at http://gosling-lang.org/docs/js-api#zoomto`);
     }
   };
@@ -138,7 +138,7 @@ class GoslingComponents {
         component.current.api.exportPng(parameters.transparentBackground);
       }
     } else {
-      warnign(`You should provide a component_id to call this method.`);
+      console.warn(`You should provide a component_id to call this method.`);
     }
   };
   /**
@@ -153,7 +153,7 @@ class GoslingComponents {
         component.current.api.exportPdf(parameters.transparentBackground);
       }
     } else {
-      warnign(`You should provide a component_id to call this method.`);
+      console.warn(`You should provide a component_id to call this method.`);
     }
   }
 }
