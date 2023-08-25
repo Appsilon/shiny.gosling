@@ -1,4 +1,4 @@
-#' Gets the main Shiny parent session 
+#' Gets the main Shiny parent session
 #' @importFrom shiny getDefaultReactiveDomain
 #' @noRd
 get_main_session <- function() {
