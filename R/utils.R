@@ -1,3 +1,27 @@
+#' Adds an observer to print error messages coming from the JS console
+#' @noRd
+add_js_error_observer <- function() {
+  # Catching error messages coming from the browser
+  session <- getDefaultReactiveDomain()
+  if (!is.null(session)) {
+    input <- session$input
+    if (is.null(session$userData$error_observer)) {
+      session$userData$error_observer <- observeEvent(
+        input$shiny_gosling_js_logs, {
+          error_message <- paste(
+            "shiny.gosling - JS console error: ",
+            session$input$shiny_gosling_js_logs$name,
+            "\nMessage: ",
+            input$shiny_gosling_js_logs$message,
+            " | Inspect the browser's console for more information about this error"
+          )
+          cli_alert_danger(error_message)
+        }
+      )
+    }
+  }
+}
+
 #' Remove null from list
 #'
 #' @param r_list An r list with NULL values
@@ -426,21 +450,7 @@ print.gosling <- function(x, ...) {
 #'
 gosling <- function(component_id, composed_views, clean_braces = TRUE) {
 
-  # Catching error messages coming from the browser
-  session <- getDefaultReactiveDomain()
-  input <- session$input
-  observeEvent(
-    input$shiny_gosling_js_logs, {
-      error_message <- paste(
-        "shiny.gosling - JS console error: ",
-        session$input$shiny_gosling_js_logs$name,
-        "\nMessage: ",
-        input$shiny_gosling_js_logs$message,
-        " | Inspect the browser's console for more information about this error"
-      )
-      cli_alert_danger(error_message)
-    }
-  )
+  add_js_error_observer()
 
   structure(
     GoslingComponent(
