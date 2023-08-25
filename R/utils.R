@@ -419,11 +419,30 @@ print.gosling <- function(x, ...) {
 #'
 #'   shinyApp(ui, server)
 #' }
-#'
+#' @importFrom cli cli_alert_danger
+#' @importFrom shiny observeEvent
 #' @return Gosling component for rendering on R shiny apps
 #' @export
 #'
 gosling <- function(component_id, composed_views, clean_braces = TRUE) {
+  
+  # Catching error messages coming from the browser
+  par_env <- parent.frame()
+  observeEvent(
+    input$shiny_gosling_js_logs, {
+      error_message <- paste(
+        "shiny.gosling - JS console error: ",
+        input$shiny_gosling_js_logs$name,
+        "\nMessage: ",
+        input$shiny_gosling_js_logs$message,
+        " | Inspect the browser's console for more information about this error"
+      )
+      cli_alert_danger(error_message)
+    },
+    event.env = par_env,
+    handler.env = par_env
+  )
+  
   structure(
     GoslingComponent(
       component_id = component_id,
