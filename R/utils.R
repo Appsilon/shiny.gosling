@@ -1,8 +1,33 @@
+#' Gets the main Shiny parent session 
+#' @importFrom shiny getDefaultReactiveDomain
+#' @noRd
+get_main_session <- function() {
+  session <- getDefaultReactiveDomain()
+  test <- FALSE
+  max_depth <- 100
+  depth <- 0
+  while (!test) {
+    test <- "ShinySession" %in% class(session)
+    if (!test) {
+      session <- .subset2(session, "parent")
+    }
+    depth <- depth + 1
+    if (depth >= max_depth) {
+      session <- getDefaultReactiveDomain()
+      test <- TRUE
+      warning("Max depth reached when running get_main_session")
+    }
+  }
+  session
+}
+
 #' Adds an observer to print error messages coming from the JS console
+#' @importFrom cli cli_alert_danger
+#' @importFrom shiny observeEvent
 #' @noRd
 add_js_error_observer <- function() {
   # Catching error messages coming from the browser
-  session <- getDefaultReactiveDomain()
+  session <- get_main_session()
   if (!is.null(session)) {
     input <- session$input
     if (is.null(session$userData$error_observer)) {
@@ -443,8 +468,6 @@ print.gosling <- function(x, ...) {
 #'
 #'   shinyApp(ui, server)
 #' }
-#' @importFrom cli cli_alert_danger
-#' @importFrom shiny getDefaultReactiveDomain observeEvent
 #' @return Gosling component for rendering on R shiny apps
 #' @export
 #'
