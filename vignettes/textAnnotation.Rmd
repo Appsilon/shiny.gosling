@@ -19,11 +19,11 @@ This is an example of how to create an interactive genomic visualization using t
 
 We create a Shiny app that visualizes genomic data using the shiny.gosling package. It generates an interactive visualization with tracks displaying DNA base counts and annotations, allowing users to explore genomic data related to the SARS-CoV-2 virus.
 
-## Call required libraries
+## Call libraryd libraries
 
 ```{r setup, message=FALSE, eval=FALSE}
-require(shiny)
-require(shiny.gosling)
+library(shiny)
+library(shiny.gosling)
 ```
 
 ## Fetching Data

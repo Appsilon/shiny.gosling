@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-This tutorial walks through the process of creating a Circos plot using VCF (Variant Call Format) data, with a focus on utilizing the shiny.gosling package to achieve interactive visualizations within a Shiny app.
+This tutorial walks through the process of creating a Circos plot using [VCF](https://genome.ucsc.edu/goldenPath/help/vcf.html) (Variant Call Format) data, with a focus on utilizing the shiny.gosling package to achieve interactive visualizations within a Shiny app.
 
 ## Libraries and Initialization
 

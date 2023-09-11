@@ -17,12 +17,12 @@ knitr::opts_chunk$set(
 
 This is a Shiny app written in R that creates an interactive visualization using the shiny and shiny.gosling packages. The visualization displays genomic data from the Cistrome database in a track-based layout.
 
-## Call required libraries.
+## Call libraryd libraries.
 
 ```{r setup, message=FALSE, eval=FALSE}
-require(shiny.gosling)
-require(shiny)
-require(sessioninfo)
+library(shiny.gosling)
+library(shiny)
+library(sessioninfo)
 ```
 
 ## Introduction to shiny.gosling
@@ -31,7 +31,7 @@ This package is an R shiny implementation of the [**Gosling.js**](http://gosling
 
 Let's start with an example. For that let's read a csv file which has some Genomic data with chromosome start stop indicators. This dataset is directly picked from gosling-lang.org [here](https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec).
 
-"Multivec" is a term used in genomics to refer to a specific type of data format used for representing and visualizing multi-dimensional numerical data across genomic coordinates. It's commonly used for representing data like ChIP-seq, ATAC-seq, Hi-C, and other genomic experiments where signals or measurements are collected at various genomic positions.
+[Multivec](https://docs.higlass.io/data_preparation.html#multivec-files) is a file format introduced by [Higlass](https://higlass.io/) suitable for representing and visualizing multi-dimensional numerical data across genomic coordinates. It's commonly used for representing data like ChIP-seq, ATAC-seq, Hi-C, and other genomic experiments where signals or measurements are collected at various genomic positions.
 
 Multivec data is essentially a matrix where rows correspond to different genomic positions or regions, and columns correspond to different samples or experiments. Each entry in the matrix represents a value associated with a specific genomic position and sample. The genomic positions along the rows of the matrix are usually represented as chromosomal coordinates (chromosome name and base pair position). This allows the data to be aligned with the genome, enabling accurate visualization and analysis. There are different tools and file formats that support multivec data, allowing researchers to work with and visualize this type of data. The bigWig and bedGraph formats are commonly used for representing multivec data. Visualization tools and libraries like the UCSC Genome Browser, IGV (Integrative Genomics Viewer), and libraries like "shiny.gosling" can render multivec data visualizations.
 
@@ -40,12 +40,12 @@ Here are some resources and links where you can learn more about multivec data a
 UCSC Genome Browser:
 
 The UCSC Genome Browser is a widely used tool for visualizing genomic data, including multivec data.
-[Tutorial on visualizing multivec data in the UCSC Genome Browser](https://genome.ucsc.edu/goldenPath/help/bigWig.html)
+[Tutorial on visualizing multivec data in the UCSC Genome Browser](https://genome.ucsc.edu/training/)
 
 IGV (Integrative Genomics Viewer):
 
 IGV is another popular genome visualization tool that supports multivec data.
-[Tutorial on loading and visualizing multivec data in IGV](https://software.broadinstitute.org/software/igv/multivec)
+[Tutorial on loading and visualizing multivec data in IGV](https://www.youtube.com/watch?v=P9n0tZxiwPs)
 
 BedGraph and BigWig Formats:
 

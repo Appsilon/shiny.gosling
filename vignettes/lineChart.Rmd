@@ -23,23 +23,23 @@ The shiny and shiny.gosling packages offer powerful tools for building interacti
 
 ## Understanding Multivec Data
 
-Multivec is a term commonly used in genomics to describe a specific data format suitable for visualizing multi-dimensional numerical data across genomic coordinates. It's widely utilized for representing various genomic experiments such as ChIP-seq, ATAC-seq, and Hi-C, where measurements are taken at different genomic positions.
+[Multivec](https://docs.higlass.io/data_preparation.html#multivec-files) is a file format introduced by [Higlass](https://higlass.io/) suitable for visualizing multi-dimensional numerical data across genomic coordinates. It's widely utilized for representing various genomic experiments such as ChIP-seq, ATAC-seq, and Hi-C, where measurements are taken at different genomic positions.
 
 Multivec data is essentially a matrix where rows correspond to genomic positions or regions, and columns correspond to different samples or experiments. Each matrix entry represents a value associated with a specific genomic position and sample. The genomic positions are typically represented as chromosomal coordinates (chromosome name and base pair position), allowing accurate alignment with the genome. Tools like the UCSC Genome Browser, IGV, and libraries like shiny.gosling can visualize multivec data effectively.
 
 To delve deeper into multivec data and its application in genomics, explore these resources:
 
-[UCSC Genome Browser](https://genome.ucsc.edu/goldenPath/help/bigWig.html): A versatile tool for visualizing genomic data, including multivec data. Learn how to visualize multivec data in the UCSC Genome Browser.
+[UCSC Genome Browser](https://genome.ucsc.edu/cgi-bin/hgGateway): A versatile tool for visualizing genomic data, including multivec data. Learn how to visualize multivec data in the UCSC Genome Browser.
 
-[Integrative Genomics Viewer (IGV)](https://software.broadinstitute.org/software/igv/multivec): Another popular genome visualization tool supporting multivec data. Discover how to load and visualize multivec data in IGV.
+[Integrative Genomics Viewer (IGV)](https://software.broadinstitute.org/software/igv/): Another popular genome visualization tool supporting multivec data. Discover how to load and visualize multivec data in IGV.
 
 [BedGraph and BigWig Formats](https://genome.ucsc.edu/goldenPath/help/bigWig.html): These common formats are used to represent multivec data. Explore explanations of the BedGraph and BigWig formats.
 
-## Call required libraries.
+## Call libraryd libraries.
 
 ```{r setup, message=FALSE, eval=FALSE}
-require(shiny)
-require(shiny.gosling)
+library(shiny)
+library(shiny.gosling)
 ```
 
 ## Creating the Data Object
