@@ -35,7 +35,7 @@ To delve deeper into multivec data and its application in genomics, explore thes
 
 [BedGraph and BigWig Formats](https://genome.ucsc.edu/goldenPath/help/bigWig.html): These common formats are used to represent multivec data. Explore explanations of the BedGraph and BigWig formats.
 
-## Call libraryd libraries.
+## Call library libraries.
 
 ```{r setup, message=FALSE, eval=FALSE}
 library(shiny)

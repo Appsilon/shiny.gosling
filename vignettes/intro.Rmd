@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 This is a Shiny app written in R that creates an interactive visualization using the shiny and shiny.gosling packages. The visualization displays genomic data from the Cistrome database in a track-based layout.
 
-## Call libraryd libraries.
+## Call library libraries.
 
 ```{r setup, message=FALSE, eval=FALSE}
 library(shiny.gosling)
