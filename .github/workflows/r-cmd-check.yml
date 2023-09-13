@@ -52,7 +52,7 @@ jobs:
           cache-version: 2
           needs: check
           pak-version: 'stable'
-          extra-packages: local::. # Necessary to avoid object usage linter errors.
+          extra-packages: any::devtools, any::optparse, local::.
 
       - name: R CMD check
         uses: r-lib/actions/check-r-package@v2

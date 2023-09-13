@@ -1,0 +1,30 @@
+name: Cypress Tests
+
+on: push
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+
+      - name: Install R dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          cache-version: 2
+          needs: check
+          pak-version: 'devel'
+          extra-packages: any::devtools, any::optparse, local::.
+
+      - name: Cypress install and run
+        uses: cypress-io/github-action@v5
+        with:
+          working-directory: e2e
+          command: yarn e2e-test

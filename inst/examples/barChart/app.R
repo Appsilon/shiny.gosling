@@ -1,7 +1,6 @@
 # Based in https://gosling.js.org/?example=doc_bar
-
-require(shiny)
-require(shiny.gosling)
+library(shiny)
+library(shiny.gosling)
 
 ui <- navbarPage(
   title = "shiny.gosling",
@@ -93,7 +92,6 @@ single_composed_views <- arrange_views(
 )
 
 server <- function(input, output, session) {
-
   observeEvent(input$download_png, {
     export_png(component_id = "sars_cov2")
   })

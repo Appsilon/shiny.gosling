@@ -1,0 +1,14 @@
+{
+  "name": "cypress",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^12.17.2",
+    "cypress-plugin-snapshots": "^1.4.4",
+    "start-server-and-test": "^2.0.0"
+  },
+  "scripts": {
+    "e2e-test": "bash run_cypress_tests.sh"
+  }
+}

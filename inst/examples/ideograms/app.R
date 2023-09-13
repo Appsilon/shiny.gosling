@@ -106,7 +106,6 @@ single_composed_views <- arrange_views(
 )
 
 server <- function(input, output, session) {
-
   observeEvent(input$download_png, {
     export_png(component_id = "sars_cov2")
   })

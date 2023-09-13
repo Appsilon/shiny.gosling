@@ -55,3 +55,8 @@ inst/doc
 data/
 
 *.DS_Store
+
+# Cypress
+e2e/yarn-error.log
+e2e/cypress/downloads
+e2e/cypress/videos
