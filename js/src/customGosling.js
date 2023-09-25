@@ -2,6 +2,27 @@ import React, { useRef, useEffect } from "react";
 import { GoslingComponent } from 'gosling.js';
 
 /**
+ * A component to handle errors
+ */
+class ErrorBoundary extends React.Component {
+  
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidCatch(error, errorInfo) {
+    const errorObject = {
+      'name': error.name,
+      'message': error.message,
+    };
+    Shiny.setInputValue("shiny_gosling_js_logs", errorObject, {priority: 'event'});
+  }
+  render() {
+    return this.props.children; 
+  }
+}
+
+/**
  * An extension of the GoslingComponent from gosling.js
  * @param {*} props
  * @returns
@@ -15,7 +36,9 @@ export const customGosling = (props) => {
 
   return(
     <div>
-      <GoslingComponent ref = {goslingReference} {...props}/>
+      <ErrorBoundary>
+        <GoslingComponent ref = {goslingReference} {...props}/>  
+      </ErrorBoundary>
     </div>
   );
 };
@@ -78,7 +101,7 @@ class GoslingComponents {
         );
       }
     } else {
-      warnign(`You should provide a viewId to call this method:
+      console.warn(`You should provide a viewId to call this method:
       See the docs at http://gosling-lang.org/docs/js-api#zoomtoextent)`);
     }
   };
@@ -99,7 +122,7 @@ class GoslingComponents {
         );
       }
     } else {
-      warnign(`You should provide a viewId to call this method:
+      console.warn(`You should provide a viewId to call this method:
       See the docs at http://gosling-lang.org/docs/js-api#zoomto`);
     }
   };
@@ -115,7 +138,7 @@ class GoslingComponents {
         component.current.api.exportPng(parameters.transparentBackground);
       }
     } else {
-      warnign(`You should provide a component_id to call this method.`);
+      console.warn(`You should provide a component_id to call this method.`);
     }
   };
   /**
@@ -130,7 +153,7 @@ class GoslingComponents {
         component.current.api.exportPdf(parameters.transparentBackground);
       }
     } else {
-      warnign(`You should provide a component_id to call this method.`);
+      console.warn(`You should provide a component_id to call this method.`);
     }
   }
 }

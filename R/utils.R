@@ -1,3 +1,52 @@
+#' Gets the main Shiny parent session
+#' @importFrom shiny getDefaultReactiveDomain
+#' @noRd
+get_main_session <- function() {
+  session <- getDefaultReactiveDomain()
+  test <- FALSE
+  max_depth <- 100
+  depth <- 0
+  while (!test) {
+    test <- "ShinySession" %in% class(session)
+    if (!test) {
+      session <- .subset2(session, "parent")
+    }
+    depth <- depth + 1
+    if (depth >= max_depth) {
+      session <- getDefaultReactiveDomain()
+      test <- TRUE
+      warning("Max depth reached when running get_main_session")
+    }
+  }
+  session
+}
+
+#' Adds an observer to print error messages coming from the JS console
+#' @importFrom cli cli_alert_danger
+#' @importFrom shiny observeEvent
+#' @noRd
+add_js_error_observer <- function() {
+  # Catching error messages coming from the browser
+  session <- get_main_session()
+  if (!is.null(session)) {
+    input <- session$input
+    if (is.null(session$userData$error_observer)) {
+      session$userData$error_observer <- observeEvent(
+        input$shiny_gosling_js_logs, {
+          error_message <- paste(
+            "shiny.gosling - JS console error: ",
+            session$input$shiny_gosling_js_logs$name,
+            "\nMessage: ",
+            input$shiny_gosling_js_logs$message,
+            " | Inspect the browser's console for more information about this error"
+          )
+          cli_alert_danger(error_message)
+        }
+      )
+    }
+  }
+}
+
 #' Remove null from list
 #'
 #' @param r_list An r list with NULL values
@@ -419,11 +468,13 @@ print.gosling <- function(x, ...) {
 #'
 #'   shinyApp(ui, server)
 #' }
-#'
 #' @return Gosling component for rendering on R shiny apps
 #' @export
 #'
 gosling <- function(component_id, composed_views, clean_braces = TRUE) {
+
+  add_js_error_observer()
+
   structure(
     GoslingComponent(
       component_id = component_id,
