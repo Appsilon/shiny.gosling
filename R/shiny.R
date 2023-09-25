@@ -42,7 +42,7 @@
 #'     type = "nominal",
 #'     legend = TRUE,
 #'     domain = json_list(
-#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'       "tandem-duplication", "translocation", "deletion", "inversion"
 #'     ),
 #'     range = json_list(
 #'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -52,7 +52,7 @@
 #'     field = "svclass",
 #'     type = "nominal",
 #'     domain = json_list(
-#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'       "tandem-duplication", "translocation", "deletion", "inversion"
 #'     ),
 #'     range = json_list(
 #'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -113,8 +113,6 @@ goslingOutput <- function(outputId) {
 #'
 #' gosling render function for shiny use
 #'
-#' @param expr The code for rendering gosling plot.
-#' Must be a gosling object built with shiny.gosling::gosling()
 #'
 #' @examples
 #' if(interactive()) {
@@ -152,7 +150,7 @@ goslingOutput <- function(outputId) {
 #'     type = "nominal",
 #'     legend = TRUE,
 #'     domain = json_list(
-#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'       "tandem-duplication", "translocation", "deletion", "inversion"
 #'     ),
 #'     range = json_list(
 #'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -162,7 +160,7 @@ goslingOutput <- function(outputId) {
 #'     field = "svclass",
 #'     type = "nominal",
 #'     domain = json_list(
-#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'       "tandem-duplication", "translocation", "deletion", "inversion"
 #'     ),
 #'     range = json_list(
 #'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -211,13 +209,9 @@ goslingOutput <- function(outputId) {
 #'   shinyApp(ui, server)
 #'
 #' }
+#' @inheritParams shiny.react::renderReact
 #' @return A function which can be assigned to an output in a
 #' Shiny server function.
 #' @export
 #'
-renderGosling <- function(
-    expr) {
-  shiny.react::renderReact(
-    expr = expr
-  )
-}
+renderGosling <- shiny.react::renderReact

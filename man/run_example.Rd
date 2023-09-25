@@ -4,7 +4,7 @@
 \alias{run_example}
 \title{Runs a shiny.gosling example}
 \usage{
-run_example(example)
+run_example(example = NA)
 }
 \arguments{
 \item{example}{A character indicating a valid example.}
@@ -16,7 +16,7 @@ A Shiny App is launched.
 Runs a shiny.gosling example
 }
 \examples{
-if(interactive()) {
+if (interactive()) {
   run_example("circularLinearWithBrush")
 }
 }

@@ -12,7 +12,7 @@
 #' @return List object.
 #'
 visual_channel <- function(
-    field = NULL, type = NULL, range = NULL, domain = NULL, ...
+  field = NULL, type = NULL, range = NULL, domain = NULL, ...
 ) {
   list_rm_null(list(
     field = field, type = type, range = range, domain = domain, ...
@@ -132,10 +132,10 @@ visual_channel <- function(
 #' @return List object.
 #' @export
 visual_channel_x <- function(
-    field = NULL, type = NULL, legend = NULL, grid = NULL,
-    axis = NULL,
-    aggregate = NULL,
-    ...
+  field = NULL, type = NULL, legend = NULL, grid = NULL,
+  axis = NULL,
+  aggregate = NULL,
+  ...
 ) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
@@ -267,12 +267,12 @@ visual_channel_x <- function(
 #' @export
 #'
 visual_channel_y <- function(
-    field = NULL, zeroBaseline = NULL,
-    type = NULL,
-    legend = NULL, grid = NULL, flip = NULL, baseline = NULL,
-    axis = NULL,
-    aggregate = NULL,
-    ...
+  field = NULL, zeroBaseline = NULL,
+  type = NULL,
+  legend = NULL, grid = NULL, flip = NULL, baseline = NULL,
+  axis = NULL,
+  aggregate = NULL,
+  ...
 ) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
@@ -401,9 +401,9 @@ visual_channel_y <- function(
 #' @export
 #'
 visual_channel_row <- function(
-    field = NULL, type = NULL, padding = NULL,
-    legend = NULL, grid = NULL, clip = NULL, axis = NULL,
-    aggregate = NULL, ...
+  field = NULL, type = NULL, padding = NULL,
+  legend = NULL, grid = NULL, clip = NULL, axis = NULL,
+  aggregate = NULL, ...
 ) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
@@ -427,8 +427,8 @@ visual_channel_row <- function(
 #' @export
 #'
 visual_channel_size <- function(
-    field = NULL, type = NULL,
-    range = NULL, domain = NULL, ...
+  field = NULL, type = NULL,
+  range = NULL, domain = NULL, ...
 ) {
   visual_channel(
     field = field, type = type, range = range, domain = domain, ...
@@ -741,9 +741,9 @@ visual_channel_text <- function(
 #' @export
 #'
 visual_channel_color <- function(
-    field = NULL, title = NULL, type = NULL, scaleOffset = NULL,
-    scale = NULL, legend = NULL, grid = NULL, axis = NULL,
-    aggregate = NULL, ...
+  field = NULL, title = NULL, type = NULL, scaleOffset = NULL,
+  scale = NULL, legend = NULL, grid = NULL, axis = NULL,
+  aggregate = NULL, ...
 ) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
@@ -803,7 +803,7 @@ visual_channel_color <- function(
 #'     type = "nominal",
 #'     legend = TRUE,
 #'     domain = json_list(
-#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'       "tandem-duplication", "translocation", "deletion", "inversion"
 #'     ),
 #'     range = json_list(
 #'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -813,7 +813,7 @@ visual_channel_color <- function(
 #'     field = "svclass",
 #'     type = "nominal",
 #'     domain = json_list(
-#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'       "tandem-duplication", "translocation", "deletion", "inversion"
 #'     ),
 #'     range = json_list(
 #'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -870,8 +870,8 @@ visual_channel_color <- function(
 #' @export
 #'
 visual_channel_stroke <- function(
-    field = NULL, title = NULL, type = NULL, scaleOffset = NULL,
-    legend = NULL, grid = NULL, axis = NULL, aggregate = NULL,  ...
+  field = NULL, title = NULL, type = NULL, scaleOffset = NULL,
+  legend = NULL, grid = NULL, axis = NULL, aggregate = NULL,  ...
 ) {
   visual_channel(
     field = field, type = type, legend = legend, grid = grid,
@@ -894,8 +894,8 @@ visual_channel_stroke <- function(
 #' @export
 #'
 visual_channel_stroke_width <- function(
-    field = NULL, type = NULL,
-    range = NULL, domain = NULL, ...
+  field = NULL, type = NULL,
+  range = NULL, domain = NULL, ...
 ) {
   visual_channel(
     field = field, type = type, range = range, domain = domain, ...
@@ -918,8 +918,8 @@ visual_channel_stroke_width <- function(
 #' @export
 #'
 visual_channel_opacity <- function(
-    field = NULL, type = NULL,
-    range = NULL, domain = NULL, ...
+  field = NULL, type = NULL,
+  range = NULL, domain = NULL, ...
 ) {
   visual_channel(
     field = field, type = type, range = range, domain = domain, ...
@@ -1037,7 +1037,7 @@ visual_channel_opacity <- function(
 #' @export
 #'
 visual_channel_tooltip <- function(
-    field = NULL, type = NULL, alt = NULL, ...
+  field = NULL, type = NULL, alt = NULL, ...
 ) {
   visual_channel(
     field = field, type = type, alt = alt, ...

@@ -47,7 +47,7 @@ circular_track1 <- add_single_track(
   x = circular_track1_x, xe = circular_track1_xe,
   y = circular_track1_y, row = circular_track1_row,
   color = circular_track1_color,
-  stroke =  "black", strokeWidth = 0.3,
+  stroke = "black", strokeWidth = 0.3,
   tracks = circular_track1_tracks,
   style = circular_track1_styles,
   width = 500, height = 100
@@ -66,7 +66,7 @@ circular_track2_transform2 <- track_data_transform(
 )
 
 circular_track2_data <- track_data(
-  url = "https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/rearrangements.bulk.1639.simple.filtered.pub", # nolint
+  url = "https://rb.gy/zvr5s",
   type = "csv",
   headerNames = c(
     "chr1",
@@ -233,7 +233,6 @@ circular_linear_view <- arrange_views(
 )
 
 function(input, output, session) {
-
   observeEvent(input$download_png, {
     export_png(component_id = "circular_component")
   })

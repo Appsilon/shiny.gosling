@@ -21,8 +21,8 @@
 #' @return List object with event styles.
 #'
 event_styles <- function(
-    strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
-    color = NULL, arrange = NULL
+  strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
+  color = NULL, arrange = NULL
 ) {
   list_rm_null(list(
     strokeWidth = strokeWidth, strokeOpacity = strokeOpacity,
@@ -51,8 +51,8 @@ event_styles <- function(
 #' @return List object with brush styles.
 #'
 brush_styles <- function(
-    strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
-    color = NULL
+  strokeWidth = NULL, strokeOpacity = NULL, stroke = NULL, opacity = NULL,
+  color = NULL
 ) {
   list_rm_null(list(
     strokeWidth = strokeWidth, strokeOpacity = strokeOpacity,
@@ -148,7 +148,7 @@ brush_styles <- function(
 #'     type = "nominal",
 #'     legend = TRUE,
 #'     domain = json_list(
-#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'       "tandem-duplication", "translocation", "deletion", "inversion"
 #'     ),
 #'     range = json_list(
 #'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -158,7 +158,7 @@ brush_styles <- function(
 #'     field = "svclass",
 #'     type = "nominal",
 #'     domain = json_list(
-#'       "tandem-duplication", "translocation", "delection", "inversion"
+#'       "tandem-duplication", "translocation", "deletion", "inversion"
 #'     ),
 #'     range = json_list(
 #'       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -214,14 +214,14 @@ brush_styles <- function(
 #' @export
 #'
 default_track_styles <- function(
-    textStrokeWidth = NULL, textStroke = NULL, textFontWeight = NULL,
-    textFontSize = NULL, textAnchor = NULL, select = NULL,
-    outlineWidth = NULL, outline = NULL, mouseOver = NULL,
-    matrixExtent = NULL, linkStyle = NULL, linkMinHeight = NULL,
-    linkConnectionType = NULL, linePattern = NULL, legendTitle = NULL,
-    inlineLegend = NULL, enableSmoothPath = NULL, dy = NULL, dx = NULL,
-    dashed = NULL, curve = NULL, brush = NULL,
-    backgroundOpacity = NULL, background = NULL, align = NULL, ...
+  textStrokeWidth = NULL, textStroke = NULL, textFontWeight = NULL,
+  textFontSize = NULL, textAnchor = NULL, select = NULL,
+  outlineWidth = NULL, outline = NULL, mouseOver = NULL,
+  matrixExtent = NULL, linkStyle = NULL, linkMinHeight = NULL,
+  linkConnectionType = NULL, linePattern = NULL, legendTitle = NULL,
+  inlineLegend = NULL, enableSmoothPath = NULL, dy = NULL, dx = NULL,
+  dashed = NULL, curve = NULL, brush = NULL,
+  backgroundOpacity = NULL, background = NULL, align = NULL, ...
 ) {
   list_rm_null(
     list(

@@ -23,10 +23,14 @@ single_track <- add_single_track(
     legend = TRUE
   ),
   tooltip = visual_channel_tooltips(
-    visual_channel_tooltip(field = "start", type = "genomic",
-                           alt = "Start Position"),
-    visual_channel_tooltip(field = "end", type = "genomic",
-                           alt = "End Position"),
+    visual_channel_tooltip(
+      field = "start", type = "genomic",
+      alt = "Start Position"
+    ),
+    visual_channel_tooltip(
+      field = "end", type = "genomic",
+      alt = "End Position"
+    ),
     visual_channel_tooltip(
       field = "peak",
       type = "quantitative",
@@ -230,7 +234,7 @@ track5_color <- visual_channel_color(
   type = "nominal",
   legend = TRUE,
   domain = json_list(
-    "tandem-duplication", "translocation", "delection", "inversion"
+    "tandem-duplication", "translocation", "deletion", "inversion"
   ),
   range = json_list(
     "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -240,7 +244,7 @@ track5_stroke <- visual_channel_stroke(
   field = "svclass",
   type = "nominal",
   domain = json_list(
-    "tandem-duplication", "translocation", "delection", "inversion"
+    "tandem-duplication", "translocation", "deletion", "inversion"
   ),
   range = json_list(
     "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -288,7 +292,6 @@ function(input, output, session) {
   })
 
   observeEvent(input$layout_single, {
-
     all_reactive_values$single_composed_views <- arrange_views(
       title = "Single Track",
       subtitle =

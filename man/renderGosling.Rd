@@ -4,11 +4,14 @@
 \alias{renderGosling}
 \title{gosling render function}
 \usage{
-renderGosling(expr)
+renderGosling(expr, env = parent.frame(), quoted = FALSE)
 }
 \arguments{
-\item{expr}{The code for rendering gosling plot.
-Must be a gosling object built with shiny.gosling::gosling()}
+\item{expr}{Expression returning the HTML / 'React' to render.}
+
+\item{env}{Environment in which to evaluate expr.}
+
+\item{quoted}{Is \code{expr} a quoted expression?}
 }
 \value{
 A function which can be assigned to an output in a
@@ -53,7 +56,7 @@ if(interactive()) {
     type = "nominal",
     legend = TRUE,
     domain = json_list(
-      "tandem-duplication", "translocation", "delection", "inversion"
+      "tandem-duplication", "translocation", "deletion", "inversion"
     ),
     range = json_list(
       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
@@ -63,7 +66,7 @@ if(interactive()) {
     field = "svclass",
     type = "nominal",
     domain = json_list(
-      "tandem-duplication", "translocation", "delection", "inversion"
+      "tandem-duplication", "translocation", "deletion", "inversion"
     ),
     range = json_list(
       "#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"
