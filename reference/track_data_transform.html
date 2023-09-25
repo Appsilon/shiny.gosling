@@ -20,7 +20,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">shiny.gosling</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.2</small>
 
     <a href="https://shiny.tools" class="external-link home"><i class="fa fa-lg fa-chevron-left"></i></a>
 
@@ -41,6 +41,13 @@
     <span class="fa fa-university"></span>
      
     Tutorial
+  </a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/GRanges.html">
+    <span class="fa fa-university"></span>
+     
+    Using GRanges
   </a>
 </li>
 <li class="active nav-item">
@@ -135,8 +142,8 @@ of usage.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">shiny.gosling</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="co"># View 2 Track 3----</span></span></span>
@@ -174,19 +181,21 @@ of usage.</p>
 <span class="r-in"><span>    <span class="op">)</span>,</span></span>
 <span class="r-in"><span>    size <span class="op">=</span> <span class="fl">24</span>,</span></span>
 <span class="r-in"><span>    color <span class="op">=</span> <span class="st">"white"</span>,</span></span>
-<span class="r-in"><span>    visibility <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>      operation <span class="op">=</span> <span class="st">"less-than"</span>,</span></span>
-<span class="r-in"><span>      measure <span class="op">=</span> <span class="st">"width"</span>,</span></span>
-<span class="r-in"><span>      threshold <span class="op">=</span> <span class="st">"|xe-x|"</span>,</span></span>
-<span class="r-in"><span>      transitionPadding <span class="op">=</span> <span class="fl">30</span>,</span></span>
-<span class="r-in"><span>      target <span class="op">=</span> <span class="st">"mark"</span></span></span>
-<span class="r-in"><span>    <span class="op">)</span>,</span></span>
-<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>      operation <span class="op">=</span> <span class="st">"LT"</span>,</span></span>
-<span class="r-in"><span>      measure <span class="op">=</span> <span class="st">"zoomLevel"</span>,</span></span>
-<span class="r-in"><span>      threshold <span class="op">=</span> <span class="fl">40</span>,</span></span>
-<span class="r-in"><span>      target <span class="op">=</span> <span class="st">"track"</span></span></span>
-<span class="r-in"><span>    <span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    visibility <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>        operation <span class="op">=</span> <span class="st">"less-than"</span>,</span></span>
+<span class="r-in"><span>        measure <span class="op">=</span> <span class="st">"width"</span>,</span></span>
+<span class="r-in"><span>        threshold <span class="op">=</span> <span class="st">"|xe-x|"</span>,</span></span>
+<span class="r-in"><span>        transitionPadding <span class="op">=</span> <span class="fl">30</span>,</span></span>
+<span class="r-in"><span>        target <span class="op">=</span> <span class="st">"mark"</span></span></span>
+<span class="r-in"><span>      <span class="op">)</span>,</span></span>
+<span class="r-in"><span>      <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>        operation <span class="op">=</span> <span class="st">"LT"</span>,</span></span>
+<span class="r-in"><span>        measure <span class="op">=</span> <span class="st">"zoomLevel"</span>,</span></span>
+<span class="r-in"><span>        threshold <span class="op">=</span> <span class="fl">40</span>,</span></span>
+<span class="r-in"><span>        target <span class="op">=</span> <span class="st">"track"</span></span></span>
+<span class="r-in"><span>      <span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="va">view2_track3_x</span> <span class="op">&lt;-</span> <span class="fu"><a href="visual_channel_x.html">visual_channel_x</a></span><span class="op">(</span></span></span>
@@ -261,7 +270,6 @@ of usage.</p>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>

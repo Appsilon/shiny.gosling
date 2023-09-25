@@ -20,7 +20,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">shiny.gosling</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.2</small>
 
     <a href="https://shiny.tools" class="external-link home"><i class="fa fa-lg fa-chevron-left"></i></a>
 
@@ -41,6 +41,13 @@
     <span class="fa fa-university"></span>
      
     Tutorial
+  </a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/GRanges.html">
+    <span class="fa fa-university"></span>
+     
+    Using GRanges
   </a>
 </li>
 <li class="active nav-item">
@@ -116,8 +123,8 @@ json string.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">shiny.gosling</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="co"># Circular track 1 ----</span></span></span>
@@ -169,7 +176,7 @@ json string.</p></dd>
 <span class="r-in"><span>    x <span class="op">=</span> <span class="va">circular_track1_x</span>, xe <span class="op">=</span> <span class="va">circular_track1_xe</span>,</span></span>
 <span class="r-in"><span>    y <span class="op">=</span> <span class="va">circular_track1_y</span>, row <span class="op">=</span> <span class="va">circular_track1_row</span>,</span></span>
 <span class="r-in"><span>    color <span class="op">=</span> <span class="va">circular_track1_color</span>,</span></span>
-<span class="r-in"><span>    stroke <span class="op">=</span>  <span class="st">"black"</span>, strokeWidth <span class="op">=</span> <span class="fl">0.3</span>,</span></span>
+<span class="r-in"><span>    stroke <span class="op">=</span> <span class="st">"black"</span>, strokeWidth <span class="op">=</span> <span class="fl">0.3</span>,</span></span>
 <span class="r-in"><span>    tracks <span class="op">=</span> <span class="va">circular_track1_tracks</span>,</span></span>
 <span class="r-in"><span>    style <span class="op">=</span> <span class="va">circular_track1_styles</span>,</span></span>
 <span class="r-in"><span>    width <span class="op">=</span> <span class="fl">500</span>, height <span class="op">=</span> <span class="fl">100</span></span></span>
@@ -211,7 +218,6 @@ json string.</p></dd>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

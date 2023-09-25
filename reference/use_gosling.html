@@ -22,7 +22,7 @@ gosling to work in shiny plots."><meta property="og:image" content="https://apps
     
     <a class="navbar-brand me-2" href="../index.html">shiny.gosling</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.2</small>
 
     <a href="https://shiny.tools" class="external-link home"><i class="fa fa-lg fa-chevron-left"></i></a>
 
@@ -43,6 +43,13 @@ gosling to work in shiny plots."><meta property="og:image" content="https://apps
     <span class="fa fa-university"></span>
      
     Tutorial
+  </a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/GRanges.html">
+    <span class="fa fa-university"></span>
+     
+    Using GRanges
   </a>
 </li>
 <li class="active nav-item">
@@ -92,9 +99,15 @@ gosling to work in shiny plots.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">use_gosling</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">use_gosling</span><span class="op">(</span>clear_files <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
+    <dl><dt>clear_files</dt>
+<dd><p>default FALSE. To clear the locally stored csv files created by gosling or not.</p></dd>
+
+</dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
@@ -104,8 +117,8 @@ gosling to work in shiny plots.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">shiny.gosling</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="va">track5_styles</span> <span class="op">&lt;-</span> <span class="fu"><a href="default_track_styles.html">default_track_styles</a></span><span class="op">(</span></span></span>
@@ -139,7 +152,7 @@ gosling to work in shiny plots.</p>
 <span class="r-in"><span>    type <span class="op">=</span> <span class="st">"nominal"</span>,</span></span>
 <span class="r-in"><span>    legend <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>    domain <span class="op">=</span> <span class="fu"><a href="json_list.html">json_list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>      <span class="st">"tandem-duplication"</span>, <span class="st">"translocation"</span>, <span class="st">"delection"</span>, <span class="st">"inversion"</span></span></span>
+<span class="r-in"><span>      <span class="st">"tandem-duplication"</span>, <span class="st">"translocation"</span>, <span class="st">"deletion"</span>, <span class="st">"inversion"</span></span></span>
 <span class="r-in"><span>    <span class="op">)</span>,</span></span>
 <span class="r-in"><span>    range <span class="op">=</span> <span class="fu"><a href="json_list.html">json_list</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>      <span class="st">"#569C4D"</span>, <span class="st">"#4C75A2"</span>, <span class="st">"#DA5456"</span>, <span class="st">"#EA8A2A"</span></span></span>
@@ -149,7 +162,7 @@ gosling to work in shiny plots.</p>
 <span class="r-in"><span>    field <span class="op">=</span> <span class="st">"svclass"</span>,</span></span>
 <span class="r-in"><span>    type <span class="op">=</span> <span class="st">"nominal"</span>,</span></span>
 <span class="r-in"><span>    domain <span class="op">=</span> <span class="fu"><a href="json_list.html">json_list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>      <span class="st">"tandem-duplication"</span>, <span class="st">"translocation"</span>, <span class="st">"delection"</span>, <span class="st">"inversion"</span></span></span>
+<span class="r-in"><span>      <span class="st">"tandem-duplication"</span>, <span class="st">"translocation"</span>, <span class="st">"deletion"</span>, <span class="st">"inversion"</span></span></span>
 <span class="r-in"><span>    <span class="op">)</span>,</span></span>
 <span class="r-in"><span>    range <span class="op">=</span> <span class="fu"><a href="json_list.html">json_list</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>      <span class="st">"#569C4D"</span>, <span class="st">"#4C75A2"</span>, <span class="st">"#DA5456"</span>, <span class="st">"#EA8A2A"</span></span></span>
@@ -196,7 +209,6 @@ gosling to work in shiny plots.</p>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
