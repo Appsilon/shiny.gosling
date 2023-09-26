@@ -44,7 +44,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">shiny.gosling</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.99.5</small>
 
     <a href="https://shiny.tools" class="external-link home"><i class="fa fa-lg fa-chevron-left"></i></a>
 
@@ -189,7 +189,8 @@ representing positions. We’ll define the row, column, and value
 attributes along with the sample categories. The categories parameter
 should contain a list of category names (e.g., “sample 1”).</p>
 <div class="sourceCode" id="section-cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Create data object ----</span></span>
+<code class="sourceCode R"><span></span>
+<span><span class="co"># Create data object ----</span></span>
 <span><span class="va">view1_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/track_data.html">track_data</a></span><span class="op">(</span></span>
 <span>  url <span class="op">=</span> <span class="st">"https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ"</span>,</span>
 <span>  type <span class="op">=</span> <span class="st">"multivec"</span>,</span>
@@ -209,7 +210,8 @@ function creates a line chart visualization using these visual channels.
 Additionally, we’ll set the width and height of the plot and specify the
 data source.</p>
 <div class="sourceCode" id="section-cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Create visual channels ----</span></span>
+<code class="sourceCode R"><span></span>
+<span><span class="co"># Create visual channels ----</span></span>
 <span><span class="va">view1_x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/visual_channel_x.html">visual_channel_x</a></span><span class="op">(</span></span>
 <span>  field <span class="op">=</span> <span class="st">"position"</span>, type <span class="op">=</span> <span class="st">"genomic"</span>, axis <span class="op">=</span> <span class="st">"bottom"</span></span>
 <span><span class="op">)</span></span>
@@ -241,7 +243,8 @@ specified as “linear”.</p>
 earlier. The title and subtitle for the arrangement are specified. The
 arranged view is named single_composed_views.</p>
 <div class="sourceCode" id="section-cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Compose the track ----</span></span>
+<code class="sourceCode R"><span></span>
+<span><span class="co"># Compose the track ----</span></span>
 <span><span class="va">single_composed_view</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/compose_view.html">compose_view</a></span><span class="op">(</span></span>
 <span>  tracks <span class="op">=</span> <span class="va">single_track</span>,</span>
 <span>  layout <span class="op">=</span> <span class="st">"linear"</span></span>
@@ -264,7 +267,8 @@ used to incorporate the shiny.gosling package. The fluidPage function is
 used to create a fluid layout within the tab panel. Two columns are
 defined: one for the goslingOutput and another for action buttons.</p>
 <div class="sourceCode" id="section-cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/navbarPage.html" class="external-link">navbarPage</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/navbarPage.html" class="external-link">navbarPage</a></span><span class="op">(</span></span>
 <span>  title <span class="op">=</span> <span class="st">"shiny.gosling"</span>,</span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabPanel.html" class="external-link">tabPanel</a></span><span class="op">(</span></span>
 <span>    <span class="st">"Line Chart"</span>,</span>
@@ -313,7 +317,8 @@ output$gosling_plot_test function uses renderGosling to render the
 composed view using the gosling function from the shiny.gosling
 package.</p>
 <div class="sourceCode" id="section-cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<code class="sourceCode R"><span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
 <span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">download_png</span>, <span class="op">{</span></span>
 <span>    <span class="fu"><a href="../reference/export_png.html">export_png</a></span><span class="op">(</span>component_id <span class="op">=</span> <span class="st">"sars_cov2"</span><span class="op">)</span></span>
@@ -346,39 +351,43 @@ package.</p>
 <h2 id="section-session-info">Session Info<a class="anchor" aria-label="anchor" href="#section-session-info"></a>
 </h2>
 <div class="sourceCode" id="section-cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## R version 4.3.1 (2023-06-16)</span></span>
-<span><span class="co">## Platform: x86_64-pc-linux-gnu (64-bit)</span></span>
-<span><span class="co">## Running under: Ubuntu 22.04.3 LTS</span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">## Matrix products: default</span></span>
-<span><span class="co">## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 </span></span>
-<span><span class="co">## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.20.so;  LAPACK version 3.10.0</span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">## locale:</span></span>
-<span><span class="co">##  [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       </span></span>
-<span><span class="co">##  [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   </span></span>
-<span><span class="co">##  [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          </span></span>
-<span><span class="co">## [10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   </span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">## time zone: UTC</span></span>
-<span><span class="co">## tzcode source: system (glibc)</span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">## attached base packages:</span></span>
-<span><span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">## loaded via a namespace (and not attached):</span></span>
-<span><span class="co">##  [1] vctrs_0.6.3       cli_3.6.1         knitr_1.44        rlang_1.1.1      </span></span>
-<span><span class="co">##  [5] xfun_0.40         stringi_1.7.12    purrr_1.0.2       promises_1.2.1   </span></span>
-<span><span class="co">##  [9] textshaping_0.3.6 shiny_1.7.5       xtable_1.8-4      jsonlite_1.8.7   </span></span>
-<span><span class="co">## [13] glue_1.6.2        rprojroot_2.0.3   htmltools_0.5.6   httpuv_1.6.11    </span></span>
-<span><span class="co">## [17] ragg_1.2.5        sass_0.4.7        rmarkdown_2.25    evaluate_0.21    </span></span>
-<span><span class="co">## [21] jquerylib_0.1.4   ellipsis_0.3.2    fastmap_1.1.1     yaml_2.3.7       </span></span>
-<span><span class="co">## [25] lifecycle_1.0.3   memoise_2.0.1     stringr_1.5.0     compiler_4.3.1   </span></span>
-<span><span class="co">## [29] fs_1.6.3          Rcpp_1.0.11       later_1.3.1       systemfonts_1.0.4</span></span>
-<span><span class="co">## [33] digest_0.6.33     R6_2.5.1          magrittr_2.0.3    bslib_0.5.1      </span></span>
-<span><span class="co">## [37] tools_4.3.1       mime_0.12         pkgdown_2.0.7     cachem_1.0.8     </span></span>
-<span><span class="co">## [41] desc_1.4.2</span></span></code></pre>
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; R version 4.3.1 (2023-06-16)</span></span>
+<span><span class="co">#&gt; Platform: x86_64-pc-linux-gnu (64-bit)</span></span>
+<span><span class="co">#&gt; Running under: Ubuntu 22.04.3 LTS</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Matrix products: default</span></span>
+<span><span class="co">#&gt; BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 </span></span>
+<span><span class="co">#&gt; LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.20.so;  LAPACK version 3.10.0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; locale:</span></span>
+<span><span class="co">#&gt;  [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       </span></span>
+<span><span class="co">#&gt;  [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   </span></span>
+<span><span class="co">#&gt;  [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          </span></span>
+<span><span class="co">#&gt; [10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; time zone: UTC</span></span>
+<span><span class="co">#&gt; tzcode source: system (glibc)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; attached base packages:</span></span>
+<span><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; other attached packages:</span></span>
+<span><span class="co">#&gt; [1] shiny.gosling_0.99.5 shiny_1.7.5         </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
+<span><span class="co">#&gt;  [1] jsonlite_1.8.7    compiler_4.3.1    promises_1.2.1    Rcpp_1.0.11      </span></span>
+<span><span class="co">#&gt;  [5] stringr_1.5.0     later_1.3.1       jquerylib_0.1.4   systemfonts_1.0.4</span></span>
+<span><span class="co">#&gt;  [9] textshaping_0.3.6 yaml_2.3.7        fastmap_1.1.1     mime_0.12        </span></span>
+<span><span class="co">#&gt; [13] R6_2.5.1          knitr_1.44        desc_1.4.2        rprojroot_2.0.3  </span></span>
+<span><span class="co">#&gt; [17] bslib_0.5.1       rlang_1.1.1       cachem_1.0.8      stringi_1.7.12   </span></span>
+<span><span class="co">#&gt; [21] httpuv_1.6.11     xfun_0.40         fs_1.6.3          sass_0.4.7       </span></span>
+<span><span class="co">#&gt; [25] shiny.react_0.3.0 memoise_2.0.1     cli_3.6.1         pkgdown_2.0.7    </span></span>
+<span><span class="co">#&gt; [29] magrittr_2.0.3    digest_0.6.33     fontawesome_0.5.2 xtable_1.8-4     </span></span>
+<span><span class="co">#&gt; [33] lifecycle_1.0.3   vctrs_0.6.3       evaluate_0.21     glue_1.6.2       </span></span>
+<span><span class="co">#&gt; [37] ragg_1.2.5        rmarkdown_2.25    purrr_1.0.2       tools_4.3.1      </span></span>
+<span><span class="co">#&gt; [41] ellipsis_0.3.2    htmltools_0.5.6</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
