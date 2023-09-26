@@ -8,7 +8,7 @@ vignette: >
 runtime: shiny
 ---
 
-```{r, include=FALSE, eval=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -37,7 +37,7 @@ To delve deeper into multivec data and its application in genomics, explore thes
 
 ## Call library libraries.
 
-```{r setup, message=FALSE, eval=FALSE}
+```{r setup, message=FALSE, results="hide"}
 library(shiny)
 library(shiny.gosling)
 ```
@@ -46,7 +46,7 @@ library(shiny.gosling)
 
 We'll begin by fetching the multivec data using the track_data function. This function retrieves data from a specified URL, where the data is organized as a matrix with rows representing samples and columns representing positions. We'll define the row, column, and value attributes along with the sample categories. The categories parameter should contain a list of category names (e.g., "sample 1").
 
-```{r, reading-data, eval=FALSE}
+```{r, reading-data}
 
 # Create data object ----
 view1_data <- track_data(
@@ -63,7 +63,7 @@ view1_data <- track_data(
 
 To visualize the data, we'll define the visual channels for the line chart. We'll specify that the x-axis should represent genomic positions and the y-axis should represent peak values. The add_single_track function creates a line chart visualization using these visual channels. Additionally, we'll set the width and height of the plot and specify the data source.
 
-```{r single_track, eval=FALSE}
+```{r single_track}
 
 # Create visual channels ----
 view1_x <- visual_channel_x(
@@ -97,7 +97,7 @@ The arrange_views function arranges the composed view created earlier.
 The title and subtitle for the arrangement are specified.
 The arranged view is named single_composed_views.
 
-```{r, compose, eval=FALSE}
+```{r, compose}
 
 # Compose the track ----
 single_composed_view <- compose_view(
@@ -121,7 +121,7 @@ Inside the tab panel, the use_gosling function is used to incorporate the shiny.
 The fluidPage function is used to create a fluid layout within the tab panel.
 Two columns are defined: one for the goslingOutput and another for action buttons.
 
-```{r, ui, eval=FALSE}
+```{r, ui}
 
 ui <- navbarPage(
   title = "shiny.gosling",
@@ -169,7 +169,7 @@ The observeEvent functions are used to respond to button clicks and user interac
 Clicking the "PNG" or "PDF" buttons triggers the respective download action for the visualization.
 The output$gosling_plot_test function uses renderGosling to render the composed view using the gosling function from the shiny.gosling package.
 
-```{r, server, eval=FALSE}
+```{r, server, results="hide"}
 
 server <- function(input, output, session) {
 

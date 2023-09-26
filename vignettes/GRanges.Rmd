@@ -8,7 +8,7 @@ vignette: >
 runtime: shiny
 ---
 
-```{r, include=FALSE, eval=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 ## Call required libraries.
 
-```{r setup, message=FALSE, eval=FALSE}
+```{r setup, message=FALSE, results="hide"}
 require(shiny.gosling)
 require(shiny)
 require(GenomicRanges)
@@ -29,7 +29,7 @@ We will be loading the peaks data from ChipSeq dataset with the GEO accession [G
 
 `GSM1295076_CBX6_BF_ChipSeq_mergedReps_peaks.bed.gz` file will be used to create a sample GRanges object.
 
-```{r, reading-data, eval=FALSE}
+```{r, reading-data}
 url <- "https://rb.gy/7y3fx"
 temp_file <- file.path(tempdir(), "data.gz")
 download.file(url, destfile = temp_file, method = "auto", mode = "wb")
@@ -54,7 +54,7 @@ You can use the `track_data_gr` to pass the `GRanges` object inside a track.
 
 Note: Make sure to run the Shiny app using the `shiny::runApp()` rather than interactively running the `shiny::shinyApp()` object.
 
-```{r, method-1, eval=FALSE, eval=FALSE}
+```{r, method-1, results="hide"}
 
 ui <- fluidPage(
   use_gosling(clear_files = FALSE),
@@ -106,7 +106,7 @@ shiny::shinyApp(ui, server)
 
 You can save the `GRanges` object as a `csv` file inside the www directory which can be used in the shiny.gosling plot.
 
-```{r, method-2, eval=FALSE}
+```{r, method-2, results="hide"}
 if (!dir.exists("data")) {
   dir.create("data")
 }

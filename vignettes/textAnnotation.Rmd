@@ -8,7 +8,7 @@ vignette: >
 runtime: shiny
 ---
 
-```{r, include=FALSE, eval=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -21,7 +21,7 @@ We create a Shiny app that visualizes genomic data using the shiny.gosling packa
 
 ## Call library libraries
 
-```{r setup, message=FALSE, eval=FALSE}
+```{r setup, message=FALSE, results="hide"}
 library(shiny)
 library(shiny.gosling)
 ```
@@ -52,7 +52,7 @@ These are common file formats used for representing multivec data.
 [Explanation of the BedGraph format](https://genome.ucsc.edu/goldenPath/help/bedgraph.html)
 [Explanation of the BigWig format](https://genome.ucsc.edu/goldenPath/help/bigWig.html)
 
-```{r, reading-data, eval=FALSE}
+```{r, reading-data}
 
 track1_data <- track_data(
   url = "https://server.gosling-lang.org/api/v1/tileset_info/?d=NC_045512_2-multivec",
@@ -70,7 +70,7 @@ track1_data <- track_data(
 
 Here, we define two tracks (track1 and track2) that will be displayed in the visualization. track1 displays the count of DNA bases using a bar mark, and track2 displays text annotations for certain conditions.
 
-```{r single_track, eval=FALSE}
+```{r single_track}
 
 track1 <- add_single_track(
   mark = "bar",
@@ -115,7 +115,7 @@ track2 <- add_single_track(
 
 Now, lets define visual channels for track1. track1_x specifies the genomic position on the x-axis, track1_color assigns colors based on DNA bases, and track1_text specifies text annotations based on DNA bases.
 
-```{r visual_channels, eval=FALSE}
+```{r visual_channels}
 
 track1_x <- visual_channel_x(
   field = "position", type = "genomic"
@@ -141,7 +141,7 @@ track1_style <- default_track_styles(
 
 This code chunk combines the previously defined tracks (track1 and track2) into a single track (track3) and specifies various properties such as title, alignment, data, visual channels, and style.
 
-```{r combined_track, eval=FALSE}
+```{r combined_track}
 
 track3 <- add_single_track(
   title = "NC_045512.2 Sequence",
@@ -162,7 +162,7 @@ track3 <- add_single_track(
 
 Lets create a view (view1) that contains the combined track (track3). It specifies properties like multi-view mode, x-axis domain, alignment, and linking.
 
-```{r, compose, eval=FALSE}
+```{r, compose}
 
 view1 <- compose_view(
   multi = TRUE,
@@ -180,7 +180,7 @@ view1 <- compose_view(
 
 Next, we arrange views using the arrange_views function. It sets the title, subtitle, assembly information, layout, spacing, and includes the previously defined view1.
 
-```{r, arrange, eval=FALSE}
+```{r, arrange}
 
 combined_view <- arrange_views(
   title = "SARS-CoV-2",
@@ -198,7 +198,7 @@ combined_view <- arrange_views(
 Finally, we define the Shiny user interface (UI) using the fluidPage function. It includes the goslingOutput function to create a placeholder for the visualization.
 We also define the Shiny server logic. It uses the renderGosling function to render the interactive visualization using the combined_view defined earlier.
 
-```{r, ui, eval=FALSE}
+```{r, ui, results="hide"}
 
 ui <- fluidPage(
   use_gosling(),

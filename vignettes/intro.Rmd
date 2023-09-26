@@ -19,7 +19,7 @@ This is a Shiny app written in R that creates an interactive visualization using
 
 ## Call library libraries.
 
-```{r setup, message=FALSE, eval=FALSE}
+```{r setup, message=FALSE, results="hide"}
 library(shiny.gosling)
 library(shiny)
 library(sessioninfo)
@@ -53,7 +53,7 @@ These are common file formats used for representing multivec data.
 [Explanation of the BedGraph format](https://genome.ucsc.edu/goldenPath/help/bedgraph.html)
 [Explanation of the BigWig format](https://genome.ucsc.edu/goldenPath/help/bigWig.html)
 
-```{r store-data-links, eval=FALSE}
+```{r store-data-links}
 
 cistrome_data <- "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec"
 ```
@@ -74,7 +74,7 @@ The track_data function is used to define the data source for the track. It spec
 
 The visualization of the track is specified using various visual channels such as x, xe, row, color, and tooltip.
 
-```{r setup-track, eval=FALSE}
+```{r setup-track}
 single_track <- add_single_track(
   id = "track1",
   data = track_data(
@@ -119,13 +119,13 @@ The compose_view function is used to compose the single track visualization into
 The composed view is placed within a circular layout.
 The x-domain (genomic interval) is set to chromosome 1, interval [1, 3000500].
 
-```{r compose-track, eval=FALSE}
+```{r compose-track, results="hide"}
 single_composed_track <- compose_view(
   tracks = single_track
 )
 ```
 
-```{r final-view, eval=FALSE}
+```{r final-view}
 single_composed_views <- arrange_views(
   title = "Single Track",
   subtitle = "This is the simplest single track visualization with a linear layout",
@@ -149,7 +149,7 @@ Scrolling on the plot, will zoom in or zoom out the view.
 
 Users can click on the PDF button to download a pdf of the current state of the plot.
 
-```{r run-app, eval=FALSE, eval=FALSE}
+```{r run-app, results="hide"}
 
 server <- function(input, output, session) {
 

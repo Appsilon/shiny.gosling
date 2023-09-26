@@ -8,7 +8,7 @@ vignette: >
 runtime: shiny
 ---
 
-```{r, include=FALSE, eval=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -21,7 +21,7 @@ This tutorial walks through the process of creating a Circos plot using [VCF](ht
 
 First, we load the necessary libraries for our analysis, including StructuralVariantAnnotation, ggbio, shiny, and shiny.gosling. We also initialize the shiny.gosling package using the use_gosling() function.
 
-```{r setup, eval=FALSE, message=FALSE}
+```{r setup, message=FALSE, results="hide"}
 require(StructuralVariantAnnotation)
 require(ggbio)
 require(shiny)
@@ -51,7 +51,7 @@ Overall, Colo829 is a well-characterized cell line that holds significance in th
 
 See more info about this cell line at https://www.cellosaurus.org/CVCL_1137
 
-```{r reading-data, eval=FALSE}
+```{r reading-data}
 colo829_vcf <- VariantAnnotation::readVcf(
   system.file(
     "extdata",
@@ -70,7 +70,7 @@ To plot structural variant breakpoints in a circos plot using shiny.gosling, we 
 
 This chunk of code is manipulating genomic ranges represented by the 'granges' object named 'colo829_bpgr' to create a circular visualization layout using the 'biovizBase' package. The goal is to subset the genomic ranges relevant to the human genome version 'hg19sub' and then convert these ranges into a circular layout.
 
-```{r process-data, eval=FALSE}
+```{r process-data}
 # In this line, a subset of genomic ranges is extracted from the object
 # colo829_bpgr. The subset is obtained by filtering based on the sequence
 # names (seqnames) present in colo829_bpgr that are also found in the
@@ -107,7 +107,7 @@ We set the mark to `bar` as we need a simple bar plot here.
 We define x and y via `visual_channel_x` and `visual_channel_y`.
 Finally, we set the color of the bar plot and the width & height.
 
-```{r track-1, eval=FALSE}
+```{r track-1}
 
 track1 <- add_single_track(
   id = "track1",
@@ -138,7 +138,7 @@ We set the `strokeWidth` to 0.5.
 We set the stroke itself to have different colors based on the value in the `field` argument. Since "REF" is passed as field, and it has 4 values: A, C, G and T, we set the domain and range accordingly. A corresponds to color `#73A97D` and so on.
 Finally, we set the `x` and `xe`. Since this is a `rect` ( rectangle ) plot, it only has `x` and `xe` and no `y`.
 
-```{r track-2, eval=FALSE}
+```{r track-2}
 
 track2 <- add_single_track(
   id = "track2",
@@ -174,7 +174,7 @@ We set alignment to overlay, as we want the tracks to be plotted on top of each 
 We then add 2 sub-tracks to this track. The sub-tracks inherits all the data from the parent track. These tracks are set with `mark = "withinLink"` so that the 2 tracks are linked with each other. And we set `x`, `xe`, `x1` and `x1e` to refer to the correct columns in the data. The first sub-track traces all variations that are not a part of `ch10` and the second sub-track traces the ones that are a part of `ch10`. The first sub-track will trace on gray color and the second sub-track will trace in various colors based on its sequence name.
 In the end we also specify the width, height and the stroke width.
 
-```{r track-3, eval=FALSE}
+```{r track-3}
 
 track3 <- add_single_track(
   id = "track3",
@@ -252,7 +252,7 @@ track3 <- add_single_track(
 
 Finally we put all the 3 main tracks together along with some parameters to control the layout style, the alignment and so on.
 
-```{r single_composed_track, eval=FALSE}
+```{r single_composed_track}
 
 single_composed_track <- compose_view(
   title = "Circos",
@@ -271,7 +271,7 @@ single_composed_track <- compose_view(
 
 We put all of this in a shiny app.
 
-```{r run_app, eval=FALSE}
+```{r run_app, results="hide"}
 
 ui <- fluidPage(
   use_gosling(),
