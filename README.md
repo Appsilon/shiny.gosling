@@ -3,6 +3,7 @@
 > _R Shiny wrapper for Gosling.js - Grammar-based Toolkit for Scalable and Interactive Genomics Data Visualization_
 
 <!-- badges: start -->
+[![in Bioc](https://bioconductor.org/shields/years-in-bioc/shiny.gosling.svg)](https://bioconductor.org/packages/release/bioc/html/shiny.gosling.html#since)
 [![BiocCheck](https://github.com/Appsilon/shiny.gosling/actions/workflows/bioc-check.yml/badge.svg)](https://github.com/Appsilon/shiny.gosling/actions/workflows/bioc-check.yml)
 [![R-CMD-checks](https://github.com/Appsilon/shiny.gosling/actions/workflows/r-cmd-check.yml/badge.svg)](https://github.com/Appsilon/shiny.gosling/actions/workflows/r-cmd-check.yml)
 <!-- badges: end -->
@@ -14,8 +15,10 @@ Based on [gosling.js](http://gosling-lang.org/) and powered by [shiny.react](htt
 To install the packages, run:
 
 ```R
-remotes::install_github("Appsilon/shiny.react")
-remotes::install_github("Appsilon/shiny.gosling")
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("shiny.gosling")
 ```
 
 Take a look at [basic example app](https://github.com/Appsilon/shiny.gosling/blob/main/inst/examples/staticCircularBar/app.R) to start working with _shiny.gosling_.
