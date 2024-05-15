@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "gosling.js": "^0.9.25",
-    "higlass": "^1.11.8",
+    "gosling.js": "^0.17.0",
+    "higlass": "^1.13.4",
     "pixi.js": "^6.3.0"
   },
   "devDependencies": {
@@ -13,10 +13,12 @@
     "@babel/preset-env": "^7.18.10",
     "@babel/preset-react": "^7.18.6",
     "babel": "^6.23.0",
-    "babel-loader": "^8.2.5",
-    "css-loader": "^6.7.1",
-    "style-loader": "^3.3.1",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^7.1.1",
+    "react": "18",
+    "react-dom": "18",
+    "style-loader": "^4.0.0",
     "webpack": "^5.73.0",
-    "webpack-cli": "^4.10.0"
+    "webpack-cli": "^5.1.4"
   }
 }
