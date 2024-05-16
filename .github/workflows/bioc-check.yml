@@ -27,6 +27,13 @@ jobs:
           cache: false
           pak-version: 'devel'
 
+      - name: Install shiny.react with React 18.3.1
+        if: always()
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          Rscript -e 'install.packages("remotes"); remotes::install_github("Appsilon/shiny.react")'
+
       - name: Run BiocCheck
         uses: Appsilon/bioc-check-action@v1.2
         with:

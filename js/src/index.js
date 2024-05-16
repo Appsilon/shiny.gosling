@@ -1,10 +1,11 @@
 import { customGosling } from './customGosling';
-const gosling = require('gosling.js');
-const pixi = require('pixi.js');
+import * as gosling from 'gosling.js';
 require('higlass/dist/hglib.css');
 
-gosling.customGosling = customGosling;
 window.jsmodule = {
   ...window.jsmodule,
-  'gosling.js': gosling
+  'gosling.js': {
+    ...gosling,
+    customGosling: customGosling
+  }
 };

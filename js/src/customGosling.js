@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { GoslingComponent } from 'gosling.js';
 
 /**

@@ -54,6 +54,13 @@ jobs:
           pak-version: 'stable'
           extra-packages: any::devtools, any::optparse, local::.
 
+      - name: Install shiny.react with React 18.3.1
+        if: always()
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          Rscript -e 'install.packages("remotes"); remotes::install_github("Appsilon/shiny.react")'
+
       - name: R CMD check
         uses: r-lib/actions/check-r-package@v2
         with:
