@@ -26,7 +26,7 @@ Imports:
     jsonlite,
     rlang,
     shiny,
-    shiny.react,
+    shiny.react (== 0.3.0),
     fs,
     digest,
     rjson
