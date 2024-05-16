@@ -32,7 +32,7 @@ jobs:
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          Rscript -e 'install.packages("remotes"); remotes::install_github("Appsilon/shiny.react@upgrade-react")'
+          Rscript -e 'install.packages("remotes"); remotes::install_github("Appsilon/shiny.react")'
 
       - name: Run BiocCheck
         uses: Appsilon/bioc-check-action@v1.2
