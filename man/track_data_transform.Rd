@@ -18,7 +18,7 @@ specified data field.}
 \item{oneOf}{A vector of characters or numbers. Check whether the value is
 an element in the provided list.}
 
-\item{not}{A Boolean. When {"not": true}, apply a NOT logical operation to
+\item{not}{A Boolean. When \code{{"not": true}}, apply a NOT logical operation to
 the filter. Default: false.}
 
 \item{...}{Any other parameters to pass to gosling.js.}

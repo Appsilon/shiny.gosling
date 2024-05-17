@@ -27,7 +27,7 @@ library(sessioninfo)
 
 ## Introduction to shiny.gosling
 
-This package is an R shiny implementation of the [**Gosling.js**](http://gosling-lang.org/) library. Gosling js is a highly *expressive* library based on a *Grammar for scalable and interactive Genomics Data visualization*. This library is build upon the [**React** wrapper of the Gosling.js](https://github.com/gosling-lang/gosling-react). Which is powered by [**Shiny.React**](https://github.com/gosling-lang/gosling-react). Thus most of the Charts can be directly build using this package.
+This package is an R shiny implementation of the [**Gosling.js**](http://gosling-lang.org/) library. Gosling js is a highly *expressive* library based on a *Grammar for scalable and interactive Genomics Data visualization*. This library is build upon the [**React** wrapper of the Gosling.js](https://github.com/gosling-lang/gosling-react-example). Which is powered by [**Shiny.React**](https://github.com/gosling-lang/gosling-react-example). Thus most of the Charts can be directly build using this package.
 
 Let's start with an example. For that let's read a csv file which has some Genomic data with chromosome start stop indicators. This dataset is directly picked from gosling-lang.org [here](https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec).
 

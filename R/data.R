@@ -17,7 +17,7 @@
 #' data fields.
 #' @param genomicFieldsToConvert Define the genomic fields from the data
 #' in list format. Experimental Property. Each object follows the format
-#' {"chromosomeField":"string","genomicFields":"string[]"} ( )
+#' \code{{"chromosomeField":"string","genomicFields":"string[]"} ( )}
 #' @param ... Any other parameters passed to json data object.
 #'
 #' @examples
@@ -420,7 +420,7 @@ track_data_gr <- function(
 #' specified data field.
 #' @param oneOf A vector of characters or numbers. Check whether the value is
 #' an element in the provided list.
-#' @param not A Boolean. When {"not": true}, apply a NOT logical operation to
+#' @param not A Boolean. When \code{{"not": true}}, apply a NOT logical operation to
 #' the filter. Default: false.
 #' @param ... Any other parameters to pass to gosling.js.
 #'

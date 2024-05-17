@@ -44,7 +44,7 @@ The UCSC Genome Browser is a widely used tool for visualizing genomic data, incl
 IGV (Integrative Genomics Viewer):
 
 IGV is another popular genome visualization tool that supports multivec data.
-[Tutorial on loading and visualizing multivec data in IGV](https://software.broadinstitute.org/software/igv/multivec)
+[Tutorial on loading and visualizing multivec data in IGV](https://igv.org/doc/desktop/)
 
 BedGraph and BigWig Formats:
 

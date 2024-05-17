@@ -31,7 +31,7 @@ To delve deeper into multivec data and its application in genomics, explore thes
 
 [UCSC Genome Browser](https://genome.ucsc.edu/cgi-bin/hgGateway): A versatile tool for visualizing genomic data, including multivec data. Learn how to visualize multivec data in the UCSC Genome Browser.
 
-[Integrative Genomics Viewer (IGV)](https://software.broadinstitute.org/software/igv/): Another popular genome visualization tool supporting multivec data. Discover how to load and visualize multivec data in IGV.
+[Integrative Genomics Viewer (IGV)](https://igv.org/doc/desktop/): Another popular genome visualization tool supporting multivec data. Discover how to load and visualize multivec data in IGV.
 
 [BedGraph and BigWig Formats](https://genome.ucsc.edu/goldenPath/help/bigWig.html): These common formats are used to represent multivec data. Explore explanations of the BedGraph and BigWig formats.
 
