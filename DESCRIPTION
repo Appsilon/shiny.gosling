@@ -1,6 +1,6 @@
 Package: shiny.gosling
-Title: A Grammar-based Toolkit for Scalable and Interactive Genomics Data Visualization for R and Shiny
-Version: 1.0.0
+Title: A Grammar-Based Toolkit for Scalable and Interactive Genomics Data Visualization for R and Shiny
+Version: 2.0.0
 Language: en-US
 Authors@R:
   c(
@@ -18,18 +18,18 @@ Authors@R:
            email = "vedha@appsilon.com",
            role = c("aut"))
   )
-Description: A Grammar-based Toolkit for Scalable and Interactive Genomics Data Visualization. http://gosling-lang.org/. This R package is based on gosling.js. It uses R functions to create gosling plots that could be embedded onto R Shiny apps.
+Description: A Grammar-based Toolkit for Scalable and Interactive Genomics Data Visualization. <http://gosling-lang.org/>. This R package is based on gosling.js. It uses R functions to create gosling plots that could be embedded onto R Shiny apps.
 License: LGPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.2.1
 biocViews: ShinyApps, Genetics, Visualization
 Imports:
     htmltools,
     jsonlite,
     rlang,
     shiny,
-    shiny.react,
+    shiny.react (>= 0.4.0),
     fs,
     digest,
     rjson
