@@ -30,6 +30,7 @@ url: https://appsilon.github.io/shiny.gosling/
 
 navbar:
   bg: primary
+  type: light
   left:
     - icon: fa-home
       href: index.html
