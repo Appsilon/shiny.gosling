@@ -192,7 +192,10 @@ track_data <- function(
 #' library(shiny)
 #' library(GenomicRanges)
 #'
-#' url <- "https://rb.gy/7y3fx"
+#' url <- paste0(
+#'   "https://www.ncbi.nlm.nih.gov/geo/download/",
+#'   "?acc=GSM1295076&format=file&file=GSM1295076_CBX6_BF_ChipSeq_mergedReps_peaks.bed.gz"
+#' )
 #' temp_file <- file.path(tempdir(), "GSM1295076_CBX6_BF_ChipSeq_mergedReps_peaks.bed.gz")
 #' download.file(url, destfile = temp_file)
 #' df <- read.delim(
@@ -335,7 +338,10 @@ add_file_to_resource_path <- function(file_path = NULL, object = NULL) {
 #' library(shiny)
 #' library(GenomicRanges)
 #'
-#' url <- "https://rb.gy/7y3fx"
+#' url <- paste0(
+#'   "https://www.ncbi.nlm.nih.gov/geo/download/",
+#'   "?acc=GSM1295076&format=file&file=GSM1295076_CBX6_BF_ChipSeq_mergedReps_peaks.bed.gz"
+#' )
 #' temp_file <- file.path(tempdir(), "GSM1295076_CBX6_BF_ChipSeq_mergedReps_peaks.bed.gz")
 #' download.file(url, destfile = temp_file)
 #' df <- read.delim(
