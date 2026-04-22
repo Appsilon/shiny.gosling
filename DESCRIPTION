@@ -1,6 +1,6 @@
 Package: shiny.gosling
 Title: A Grammar-based Toolkit for Scalable and Interactive Genomics Data Visualization for R and Shiny
-Version: 1.0.0
+Version: 1.7.2
 Language: en-US
 Authors@R:
   c(
@@ -22,7 +22,7 @@ Description: A Grammar-based Toolkit for Scalable and Interactive Genomics Data 
 License: LGPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.3
 biocViews: ShinyApps, Genetics, Visualization
 Imports:
     htmltools,
@@ -51,3 +51,4 @@ Suggests:
     ggbio
 VignetteBuilder: knitr
 Config/testthat/edition: 3
+PackageStatus: Deprecated
